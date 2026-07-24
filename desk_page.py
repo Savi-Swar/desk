@@ -55,7 +55,7 @@ def tile(label, value, sub="", color=INK):
             f'<div class="hsub">{sub}</div></div>')
 
 
-# ── load everything ──────────────────────────────────────────────────────
+# load everything
 a  = load("arb_fills.csv")
 s  = load("shadow_ledger.csv")
 g  = load("shadow_graded.csv")
@@ -66,7 +66,7 @@ dr = load("drill_2026-07-23.csv")
 
 now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
-# ── maker economics: per-snapshot sums -> cumulative curves ──────────────
+# maker economics: per-snapshot sums -> cumulative curves
 curve_svg, gap_note, chart_json = '<p class="dim">needs 2+ snapshots…</p>', "", "[]"
 mk_net_v, mk_rw, mk_fl, adverse_pct = 0.0, 0.0, 0.0, 0.0
 if len(mn):
@@ -124,7 +124,7 @@ if len(mn):
             "net": [round(v, 2) for v in snap["cum_net"]],
             "pl": PL, "pr": PR, "w": W})
 
-# ── headline numbers ─────────────────────────────────────────────────────
+# headline numbers
 arb_profit = a["profit_at_depth"].sum() if len(a) else 0.0
 arb_sub = f"{len(a)} depth-verified fills" if len(a) else "0 fills — edges rarely survive real books"
 
@@ -143,7 +143,7 @@ if len(dr):
 drill_tbl = (f"<table><tr><th>question</th><th>market</th><th>model</th>"
              f"<th>brier</th></tr>{drill_rows}</table>") if drill_rows else '<p class="dim">no drill on record</p>'
 
-# ── freshness lamps ──────────────────────────────────────────────────────
+# freshness lamps
 lamps = ""
 for name, df_, col, warn in [("arb sampler", mn, "t0", 1.5),
                              ("collectors", lb, "ts", 14)]:
@@ -151,7 +151,7 @@ for name, df_, col, warn in [("arb sampler", mn, "t0", 1.5),
     lamps += (f'<span class="lamp"><i style="background:{c}"></i>{name} '
               f'<span class="dim">{lbl}</span></span>')
 
-# ── shell (matches Vig) ──────────────────────────────────────────────────
+# shell (matches Vig)
 TABS = [("index.html", "01", "DESK"), ("analysis.html", "02", "ANALYSIS"),
         ("screener.html", "03", "SCREENER"), ("past_trades.html", "04", "PAST TRADES"),
         ("portfolio.html", "05", "PORTFOLIO"), ("research.html", "06", "RESEARCH"),

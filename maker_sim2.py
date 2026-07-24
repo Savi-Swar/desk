@@ -1,4 +1,4 @@
-"""Maker-sim v2: NET verdict. Simulated book across snapshots:
+"""Maker-sim v2, net of adverse fills. Simulated book across snapshots:
 - We quote mid±our_spread in eligible markets (from maker_book.csv history).
 - Fill detection: if next snapshot's mid crossed our old quote, we got filled
   at the quote (adverse flow); position marked to latest mid.

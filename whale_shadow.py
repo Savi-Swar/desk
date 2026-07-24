@@ -1,6 +1,6 @@
-"""THE DESK #2: whale shadow-book. Diff successive top-wallet position
-snapshots -> paper-copy NEW positions at current price -> ledger grades at
-resolution. The copy-trade question, answered forward."""
+"""Whale shadow-book. Diff successive top-wallet position snapshots,
+paper-copy new positions at current price; the ledger grades them at
+resolution."""
 import pathlib, pandas as pd, datetime
 D=pathlib.Path(__file__).parent/"collected"
 f=D/"pm_top_positions.csv"

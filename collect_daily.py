@@ -1,4 +1,4 @@
-"""Unified daily collectors — the moat. Each run appends timestamped
+"""Unified daily collectors. Each run appends timestamped
 snapshots. 1) Polymarket arb monitor  2) Binance funding rates
 3) Polymarket leaderboard + top-wallet positions (corrected insider tracker:
 forward-tracking, no pagination trap)."""

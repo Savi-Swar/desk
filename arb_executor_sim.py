@@ -1,7 +1,6 @@
-"""THE DESK #1: arb executor-simulator. Detect neg-risk set mispricings,
-pull REAL order books for every leg, compute executable size and net
-profit at actual depth. Paper-fill, log. This measures live extraction
-rate — the number that decides whether this funds day one."""
+"""Arb executor-simulator. Detect neg-risk set mispricings, pull the
+real order book for every leg, compute executable size and net profit at
+actual depth, paper-fill, log. Measures live extraction rate."""
 import datetime, json, urllib.request, pathlib
 import pandas as pd
 UA={"User-Agent":"research saviswarup@gmail.com"}
