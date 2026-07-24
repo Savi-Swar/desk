@@ -146,8 +146,7 @@ drill_tbl = (f"<table><tr><th>question</th><th>market</th><th>model</th>"
 # ── freshness lamps ──────────────────────────────────────────────────────
 lamps = ""
 for name, df_, col, warn in [("arb sampler", mn, "t0", 1.5),
-                             ("collectors", lb, "ts", 14),
-                             ("shadow book", s, "ts", 26)]:
+                             ("collectors", lb, "ts", 14)]:
     c, lbl = age_lamp(df_[col] if len(df_) else None, warn)
     lamps += (f'<span class="lamp"><i style="background:{c}"></i>{name} '
               f'<span class="dim">{lbl}</span></span>')
@@ -245,7 +244,6 @@ body = f"""
 {tile("Maker net (paper)", f"${mk_net_v:+,.2f}",
       f"rewards ${mk_rw:,.0f} · fills ${mk_fl:+,.0f} · {adverse_pct:.0f}% adverse",
       GRN if mk_net_v >= 0 else RED)}
-{tile("Shadow book", f"${sh_deployed:,.0f}", sh_graded, INK)}
 {tile("Reward pools live", f"${pool:,.0f}/d", f"{len(mk_latest)} eligible markets", AMB)}
 </div>
 
@@ -262,17 +260,9 @@ between the red and green lines is what a viable maker must dodge.</p>
 <h2>Calibration drill <span class="dim">— house model (0.87 shrink) vs market · resolves Jul 28–31</span></h2>
 {drill_tbl}
 
-<h2>Whale shadow-book <span class="dim">— maker-noise filtered · graded at resolution</span></h2>
-{table(s.sort_values("ts", ascending=False) if len(s) else s,
-       ["ts", "wallet", "outcome", "curPrice", "paper_stake", "title"], n=10)}
-
 <h2>Maker snapshot <span class="dim">— largest live reward pools</span></h2>
 {table(mk_latest.sort_values("reward_daily", ascending=False) if len(m) else m,
        ["reward_daily", "mid", "spread", "our_spread", "q"], n=8)}
-
-<h2>Leaderboard watch <span class="dim">— top wallets by 1-mo pnl</span></h2>
-{table(lb[lb["ts"] == lb["ts"].max()].sort_values("pnl", ascending=False)
-       if len(lb) else lb, ["name", "pnl", "vol", "wallet"], n=8)}
 """
 
 html = f"""<!DOCTYPE html>
@@ -288,7 +278,7 @@ html = f"""<!DOCTYPE html>
 </header>
 <nav class="tabs">{tabs}</nav>
 <div class="wrap">
-<p class="dim">Three mechanisms that cannot be backtested, running forward on
+<p class="dim">Mechanisms that cannot be backtested, running forward on
 paper. Gates before dollars — the research that picked them is
 <a href="research.html">06 RESEARCH</a>. Ledgers refresh on the collector
 cycle; this page regenerates with them.</p>
