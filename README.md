@@ -19,5 +19,5 @@ is the database.
 Results and the research that led here: https://saviturswarup.com/vig/
 (screen 06 is the research record, 07 is this desk).
 
-Paper only. No live capital, no keys, no secrets — everything here reads
-public APIs.
+Paper only. Every script reads public APIs; there are no keys or secrets in
+this repo and no live capital anywhere in the system.

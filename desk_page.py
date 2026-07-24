@@ -1,6 +1,6 @@
-"""Generates screen 06 PREDMKT for Vig (reports/dashboard/desk.html) from the
-live paper-desk ledgers. Matches the Vig shell (header, tabs, surface, type)
-so it reads as part of the terminal, not a bolted-on page."""
+"""Generates screen 07 PREDMKT for Vig (reports/dashboard/desk.html) from the
+live paper-desk ledgers, using the same shell (header, tabs, surface, type)
+as the rest of the terminal."""
 import pathlib, json, datetime
 import pandas as pd
 
