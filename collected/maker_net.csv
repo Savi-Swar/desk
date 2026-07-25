@@ -946,3 +946,25 @@ t0,q,reward,fill_pnl,event
 2026-07-25T11:44:17+00:00,Will Marco Rubio win the 2028 US Presidential Election?,0.04253041666666666,0.0125,
 2026-07-25T11:44:17+00:00,LoL: Team Vitality vs G2 Esports (BO3) - LEC Regular Season,0.024300000000000002,0.0625,
 2026-07-25T11:44:17+00:00,Will Mojtaba Khamenei be head of state in Iran end of 2026?,0.0150775,0.0125,
+2026-07-25T12:12:36+00:00,Will the U.S. invade Iran before 2027?,0.6750737037037037,-0.7499999999999951,ask-run
+2026-07-25T12:12:36+00:00,Israel x Iran ceasefire continues through July 31?,0.7929375000000002,-0.7500000000000062,ask-run
+2026-07-25T12:12:36+00:00,Counter-Strike: Liquid vs G2 (BO3) - BLAST Bounty Qualifier,0.0570915,-22.749999999999996,ask-run
+2026-07-25T12:12:36+00:00,Will the Fed increase interest rates by 25 bps after the Jul,1.2102086226851854,-0.050000000000000044,bid-run
+2026-07-25T12:12:36+00:00,Will Philadelphia 76ers win the 2027 NBA Finals?,0.03194657083333333,-0.40000000000000036,ask-run
+2026-07-25T12:12:36+00:00,Israel closes its airspace by July 31?,0.26196305555555555,-0.2500000000000002,bid-run
+2026-07-25T12:12:36+00:00,Strait of Hormuz traffic returns to normal by August 31?,0.4219210648148148,0.0625,
+2026-07-25T12:12:36+00:00,Clarity Act signed into law in 2026?,0.8438421296296296,-0.7500000000000007,bid-run
+2026-07-25T12:12:36+00:00,Will Nicolás Maduro be the leader of Venezuela end of 2026?,0.01188623101851852,-0.15000000000000568,ask-run
+2026-07-25T12:12:36+00:00,"Will Bitcoin reach $67,500 in July?",8.732101851851853e-07,-0.7500000000000007,ask-run
+2026-07-25T12:12:36+00:00,Will San Antonio Spurs win the 2027 NBA Finals?,0.0593782925925926,0.0625,
+2026-07-25T12:12:36+00:00,Will NVIDIA be the largest company in the world by market ca,0.0951799101851852,-0.2500000000000058,ask-run
+2026-07-25T12:12:36+00:00,Counter-Strike: HOTU vs Astralis (BO3) - BLAST Bounty Qualif,0.0570915,-0.7500000000000007,ask-run
+2026-07-25T12:12:36+00:00,US x Iran Effective Ceasefire by July 24?,0.039548981481481484,-0.050000000000000044,bid-run
+2026-07-25T12:12:36+00:00,Counter-Strike: FOKUS vs MOUZ (BO3) - BLAST Bounty Qualifier,0.0570915,0.0625,
+2026-07-25T12:12:36+00:00,Will Harry Kane win the 2026 Ballon d'Or?,0.24881889282407404,0.0125,
+2026-07-25T12:12:36+00:00,"Will Elon Musk post 90-114 tweets from July 23 to July 25, 2",0.0038726675925925924,-0.9500000000000008,ask-run
+2026-07-25T12:12:36+00:00,Mitch McConnell steps down from Senate before his term ends?,0.08438421296296296,0.0625,
+2026-07-25T12:12:36+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.3492840740740741,-0.7500000000000062,bid-run
+2026-07-25T12:12:36+00:00,Game Handicap: TES (-1.5) vs ThunderTalk Gaming (+1.5),0.0245810625,-14.249999999999996,ask-run
+2026-07-25T12:12:36+00:00,LoL: Team Vitality vs G2 Esports (BO3) - LEC Regular Season,0.0570915,0.0625,
+2026-07-25T12:12:36+00:00,Will Mojtaba Khamenei be head of state in Iran end of 2026?,0.03542374861111111,-2.650000000000008,ask-run
