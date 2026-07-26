@@ -20,3 +20,13 @@ THE DESK — status 2026-07-26 00:16
 ========================================================
 
 ```
+
+---
+
+### Evening digest — 2026-07-26
+
+- **Pipeline health:** all cloud runs green (sims-30min + collect-2x-daily), every health.jsonl record rc=0. One soft warning: funding fetch returned `ExchangeNotAvailable` on the latest collect_daily — transient exchange outage, not a code fault; `funding.csv` last row is 2026-07-24 and will backfill when the venue returns.
+- **Arb executor-sim:** 20 depth-verified fills, $168.45 cumulative realized-at-depth profit (median 665 shares @ ~0.7c edge). New fill today: Philadelphia Union vs. Seattle Sounders SELL-ALL, +$16.52.
+- **Maker net:** rewards $453.72 vs fill/spread pnl −$1,509.08 = **NET −$1,055.36** across 49 snapshots / 1,140 market-intervals. Adverse runs held at ~47% of intervals. Rewards keep accruing but nowhere near covering adverse fills — the maker book remains structurally underwater.
+- **Whale shadow-book:** 387 paper-copied positions, 5 whales, $19,350 deployed. 0 newly resolved (all awaiting resolution; verdict ~6–8 wks out).
+- **Calibration drill:** drill_2026-07-23 (10 markets, model_p vs market p) still unresolved — Fed July-meeting markets resolve ~Jul 28–31; Brier scores to follow.
