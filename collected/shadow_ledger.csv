@@ -386,3 +386,58 @@ ts,wallet,title,outcome,size,curPrice,paper_stake
 2026-07-26T00:16+00:00,0x076daa87c4fe1a85402a9b6b8e0a866224388d4c,CD Tecnico Universitario leading at halftime?,Yes,818.1771,0.36,50.0
 2026-07-26T00:16+00:00,0x076daa87c4fe1a85402a9b6b8e0a866224388d4c,Will Av Alta FC win on 2026-07-25?,Yes,528.1897,0.555,50.0
 2026-07-26T00:16+00:00,0x076daa87c4fe1a85402a9b6b8e0a866224388d4c,Spread: Real Cartagena FC (-1.5),CD Real Santander,525.9444,0.5,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: Hammarby IF (-1.5),IF Brommapojkarna,31637.6391,0.58,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will IF Brommapojkarna win on 2026-07-26?,No,18263.5008,0.89,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Incheon United FC win on 2026-07-26?,No,14233.88,0.845,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Shandong Taishan FC win on 2026-07-26?,No,14503.5589,0.8149,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Yunnan Yukun FC vs. Shenzhen Xinpengcheng FC: O/U 3.5,Over,8904.1376,0.8149,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Bucheon FC 1995 win on 2026-07-26?,No,7973.6159,0.745,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will IF Brommapojkarna vs. Hammarby IF end in a draw?,No,6066.0425,0.8149,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Shenzhen Xinpengcheng FC win on 2026-07-26?,No,4865.9542,0.945,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: FC Seoul (-1.5),Ulsan HD FC,4481.5225,0.9255,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Hammarby IF win on 2026-07-26?,Yes,5109.9677,0.685,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Red Bull Bragantino vs. Coritiba FBC: Coritiba FBC O/U 2.5,Under,3136.7127,0.945,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,FC Seoul vs. Ulsan HD FC: O/U 2.5,Over,2884.584,0.9995,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Yunnan Yukun FC vs. Shenzhen Xinpengcheng FC: O/U 4.5,Over,5676.2373,0.48,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Chengdu Rongcheng FC vs. Beijing Guoan FC: O/U 2.5,Under,3923.7389,0.685,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Incheon United FC vs. Bucheon FC 1995: O/U 2.5,Under,3656.9059,0.73,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Shandong Taishan FC vs. Henan FC: O/U 4.5,Under,3161.6171,0.82,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Gwangju FC win on 2026-07-26?,No,2722.5701,0.93,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will FC Seoul win on 2026-07-26?,No,2552.7517,0.975,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Yunnan Yukun FC win on 2026-07-26?,Yes,3131.1557,0.78,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will SK Brann win on 2026-07-26?,Yes,3948.2483,0.575,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,FC Inter Turku vs. IF Gnistan: O/U 2.5,Under,6108.4797,0.37,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Incheon United FC vs. Bucheon FC 1995: Both Teams to Score,Yes,2307.7505,0.955,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Vancouver Whitecaps FC win on 2026-07-16?,Yes,6361.3527,0.3449,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Gwangju FC vs. Jeju SK FC: Both Teams to Score,Yes,2189.1586,0.9995,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: Incheon United FC (-1.5),Bucheon FC 1995,3240.4615,0.67,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Hamarkameratene win on 2026-07-26?,No,2655.07,0.8149,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Tampereen Ilves win on 2026-07-26?,Yes,5798.4676,0.365,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will CF Monterrey win on 2026-07-26?,No,3687.9449,0.535,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: Botafogo FR (-2.5),Cruzeiro EC,1831.163,0.9795,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Yunnan Yukun FC vs. Shenzhen Xinpengcheng FC end in a d,No,2166.778,0.825,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Sarpsborg 08 FF vs. Hamarkameratene: O/U 0.5,Over,1862.1552,0.957,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: IK Sirius (-1.5),IFK Goteborg,4337.2158,0.41,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Zhejiang Zhiye FC win on 2026-07-26?,No,2795.6887,0.635,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,IF Brommapojkarna vs. Hammarby IF: O/U 5.5,Under,1877.1614,0.94,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Sønderjyske Fodbold vs. FC Midtjylland: O/U 3.5,Under,2348.4403,0.715,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Exact Score: Chicago Fire FC 1 - 2 Vancouver Whitecaps FC?,No,1982.2736,0.825,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: HJK Helsinki (-1.5),HJK Helsinki,3472.769,0.465,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will IK Sirius win on 2026-07-26?,Yes,1983.7069,0.81,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: São Paulo FC (-1.5),CR Flamengo,1601.9895,0.9655,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,FC Anyang vs. Gangwon FC: O/U 4.5,Under,1532.1705,0.975,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,GIF Sundsvall vs. Falkenbergs FF: O/U 3.5,Under,2247.0527,0.655,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: Yunnan Yukun FC (-2.5),Shenzhen Xinpengcheng FC,1715.9375,0.835,50.0
+2026-07-26T12:19+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Malmo FF win on 2026-07-26?,Yes,2886.64,0.495,50.0
+2026-07-26T12:19+00:00,0x83720820a8aa6c3f20ad71850e7a1a17d16c5223,Will AFC Bournemouth win on 2026-03-14?,Yes,94339.6226,0.0,50.0
+2026-07-26T12:19+00:00,0x2c335066fe58fe9237c3d3dc7b275c2a034a0563,IK Sirius vs. IFK Goteborg: O/U 4.5,Over,150000.0,0.355,50.0
+2026-07-26T12:19+00:00,0x2c335066fe58fe9237c3d3dc7b275c2a034a0563,Valorant: 100 Thieves vs BBL Esports (BO3) - Esports World C,BBL Esports,14293.75,0.0,50.0
+2026-07-26T12:19+00:00,0x2c335066fe58fe9237c3d3dc7b275c2a034a0563,Generali Open: Alexander Bublik vs Tomas Etcheverry,Tomas Etcheverry,29662.3,0.0,50.0
+2026-07-26T12:19+00:00,0x2c335066fe58fe9237c3d3dc7b275c2a034a0563,Major League Cricket: Mi New York vs Seattle Orcas,Seattle Orcas,12041.8175,0.0,50.0
+2026-07-26T12:19+00:00,0x2c335066fe58fe9237c3d3dc7b275c2a034a0563,Bunschoten: Gilles Arnaud Bailly vs Filippo Romano,Gilles Arnaud Bailly,8932.7099,0.0,50.0
+2026-07-26T12:19+00:00,0x2c335066fe58fe9237c3d3dc7b275c2a034a0563,Will Houston Dynamo vs. D.C. United SC end in a draw?,No,1317.78,0.0,50.0
+2026-07-26T12:19+00:00,0x2c335066fe58fe9237c3d3dc7b275c2a034a0563,Wimbledon WTA: Jelena Ostapenko vs Harriet Dart,Harriet Dart,12488.18,0.0,50.0
+2026-07-26T12:19+00:00,0x2c335066fe58fe9237c3d3dc7b275c2a034a0563,Exact Score: Netherlands 1 - 1 Morocco?,No,7534.56,0.0,50.0
+2026-07-26T12:19+00:00,0x2c335066fe58fe9237c3d3dc7b275c2a034a0563,Hamburg European Open: Luciano Darderi vs Yannick Hanfmann,Yannick Hanfmann,530.8501,0.0,50.0
+2026-07-26T12:19+00:00,0x2c335066fe58fe9237c3d3dc7b275c2a034a0563,"Swedish Open, Qualification: Martin Krumich vs Frederico Fer",Frederico Ferreira Silva,1204.5,0.0,50.0
+2026-07-26T12:19+00:00,0x2c335066fe58fe9237c3d3dc7b275c2a034a0563,LoL: Team Secret Whales vs Top Esports - Game 3 Winner,Top Esports,14535.67,0.0,50.0
