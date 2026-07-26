@@ -19,3 +19,5 @@ ts,event,type,edge_pershare,exec_size,profit_at_depth,n_legs
 2026-07-25T18:31:27+00:00,Fed Decision in July?,SELL-ALL,0.009,6666.3,60.0,5
 2026-07-25T20:10:08+00:00,Fed Decision in July?,SELL-ALL,0.006,6090.5,36.54,5
 2026-07-25T21:25:02+00:00,Philadelphia Union vs. Seattle Sounders FC,SELL-ALL,0.01,1652.2,16.52,3
+2026-07-26T12:02:39+00:00,Fed Decision in July?,SELL-ALL,0.01,5026.7,50.27,5
+2026-07-26T12:02:39+00:00,Gwangju FC vs. Jeju SK FC,BUY-ALL,0.04,9.0,0.36,3
