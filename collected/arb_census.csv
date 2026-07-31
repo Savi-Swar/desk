@@ -1,3 +1,5 @@
 ts,event,type,edge_pershare,exec_size,pool_dollars,n_legs,near_res,edge_recheck
 2026-07-31T05:24:14+00:00,NZ Election: Labour Party # of seats?,BUY-ALL,0.033,4.5,0.15,7,1,0.033
 2026-07-31T05:24:14+00:00,2026 World GDP Growth,SELL-ALL,0.019,1.0,0.02,9,1,0.001
+2026-07-31T13:15:18+00:00,US economic state at the end of 2026?,BUY-ALL,0.053,61.0,3.23,4,0,0.053
+2026-07-31T13:15:18+00:00,NZ Election: Labour Party # of seats?,BUY-ALL,0.033,4.5,0.15,7,0,0.033
