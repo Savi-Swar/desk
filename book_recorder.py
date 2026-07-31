@@ -28,7 +28,7 @@ RECORD_MIN = 26
 MAX_TOKENS = 40
 MAX_MSGS = 200_000
 MAX_MB = 25
-PING_EVERY_S = 10
+STALE_S = 60
 
 
 def get(url):
@@ -103,17 +103,17 @@ def main():
             try:
                 ws = websocket.create_connection(WS_URL, timeout=15)
                 ws.send(json.dumps({"type": "market", "assets_ids": toks}))
-                last_ping = time.monotonic()
+                last_msg = time.monotonic()
                 while time.monotonic() < deadline and n < MAX_MSGS and bytes_out < MAX_MB * 1e6:
-                    if time.monotonic() - last_ping > PING_EVERY_S:
-                        ws.send("PING")
-                        last_ping = time.monotonic()
+                    if time.monotonic() - last_msg > STALE_S:
+                        break        # data-inactivity watchdog: reconnect
                     try:
                         msg = ws.recv()
                     except websocket.WebSocketTimeoutException:
                         continue
-                    if not msg or msg == "PONG":
+                    if not msg:
                         continue
+                    last_msg = time.monotonic()
                     line = json.dumps({"t": round(time.time(), 3), "m": msg},
                                       separators=(",", ":")) + "\n"
                     f.write(line)
