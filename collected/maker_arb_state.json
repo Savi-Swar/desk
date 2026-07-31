@@ -1,0 +1,54 @@
+{
+ "active": {
+  "event": "\"Spider-Man: Brand New Day\" Opening Weekend Box Office (High",
+  "started": "2026-07-31T07:40:15+00:00",
+  "ask_edge_at_open": 0.202,
+  "legs": [
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "tail",
+    "rest": 0.011
+   },
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "tail",
+    "rest": 0.02
+   },
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "tail",
+    "rest": 0.03
+   },
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "tail",
+    "rest": 0.032
+   },
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "tail",
+    "rest": 0.032
+   },
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "tail",
+    "rest": 0.03
+   },
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "tail",
+    "rest": 0.08
+   },
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "maker",
+    "rest": 0.381
+   },
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "maker",
+    "rest": 0.37
+   }
+  ]
+ }
+}
