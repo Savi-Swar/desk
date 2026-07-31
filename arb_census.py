@@ -44,6 +44,8 @@ for ev in events:
     mkts = ev.get("markets", [])
     if len(mkts) < 3 or not ev.get("negRisk", False):
         continue
+    if ev.get("negRiskAugmented"):
+        continue      # placeholder outcomes make sell-all a false lock
     try:
         bids = [float(m.get("bestBid") or 0) for m in mkts]
         asks = [float(m.get("bestAsk") or 0) for m in mkts]

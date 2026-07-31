@@ -281,7 +281,7 @@ v3 adds the standard defenses (drift skew, circuit-breaker pulls, inventory
 caps) with parameters fixed a priori. The distance between the two NET lines
 is what the defenses recover; the distance from v3 to zero is what is left.</p>
 
-<h2>Arb executor <span class="dim">— every 30 min vs real order-book depth</span></h2>
+<h2>Arb executor <span class="dim">— continuous watch vs real order-book depth · fills before Jul 31 are PRE-FEE (taker fees ~5% of p(1-p) per leg apply since Mar 2026 on fee-enabled markets; fee-net detection from Jul 31)</span></h2>
 {table(a.sort_values("ts", ascending=False) if len(a) else a,
        ["ts", "event", "type", "edge_pershare", "exec_size", "profit_at_depth"])}
 
