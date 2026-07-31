@@ -61,6 +61,7 @@ s  = load("shadow_ledger.csv")
 g  = load("shadow_graded.csv")
 m  = load("maker_book.csv")
 mn = load("maker_net.csv")
+mn3 = load("maker_net3.csv")
 lb = load("pm_leaderboard.csv")
 dr = load("drill_2026-07-23.csv")
 
@@ -81,6 +82,17 @@ if len(mn):
     mk_net_v = snap["cum_net"].iloc[-1]
     adverse_pct = 100 * (mn["fill_pnl"] < 0).mean()
 
+    # defended v3 curve on the same snapshot grid (zero-filled where absent)
+    mk3_net_v = None
+    if len(mn3):
+        mn3["t0"] = pd.to_datetime(mn3["t0"], errors="coerce", utc=True, format="mixed")
+        s3 = mn3.dropna(subset=["t0"]).groupby("t0").agg(
+            net=("reward", "sum")).join(
+            mn3.dropna(subset=["t0"]).groupby("t0").agg(fp=("fill_pnl", "sum")))
+        s3["net"] = (s3["net"] + s3["fp"]).cumsum()
+        snap["cum_net3"] = s3["net"].reindex(snap.index).ffill().fillna(0.0)
+        mk3_net_v = snap["cum_net3"].iloc[-1]
+
     gaps = snap.index.to_series().diff()
     big = gaps[gaps > pd.Timedelta(hours=2)]
     if len(big):
@@ -92,7 +104,8 @@ if len(mn):
     if len(snap) >= 2:
         W, H, PL, PR, PT, PB = 860, 240, 46, 90, 14, 26
         xs = list(range(len(snap)))
-        all_y = (list(snap["cum_rw"]) + list(snap["cum_fl"]) + list(snap["cum_net"]))
+        all_y = (list(snap["cum_rw"]) + list(snap["cum_fl"]) + list(snap["cum_net"])
+                 + (list(snap["cum_net3"]) if "cum_net3" in snap else []))
         lo, hi = min(all_y + [0]), max(all_y + [0])
         rng = (hi - lo) or 1.0
         def X(i): return PL + (W - PL - PR) * i / max(len(xs) - 1, 1)
@@ -113,8 +126,10 @@ if len(mn):
             f'<svg id="mkchart" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
             f'style="max-width:100%">{zero}{ylabs}'
             + poly("cum_rw", GRN) + poly("cum_fl", RED) + poly("cum_net", INK)
+            + (poly("cum_net3", AMB) if "cum_net3" in snap else "")
             + endlab("cum_rw", GRN, "rewards") + endlab("cum_fl", RED, "adverse fills")
-            + endlab("cum_net", INK, "NET")
+            + endlab("cum_net", INK, "NET v2")
+            + (endlab("cum_net3", AMB, "NET v3 defended") if "cum_net3" in snap else "")
             + f'<line id="mkxh" y1="{PT}" y2="{H-PB}" stroke="{AMB}" stroke-width="1" opacity="0"/>'
             f'</svg><div id="mktip"></div></div>')
         chart_json = json.dumps({
@@ -122,11 +137,18 @@ if len(mn):
             "rw": [round(v, 2) for v in snap["cum_rw"]],
             "fl": [round(v, 2) for v in snap["cum_fl"]],
             "net": [round(v, 2) for v in snap["cum_net"]],
+            "n3": [round(v, 2) for v in snap["cum_net3"]] if "cum_net3" in snap else [],
             "pl": PL, "pr": PR, "w": W})
 
 # headline numbers
 arb_profit = a["profit_at_depth"].sum() if len(a) else 0.0
+arb_clean = None
+if len(a) and "near_res" in a.columns:
+    flagged = a["near_res"].fillna(0).astype(float) > 0
+    arb_clean = a.loc[~flagged, "profit_at_depth"].sum()
 arb_sub = f"{len(a)} depth-verified fills" if len(a) else "0 fills — edges rarely survive real books"
+if arb_clean is not None:
+    arb_sub += f" · ${arb_clean:,.2f} ex-convergence"
 
 sh_deployed = s["paper_stake"].sum() if len(s) else 0.0
 sh_graded = f"{len(g)} graded, P&L ${g['pnl'].sum():+,.0f}" if len(g) else f"{len(s)} open · 0 resolved"
@@ -229,7 +251,8 @@ JS = """
     tip.style.left = Math.min(px / d.w * r.width + 12, r.width - 170) + "px";
     tip.style.top = "18px";
     tip.innerHTML = "<b>" + d.t[i] + "</b><br>rewards $" + d.rw[i] +
-      "<br>adverse $" + d.fl[i] + "<br>net <b>$" + d.net[i] + "</b>";
+      "<br>adverse $" + d.fl[i] + "<br>net v2 <b>$" + d.net[i] + "</b>" +
+      (d.n3 && d.n3.length ? "<br>net v3 <b>$" + d.n3[i] + "</b>" : "");
   });
   svg.addEventListener("mouseleave", () => {
     tip.style.display = "none"; xh.setAttribute("opacity", 0);
@@ -241,17 +264,22 @@ body = f"""
 <div class="lamps" style="margin-bottom:4px">{lamps}</div>
 <div class="htiles">
 {tile("Arb realized at depth", f"${arb_profit:+,.2f}", arb_sub, GRN if arb_profit >= 0 else RED)}
-{tile("Maker net (paper)", f"${mk_net_v:+,.2f}",
+{tile("Maker v2 control", f"${mk_net_v:+,.2f}",
       f"rewards ${mk_rw:,.0f} · fills ${mk_fl:+,.0f} · {adverse_pct:.0f}% adverse",
       GRN if mk_net_v >= 0 else RED)}
+{tile("Maker v3 defended", f"${mk3_net_v:+,.2f}" if mk3_net_v is not None else "accruing",
+      "skew · circuit breaker · inventory cap — params fixed a priori",
+      (GRN if (mk3_net_v or 0) >= 0 else AMB) if mk3_net_v is not None else DIM)}
 {tile("Reward pools live", f"${pool:,.0f}/d", f"{len(mk_latest)} eligible markets", AMB)}
 </div>
 
-<h2>Maker economics <span class="dim">— cumulative, naive symmetric quoter (the control)</span></h2>
+<h2>Maker economics <span class="dim">— v2 naive control vs v3 defended quoter, cumulative</span></h2>
 {curve_svg}
 {gap_note}
-<p class="dim">This quoter never pulls or skews — it measures the toll. The gap
-between the red and green lines is what a viable maker must dodge.</p>
+<p class="dim">v2 quotes symmetrically and never moves — it measures the toll.
+v3 adds the standard defenses (drift skew, circuit-breaker pulls, inventory
+caps) with parameters fixed a priori. The distance between the two NET lines
+is what the defenses recover; the distance from v3 to zero is what is left.</p>
 
 <h2>Arb executor <span class="dim">— every 30 min vs real order-book depth</span></h2>
 {table(a.sort_values("ts", ascending=False) if len(a) else a,

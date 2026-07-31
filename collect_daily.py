@@ -37,14 +37,23 @@ try:
     print(f"arbs: {len(rows)}")
 except Exception as e: print("arb monitor fail:", type(e).__name__)
 
-# 2) funding rates
+# 2) funding rates — binance primary, okx/bybit fallback (binance went
+# ExchangeNotAvailable for a week in July 2026)
 try:
     import ccxt
-    fr = ccxt.binance().fetch_funding_rates()
-    df = pd.DataFrame([{"ts": now, "symbol": k, "rate": v.get("fundingRate")}
-                       for k, v in fr.items()])
-    append("funding", df)
-    print(f"funding: {len(df)} perps")
+    fr, venue = None, None
+    for name in ("binance", "okx", "bybit"):
+        try:
+            fr = getattr(ccxt, name)().fetch_funding_rates()
+            venue = name
+            break
+        except Exception as e:
+            print(f"funding {name} fail:", type(e).__name__)
+    if fr:
+        df = pd.DataFrame([{"ts": now, "venue": venue, "symbol": k,
+                            "rate": v.get("fundingRate")} for k, v in fr.items()])
+        append("funding", df)
+        print(f"funding: {len(df)} perps via {venue}")
 except Exception as e: print("funding fail:", type(e).__name__)
 
 # 3) leaderboard + top-wallet positions (forward insider tracking)

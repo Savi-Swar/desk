@@ -23,7 +23,7 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: run sims under health ledger
-        run: python run_with_health.py arb_executor_sim.py maker_sim.py maker_sim2.py
+        run: python run_with_health.py arb_executor_sim.py maker_sim.py maker_sim2.py maker_sim3.py
       - name: commit ledgers
         run: |
           git config user.name "desk-bot"

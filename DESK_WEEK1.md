@@ -151,3 +151,42 @@ Standing operational risk: GitHub disables scheduled workflows after 60 days of 
 *All figures paper. Nothing in this document is a recommendation to trade.*
 
 *— Desk, close of 2026-07-29*
+
+---
+
+## Addendum — same-day rework (2026-07-29 afternoon)
+
+The five Week-2 questions above got answers or instruments the same
+afternoon.
+
+**1. Maker: structural, not parameter artifact — measured with a defended
+quoter.** maker_sim3 went live next to the v2 control: drift skew,
+circuit-breaker pulls on moves beyond max(2x spread, 2c), per-market
+inventory caps, parameters fixed a priori from the market-making
+literature and not tuned on our data. One replay over the recorded week,
+no iteration: NET −$1,399 vs the control's −$3,036 on the same grid. The
+standard defenses recover 54% of the toll (adverse intervals 57% → 35%,
+19% of quotes pulled) and still lose. So the loss is part structure the
+defenses can reach, part adverse selection they cannot at this reaction
+speed and scale. v3 runs forward in the 30-minute cron; week 2 tests
+whether the 54% recovery holds out of sample.
+
+**2. Arb concentration: measured, and worse than suspected.** Of $473.75
+across 66 fills at week close, the Fed complex is $455.64 — 96%. Ex-Fed
+the whole week extracted $18.11 (Musk tweet-count ladders, a Hong Kong
+temperature market, Iran talks). Steady-state capacity is roughly $2.50 a
+day plus rare event windows. Fills now carry a `near_res` flag (any leg
+beyond 95c) so convergence-tail profit is graded apart from clean arb
+going forward.
+
+**5. Funding fallback shipped.** collect_daily now tries binance, then
+okx, then bybit, and records the venue per row.
+
+Items 3 (drill re-score on hard resolutions) and 4 (shadow-wallet
+selection audit) remain for the Aug 1 digest and week 2 respectively.
+
+**Also rewired on the strength of this week:** the Vig desk screen now
+plots both maker curves (control vs defended) and quotes the
+ex-convergence arb number, and Vig's screen 01 leads with the cycle-13
+survivor book — the 77-instrument relative-value strategy that passed
+every gate — instead of the equity model whose picks carry no net edge.

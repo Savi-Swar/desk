@@ -39,18 +39,21 @@ for ev in evs:
     if not ok or not legs: continue
     # SELL-ALL: sell YES on every leg at bid -> guaranteed cost 1 payout sum(bids)
     tb=sum(l["bid"] for l in legs); ta=sum(l["ask"] for l in legs)
+    # a leg near 0/1 means the set is converging on its outcome; the apparent
+    # edge is then partly mechanical, so those fills are graded separately
+    near_res=int(max(l["bid"] for l in legs)>=0.95 or min(l["ask"] for l in legs)<=0.05)
     if tb>1.005:
         size=min(l["bid_sz"] for l in legs)         # executable shares across ALL legs
         profit=(tb-1.0)*size
         fills.append({"ts":now,"event":ev.get("title","")[:60],"type":"SELL-ALL",
             "edge_pershare":round(tb-1,4),"exec_size":round(size,1),
-            "profit_at_depth":round(profit,2),"n_legs":len(legs)})
+            "profit_at_depth":round(profit,2),"n_legs":len(legs),"near_res":near_res})
     if ta<0.995:
         size=min(l["ask_sz"] for l in legs)
         profit=(1.0-ta)*size
         fills.append({"ts":now,"event":ev.get("title","")[:60],"type":"BUY-ALL",
             "edge_pershare":round(1-ta,4),"exec_size":round(size,1),
-            "profit_at_depth":round(profit,2),"n_legs":len(legs)})
+            "profit_at_depth":round(profit,2),"n_legs":len(legs),"near_res":near_res})
 f=D/"arb_fills.csv"
 if fills:
     pd.DataFrame(fills).to_csv(f,mode="a",header=not f.exists(),index=False)
