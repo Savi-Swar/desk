@@ -52,7 +52,10 @@ def sweep():
                   "&limit=300&order=volume24hr&ascending=false")
     except Exception:
         return out
-    checked = 0
+    # rank candidates before spending the book budget: fee-free events first
+    # (the only surface where taker arb still works at ~1c edges), then by
+    # top-of-book edge
+    cands = []
     for ev in evs:
         mkts = ev.get("markets", [])
         if len(mkts) < 3 or not ev.get("negRisk", False):
@@ -66,11 +69,14 @@ def sweep():
             continue
         if not all(0 < a <= 1 for a in asks):
             continue
-        if max(sum(bids) - 1.0, 1.0 - sum(asks)) < MIN_EDGE:
+        top_edge = max(sum(bids) - 1.0, 1.0 - sum(asks))
+        if top_edge < MIN_EDGE:
             continue
-        checked += 1
-        if checked > BOOK_BUDGET:
-            break
+        fee_free = not any(m.get("feesEnabled") for m in mkts)
+        cands.append((fee_free, top_edge, ev))
+    cands.sort(key=lambda c: (not c[0], -c[1]))
+    for fee_free, top_edge, ev in cands[:BOOK_BUDGET]:
+        mkts = ev.get("markets", [])
         legs, ok = [], True
         for m in mkts:
             try:
