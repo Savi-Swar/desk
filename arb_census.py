@@ -76,8 +76,7 @@ for _, ev in sorted(candidates, key=lambda x: -x[0]):
     if not ok or not legs:
         continue
     tb, ta = sum(l["bid"] for l in legs), sum(l["ask"] for l in legs)
-    near_res = int(max(l["bid"] for l in legs) >= 0.95
-                   or min(l["ask"] for l in legs) <= 0.05)
+    near_res = int(max(l["bid"] for l in legs) >= 0.95)
     for kind, edge, size in (
             ("SELL-ALL", tb - 1.0, min(l["bid_sz"] for l in legs)),
             ("BUY-ALL", 1.0 - ta, min(l["ask_sz"] for l in legs))):

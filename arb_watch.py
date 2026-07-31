@@ -1,0 +1,132 @@
+"""Continuous arb watch. Runs inside each 30-minute CI slot and samples the
+venue every ~60 seconds for WATCH_MIN minutes, so coverage is near-constant
+instead of one glance per half hour.
+
+Logging model fixes the old sampler's double count: one row per opportunity
+per run — first-seen edge and size, plus how many minutes it persisted and
+its peak edge — rather than one row per glance at the same resting orders.
+Appends to collected/arb_fills.csv with the same columns plus persistence.
+"""
+import datetime
+import json
+import pathlib
+import time
+import urllib.request
+
+import pandas as pd
+
+UA = {"User-Agent": "research saviswarup@gmail.com"}
+D = pathlib.Path(__file__).parent / "collected"
+D.mkdir(exist_ok=True)
+
+WATCH_MIN = 26        # minutes to stay alive inside the CI slot
+STEP_S = 60           # seconds between sweeps
+MIN_EDGE = 0.005
+BOOK_BUDGET = 6       # events depth-checked per sweep
+
+
+def get(url):
+    req = urllib.request.Request(url, headers=UA)
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.loads(r.read())
+
+
+def sweep():
+    """One pass: candidates from top-of-book, depth-verify the best few.
+    Returns {(event, type): fill_dict}."""
+    out = {}
+    try:
+        evs = get("https://gamma-api.polymarket.com/events?closed=false"
+                  "&limit=300&order=volume24hr&ascending=false")
+    except Exception:
+        return out
+    checked = 0
+    for ev in evs:
+        mkts = ev.get("markets", [])
+        if len(mkts) < 3 or not ev.get("negRisk", False):
+            continue
+        try:
+            bids = [float(m.get("bestBid") or 0) for m in mkts]
+            asks = [float(m.get("bestAsk") or 0) for m in mkts]
+        except (TypeError, ValueError):
+            continue
+        if not all(0 < a <= 1 for a in asks):
+            continue
+        if max(sum(bids) - 1.0, 1.0 - sum(asks)) < MIN_EDGE:
+            continue
+        checked += 1
+        if checked > BOOK_BUDGET:
+            break
+        legs, ok = [], True
+        for m in mkts:
+            try:
+                toks = json.loads(m.get("clobTokenIds", "[]"))
+                book = get(f"https://clob.polymarket.com/book?token_id={toks[0]}")
+                b, a = book.get("bids", []), book.get("asks", [])
+                legs.append({
+                    "bid": float(b[-1]["price"]) if b else 0,
+                    "bid_sz": float(b[-1]["size"]) if b else 0,
+                    "ask": float(a[-1]["price"]) if a else 1,
+                    "ask_sz": float(a[-1]["size"]) if a else 0})
+            except Exception:
+                ok = False
+                break
+        if not ok or not legs:
+            continue
+        tb, ta = sum(l["bid"] for l in legs), sum(l["ask"] for l in legs)
+        near_res = int(max(l["bid"] for l in legs) >= 0.95)
+        title = ev.get("title", "")[:60]
+        for kind, edge, size in (
+                ("SELL-ALL", tb - 1.0, min(l["bid_sz"] for l in legs)),
+                ("BUY-ALL", 1.0 - ta, min(l["ask_sz"] for l in legs))):
+            if edge >= MIN_EDGE and size > 0:
+                out[(title, kind)] = {
+                    "event": title, "type": kind,
+                    "edge_pershare": round(edge, 4),
+                    "exec_size": round(size, 1),
+                    "profit_at_depth": round(edge * size, 2),
+                    "n_legs": len(legs), "near_res": near_res}
+    return out
+
+
+def main():
+    start = time.monotonic()
+    seen = {}    # (event, type) -> first fill dict + persistence tracking
+    sweeps = 0
+    while time.monotonic() - start < WATCH_MIN * 60:
+        t0 = time.monotonic()
+        now_iso = datetime.datetime.now(
+            datetime.timezone.utc).isoformat(timespec="seconds")
+        for key, fill in sweep().items():
+            if key in seen:
+                rec = seen[key]
+                rec["persist_min"] = round((time.monotonic()
+                                            - rec["_t0"]) / 60, 1)
+                rec["peak_edge"] = max(rec["peak_edge"], fill["edge_pershare"])
+            else:
+                fill["ts"] = now_iso
+                fill["persist_min"] = 0.0
+                fill["peak_edge"] = fill["edge_pershare"]
+                fill["_t0"] = time.monotonic()
+                seen[key] = fill
+        sweeps += 1
+        time.sleep(max(0, STEP_S - (time.monotonic() - t0)))
+
+    rows = []
+    for rec in seen.values():
+        rec.pop("_t0", None)
+        rows.append(rec)
+    if rows:
+        f = D / "arb_fills.csv"
+        pd.DataFrame(rows).to_csv(f, mode="a", header=not f.exists(),
+                                  index=False)
+    print(f"arb_watch: {sweeps} sweeps over {WATCH_MIN} min, "
+          f"{len(rows)} distinct opportunities")
+    for r in rows:
+        print(f"  ${r['profit_at_depth']:8.2f}  {r['type']:8s} "
+              f"{r['edge_pershare']*100:.1f}c x {r['exec_size']:,.0f} sh  "
+              f"persisted {r['persist_min']}m  nr={r['near_res']}  {r['event']}")
+
+
+if __name__ == "__main__":
+    main()

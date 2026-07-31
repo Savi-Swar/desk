@@ -41,7 +41,7 @@ for ev in evs:
     tb=sum(l["bid"] for l in legs); ta=sum(l["ask"] for l in legs)
     # a leg near 0/1 means the set is converging on its outcome; the apparent
     # edge is then partly mechanical, so those fills are graded separately
-    near_res=int(max(l["bid"] for l in legs)>=0.95 or min(l["ask"] for l in legs)<=0.05)
+    near_res=int(max(l["bid"] for l in legs)>=0.95)
     if tb>1.005:
         size=min(l["bid_sz"] for l in legs)         # executable shares across ALL legs
         profit=(tb-1.0)*size
