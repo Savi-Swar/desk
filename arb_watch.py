@@ -19,7 +19,7 @@ UA = {"User-Agent": "research saviswarup@gmail.com"}
 D = pathlib.Path(__file__).parent / "collected"
 D.mkdir(exist_ok=True)
 
-WATCH_MIN = 26        # minutes to stay alive inside the CI slot
+WATCH_MIN = 24        # minutes to stay alive inside the CI slot
 STEP_S = 60           # seconds between sweeps
 MIN_EDGE = 0.005
 BOOK_BUDGET = 6       # events depth-checked per sweep

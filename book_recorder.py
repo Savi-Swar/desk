@@ -24,7 +24,7 @@ UA = {"User-Agent": "research saviswarup@gmail.com"}
 D = pathlib.Path(__file__).parent / "collected"
 WS_URL = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 
-RECORD_MIN = 26
+RECORD_MIN = 24
 MAX_TOKENS = 40
 MAX_MSGS = 200_000
 MAX_MB = 25
