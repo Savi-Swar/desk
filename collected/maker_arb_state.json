@@ -1,65 +1,54 @@
 {
  "active": {
-  "event": "Highest temperature in Munich on August 1?",
-  "started": "2026-08-01T09:55:58+00:00",
-  "ask_edge_at_open": 0.092,
+  "event": "\"Spider-Man: Brand New Day\" Opening Weekend Box Office (High",
+  "started": "2026-08-01T16:00:55+00:00",
+  "ask_edge_at_open": 0.135,
   "legs": [
    {
-    "q": "Will the highest temperature in Munich be 26\u00b0C or below on A",
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
     "role": "tail",
     "rest": 0.0
    },
    {
-    "q": "Will the highest temperature in Munich be 27\u00b0C on August 1?",
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "tail",
+    "rest": 0.001
+   },
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "tail",
+    "rest": 0.001
+   },
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "tail",
+    "rest": 0.001
+   },
+   {
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
     "role": "tail",
     "rest": 0.002
    },
    {
-    "q": "Will the highest temperature in Munich be 28\u00b0C on August 1?",
-    "role": "maker",
-    "rest": 0.39
-   },
-   {
-    "q": "Will the highest temperature in Munich be 29\u00b0C on August 1?",
-    "role": "maker",
-    "rest": 0.51
-   },
-   {
-    "q": "Will the highest temperature in Munich be 30\u00b0C on August 1?",
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
     "role": "tail",
-    "rest": 0.1
+    "rest": 0.011
    },
    {
-    "q": "Will the highest temperature in Munich be 31\u00b0C on August 1?",
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
     "role": "tail",
     "rest": 0.032
    },
    {
-    "q": "Will the highest temperature in Munich be 32\u00b0C on August 1?",
-    "role": "tail",
-    "rest": 0.0
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "maker",
+    "rest": 0.245
    },
    {
-    "q": "Will the highest temperature in Munich be 33\u00b0C on August 1?",
-    "role": "tail",
-    "rest": 0.0
-   },
-   {
-    "q": "Will the highest temperature in Munich be 34\u00b0C on August 1?",
-    "role": "tail",
-    "rest": 0.0
-   },
-   {
-    "q": "Will the highest temperature in Munich be 35\u00b0C on August 1?",
-    "role": "tail",
-    "rest": 0.0
-   },
-   {
-    "q": "Will the highest temperature in Munich be 36\u00b0C or higher on ",
-    "role": "tail",
-    "rest": 0.0
+    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "role": "maker",
+    "rest": 0.73
    }
-  ],
-  "abort": "event gone"
+  ]
  }
 }
