@@ -1,60 +1,138 @@
 {
  "active": {
-  "event": "\"Spider-Man: Brand New Day\" Opening Weekend Box Office (High",
-  "started": "2026-08-01T18:27:33+00:00",
-  "ask_edge_at_open": 0.12,
+  "event": "Elon Musk # tweets August 4 - August 11, 2026?",
+  "started": "2026-08-01T22:18:33+00:00",
+  "ask_edge_at_open": 0.106,
   "legs": [
    {
-    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "q": "Will Elon Musk post 0-19 tweets from August 4 to August 11, ",
     "role": "tail",
     "rest": 0.0
    },
    {
-    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "q": "Will Elon Musk post 20-39 tweets from August 4 to August 11,",
+    "role": "tail",
+    "rest": 0.0
+   },
+   {
+    "q": "Will Elon Musk post 40-59 tweets from August 4 to August 11,",
+    "role": "tail",
+    "rest": 0.0
+   },
+   {
+    "q": "Will Elon Musk post 60-79 tweets from August 4 to August 11,",
     "role": "tail",
     "rest": 0.001
    },
    {
-    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "q": "Will Elon Musk post 80-99 tweets from August 4 to August 11,",
     "role": "tail",
-    "rest": 0.001
+    "rest": 0.005
    },
    {
-    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "q": "Will Elon Musk post 100-119 tweets from August 4 to August 1",
     "role": "tail",
-    "rest": 0.001
+    "rest": 0.018
    },
    {
-    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "q": "Will Elon Musk post 120-139 tweets from August 4 to August 1",
     "role": "tail",
-    "rest": 0.003
+    "rest": 0.028
    },
    {
-    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "q": "Will Elon Musk post 140-159 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.043
+   },
+   {
+    "q": "Will Elon Musk post 160-179 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.07
+   },
+   {
+    "q": "Will Elon Musk post 180-199 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.12
+   },
+   {
+    "q": "Will Elon Musk post 200-219 tweets from August 4 to August 1",
+    "role": "maker",
+    "rest": 0.17
+   },
+   {
+    "q": "Will Elon Musk post 220-239 tweets from August 4 to August 1",
+    "role": "maker",
+    "rest": 0.16
+   },
+   {
+    "q": "Will Elon Musk post 240-259 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.13
+   },
+   {
+    "q": "Will Elon Musk post 260-279 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.1
+   },
+   {
+    "q": "Will Elon Musk post 280-299 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.08
+   },
+   {
+    "q": "Will Elon Musk post 300-319 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.033
+   },
+   {
+    "q": "Will Elon Musk post 320-339 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.021
+   },
+   {
+    "q": "Will Elon Musk post 340-359 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.011
+   },
+   {
+    "q": "Will Elon Musk post 360-379 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.008
+   },
+   {
+    "q": "Will Elon Musk post 380-399 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.005
+   },
+   {
+    "q": "Will Elon Musk post 400-419 tweets from August 4 to August 1",
     "role": "tail",
     "rest": 0.004
    },
    {
-    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
+    "q": "Will Elon Musk post 420-439 tweets from August 4 to August 1",
     "role": "tail",
-    "rest": 0.024
+    "rest": 0.002
    },
    {
-    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
-    "role": "maker",
-    "rest": 0.221,
-    "filled": true,
-    "fill_ts": "2026-08-01T20:07:22+00:00",
-    "mid_at_fill": 0.77,
-    "markout_30m": -0.604
+    "q": "Will Elon Musk post 440-459 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.001
    },
    {
-    "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
-    "role": "maker",
-    "rest": 0.78,
-    "filled": true,
-    "fill_ts": "2026-08-01T21:16:31+00:00",
-    "mid_at_fill": 0.825
+    "q": "Will Elon Musk post 460-479 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.0
+   },
+   {
+    "q": "Will Elon Musk post 480-499 tweets from August 4 to August 1",
+    "role": "tail",
+    "rest": 0.0
+   },
+   {
+    "q": "Will Elon Musk post 500+ tweets from August 4 to August 11, ",
+    "role": "tail",
+    "rest": 0.002
    }
   ]
  }
