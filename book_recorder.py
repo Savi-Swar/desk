@@ -14,6 +14,7 @@ MAX_MSGS and MAX_MB per run, whichever hits first.
 import datetime
 import gzip
 import json
+import os
 import pathlib
 import time
 import urllib.request
@@ -24,7 +25,7 @@ UA = {"User-Agent": "research saviswarup@gmail.com"}
 D = pathlib.Path(__file__).parent / "collected"
 WS_URL = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 
-RECORD_MIN = 24
+RECORD_MIN = float(os.environ.get("RECORD_MIN", 24))   # minutes; override per workflow
 MAX_TOKENS = 40
 MAX_MSGS = 200_000
 MAX_MB = 25
@@ -51,12 +52,21 @@ def build_watchlist():
         except Exception:
             pass
 
+    PA_HINTS = ("bitcoin", "ethereum", "crypto", "solana", "xrp",
+                "dogecoin", "price action")
     ranked = []
     for ev in evs:
         mkts = ev.get("markets", [])
-        if len(mkts) < 3 or not ev.get("negRisk") or ev.get("negRiskAugmented"):
+        if not mkts:
             continue
         title = (ev.get("title") or "")[:60]
+        tags = " ".join((x.get("label") or "") for x in (ev.get("tags") or [])).lower()
+        is_pa = any(h in tags or h in title.lower() for h in PA_HINTS)
+        # price-action markets carry 97% of measured post-fee arb and their
+        # dislocations are sub-minute; ladders only qualify if neg-risk
+        if not is_pa and (len(mkts) < 3 or not ev.get("negRisk")
+                          or ev.get("negRiskAugmented")):
+            continue
         try:
             asks = [float(m.get("bestAsk") or 0) for m in mkts]
             bids = [float(m.get("bestBid") or 0) for m in mkts]
@@ -65,7 +75,9 @@ def build_watchlist():
         if not all(0 < a <= 1 for a in asks):
             continue
         edge = max(sum(bids) - 1.0, sum(asks) - 1.0)
-        pri = 2 if title == active_title else (1 if "Fed Decision" in title else 0)
+        vol = float(ev.get("volume24hr") or 0)
+        pri = 3 if is_pa and vol > 50_000 else (
+            2 if title == active_title else (1 if is_pa else 0))
         ranked.append((pri, edge, title, mkts))
 
     ranked.sort(key=lambda r: (-r[0], -r[1]))
@@ -75,7 +87,8 @@ def build_watchlist():
         ids = []
         for m in mkts:
             try:
-                ids.append(json.loads(m.get("clobTokenIds", "[]"))[0])
+                tk = json.loads(m.get("clobTokenIds", "[]"))
+                ids.extend(tk[:2] if len(mkts) <= 2 else tk[:1])
             except Exception:
                 pass
         if ids and len(toks) + len(ids) <= MAX_TOKENS:

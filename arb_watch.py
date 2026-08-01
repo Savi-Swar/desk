@@ -9,6 +9,7 @@ Appends to collected/arb_fills.csv with the same columns plus persistence.
 """
 import datetime
 import json
+import os
 import pathlib
 import time
 import urllib.request
@@ -19,7 +20,7 @@ UA = {"User-Agent": "research saviswarup@gmail.com"}
 D = pathlib.Path(__file__).parent / "collected"
 D.mkdir(exist_ok=True)
 
-WATCH_MIN = 24        # minutes to stay alive inside the CI slot
+WATCH_MIN = float(os.environ.get("WATCH_MIN", 24))   # minutes; override per workflow
 STEP_S = 60           # seconds between sweeps
 MIN_EDGE = 0.005
 BOOK_BUDGET = 6       # events depth-checked per sweep
