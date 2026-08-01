@@ -42,7 +42,10 @@
    {
     "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
     "role": "maker",
-    "rest": 0.221
+    "rest": 0.221,
+    "filled": true,
+    "fill_ts": "2026-08-01T20:07:22+00:00",
+    "mid_at_fill": 0.77
    },
    {
     "q": "Will \"Spider-Man: Brand New Day\" Opening Weekend Box Office ",
