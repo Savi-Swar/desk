@@ -59,6 +59,7 @@
     "role": "tail",
     "rest": 0.0
    }
-  ]
+  ],
+  "abort": "event gone"
  }
 }
