@@ -1,3 +1,8 @@
 drill_date,q,resolved,p_market,p_model,brier_market,brier_model
 2026-07-23,Will there be no change in Fed interest rates after the July 2026 meeting?,1,0.73,0.704,0.0729,0.0876
 2026-07-23,Will the Fed increase interest rates by 25 bps after the July 2026 meeting?,0,0.25,0.278,0.0625,0.0773
+2026-07-23,Israel closes its airspace by July 31?,0,0.32,0.342,0.1024,0.117
+2026-07-23,"Will Bitcoin reach $67,500 in July?",0,0.42,0.43,0.1764,0.1849
+2026-07-23,Will NVIDIA be the largest company in the world by market cap on July 31?,1,0.86,0.829,0.0196,0.0292
+2026-07-23,Iran full airspace closure by July 31?,0,0.38,0.395,0.1444,0.156
+2026-07-23,Will WTI Crude Oil (WTI) hit (HIGH) $95 in July?,0,0.77,0.741,0.5929,0.5491

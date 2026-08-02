@@ -9,6 +9,7 @@ A closed market is only counted as resolved when one outcome price has gone to
 ~1; long-dated "before GTA VI?" style markets carry a placeholder endDate and
 still trade mid-book, so they must not be scored as settled.
 """
+import datetime
 import json
 import time
 import urllib.request
@@ -23,16 +24,12 @@ def get(url):
         return json.loads(r.read())
 
 
-def resolved_between(start_iso, end_iso, max_pages=60):
-    """title -> {outcome_name: won_bool} for markets settled in the window.
+MAX_OFFSET = 2000   # gamma returns HTTP 422 past this
 
-    A transient error on one page must not end paging: bailing out early was
-    dropping several hundred markets per run, so the same market matched on one
-    night and not the next. Retry the page, and only stop on a genuinely empty
-    one.
-    """
-    res = {}
-    for off in range(0, max_pages * 100, 100):
+
+def _page_window(start_iso, end_iso, res):
+    """Page one date window into res. True if it hit the offset cap."""
+    for off in range(0, MAX_OFFSET + 100, 100):
         url = ("https://gamma-api.polymarket.com/markets?closed=true"
                f"&end_date_min={start_iso}&end_date_max={end_iso}"
                f"&limit=100&offset={off}")
@@ -46,7 +43,7 @@ def resolved_between(start_iso, end_iso, max_pages=60):
         if mk is None:
             raise RuntimeError(f"gamma paging failed at offset {off}")
         if not mk:
-            break
+            return False
         for m in mk:
             try:
                 o = json.loads(m.get("outcomes", "[]"))
@@ -58,4 +55,40 @@ def resolved_between(start_iso, end_iso, max_pages=60):
             title = (m.get("question") or "").strip()
             res[title] = {str(o[i]): p[i] > 0.5 for i in range(len(o))}
         time.sleep(0.1)
+    return True
+
+
+def resolved_between(start_iso, end_iso):
+    """title -> {outcome_name: won_bool} for markets settled in the window.
+
+    Walks the range one day at a time. A single wide window silently truncates:
+    gamma refuses offsets past MAX_OFFSET, and the old code treated that error
+    as end-of-data, so a busy range lost every market past the cap and the same
+    market would match on one night and not the next.
+    """
+    start = datetime.datetime.fromisoformat(start_iso[:10]).replace(
+        tzinfo=datetime.timezone.utc)
+    end = datetime.datetime.fromisoformat(end_iso[:10]).replace(
+        tzinfo=datetime.timezone.utc) + datetime.timedelta(days=1)
+    res, capped = {}, []
+    day = start
+    while day < end:
+        _scan(day, day + datetime.timedelta(days=1), res, capped)
+        day += datetime.timedelta(days=1)
+    if capped:
+        print(f"  [warn] offset cap still hit on {len(capped)} slice(s) — "
+              "some markets not scanned")
     return res
+
+
+def _scan(lo, hi, res, capped, depth=0):
+    """Scan [lo, hi); if the window overflows the offset cap, split and recurse."""
+    fmt = "%Y-%m-%dT%H:%M:%SZ"
+    if not _page_window(lo.strftime(fmt), hi.strftime(fmt), res):
+        return
+    if depth >= 4:            # ~90-minute slices; give up rather than spin
+        capped.append(lo.strftime(fmt))
+        return
+    mid = lo + (hi - lo) / 2
+    _scan(lo, mid, res, capped, depth + 1)
+    _scan(mid, hi, res, capped, depth + 1)
