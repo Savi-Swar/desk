@@ -134,6 +134,7 @@
     "role": "tail",
     "rest": 0.001
    }
-  ]
+  ],
+  "abort": "event gone"
  }
 }
