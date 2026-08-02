@@ -38,6 +38,23 @@ def get(url):
 KALSHI_SERIES = ("KXBTCMAXY", "KXETHMAXY", "KXFED", "KXFEDDECISION")
 
 
+def kalshi_depth(ticker):
+    """Best yes bid/ask and executable size from the fixed-point orderbook.
+    Kalshi is a single book: yes_ask = 1 - best_no_bid. Returns
+    (yes_bid, yes_bid_size, yes_ask, yes_ask_size) or None."""
+    try:
+        d = get(f"{KALSHI}/markets/{ticker}/orderbook")
+    except Exception:
+        return None
+    ob = d.get("orderbook_fp") or {}
+    yes = [(float(p), float(s)) for p, s in (ob.get("yes_dollars") or [])]
+    no = [(float(p), float(s)) for p, s in (ob.get("no_dollars") or [])]
+    yb, ybs = (max(yes) if yes else (0.0, 0.0))
+    nb, nbs = (max(no) if no else (0.0, 0.0))
+    yes_ask, yes_ask_sz = (1.0 - nb, nbs) if no else (1.0, 0.0)
+    return yb, ybs, round(yes_ask, 4), yes_ask_sz
+
+
 def kalshi_open():
     out = []
     for s in KALSHI_SERIES:
@@ -112,17 +129,24 @@ def main():
             if not (0 < pb < 1 and 0 < pa < 1):
                 continue
             kt, kyb, kya = ksig[sig]
+            # depth-verify the Kalshi side: executable size, not just top price
+            dep = kalshi_depth(kt)
+            if dep:
+                kyb, kyb_sz, kya, kya_sz = dep
+            else:
+                kyb_sz = kya_sz = 0.0
             # buy cheaper venue's YES, sell dearer venue's YES; basis after
             # crossing both spreads (Kalshi fees ~0 on most, PM per-schedule)
-            basis_buy_poly = kyb - pa     # buy PM ask, sell Kalshi bid
-            basis_buy_kalshi = pb - kya   # buy Kalshi ask, sell PM bid
+            basis_sell_kalshi = kyb - pa     # buy PM ask, sell Kalshi bid
+            basis_sell_poly = pb - kya       # buy Kalshi ask, sell PM bid
             pairs.append({
                 "ts": now, "sig": f"{sig[0]}:{sig[1]}",
                 "poly_q": (m.get("question") or "")[:60], "kalshi": kt,
                 "poly_bid": pb, "poly_ask": pa, "kalshi_bid": kyb, "kalshi_ask": kya,
-                "basis_sell_kalshi": round(basis_buy_poly, 4),
-                "basis_sell_poly": round(basis_buy_kalshi, 4),
-                "best_basis": round(max(basis_buy_poly, basis_buy_kalshi), 4),
+                "kalshi_bid_sz": kyb_sz, "kalshi_ask_sz": kya_sz,
+                "basis_sell_kalshi": round(basis_sell_kalshi, 4),
+                "basis_sell_poly": round(basis_sell_poly, 4),
+                "best_basis": round(max(basis_sell_kalshi, basis_sell_poly), 4),
             })
     if pairs:
         f = D / "xvenue.csv"

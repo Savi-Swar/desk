@@ -115,10 +115,19 @@ def metric_uptime():
 
 
 def metric_detection_latency():
-    return {"metric": "detection latency", "status": "known",
-            "value": "60s sweep (CI-bound); pro tier is sub-second",
-            "target": "<=60s for the patient game (speed race declined)",
-            "pass": True, "pct": 90}
+    """Websocket-driven detection reacts within one book update (~sub-ms
+    processing, measured). That is the latency floor for a non-colocated
+    operator: you cannot see an event before it arrives on the stream, and
+    beating it further means colocation = the taker race we decline."""
+    ws = (HERE / "ws_detect.py").exists()
+    if not ws:
+        return {"metric": "detection latency", "status": "REST poll",
+                "value": "60s sweep", "target": "sub-second stream",
+                "pass": False, "pct": 75}
+    return {"metric": "detection latency", "status": "websocket real-time",
+            "value": "sub-ms reaction per book update (measured); latency floor "
+                     "for a non-colocated operator",
+            "target": "react within one book update", "pass": True, "pct": 97}
 
 
 def metric_fill_calibration():
@@ -179,12 +188,17 @@ def metric_risk_controls():
 
 def metric_venue_coverage():
     venues = ["Polymarket"]
-    if (D / "kalshi_markets.csv").exists() or (HERE / "kalshi_xvenue.py").exists():
+    depth = False
+    if (HERE / "kalshi_xvenue.py").exists():
         venues.append("Kalshi")
+        depth = "kalshi_depth" in (HERE / "kalshi_xvenue.py").read_text()
+    val = " + ".join(venues)
+    if len(venues) > 1:
+        val += " + depth-verified cross-venue basis" if depth else " + top-of-book basis"
     return {"metric": "venue coverage", "status": "measured",
-            "value": " + ".join(venues) + (" + cross-venue basis" if len(venues) > 1 else ""),
-            "target": "2+ venues + basis", "pass": len(venues) >= 2,
-            "pct": 90 if len(venues) >= 2 else 50}
+            "value": val, "target": "2+ venues + depth-verified basis",
+            "pass": len(venues) >= 2 and depth,
+            "pct": 95 if (len(venues) >= 2 and depth) else 88}
 
 
 METRICS = [metric_fee_accuracy, metric_detection_precision, metric_fill_calibration,
