@@ -1,11 +1,8 @@
 """Nightly: grade shadow-ledger entries against resolved markets (exact-title
 match on recently-closed gamma markets). Appends verdicts to shadow_graded.csv."""
-import json, urllib.request, pathlib, time
+import datetime, pathlib
 import pandas as pd
-UA={"User-Agent":"research saviswarup@gmail.com"}
-def get(url):
-    req=urllib.request.Request(url,headers=UA)
-    with urllib.request.urlopen(req,timeout=30) as r: return json.loads(r.read())
+from gamma_resolved import resolved_between
 D=pathlib.Path(__file__).parent/"collected"
 led=D/"shadow_ledger.csv"; out=D/"shadow_graded.csv"
 if not led.exists(): print("no ledger"); raise SystemExit
@@ -15,19 +12,10 @@ if out.exists():
     G=pd.read_csv(out); done=set(zip(G["ts"],G["title"],G["outcome"]))
 todo=L[[ (t,ti,o) not in done for t,ti,o in zip(L["ts"],L["title"],L["outcome"])]]
 if not len(todo): print("nothing to grade"); raise SystemExit
-# resolved markets last 14 days, title->outcome map
-res={}
-for off in range(0,800,100):
-    try: mk=get(f"https://gamma-api.polymarket.com/markets?closed=true&order=endDate&ascending=false&limit=100&offset={off}")
-    except Exception: break
-    if not mk: break
-    for m in mk:
-        try:
-            o=json.loads(m.get("outcomes","[]")); p=json.loads(m.get("outcomePrices","[]"))
-            if len(o)>=2 and len(p)>=2:
-                res[(m.get("question") or "").strip()]={o[i]:float(p[i])>0.5 for i in range(len(o))}
-        except Exception: continue
-    time.sleep(0.1)
+# resolved markets over the ledger's span, title->outcome map
+first=pd.to_datetime(L["ts"],format="mixed",utc=True).min().date().isoformat()
+today=datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+res=resolved_between(f"{first}T00:00:00Z",f"{today}T23:59:59Z")
 rows=[]
 for r in todo.itertuples():
     key=str(r.title).strip()

@@ -3,6 +3,7 @@ real order book for every leg, compute executable size and net profit at
 actual depth, paper-fill, log. Measures live extraction rate."""
 import datetime, json, urllib.request, pathlib
 import pandas as pd
+from arb_ledger import append_fills
 UA={"User-Agent":"research saviswarup@gmail.com"}
 def get(url):
     req=urllib.request.Request(url,headers=UA)
@@ -56,7 +57,7 @@ for ev in evs:
             "profit_at_depth":round(profit,2),"n_legs":len(legs),"near_res":near_res})
 f=D/"arb_fills.csv"
 if fills:
-    pd.DataFrame(fills).to_csv(f,mode="a",header=not f.exists(),index=False)
+    append_fills(fills,f)
 print(f"top-of-book candidates checked: {checked}")
 for x in fills:
     print(f"  [{x['type']}] {x['edge_pershare']*100:.1f}c/share x {x['exec_size']} shares executable = ${x['profit_at_depth']:.2f} REAL profit | {x['event']}")

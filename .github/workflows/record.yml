@@ -22,8 +22,8 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
-      - name: record books
-        run: python book_recorder.py
+      - name: record books and calibrate fills
+        run: python book_recorder.py && python fill_model.py
       - name: upload recording
         uses: actions/upload-artifact@v4
         with:

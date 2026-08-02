@@ -16,6 +16,8 @@ import urllib.request
 
 import pandas as pd
 
+from arb_ledger import append_fills
+
 UA = {"User-Agent": "research saviswarup@gmail.com"}
 D = pathlib.Path(__file__).parent / "collected"
 D.mkdir(exist_ok=True)
@@ -145,9 +147,7 @@ def main():
         rec.pop("_t0", None)
         rows.append(rec)
     if rows:
-        f = D / "arb_fills.csv"
-        pd.DataFrame(rows).to_csv(f, mode="a", header=not f.exists(),
-                                  index=False)
+        append_fills(rows, D / "arb_fills.csv")
     print(f"arb_watch: {sweeps} sweeps over {WATCH_MIN} min, "
           f"{len(rows)} distinct opportunities")
     for r in rows:
