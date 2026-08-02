@@ -98,7 +98,13 @@ def main():
             "ts": now, "asset": a,
             "poly_bid": pb, "poly_ask": pa, "lim_yes": ly, "lim_no": ln,
             "basis": round(max(abs(basis_buy_poly), abs(basis_buy_lim)), 4),
-            "resolution_verified": False,   # oracle+snapshot equivalence UNCONFIRMED
+            # FALSIFIED 2026-08-02: not a lock. Limitless resolves on Pyth Pro
+            # BTC/USD, Polymarket on Binance BTC/USDT 1-min candle — different
+            # source AND different denomination (USD vs USDT). Same ~16:00 UTC
+            # snapshot but the prices can diverge, so both legs can resolve the
+            # same way. This is a correlated SPREAD with basis risk, not arb.
+            "oracle_identical": False,
+            "poly_source": "binance-btcusdt-1m", "lim_source": "pyth-pro-btcusd",
         })
     if rows:
         pd.DataFrame(rows).to_csv(OUT, mode="a", header=not OUT.exists(), index=False)
