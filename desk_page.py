@@ -151,7 +151,17 @@ if arb_clean is not None:
     arb_sub += f" · ${arb_clean:,.2f} ex-convergence"
 
 sh_deployed = s["paper_stake"].sum() if len(s) else 0.0
-sh_graded = f"{len(g)} graded, P&L ${g['pnl'].sum():+,.0f}" if len(g) else f"{len(s)} open · 0 resolved"
+if len(g):
+    # A copied fill at a sub-cent price pays ~2000:1 if it lands, so one or two
+    # of them swamp the headline. Quote the book without them too, the same way
+    # arb is quoted ex-convergence.
+    lucky = (g["won"] == 1) & (g["entry"] < 0.01)
+    sh_graded = f"{len(g)} graded, P&L ${g['pnl'].sum():+,.0f}"
+    if lucky.any():
+        sh_graded += (f" · ${g.loc[~lucky, 'pnl'].sum():+,.0f} ex-{int(lucky.sum())}"
+                      " sub-cent fill" + ("s" if lucky.sum() > 1 else ""))
+else:
+    sh_graded = f"{len(s)} open · 0 resolved"
 
 mk_latest = m[m["ts"] == m["ts"].max()] if len(m) else m
 pool = mk_latest["reward_daily"].sum() if len(m) else 0.0
