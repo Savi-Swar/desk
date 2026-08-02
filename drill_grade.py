@@ -5,12 +5,11 @@ The drill measures the MODEL (market price shrunk toward 0.5 by the measured
 title match against recently-closed gamma markets, then writes per-question
 and aggregate Brier scores to collected/drill_graded.csv.
 """
-import datetime
 import pathlib
 
 import pandas as pd
 
-from gamma_resolved import resolved_between
+from gamma_resolved import resolve_titles
 
 D = pathlib.Path(__file__).parent / "collected"
 DRILL = D / "drill_2026-07-23.csv"
@@ -22,9 +21,7 @@ def main():
         print("no drill file")
         return
     d = pd.read_csv(DRILL)
-    start = str(d["drill_date"].iloc[0])
-    end = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
-    res = resolved_between(f"{start}T00:00:00Z", f"{end}T23:59:59Z")
+    res = resolve_titles(d["q"])
     rows, pending = [], []
     for r in d.itertuples():
         key = str(r.q).strip()

@@ -1,0 +1,10 @@
+# Ledgers are append-only and are written concurrently by three workflows
+# (sims-30min, collect-2x-daily, book-recorder). A default 3-way merge treats
+# two independent appends at end-of-file as a conflict, which aborted the
+# rebase and silently discarded that run's data. Union merge keeps both sides.
+collected/*.csv    merge=union
+collected/*.jsonl  merge=union
+
+# These are rewritten whole rather than appended, so union would duplicate rows.
+collected/drill_graded.csv  merge=text
+collected/desk.html         merge=text

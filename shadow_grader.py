@@ -1,8 +1,8 @@
 """Nightly: grade shadow-ledger entries against resolved markets (exact-title
 match on recently-closed gamma markets). Appends verdicts to shadow_graded.csv."""
-import datetime, pathlib
+import pathlib
 import pandas as pd
-from gamma_resolved import resolved_between
+from gamma_resolved import resolve_titles
 D=pathlib.Path(__file__).parent/"collected"
 led=D/"shadow_ledger.csv"; out=D/"shadow_graded.csv"
 if not led.exists(): print("no ledger"); raise SystemExit
@@ -12,10 +12,8 @@ if out.exists():
     G=pd.read_csv(out); done=set(zip(G["ts"],G["title"],G["outcome"]))
 todo=L[[ (t,ti,o) not in done for t,ti,o in zip(L["ts"],L["title"],L["outcome"])]]
 if not len(todo): print("nothing to grade"); raise SystemExit
-# resolved markets over the ledger's span, title->outcome map
-first=pd.to_datetime(L["ts"],format="mixed",utc=True).min().date().isoformat()
-today=datetime.datetime.now(datetime.timezone.utc).date().isoformat()
-res=resolved_between(f"{first}T00:00:00Z",f"{today}T23:59:59Z")
+# resolved-market map, looked up per distinct ungraded title
+res=resolve_titles(todo["title"])
 rows=[]
 for r in todo.itertuples():
     key=str(r.title).strip()

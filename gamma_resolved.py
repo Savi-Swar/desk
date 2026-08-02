@@ -1,21 +1,26 @@
 """Resolved-market lookup against the gamma API.
 
-The obvious query — closed=true ordered by endDate descending — is useless for
-grading: it sorts far-future endDates (2028+) first, so paging 800 markets deep
-never reaches markets that actually settled last week. Both graders were
-silently finding zero matches because of it. Window by end date instead.
+Both graders used to scan `closed=true` ordered by endDate descending. That is
+useless for grading: it sorts far-future endDates (2028+) first, so paging never
+reached markets that settled last week, and gamma refuses offsets past ~2000
+with a 422 that the old code swallowed as end-of-data. Result — shadow_grader
+reported "graded 0" every night regardless of what had resolved.
 
-A closed market is only counted as resolved when one outcome price has gone to
-~1; long-dated "before GTA VI?" style markets carry a placeholder endDate and
-still trade mid-book, so they must not be scored as settled.
+Look titles up directly instead: one public-search call per distinct title, no
+paging, no truncation.
+
+A closed market counts as resolved only when one outcome price has gone to ~1.
+Long-dated "before GTA VI?" style markets sit at 0.5/0.5 with a placeholder end
+date and must not be scored as settled.
 """
-import datetime
 import json
 import time
+import urllib.parse
 import urllib.request
 
 UA = {"User-Agent": "research saviswarup@gmail.com"}
 DECISIVE = 0.99
+SEARCH = "https://gamma-api.polymarket.com/public-search"
 
 
 def get(url):
@@ -24,71 +29,38 @@ def get(url):
         return json.loads(r.read())
 
 
-MAX_OFFSET = 2000   # gamma returns HTTP 422 past this
+def _legs(market):
+    """{outcome_name: won_bool} if decisively resolved, else None."""
+    try:
+        o = json.loads(market.get("outcomes", "[]"))
+        p = [float(x) for x in json.loads(market.get("outcomePrices", "[]"))]
+    except Exception:
+        return None
+    if len(o) < 2 or len(p) < 2 or max(p) < DECISIVE:
+        return None
+    return {str(o[i]): p[i] > 0.5 for i in range(len(o))}
 
 
-def _page_window(start_iso, end_iso, res):
-    """Page one date window into res. True if it hit the offset cap."""
-    for off in range(0, MAX_OFFSET + 100, 100):
-        url = ("https://gamma-api.polymarket.com/markets?closed=true"
-               f"&end_date_min={start_iso}&end_date_max={end_iso}"
-               f"&limit=100&offset={off}")
-        mk = None
-        for attempt in range(4):
+def resolve_titles(titles, pause=0.15):
+    """title -> {outcome_name: won_bool} for those that have settled."""
+    res = {}
+    for title in sorted({str(t).strip() for t in titles if str(t).strip()}):
+        url = f"{SEARCH}?q={urllib.parse.quote(title)}&limit_per_type=10"
+        data = None
+        for attempt in range(3):
             try:
-                mk = get(url)
+                data = get(url)
                 break
             except Exception:
-                time.sleep(1.5 * (attempt + 1))
-        if mk is None:
-            raise RuntimeError(f"gamma paging failed at offset {off}")
-        if not mk:
-            return False
-        for m in mk:
-            try:
-                o = json.loads(m.get("outcomes", "[]"))
-                p = [float(x) for x in json.loads(m.get("outcomePrices", "[]"))]
-            except Exception:
-                continue
-            if len(o) < 2 or len(p) < 2 or max(p) < DECISIVE:
-                continue
-            title = (m.get("question") or "").strip()
-            res[title] = {str(o[i]): p[i] > 0.5 for i in range(len(o))}
-        time.sleep(0.1)
-    return True
-
-
-def resolved_between(start_iso, end_iso):
-    """title -> {outcome_name: won_bool} for markets settled in the window.
-
-    Walks the range one day at a time. A single wide window silently truncates:
-    gamma refuses offsets past MAX_OFFSET, and the old code treated that error
-    as end-of-data, so a busy range lost every market past the cap and the same
-    market would match on one night and not the next.
-    """
-    start = datetime.datetime.fromisoformat(start_iso[:10]).replace(
-        tzinfo=datetime.timezone.utc)
-    end = datetime.datetime.fromisoformat(end_iso[:10]).replace(
-        tzinfo=datetime.timezone.utc) + datetime.timedelta(days=1)
-    res, capped = {}, []
-    day = start
-    while day < end:
-        _scan(day, day + datetime.timedelta(days=1), res, capped)
-        day += datetime.timedelta(days=1)
-    if capped:
-        print(f"  [warn] offset cap still hit on {len(capped)} slice(s) — "
-              "some markets not scanned")
+                time.sleep(1.0 * (attempt + 1))
+        if data is None:
+            continue
+        for ev in data.get("events", []):
+            for m in ev.get("markets", []):
+                if (m.get("question") or "").strip() != title:
+                    continue
+                legs = _legs(m)
+                if legs:
+                    res[title] = legs
+        time.sleep(pause)
     return res
-
-
-def _scan(lo, hi, res, capped, depth=0):
-    """Scan [lo, hi); if the window overflows the offset cap, split and recurse."""
-    fmt = "%Y-%m-%dT%H:%M:%SZ"
-    if not _page_window(lo.strftime(fmt), hi.strftime(fmt), res):
-        return
-    if depth >= 4:            # ~90-minute slices; give up rather than spin
-        capped.append(lo.strftime(fmt))
-        return
-    mid = lo + (hi - lo) / 2
-    _scan(lo, mid, res, capped, depth + 1)
-    _scan(mid, hi, res, capped, depth + 1)

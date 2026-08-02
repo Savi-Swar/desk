@@ -31,5 +31,12 @@ jobs:
           git add collected/
           git diff --cached --quiet && exit 0
           git commit -m "sims $(date -u +%Y-%m-%dT%H:%MZ)"
-          git pull --rebase origin main
-          git push origin main
+          # Overlapping runs race on the same append-only ledgers. .gitattributes
+          # merges them by union; retry covers a push that loses the race anyway.
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin main && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 10))
+          done
+          echo "push failed after 5 attempts" >&2
+          exit 1
