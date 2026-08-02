@@ -1,138 +1,63 @@
 {
  "active": {
-  "event": "Elon Musk # tweets August 4 - August 11, 2026?",
-  "started": "2026-08-01T22:18:33+00:00",
-  "ask_edge_at_open": 0.106,
+  "event": "Highest temperature in Taipei on August 2?",
+  "started": "2026-08-02T06:32:40+00:00",
+  "ask_edge_at_open": 0.344,
   "legs": [
    {
-    "q": "Will Elon Musk post 0-19 tweets from August 4 to August 11, ",
+    "q": "Will the highest temperature in Taipei be 30\u00b0C or below on A",
     "role": "tail",
     "rest": 0.0
    },
    {
-    "q": "Will Elon Musk post 20-39 tweets from August 4 to August 11,",
+    "q": "Will the highest temperature in Taipei be 31\u00b0C on August 2?",
     "role": "tail",
     "rest": 0.0
    },
    {
-    "q": "Will Elon Musk post 40-59 tweets from August 4 to August 11,",
+    "q": "Will the highest temperature in Taipei be 32\u00b0C on August 2?",
     "role": "tail",
     "rest": 0.0
    },
    {
-    "q": "Will Elon Musk post 60-79 tweets from August 4 to August 11,",
+    "q": "Will the highest temperature in Taipei be 33\u00b0C on August 2?",
     "role": "tail",
-    "rest": 0.001
+    "rest": 0.0
    },
    {
-    "q": "Will Elon Musk post 80-99 tweets from August 4 to August 11,",
+    "q": "Will the highest temperature in Taipei be 34\u00b0C on August 2?",
     "role": "tail",
-    "rest": 0.005
+    "rest": 0.0
    },
    {
-    "q": "Will Elon Musk post 100-119 tweets from August 4 to August 1",
+    "q": "Will the highest temperature in Taipei be 35\u00b0C on August 2?",
     "role": "tail",
-    "rest": 0.018
+    "rest": 0.0
    },
    {
-    "q": "Will Elon Musk post 120-139 tweets from August 4 to August 1",
+    "q": "Will the highest temperature in Taipei be 36\u00b0C on August 2?",
     "role": "tail",
-    "rest": 0.028
+    "rest": 0.92
    },
    {
-    "q": "Will Elon Musk post 140-159 tweets from August 4 to August 1",
+    "q": "Will the highest temperature in Taipei be 37\u00b0C on August 2?",
     "role": "tail",
-    "rest": 0.043
+    "rest": 0.02
    },
    {
-    "q": "Will Elon Musk post 160-179 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.07
-   },
-   {
-    "q": "Will Elon Musk post 180-199 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.12
-   },
-   {
-    "q": "Will Elon Musk post 200-219 tweets from August 4 to August 1",
-    "role": "maker",
-    "rest": 0.17
-   },
-   {
-    "q": "Will Elon Musk post 220-239 tweets from August 4 to August 1",
-    "role": "maker",
-    "rest": 0.16
-   },
-   {
-    "q": "Will Elon Musk post 240-259 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.13
-   },
-   {
-    "q": "Will Elon Musk post 260-279 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.1
-   },
-   {
-    "q": "Will Elon Musk post 280-299 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.08
-   },
-   {
-    "q": "Will Elon Musk post 300-319 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.033
-   },
-   {
-    "q": "Will Elon Musk post 320-339 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.021
-   },
-   {
-    "q": "Will Elon Musk post 340-359 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.011
-   },
-   {
-    "q": "Will Elon Musk post 360-379 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.008
-   },
-   {
-    "q": "Will Elon Musk post 380-399 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.005
-   },
-   {
-    "q": "Will Elon Musk post 400-419 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.004
-   },
-   {
-    "q": "Will Elon Musk post 420-439 tweets from August 4 to August 1",
+    "q": "Will the highest temperature in Taipei be 38\u00b0C on August 2?",
     "role": "tail",
     "rest": 0.002
    },
    {
-    "q": "Will Elon Musk post 440-459 tweets from August 4 to August 1",
+    "q": "Will the highest temperature in Taipei be 39\u00b0C on August 2?",
     "role": "tail",
     "rest": 0.001
    },
    {
-    "q": "Will Elon Musk post 460-479 tweets from August 4 to August 1",
+    "q": "Will the highest temperature in Taipei be 40\u00b0C or higher on ",
     "role": "tail",
     "rest": 0.0
-   },
-   {
-    "q": "Will Elon Musk post 480-499 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.0
-   },
-   {
-    "q": "Will Elon Musk post 500+ tweets from August 4 to August 11, ",
-    "role": "tail",
-    "rest": 0.002
    }
   ]
  }
