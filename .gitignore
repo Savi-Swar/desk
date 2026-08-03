@@ -1,3 +1,4 @@
 collected/books/
 __pycache__/
 *.pyc
+collected/trades/

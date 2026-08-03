@@ -23,12 +23,12 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: record books and calibrate fills
-        run: python book_recorder.py && python fill_model.py
+        run: python firehose_recorder.py & python book_recorder.py && python fill_model.py && python trade_markout.py && wait
       - name: commit the calibration (the markout gate data)
         run: |
           git config user.name "desk-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add collected/fill_model.csv collected/health.jsonl
+          git add collected/fill_model.csv collected/trade_markout.csv collected/health.jsonl
           git diff --cached --quiet && exit 0
           git commit -m "fill calibration $(date -u +%Y-%m-%dT%H:%MZ)"
           git pull --rebase origin main
@@ -37,6 +37,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: books-${{ github.run_id }}
-          path: collected/books/
+          path: |
+            collected/books/
+            collected/trades/
           retention-days: 30
           if-no-files-found: warn
