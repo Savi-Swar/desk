@@ -2,3 +2,4 @@ collected/books/
 __pycache__/
 *.pyc
 collected/trades/
+collected/fill_model.csv

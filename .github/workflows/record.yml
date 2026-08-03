@@ -1,7 +1,7 @@
 name: book-recorder
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "10,40 * * * *"
   workflow_dispatch:
 
 concurrency:
@@ -23,7 +23,7 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: record books and calibrate fills
-        run: python firehose_recorder.py & python book_recorder.py && python fill_model.py && python trade_markout.py && wait
+        run: python firehose_recorder.py & python book_recorder.py && python trade_markout.py && wait
       - name: commit the calibration (the markout gate data)
         run: |
           git config user.name "desk-bot"
