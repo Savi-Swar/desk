@@ -28,11 +28,13 @@ jobs:
         run: |
           git config user.name "desk-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add collected/fill_model.csv collected/trade_markout.csv collected/health.jsonl
+          git add -A
           git diff --cached --quiet && exit 0
           git commit -m "fill calibration $(date -u +%Y-%m-%dT%H:%MZ)"
-          git pull --rebase origin main
-          git push origin main
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin main && exit 0 || sleep $((RANDOM % 8 + 2))
+          done
+          exit 1
       - name: upload raw recording (for millisecond replay later)
         uses: actions/upload-artifact@v4
         with:
