@@ -41,9 +41,20 @@ def is_trade(p):
 
 
 def trade_row(t, p):
+    """Full universal trade record — one feed, every arb. Fields chosen so a
+    single trade stream serves all tier-4+ detectors:
+      markout/maker   : price, size, side
+      neg-risk set    : cid + outcomeIndex (group a market's outcomes)
+      single-condition: cid + outcome (YES/NO of one condition)
+      whale-following : wallet (proxyWallet) + name
+      category/venue  : slug
+    """
     return {"t": round(t, 3), "asset": p.get("asset"),
-            "cid": p.get("conditionId"), "price": p.get("price"),
-            "size": p.get("size"), "side": p.get("side"),
+            "cid": p.get("conditionId"),
+            "price": p.get("price"), "size": p.get("size"),
+            "side": p.get("side"),
+            "outcome": p.get("outcome"), "oidx": p.get("outcomeIndex"),
+            "wallet": p.get("proxyWallet"), "name": p.get("name"),
             "slug": (p.get("eventSlug") or p.get("slug") or "")[:40]}
 
 
