@@ -26,9 +26,9 @@ D = pathlib.Path(__file__).parent / "collected"
 WS_URL = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 
 RECORD_MIN = float(os.environ.get("RECORD_MIN", 24))   # minutes; override per workflow
-MAX_TOKENS = 40
+MAX_TOKENS = 120
 MAX_MSGS = 200_000
-MAX_MB = 25
+MAX_MB = 45
 STALE_S = 60
 
 
