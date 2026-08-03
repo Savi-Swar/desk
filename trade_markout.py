@@ -92,12 +92,17 @@ def main():
             if a not in mids:
                 continue
             try:
-                px = float(d["price"]); t = float(d["t"])
+                px = float(d["price"])
+                # real trade timestamp for exact markout timing; fall back to
+                # our receive time only if ts is missing
+                t = float(d.get("ts") or d["t"])
             except (KeyError, TypeError, ValueError):
                 continue
+            fee = d.get("fee")
             series = mids[a]
             row = {"t": round(t, 1), "asset": a[:16], "side": d.get("side"),
-                   "price": px, "size": d.get("size"), "slug": d.get("slug")}
+                   "price": px, "size": d.get("size"),
+                   "fee": fee, "slug": d.get("slug")}
             passive_sold = d.get("side") == "BUY"   # aggressor bought => maker sold
             for h in MARKOUTS:
                 m = mid_at(series, t + h)

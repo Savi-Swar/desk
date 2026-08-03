@@ -43,16 +43,19 @@ def is_trade(p):
 def trade_row(t, p):
     """Full universal trade record — one feed, every arb. Fields chosen so a
     single trade stream serves all tier-4+ detectors:
-      markout/maker   : price, size, side
+      markout/maker   : price, size, side, ts (REAL trade time), fee (realized)
       neg-risk set    : cid + outcomeIndex (group a market's outcomes)
       single-condition: cid + outcome (YES/NO of one condition)
       whale-following : wallet (proxyWallet) + name
+      dedup / id      : tx (transactionHash) — the on-chain trade id
       category/venue  : slug
-    """
-    return {"t": round(t, 3), "asset": p.get("asset"),
-            "cid": p.get("conditionId"),
+    ts is the venue's own trade timestamp (not our receive time), so markout
+    timing is exact; fee is the realized taker fee (ground truth vs modeled)."""
+    return {"t": round(t, 3), "ts": p.get("timestamp"),
+            "tx": p.get("transactionHash"),
+            "asset": p.get("asset"), "cid": p.get("conditionId"),
             "price": p.get("price"), "size": p.get("size"),
-            "side": p.get("side"),
+            "side": p.get("side"), "fee": p.get("fee"),
             "outcome": p.get("outcome"), "oidx": p.get("outcomeIndex"),
             "wallet": p.get("proxyWallet"), "name": p.get("name"),
             "slug": (p.get("eventSlug") or p.get("slug") or "")[:40]}
@@ -64,7 +67,9 @@ def main():
     outdir.mkdir(parents=True, exist_ok=True)
     outfile = outdir / f"{day.strftime('%H%M%S')}.jsonl.gz"
 
-    n, raw, bytes_out, reconnects = 0, 0, 0, 0
+    n, raw, bytes_out, reconnects, dups = 0, 0, 0, 0, 0
+    seen_tx = set()          # dedup on transactionHash (a trade can echo,
+                             # and reconnects replay the connect burst)
     deadline = time.monotonic() + RECORD_MIN * 60
     with gzip.open(outfile, "wt") as f:
         f.write(json.dumps({"t": time.time(), "meta": {"feed": "RTDS activity"}}) + "\n")
@@ -100,6 +105,17 @@ def main():
                     p = d.get("payload")
                     if not is_trade(p):
                         continue
+                    # dedup: a (tx, asset, side) is one fill; drop echoes/replays.
+                    # (tx alone can cover several legs of one on-chain tx, so key
+                    # on tx+asset+side+price to keep distinct legs, drop true dups)
+                    tx = p.get("transactionHash")
+                    key = (tx, p.get("asset"), p.get("side"), p.get("price"),
+                           p.get("size")) if tx else None
+                    if key is not None:
+                        if key in seen_tx:
+                            dups += 1
+                            continue
+                        seen_tx.add(key)
                     line = json.dumps(trade_row(time.time(), p),
                                       separators=(",", ":")) + "\n"
                     f.write(line)
@@ -113,7 +129,7 @@ def main():
                     break
                 time.sleep(min(2 * reconnects, 30))
 
-    print(f"firehose: {n:,} real trades ({raw:,} raw msgs), "
+    print(f"firehose: {n:,} real trades ({dups:,} dups dropped, {raw:,} raw msgs), "
           f"{bytes_out/1e6:.1f} MB, {reconnects} reconnects -> {outfile.name}")
 
 
