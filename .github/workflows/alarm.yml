@@ -10,29 +10,39 @@ permissions:
 
 jobs:
   check:
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     runs-on: ubuntu-latest
     steps:
-      - name: open issue after two consecutive failures
+      - name: open on two failures, close on recovery
         uses: actions/github-script@v7
         with:
           script: |
             const wf = context.payload.workflow_run;
+            const { owner, repo } = context.repo;
+            const title = `ALARM: ${wf.name} failing`;
+            const openAlarms = async () => (await github.rest.issues.listForRepo({
+              owner, repo, state: "open", labels: "alarm",
+            })).data.filter(i => i.title === title);
+
+            // recovery: a green run closes any open alarm for this workflow
+            if (wf.conclusion === "success") {
+              for (const i of await openAlarms()) {
+                await github.rest.issues.createComment({ owner, repo, issue_number: i.number,
+                  body: `Recovered: **${wf.name}** passed. ${wf.html_url}\n\nAuto-closed by failure-alarm.` });
+                await github.rest.issues.update({ owner, repo, issue_number: i.number, state: "closed" });
+              }
+              return;
+            }
+            if (wf.conclusion !== "failure") return;
+
+            // alarm: open once after two consecutive failures
             const runs = await github.rest.actions.listWorkflowRuns({
-              owner: context.repo.owner, repo: context.repo.repo,
-              workflow_id: wf.workflow_id, per_page: 2, status: "completed",
+              owner, repo, workflow_id: wf.workflow_id, per_page: 2, status: "completed",
             });
             const twoFails = runs.data.workflow_runs.length >= 2 &&
               runs.data.workflow_runs.every(r => r.conclusion === "failure");
             if (!twoFails) return;
-            const title = `ALARM: ${wf.name} failing`;
-            const open = await github.rest.issues.listForRepo({
-              owner: context.repo.owner, repo: context.repo.repo,
-              state: "open", labels: "alarm",
-            });
-            if (open.data.some(i => i.title === title)) return;
+            if ((await openAlarms()).length) return;
             await github.rest.issues.create({
-              owner: context.repo.owner, repo: context.repo.repo,
-              title, labels: ["alarm"],
-              body: `Two consecutive failures of **${wf.name}**.\n\nLatest run: ${wf.html_url}\n\nAuto-opened by failure-alarm; close after fixing.`,
+              owner, repo, title, labels: ["alarm"],
+              body: `Two consecutive failures of **${wf.name}**.\n\nLatest run: ${wf.html_url}\n\nAuto-opened by failure-alarm; auto-closes on the next green run.`,
             });
