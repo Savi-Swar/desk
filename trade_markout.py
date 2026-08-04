@@ -124,12 +124,15 @@ def main():
     import statistics as st
     OUT.parent.mkdir(exist_ok=True)
     import csv
+    FIELDS = ["t", "asset", "side", "price", "size", "fee", "slug",
+              "mo_5s", "mo_30s", "mo_300s"]
     write_header = not OUT.exists()
     with OUT.open("a", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        w = csv.DictWriter(f, fieldnames=FIELDS, extrasaction="ignore")
         if write_header:
             w.writeheader()
-        w.writerows(rows)
+        for r in rows:
+            w.writerow({k: r.get(k) for k in FIELDS})
     for h in MARKOUTS:
         vals = [r[f"mo_{h}s"] for r in rows if r.get(f"mo_{h}s") is not None]
         if vals:
