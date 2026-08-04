@@ -1,8 +1,8 @@
 {
  "active": {
   "event": "Elon Musk # tweets August 4 - August 11, 2026?",
-  "started": "2026-08-02T09:08:30+00:00",
-  "ask_edge_at_open": 0.141,
+  "started": "2026-08-04T09:46:14+00:00",
+  "ask_edge_at_open": 0.104,
   "legs": [
    {
     "q": "Will Elon Musk post 0-19 tweets from August 4 to August 11, ",
@@ -22,7 +22,7 @@
    {
     "q": "Will Elon Musk post 60-79 tweets from August 4 to August 11,",
     "role": "tail",
-    "rest": 0.001
+    "rest": 0.0
    },
    {
     "q": "Will Elon Musk post 80-99 tweets from August 4 to August 11,",
@@ -32,27 +32,27 @@
    {
     "q": "Will Elon Musk post 100-119 tweets from August 4 to August 1",
     "role": "tail",
-    "rest": 0.015
+    "rest": 0.013
    },
    {
     "q": "Will Elon Musk post 120-139 tweets from August 4 to August 1",
     "role": "tail",
-    "rest": 0.034
+    "rest": 0.028
    },
    {
     "q": "Will Elon Musk post 140-159 tweets from August 4 to August 1",
     "role": "tail",
-    "rest": 0.045
+    "rest": 0.06
    },
    {
     "q": "Will Elon Musk post 160-179 tweets from August 4 to August 1",
     "role": "tail",
-    "rest": 0.07
+    "rest": 0.1
    },
    {
     "q": "Will Elon Musk post 180-199 tweets from August 4 to August 1",
-    "role": "tail",
-    "rest": 0.12
+    "role": "maker",
+    "rest": 0.15
    },
    {
     "q": "Will Elon Musk post 200-219 tweets from August 4 to August 1",
@@ -77,12 +77,12 @@
    {
     "q": "Will Elon Musk post 280-299 tweets from August 4 to August 1",
     "role": "tail",
-    "rest": 0.09
+    "rest": 0.05
    },
    {
     "q": "Will Elon Musk post 300-319 tweets from August 4 to August 1",
     "role": "tail",
-    "rest": 0.035
+    "rest": 0.03
    },
    {
     "q": "Will Elon Musk post 320-339 tweets from August 4 to August 1",
@@ -92,12 +92,12 @@
    {
     "q": "Will Elon Musk post 340-359 tweets from August 4 to August 1",
     "role": "tail",
-    "rest": 0.012
+    "rest": 0.011
    },
    {
     "q": "Will Elon Musk post 360-379 tweets from August 4 to August 1",
     "role": "tail",
-    "rest": 0.008
+    "rest": 0.006
    },
    {
     "q": "Will Elon Musk post 380-399 tweets from August 4 to August 1",
@@ -134,7 +134,6 @@
     "role": "tail",
     "rest": 0.001
    }
-  ],
-  "abort": "event gone"
+  ]
  }
 }

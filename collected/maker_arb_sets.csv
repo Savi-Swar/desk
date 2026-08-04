@@ -6,3 +6,4 @@ ts,event,opened,hours,maker_fills,maker_unfilled,taker_fees,pnl,outcome
 2026-08-01T22:18:33+00:00,"""Spider-Man: Brand New Day"" Opening Weekend Box Office (High",2026-08-01T18:27:33+00:00,3.9,2,0,4.94,576.16,complete
 2026-08-02T06:32:40+00:00,"Elon Musk # tweets August 4 - August 11, 2026?",2026-08-01T22:18:33+00:00,8.2,0,2,4.37,-6.57,timeout
 2026-08-02T09:08:30+00:00,Highest temperature in Taipei on August 2?,2026-08-02T06:32:40+00:00,2.6,0,0,0.04,-0.44,complete
+2026-08-04T09:46:14+00:00,"Elon Musk # tweets August 4 - August 11, 2026?",2026-08-02T09:08:30+00:00,48.6,0,2,4.5,-3.1,event gone
