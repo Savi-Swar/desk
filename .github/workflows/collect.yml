@@ -32,6 +32,8 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "collect $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3 4 5; do
-            git pull --rebase origin main && git push origin main && exit 0 || sleep $((RANDOM % 8 + 2))
+            if git pull --rebase origin main && git push origin main; then exit 0; fi
+            git rebase --abort 2>/dev/null || true   # never leave a wedged rebase for the next retry
+            sleep $((RANDOM % 8 + 2))
           done
           exit 1
