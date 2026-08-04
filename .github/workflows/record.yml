@@ -23,7 +23,11 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: record books and calibrate fills
-        run: python firehose_recorder.py & python book_recorder.py && python trade_markout.py && wait
+        run: |
+          python firehose_recorder.py &
+          python book_recorder.py &
+          wait
+          python trade_markout.py
       - name: commit the calibration (the markout gate data)
         run: |
           git config user.name "desk-bot"

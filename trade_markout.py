@@ -29,11 +29,16 @@ MARKOUTS = (5, 30, 300)
 
 
 def read(path):
-    for line in gzip.open(path, "rt"):
-        d = json.loads(line)
-        if "meta" in d:
-            continue
-        yield d
+    try:
+        for line in gzip.open(path, "rt"):
+            try:
+                d = json.loads(line)
+            except Exception:
+                continue
+            if "meta" not in d:
+                yield d
+    except (EOFError, OSError):
+        return   # truncated/half-written gzip: use what we got, don't crash
 
 
 def build_mids(book_paths):
