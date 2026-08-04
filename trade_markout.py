@@ -126,6 +126,14 @@ def main():
     import csv
     FIELDS = ["t", "asset", "side", "price", "size", "fee", "slug",
               "mo_5s", "mo_30s", "mo_300s"]
+    # self-heal against schema drift: if an older run left a file whose header
+    # doesn't match FIELDS (e.g. pre-fee, receive-time rows), archive it and
+    # start clean rather than appending misaligned columns forever.
+    if OUT.exists():
+        with OUT.open() as f:
+            first = f.readline().strip()
+        if first != ",".join(FIELDS):
+            OUT.rename(OUT.with_suffix(".pre_fee.csv"))
     write_header = not OUT.exists()
     with OUT.open("a", newline="") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS, extrasaction="ignore")
