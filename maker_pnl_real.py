@@ -29,6 +29,16 @@ OUT = D / "maker_pnl_real.csv"
 HORIZONS = ("mo_5s", "mo_30s", "mo_300s")
 PRIMARY = "mo_30s"
 
+# ── paper->real fidelity ──────────────────────────────────────────────────
+# The single biggest lie in maker paper P&L is assuming we fill 100% of the
+# observed taker flow. In a live CLOB we are one of several makers in a queue,
+# and we can never fill more than the size we actually had resting. So the
+# live-realistic fill on any trade is capped at OUR_RESTING_SIZE. This
+# surgically deflates the whale fills (a 16k-share print we'd never fully get)
+# while leaving small fills near-intact — turning "ideal paper" into an
+# estimate that would actually survive contact with the book.
+OUR_RESTING_SIZE = 100.0   # shares we realistically rest per quote (~$50-100)
+
 
 def num(x):
     try:
@@ -43,22 +53,34 @@ def day_of(ts):
 
 def summarize(fills):
     """fills: list of (markout, size) at the primary horizon. Returns the
-    honest stats — total $, per-share, significance, outlier concentration."""
-    pnl = [m * s for m, s in fills]
+    honest stats — ideal vs live-realistic P&L, effective sample size,
+    significance, outlier concentration."""
+    pnl = [m * s for m, s in fills]                         # ideal: full size
+    live = [m * min(s, OUR_RESTING_SIZE) for m, s in fills]  # capped at our quote
     total = sum(pnl)
     sw = total / sum(s for _, s in fills)
     mean = st.mean(pnl)
     se = st.pstdev(pnl) / len(pnl) ** 0.5 if len(pnl) > 1 else float("inf")
     t = mean / se if se else 0.0
     top3 = sum(sorted(pnl, key=abs, reverse=True)[:3])
+    # Kish effective sample size: how many independent bets the P&L really is
+    absp = [abs(p) for p in pnl]
+    eff = (sum(absp) ** 2) / sum(p * p for p in absp) if any(absp) else 0.0
+    # live significance uses the capped per-fill pnl
+    lmean = st.mean(live)
+    lse = st.pstdev(live) / len(live) ** 0.5 if len(live) > 1 else float("inf")
+    lt = lmean / lse if lse else 0.0
     return {
         "n": len(pnl),
-        "pnl": round(total, 2),
+        "eff_n": round(eff, 1),
+        "pnl_ideal": round(total, 2),
+        "pnl_live": round(sum(live), 2),
         "per_share": round(sw, 6),
         "adverse_pct": round(sum(1 for p in pnl if p < 0) / len(pnl), 3),
         "t_stat": round(t, 2),
+        "t_live": round(lt, 2),
         "top3_share": round(top3 / total, 3) if total else 0.0,
-        "significant": abs(t) >= 2,
+        "significant": abs(lt) >= 2,   # gate on the LIVE-realistic number
     }
 
 
@@ -89,25 +111,27 @@ def main():
         stats["date"] = day
         out.append(stats)
 
-    fields = ["date", "n", "pnl", "per_share", "adverse_pct",
-              "t_stat", "top3_share", "significant"]
+    fields = ["date", "n", "eff_n", "pnl_ideal", "pnl_live", "per_share",
+              "adverse_pct", "t_stat", "t_live", "top3_share", "significant"]
     with OUT.open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         for o in out:
             w.writerow({k: o[k] for k in fields})
 
-    print(f"maker P&L (real fills, {PRIMARY}) — {len(out)} day(s):")
+    print(f"maker P&L (real fills, {PRIMARY}) — ideal vs live-realistic "
+          f"(fill capped at {OUR_RESTING_SIZE:.0f} sh):")
     for o in out:
-        flag = "" if o["significant"] else "  [NOT significant — noise]"
-        print(f"  {o['date']}  n={o['n']:5d}  P&L {o['pnl']:+8.2f}  "
-              f"({o['per_share']:+.5f}/sh, {o['adverse_pct']:.0%} adverse)  "
-              f"t={o['t_stat']:+.2f}  top3={o['top3_share']:+.0%}{flag}")
-    tot = sum(o["pnl"] for o in out)
+        flag = "" if o["significant"] else "  [NOT significant]"
+        print(f"  {o['date']}  n={o['n']:5d} (eff {o['eff_n']:5.1f})  "
+              f"ideal {o['pnl_ideal']:+8.2f}  ->  LIVE {o['pnl_live']:+7.2f}  "
+              f"(t_live {o['t_live']:+.2f}, {o['adverse_pct']:.0%} adverse){flag}")
+    ti = sum(o["pnl_ideal"] for o in out)
+    tl = sum(o["pnl_live"] for o in out)
     sig = [o for o in out if o["significant"]]
-    print(f"  ── total paper markout P&L {tot:+.2f} over {len(out)} day(s); "
-          f"{len(sig)} day(s) statistically significant. "
-          f"Reward income is separate and additive.")
+    print(f"  ── ideal {ti:+.2f}  ->  live-realistic {tl:+.2f} over {len(out)} day(s); "
+          f"{len(sig)} significant. The gap IS the paper->real haircut. "
+          f"Reward income is separate/additive.")
 
 
 if __name__ == "__main__":

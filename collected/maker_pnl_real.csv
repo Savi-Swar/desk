@@ -1,3 +1,3 @@
-date,n,pnl,per_share,adverse_pct,t_stat,top3_share,significant
-2026-08-04,831,172.35,0.000657,0.217,1.64,0.474,False
-2026-08-05,32,-12.27,-0.001844,0.375,-0.81,0.97,False
+date,n,eff_n,pnl_ideal,pnl_live,per_share,adverse_pct,t_stat,t_live,top3_share,significant
+2026-08-04,831,47.1,172.35,-15.12,0.000657,0.217,1.64,-0.46,0.474,False
+2026-08-05,32,7.0,-12.27,-5.29,-0.001844,0.375,-0.81,-1.29,0.97,False
