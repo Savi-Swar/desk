@@ -1,13 +1,13 @@
 {
  "active": {
   "event": "CF Villarreal C vs. Levante UD - Exact Score",
-  "started": "2026-08-05T01:19:28+00:00",
-  "ask_edge_at_open": 0.147,
+  "started": "2026-08-05T07:38:58+00:00",
+  "ask_edge_at_open": 0.143,
   "legs": [
    {
     "q": "Exact Score: CF Villarreal C 0 - 0 Levante UD?",
     "role": "tail",
-    "rest": 0.072
+    "rest": 0.061
    },
    {
     "q": "Exact Score: CF Villarreal C 0 - 1 Levante UD?",
@@ -17,27 +17,27 @@
    {
     "q": "Exact Score: CF Villarreal C 1 - 0 Levante UD?",
     "role": "tail",
-    "rest": 0.08
+    "rest": 0.09
    },
    {
     "q": "Exact Score: CF Villarreal C 0 - 2 Levante UD?",
     "role": "tail",
-    "rest": 0.023
+    "rest": 0.027
    },
    {
     "q": "Exact Score: CF Villarreal C 1 - 1 Levante UD?",
     "role": "tail",
-    "rest": 0.1
+    "rest": 0.11
    },
    {
     "q": "Exact Score: CF Villarreal C 2 - 0 Levante UD?",
     "role": "tail",
-    "rest": 0.05
+    "rest": 0.07
    },
    {
     "q": "Exact Score: CF Villarreal C 0 - 3 Levante UD?",
     "role": "tail",
-    "rest": 0.01
+    "rest": 0.011
    },
    {
     "q": "Exact Score: CF Villarreal C 1 - 2 Levante UD?",
@@ -52,42 +52,42 @@
    {
     "q": "Exact Score: CF Villarreal C 3 - 0 Levante UD?",
     "role": "tail",
-    "rest": 0.031
+    "rest": 0.041
    },
    {
     "q": "Exact Score: CF Villarreal C 1 - 3 Levante UD?",
     "role": "tail",
-    "rest": 0.014
+    "rest": 0.015
    },
    {
     "q": "Exact Score: CF Villarreal C 2 - 2 Levante UD?",
     "role": "tail",
-    "rest": 0.06
+    "rest": 0.061
    },
    {
     "q": "Exact Score: CF Villarreal C 3 - 1 Levante UD?",
     "role": "tail",
-    "rest": 0.038
+    "rest": 0.05
    },
    {
     "q": "Exact Score: CF Villarreal C 2 - 3 Levante UD?",
     "role": "tail",
-    "rest": 0.011
+    "rest": 0.012
    },
    {
     "q": "Exact Score: CF Villarreal C 3 - 2 Levante UD?",
     "role": "tail",
-    "rest": 0.021
+    "rest": 0.027
    },
    {
     "q": "Exact Score: CF Villarreal C 3 - 3 Levante UD?",
     "role": "tail",
-    "rest": 0.01
+    "rest": 0.013
    },
    {
     "q": "Exact Score: Any Other Score?",
     "role": "maker",
-    "rest": 0.21
+    "rest": 0.16
    }
   ]
  }
