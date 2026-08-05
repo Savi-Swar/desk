@@ -27,6 +27,8 @@ WS_URL = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 
 RECORD_MIN = float(os.environ.get("RECORD_MIN", 24))   # minutes; override per workflow
 MAX_TOKENS = 120
+REWARD_CAP = 80        # tokens reserved for reward-eligible markets (the rest keep
+                       # the existing crypto/neg-risk series alive for continuity)
 MAX_MSGS = 200_000
 MAX_MB = 45
 STALE_S = 60
@@ -38,8 +40,47 @@ def get(url):
         return json.loads(r.read())
 
 
-def build_watchlist():
+def reward_tokens(cap):
+    """Tokens for the richest reward-pool markets. These are where the maker
+    money is (esports, geopolitics), and the firehose already streams their
+    trades — we just weren't recording their books, so markout couldn't be
+    measured there. Both sides (YES+NO) per market so either can be matched.
+    Returns (tokens, why) sorted by daily reward pool descending."""
+    try:
+        mkts = get("https://gamma-api.polymarket.com/markets?closed=false"
+                   "&limit=500&order=volume24hr&ascending=false")
+    except Exception:
+        return [], []
+    ranked = []
+    for m in mkts:
+        cr = m.get("clobRewards") or []
+        rate = sum(float(c.get("rewardsDailyRate") or 0) for c in cr)
+        if rate <= 0:
+            continue
+        try:
+            bb, ba = float(m.get("bestBid") or 0), float(m.get("bestAsk") or 0)
+            ids = json.loads(m.get("clobTokenIds", "[]"))
+        except (TypeError, ValueError):
+            continue
+        if not (0 < bb < ba < 1) or not ids:      # need a live two-sided book
+            continue
+        ranked.append((rate, ids[:2], (m.get("question") or "")[:60]))
+    ranked.sort(key=lambda r: -r[0])
     toks, why = [], []
+    for rate, ids, q in ranked:
+        if len(toks) + len(ids) > cap:
+            break
+        toks.extend(ids)
+        why.append(f"${rate:.0f}/day  {q}")
+    return toks, why
+
+
+def build_watchlist():
+    # reward-eligible markets first (bounded) so markout can finally be measured
+    # where the maker money actually is; the rest of the budget keeps the
+    # existing crypto/neg-risk series going.
+    toks, why = reward_tokens(REWARD_CAP)
+    seen = set(toks)
     evs = get("https://gamma-api.polymarket.com/events?closed=false"
               "&limit=300&order=volume24hr&ascending=false")
 
@@ -91,8 +132,10 @@ def build_watchlist():
                 ids.extend(tk[:2] if len(mkts) <= 2 else tk[:1])
             except Exception:
                 pass
+        ids = [t for t in ids if t not in seen]     # don't re-add reward tokens
         if ids and len(toks) + len(ids) <= MAX_TOKENS:
             toks.extend(ids)
+            seen.update(ids)
             why.append(title)
     return toks, why
 
