@@ -41,3 +41,8 @@ ts,event,type,edge_pershare,exec_size,pool_dollars,n_legs,near_res,edge_recheck
 2026-08-04T13:17:55+00:00,China Annual Inflation 2026,BUY-ALL,0.013,4.1,0.05,9,0,
 2026-08-04T13:17:55+00:00,How many large volcano eruptions (VEI ≥4) in 2026?,BUY-ALL,0.005,8.2,0.04,6,0,
 2026-08-04T13:17:55+00:00,2026 World GDP Growth,SELL-ALL,0.006,5.1,0.03,9,0,
+2026-08-05T00:22:24+00:00,Eurozone Annual Inflation 2026,BUY-ALL,0.026,40.0,1.04,9,0,0.026
+2026-08-05T00:22:24+00:00,Mexico Annual Inflation 2026,SELL-ALL,0.026,5.0,0.13,8,0,0.026
+2026-08-05T00:22:24+00:00,How many large volcano eruptions (VEI ≥4) in 2026?,BUY-ALL,0.025,3.9,0.1,6,0,0.024
+2026-08-05T00:22:24+00:00,Russia Parliamentary Election: Turnout,SELL-ALL,0.021,5.0,0.1,7,0,0.021
+2026-08-05T00:22:24+00:00,2026 World GDP Growth,SELL-ALL,0.009,5.1,0.05,9,0,0.009
