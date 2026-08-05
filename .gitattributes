@@ -6,5 +6,6 @@ collected/*.csv    merge=union
 collected/*.jsonl  merge=union
 
 # These are rewritten whole rather than appended, so union would duplicate rows.
-collected/drill_graded.csv  merge=text
-collected/desk.html         merge=text
+collected/drill_graded.csv    merge=text
+collected/desk.html           merge=text
+collected/maker_pnl_real.csv  merge=text

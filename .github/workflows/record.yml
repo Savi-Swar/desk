@@ -28,6 +28,7 @@ jobs:
           python book_recorder.py &
           wait
           python trade_markout.py
+          python maker_pnl_real.py   # trustworthy maker P&L from real fills
       - name: commit the calibration (the markout gate data)
         run: |
           git config user.name "desk-bot"
