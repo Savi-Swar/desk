@@ -89,6 +89,7 @@
     "role": "maker",
     "rest": 0.16
    }
-  ]
+  ],
+  "abort": "event gone"
  }
 }
