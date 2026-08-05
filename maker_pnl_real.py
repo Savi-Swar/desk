@@ -38,6 +38,11 @@ PRIMARY = "mo_30s"
 # while leaving small fills near-intact — turning "ideal paper" into an
 # estimate that would actually survive contact with the book.
 OUR_RESTING_SIZE = 100.0   # shares we realistically rest per quote (~$50-100)
+# Maker rebate: a filled maker order earns a category share of the taker fee
+# (crypto 20%, sports 15%, politics/finance/etc 25%). Our fills skew crypto;
+# 20% is the conservative blend. Rebate scales with the size we actually fill,
+# so it's capped the same way markout is.
+REBATE_FRAC = 0.20
 
 
 def num(x):
@@ -52,13 +57,17 @@ def day_of(ts):
 
 
 def summarize(fills):
-    """fills: list of (markout, size) at the primary horizon. Returns the
-    honest stats — ideal vs live-realistic P&L, effective sample size,
-    significance, outlier concentration."""
-    pnl = [m * s for m, s in fills]                         # ideal: full size
-    live = [m * min(s, OUR_RESTING_SIZE) for m, s in fills]  # capped at our quote
+    """fills: list of (markout, size, fee) at the primary horizon. Returns the
+    honest stats — ideal vs live-realistic markout AND rebate, net, effective
+    sample size, significance, outlier concentration."""
+    pnl = [m * s for m, s, _ in fills]                          # ideal markout
+    live = [m * min(s, OUR_RESTING_SIZE) for m, s, _ in fills]   # capped markout
+    # rebate scales with the fraction of each fill we actually capture
+    reb_ideal = REBATE_FRAC * sum(f for _, _, f in fills)
+    reb_live = REBATE_FRAC * sum(f * (min(s, OUR_RESTING_SIZE) / s)
+                                 for _, s, f in fills if s)
     total = sum(pnl)
-    sw = total / sum(s for _, s in fills)
+    sw = total / sum(s for _, s, _ in fills)
     mean = st.mean(pnl)
     se = st.pstdev(pnl) / len(pnl) ** 0.5 if len(pnl) > 1 else float("inf")
     t = mean / se if se else 0.0
@@ -73,14 +82,16 @@ def summarize(fills):
     return {
         "n": len(pnl),
         "eff_n": round(eff, 1),
-        "pnl_ideal": round(total, 2),
-        "pnl_live": round(sum(live), 2),
+        "mo_ideal": round(total, 2),
+        "mo_live": round(sum(live), 2),
+        "rebate_live": round(reb_live, 2),
+        "net_live": round(sum(live) + reb_live, 2),
+        "net_ideal": round(total + reb_ideal, 2),
         "per_share": round(sw, 6),
         "adverse_pct": round(sum(1 for p in pnl if p < 0) / len(pnl), 3),
-        "t_stat": round(t, 2),
         "t_live": round(lt, 2),
         "top3_share": round(top3 / total, 3) if total else 0.0,
-        "significant": abs(lt) >= 2,   # gate on the LIVE-realistic number
+        "significant": abs(lt) >= 2,   # markout significance (rebate is deterministic)
     }
 
 
@@ -92,13 +103,14 @@ def main():
     # maker fills = the taker's fee-bearing legs (we are the resting counterparty)
     days = {}
     for r in rows:
-        if num(r.get("fee")) in (None, 0):
+        fee = num(r.get("fee"))
+        if fee in (None, 0):
             continue
         m, s, ts = num(r.get(PRIMARY)), num(r.get("size")), r.get("t")
         if m is None or not s or ts is None:
             continue
         try:
-            days.setdefault(day_of(ts), []).append((m, s))
+            days.setdefault(day_of(ts), []).append((m, s, fee))
         except (ValueError, OverflowError, OSError):
             continue
     if not days:
@@ -111,27 +123,27 @@ def main():
         stats["date"] = day
         out.append(stats)
 
-    fields = ["date", "n", "eff_n", "pnl_ideal", "pnl_live", "per_share",
-              "adverse_pct", "t_stat", "t_live", "top3_share", "significant"]
+    fields = ["date", "n", "eff_n", "mo_ideal", "mo_live", "rebate_live",
+              "net_live", "net_ideal", "per_share", "adverse_pct", "t_live",
+              "top3_share", "significant"]
     with OUT.open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         for o in out:
             w.writerow({k: o[k] for k in fields})
 
-    print(f"maker P&L (real fills, {PRIMARY}) — ideal vs live-realistic "
-          f"(fill capped at {OUR_RESTING_SIZE:.0f} sh):")
+    print(f"maker P&L (real fills, {PRIMARY}) — live = fill capped at "
+          f"{OUR_RESTING_SIZE:.0f} sh, rebate @ {REBATE_FRAC:.0%} of taker fee:")
     for o in out:
-        flag = "" if o["significant"] else "  [NOT significant]"
+        flag = "" if o["significant"] else "  [markout NOT significant]"
         print(f"  {o['date']}  n={o['n']:5d} (eff {o['eff_n']:5.1f})  "
-              f"ideal {o['pnl_ideal']:+8.2f}  ->  LIVE {o['pnl_live']:+7.2f}  "
-              f"(t_live {o['t_live']:+.2f}, {o['adverse_pct']:.0%} adverse){flag}")
-    ti = sum(o["pnl_ideal"] for o in out)
-    tl = sum(o["pnl_live"] for o in out)
+              f"markout {o['mo_live']:+7.2f} + rebate {o['rebate_live']:+6.2f} "
+              f"= NET LIVE {o['net_live']:+7.2f}  (t_mo {o['t_live']:+.2f}){flag}")
+    tl = sum(o["net_live"] for o in out)
     sig = [o for o in out if o["significant"]]
-    print(f"  ── ideal {ti:+.2f}  ->  live-realistic {tl:+.2f} over {len(out)} day(s); "
-          f"{len(sig)} significant. The gap IS the paper->real haircut. "
-          f"Reward income is separate/additive.")
+    print(f"  ── net-live {tl:+.2f} over {len(out)} day(s); markout significant on "
+          f"{len(sig)}. Edge rides on the rebate; the liquidity pool is a "
+          f"pro-bot game we'd lose (see REWARD_CAPTURE_RESEARCH.md).")
 
 
 if __name__ == "__main__":
