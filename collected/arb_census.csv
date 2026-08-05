@@ -46,3 +46,8 @@ ts,event,type,edge_pershare,exec_size,pool_dollars,n_legs,near_res,edge_recheck
 2026-08-05T00:22:24+00:00,How many large volcano eruptions (VEI ≥4) in 2026?,BUY-ALL,0.025,3.9,0.1,6,0,0.024
 2026-08-05T00:22:24+00:00,Russia Parliamentary Election: Turnout,SELL-ALL,0.021,5.0,0.1,7,0,0.021
 2026-08-05T00:22:24+00:00,2026 World GDP Growth,SELL-ALL,0.009,5.1,0.05,9,0,0.009
+2026-08-05T13:18:46+00:00,Mexico Annual Inflation 2026,SELL-ALL,0.008,25.8,0.21,8,0,0.008
+2026-08-05T13:18:46+00:00,GDP growth in 2026,BUY-ALL,0.021,5.0,0.11,6,0,0.021
+2026-08-05T13:18:46+00:00,Eurozone Annual Inflation 2026,BUY-ALL,0.006,10.0,0.06,9,0,0.006
+2026-08-05T13:18:46+00:00,Bitcoin vs. Gold vs. S&P 500 in 2026,SELL-ALL,0.01,5.0,0.05,3,0,0.01
+2026-08-05T13:18:46+00:00,2026 World GDP Growth,SELL-ALL,0.006,3.8,0.02,9,0,0.006
