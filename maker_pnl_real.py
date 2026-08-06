@@ -43,6 +43,7 @@ OUR_RESTING_SIZE = 100.0   # shares we realistically rest per quote (~$50-100)
 # 20% is the conservative blend. Rebate scales with the size we actually fill,
 # so it's capped the same way markout is.
 REBATE_FRAC = 0.20
+MIN_EFF = 30       # min effective (Kish) sample size before a day can be "significant"
 
 
 def num(x):
@@ -58,40 +59,42 @@ def day_of(ts):
 
 def summarize(fills):
     """fills: list of (markout, size, fee) at the primary horizon. Returns the
-    honest stats — ideal vs live-realistic markout AND rebate, net, effective
-    sample size, significance, outlier concentration."""
-    pnl = [m * s for m, s, _ in fills]                          # ideal markout
-    live = [m * min(s, OUR_RESTING_SIZE) for m, s, _ in fills]   # capped markout
-    # rebate scales with the fraction of each fill we actually capture
-    reb_ideal = REBATE_FRAC * sum(f for _, _, f in fills)
-    reb_live = REBATE_FRAC * sum(f * (min(s, OUR_RESTING_SIZE) / s)
-                                 for _, s, f in fills if s)
-    total = sum(pnl)
-    sw = total / sum(s for _, s, _ in fills)
-    mean = st.mean(pnl)
-    se = st.pstdev(pnl) / len(pnl) ** 0.5 if len(pnl) > 1 else float("inf")
+    honest stats — ideal vs live-realistic P&L, plus effective sample size,
+    significance, and outlier concentration all computed on the SAME quantity
+    we gate on: the per-fill NET LIVE P&L (capped markout + capped rebate)."""
+    net_live = []          # per-fill realistic P&L — the thing we actually judge
+    mo_ideal = mo_live = reb_ideal = reb_live = 0.0
+    for m, s, f in fills:
+        cap = min(s, OUR_RESTING_SIZE) / s if s else 0.0
+        mo_l, rb_l = m * min(s, OUR_RESTING_SIZE), REBATE_FRAC * f * cap
+        net_live.append(mo_l + rb_l)
+        mo_live += mo_l
+        reb_live += rb_l
+        mo_ideal += m * s
+        reb_ideal += REBATE_FRAC * f
+    total = sum(net_live)
+    mean = st.mean(net_live)
+    se = st.pstdev(net_live) / len(net_live) ** 0.5 if len(net_live) > 1 else float("inf")
     t = mean / se if se else 0.0
-    top3 = sum(sorted(pnl, key=abs, reverse=True)[:3])
-    # Kish effective sample size: how many independent bets the P&L really is
-    absp = [abs(p) for p in pnl]
-    eff = (sum(absp) ** 2) / sum(p * p for p in absp) if any(absp) else 0.0
-    # live significance uses the capped per-fill pnl
-    lmean = st.mean(live)
-    lse = st.pstdev(live) / len(live) ** 0.5 if len(live) > 1 else float("inf")
-    lt = lmean / lse if lse else 0.0
+    # Kish effective sample size on the SAME distribution we gate on
+    absn = [abs(p) for p in net_live]
+    eff = (sum(absn) ** 2) / sum(p * p for p in absn) if any(absn) else 0.0
+    top3 = sum(sorted(net_live, key=abs, reverse=True)[:3])
     return {
-        "n": len(pnl),
+        "n": len(net_live),
         "eff_n": round(eff, 1),
-        "mo_ideal": round(total, 2),
-        "mo_live": round(sum(live), 2),
+        "mo_ideal": round(mo_ideal, 2),
+        "mo_live": round(mo_live, 2),
         "rebate_live": round(reb_live, 2),
-        "net_live": round(sum(live) + reb_live, 2),
-        "net_ideal": round(total + reb_ideal, 2),
-        "per_share": round(sw, 6),
-        "adverse_pct": round(sum(1 for p in pnl if p < 0) / len(pnl), 3),
-        "t_live": round(lt, 2),
+        "net_live": round(total, 2),
+        "net_ideal": round(mo_ideal + reb_ideal, 2),
+        "per_share": round(mo_ideal / sum(s for _, s, _ in fills), 6),
+        "adverse_pct": round(sum(1 for m, _, _ in fills if m < 0) / len(fills), 3),
+        "t_live": round(t, 2),
         "top3_share": round(top3 / total, 3) if total else 0.0,
-        "significant": abs(lt) >= 2,   # markout significance (rebate is deterministic)
+        # a t-stat is meaningless on a handful of effective bets: require BOTH a
+        # real effective-N and |t|>=2 before ever calling a day significant.
+        "significant": abs(t) >= 2 and eff >= MIN_EFF,
     }
 
 
