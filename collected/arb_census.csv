@@ -60,3 +60,7 @@ ts,event,type,edge_pershare,exec_size,pool_dollars,n_legs,near_res,edge_recheck
 2026-08-07T01:49:42+00:00,Eurozone Annual Inflation 2026,BUY-ALL,0.039,27.8,1.08,9,0,0.039
 2026-08-07T01:49:42+00:00,Where will 2026 rank among the hottest years on record?,BUY-ALL,0.027,10.0,0.27,6,0,0.027
 2026-08-07T01:49:42+00:00,Mexico Annual Inflation 2026,SELL-ALL,0.023,9.0,0.21,8,0,0.023
+2026-08-07T12:05:43+00:00,Where will 2026 rank among the hottest years on record?,BUY-ALL,0.016,156.5,2.5,6,0,0.016
+2026-08-07T12:05:43+00:00,Eurozone Annual Inflation 2026,BUY-ALL,0.026,9.6,0.25,9,0,0.026
+2026-08-07T12:05:43+00:00,Mexico Annual Inflation 2026,SELL-ALL,0.015,15.4,0.23,8,0,0.016
+2026-08-07T12:05:43+00:00,South Africa Annual Inflation 2026,BUY-ALL,0.005,5.4,0.03,10,0,0.005
