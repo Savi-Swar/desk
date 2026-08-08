@@ -4236,17 +4236,30 @@ t0,q,reward,fill_pnl,event
 2026-08-07T23:31:06+00:00,Iran leadership change by December 31?,0.10774999999999998,0.0625,
 2026-08-07T23:31:06+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.07433333333333333,0.0625,
 2026-08-07T23:31:06+00:00,Will Real Madrid win the 2026-27 LALIGA Championship?,0.003345,0.0625,
-2026-08-07T23:31:06+00:00,Fed rate hike in 2026?,0.3243824074074074,0.0625,
-2026-08-07T23:31:06+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.38925888888888893,0.0625,
-2026-08-07T23:31:06+00:00,Will there be no change in Fed interest rates after the Sept,0.38925888888888893,0.0625,
-2026-08-07T23:31:06+00:00,Strait of Hormuz traffic returns to normal by August 31?,0.6269453703703703,0.0625,
-2026-08-07T23:31:06+00:00,Will the U.S. invade Iran before 2027?,0.3761672222222222,0.0625,
-2026-08-07T23:31:06+00:00,US x Iran Effective Ceasefire by July 31?,0.5015562962962963,-0.7500000000000062,ask-run
-2026-08-07T23:31:06+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.3243824074074074,0.0625,
-2026-08-07T23:31:06+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.016678783333333332,-0.9000000000000008,bid-run
-2026-08-07T23:31:06+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.2595059259259259,0.0625,
-2026-08-07T23:31:06+00:00,Will Alphabet be the largest company in the world by market ,0.009731472222222223,0.0625,
-2026-08-07T23:31:06+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.11491574074074075,0.125,
-2026-08-07T23:31:06+00:00,Will no Fed rate cuts happen in 2026?,0.0834404648148148,-0.15000000000000568,bid-run
-2026-08-07T23:31:06+00:00,Iran leadership change by December 31?,0.1880836111111111,0.0625,
-2026-08-07T23:31:06+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.12975296296296296,0.0625,
+2026-08-07T23:51:09+00:00,Fed rate hike in 2026?,0.20018379629629632,0.0625,
+2026-08-07T23:51:09+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.24022055555555558,0.0625,
+2026-08-07T23:51:09+00:00,Will there be no change in Fed interest rates after the Sept,0.24022055555555558,0.0625,
+2026-08-07T23:51:09+00:00,Strait of Hormuz traffic returns to normal by August 31?,0.3869023148148148,0.0625,
+2026-08-07T23:51:09+00:00,Will the U.S. invade Iran before 2027?,0.23214138888888888,0.0625,
+2026-08-07T23:51:09+00:00,US x Iran Effective Ceasefire by July 31?,0.3095218518518519,0.0625,
+2026-08-07T23:51:09+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.1772928240740741,0.125,
+2026-08-07T23:51:09+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.009102527777777779,-2.100000000000002,bid-run
+2026-08-07T23:51:09+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.16014703703703706,0.0625,
+2026-08-07T23:51:09+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.08007351851851853,0.0625,
+2026-08-07T23:51:09+00:00,Will no Fed rate cuts happen in 2026?,0.050347571296296294,-0.10000000000000009,bid-run
+2026-08-07T23:51:09+00:00,Iran leadership change by December 31?,0.11607069444444444,0.0625,
+2026-08-07T23:51:09+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.08007351851851853,0.0625,
+2026-08-08T00:23:28+00:00,Fed rate hike in 2026?,0.7831842592592592,0.0625,
+2026-08-08T00:23:28+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.9398211111111111,0.0625,
+2026-08-08T00:23:28+00:00,Will there be no change in Fed interest rates after the Sept,0.9398211111111111,0.0625,
+2026-08-08T00:23:28+00:00,Strait of Hormuz traffic returns to normal by August 31?,1.5136879629629627,0.0625,
+2026-08-08T00:23:28+00:00,Will the U.S. invade Iran before 2027?,0.9082127777777776,0.0625,
+2026-08-08T00:23:28+00:00,US x Iran Effective Ceasefire by July 31?,1.2109503703703703,0.0625,
+2026-08-08T00:23:28+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.7831842592592592,0.0625,
+2026-08-08T00:23:28+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.04008112268518518,-1.4000000000000012,bid-run
+2026-08-08T00:23:28+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.6265474074074073,0.0625,
+2026-08-08T00:23:28+00:00,Will Alphabet be the largest company in the world by market ,0.02349552777777778,0.0625,
+2026-08-08T00:23:28+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.31327370370370367,-1.750000000000007,bid-run
+2026-08-08T00:23:28+00:00,Will no Fed rate cuts happen in 2026?,0.20145746851851848,-0.15000000000000568,ask-run
+2026-08-08T00:23:28+00:00,Iran leadership change by December 31?,0.4541063888888888,0.0625,
+2026-08-08T00:23:28+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.31327370370370367,0.0625,
