@@ -4364,39 +4364,73 @@ t0,q,reward,fill_pnl,event
 2026-08-08T10:01:22+00:00,Will no Fed rate cuts happen in 2026?,0.04149424722222222,0.0375,
 2026-08-08T10:01:22+00:00,"Putin out as President of Russia by June 30, 2027?",6.832472222222222e-07,0.0625,
 2026-08-08T10:01:22+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.13664944444444443,0.0625,
-2026-08-08T10:56:31+00:00,Fed rate hike in 2026?,0.34358518518518516,0.0625,
-2026-08-08T10:56:31+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.4123022222222222,0.0625,
-2026-08-08T10:56:31+00:00,Will there be no change in Fed interest rates after the Sept,0.4123022222222222,0.0625,
-2026-08-08T10:56:31+00:00,Strait of Hormuz traffic returns to normal by August 31?,0.6640592592592591,-0.7499999999999993,bid-run
-2026-08-08T10:56:31+00:00,US x Iran Effective Ceasefire by July 31?,0.5312474074074074,0.0625,
+2026-08-08T10:56:31+00:00,Fed rate hike in 2026?,0.317775,0.0625,
+2026-08-08T10:56:31+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.38133,0.0625,
+2026-08-08T10:56:31+00:00,Will there be no change in Fed interest rates after the Sept,0.38133,0.0625,
+2026-08-08T10:56:31+00:00,Strait of Hormuz traffic returns to normal by August 31?,0.6141749999999999,-0.7499999999999993,bid-run
+2026-08-08T10:56:31+00:00,US x Iran Effective Ceasefire by July 31?,0.49133999999999994,0.0625,
 2026-08-08T10:56:31+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.0,0.0,pulled
-2026-08-08T10:56:31+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.34358518518518516,0.0625,
-2026-08-08T10:56:31+00:00,Will the U.S. invade Iran before 2027?,0.19921777777777774,0.0625,
-2026-08-08T10:56:31+00:00,Iran leadership change by December 31?,0.19921777777777774,0.0625,
-2026-08-08T10:56:31+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.014290370370370368,-1.5000000000000013,bid-run
-2026-08-08T10:56:31+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.03435851851851852,-0.7500000000000007,bid-run
-2026-08-08T10:56:31+00:00,Will Alphabet be the largest company in the world by market ,0.010307555555555554,0.0625,
+2026-08-08T10:56:31+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.317775,0.0625,
+2026-08-08T10:56:31+00:00,Will the U.S. invade Iran before 2027?,0.18425249999999999,0.0625,
+2026-08-08T10:56:31+00:00,Iran leadership change by December 31?,0.18425249999999999,0.0625,
+2026-08-08T10:56:31+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.013216875,-1.5000000000000013,bid-run
+2026-08-08T10:56:31+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.0317775,-0.7500000000000007,bid-run
+2026-08-08T10:56:31+00:00,Will Alphabet be the largest company in the world by market ,0.00953325,0.0625,
 2026-08-08T10:56:31+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.0,0.0,pulled
-2026-08-08T10:56:31+00:00,LoL: Nongshim Red Force vs DN SOOPers (BO3) - LCK Round 3-4 ,6.871703703703704e-07,-7.750000000000002,ask-run
-2026-08-08T10:56:31+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.27486814814814814,-0.7500000000000007,bid-run
-2026-08-08T10:56:31+00:00,"NATO x Russia military clash by December 31, 2026?",0.002061511111111111,-0.7499999999999979,ask-run
-2026-08-08T10:56:31+00:00,"Putin out as President of Russia by June 30, 2027?",6.871703703703704e-07,0.0625,
-2026-08-08T10:56:31+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.13743407407407407,0.0625,
-2026-08-08T11:51:59+00:00,Strait of Hormuz traffic returns to normal by August 31?,0.35916666666666663,-0.5000000000000004,bid-run
+2026-08-08T10:56:31+00:00,LoL: Nongshim Red Force vs DN SOOPers (BO3) - LCK Round 3-4 ,6.3555e-07,-9.750000000000004,ask-run
+2026-08-08T10:56:31+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.25422,-0.7500000000000007,bid-run
+2026-08-08T10:56:31+00:00,"NATO x Russia military clash by December 31, 2026?",0.0019066499999999998,-0.7499999999999979,ask-run
+2026-08-08T10:56:31+00:00,"Putin out as President of Russia by June 30, 2027?",6.3555e-07,0.0625,
+2026-08-08T10:56:31+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.12711,0.0625,
+2026-08-08T11:47:49+00:00,Fed rate hike in 2026?,0.18583333333333332,0.0625,
+2026-08-08T11:47:49+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.223,0.0625,
+2026-08-08T11:47:49+00:00,Will there be no change in Fed interest rates after the Sept,0.223,0.0625,
+2026-08-08T11:47:49+00:00,Strait of Hormuz traffic returns to normal by August 31?,0.35916666666666663,0.0625,
+2026-08-08T11:47:49+00:00,US x Iran Effective Ceasefire by July 31?,0.28733333333333333,0.0625,
+2026-08-08T11:47:49+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.0,0.0,pulled
+2026-08-08T11:47:49+00:00,LoL: Nongshim Red Force vs DN SOOPers (BO3) - LCK Round 3-4 ,0.0,0.0,pulled
+2026-08-08T11:47:49+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.18583333333333332,0.0625,
+2026-08-08T11:47:49+00:00,Will the U.S. invade Iran before 2027?,0.10774999999999998,0.0625,
+2026-08-08T11:47:49+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.004536458333333333,0.075,
+2026-08-08T11:47:49+00:00,Iran leadership change by December 31?,0.10774999999999998,0.0625,
+2026-08-08T11:47:49+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.018583333333333334,0.0625,
+2026-08-08T11:47:49+00:00,Will Alphabet be the largest company in the world by market ,0.005575,0.0625,
+2026-08-08T11:47:49+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.06583333333333333,0.125,
+2026-08-08T11:47:49+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.14866666666666667,0.0625,
+2026-08-08T11:47:49+00:00,"NATO x Russia military clash by December 31, 2026?",0.0011149999999999999,0.0625,
+2026-08-08T11:47:49+00:00,"Putin out as President of Russia by June 30, 2027?",3.7166666666666667e-07,0.0625,
+2026-08-08T11:47:49+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.07433333333333333,0.0625,
+2026-08-08T11:51:59+00:00,Strait of Hormuz traffic returns to normal by August 31?,0.35916666666666663,-0.7500000000000007,bid-run
 2026-08-08T11:51:59+00:00,Fed rate hike in 2026?,0.18583333333333332,0.0625,
 2026-08-08T11:51:59+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.223,0.0625,
 2026-08-08T11:51:59+00:00,Will there be no change in Fed interest rates after the Sept,0.223,0.0625,
 2026-08-08T11:51:59+00:00,US x Iran Effective Ceasefire by July 31?,0.28733333333333333,0.0625,
 2026-08-08T11:51:59+00:00,LoL: Nongshim Red Force vs DN SOOPers (BO3) - LCK Round 3-4 ,0.0,0.0,pulled
-2026-08-08T11:51:59+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.0,0.0,pulled
+2026-08-08T11:51:59+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.049375,-0.5000000000000004,ask-run
 2026-08-08T11:51:59+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.18583333333333332,0.0625,
 2026-08-08T11:51:59+00:00,Will the U.S. invade Iran before 2027?,0.10774999999999998,0.0625,
 2026-08-08T11:51:59+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.004536458333333333,0.075,
 2026-08-08T11:51:59+00:00,Iran leadership change by December 31?,0.10774999999999998,0.0625,
 2026-08-08T11:51:59+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.018583333333333334,0.0625,
 2026-08-08T11:51:59+00:00,Will Alphabet be the largest company in the world by market ,0.005575,0.0625,
-2026-08-08T11:51:59+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.06583333333333333,-0.5000000000000004,bid-run
+2026-08-08T11:51:59+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.06583333333333333,0.125,
 2026-08-08T11:51:59+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.14866666666666667,0.0625,
 2026-08-08T11:51:59+00:00,"NATO x Russia military clash by December 31, 2026?",0.0011149999999999999,0.0625,
 2026-08-08T11:51:59+00:00,"Putin out as President of Russia by June 30, 2027?",3.7166666666666667e-07,0.0625,
 2026-08-08T11:51:59+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.07433333333333333,0.0625,
+2026-08-08T12:20:05+00:00,Fed rate hike in 2026?,0.3034245370370371,0.0625,
+2026-08-08T12:20:05+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.36410944444444454,0.0625,
+2026-08-08T12:20:05+00:00,Will there be no change in Fed interest rates after the Sept,0.36410944444444454,0.0625,
+2026-08-08T12:20:05+00:00,US x Iran Effective Ceasefire by July 31?,0.46915148148148156,0.0625,
+2026-08-08T12:20:05+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.18205472222222227,-1.0000000000000009,bid-run
+2026-08-08T12:20:05+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.3034245370370371,0.0625,
+2026-08-08T12:20:05+00:00,Will the U.S. invade Iran before 2027?,0.17593180555555557,0.0625,
+2026-08-08T12:20:05+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.006776027777777778,-0.10000000000000009,ask-run
+2026-08-08T12:20:05+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.03034245370370371,0.0625,
+2026-08-08T12:20:05+00:00,Iran leadership change by December 31?,0.17593180555555557,0.0625,
+2026-08-08T12:20:05+00:00,Will Alphabet be the largest company in the world by market ,0.009102736111111112,0.0625,
+2026-08-08T12:20:05+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.12136981481481483,-2.5000000000000133,bid-run
+2026-08-08T12:20:05+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.24273962962962967,0.0625,
+2026-08-08T12:20:05+00:00,"NATO x Russia military clash by December 31, 2026?",0.0018205472222222224,0.0625,
+2026-08-08T12:20:05+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.12136981481481483,0.0625,
+2026-08-08T12:20:05+00:00,"Putin out as President of Russia by June 30, 2027?",6.068490740740742e-07,0.0625,
