@@ -4785,22 +4785,6 @@ t0,q,reward,fill_pnl,event
 2026-08-09T10:02:53+00:00,"US announces end of Iranian blockade by September 30, 2026?",0.05311027777777778,-0.2500000000000058,bid-run
 2026-08-09T10:02:53+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.01494281388888889,-1.0000000000000009,bid-run
 2026-08-09T10:02:53+00:00,"US announces end of Iranian blockade by December 31, 2026?",0.0674975,0.075,
-2026-08-09T10:57:59+00:00,US x Iran Effective Ceasefire by July 31?,0.5227870370370371,0.0625,
-2026-08-09T10:57:59+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.27049074074074075,0.0625,
-2026-08-09T10:57:59+00:00,Will the U.S. invade Iran before 2027?,0.3920902777777778,0.0625,
-2026-08-09T10:57:59+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.06762268518518519,0.0625,
-2026-08-09T10:57:59+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.27049074074074075,0.0625,
-2026-08-09T10:57:59+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $85 in August?,0.0598900462962963,0.125,
-2026-08-09T10:57:59+00:00,Will there be no change in Fed interest rates after the Sept,0.40573611111111113,0.0625,
-2026-08-09T10:57:59+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.033811342592592594,-0.7500000000000007,bid-run
-2026-08-09T10:57:59+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.40573611111111113,0.0625,
-2026-08-09T10:57:59+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.13524537037037038,0.0625,
-2026-08-09T10:57:59+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.13524537037037038,-4.75000000000001,bid-run
-2026-08-09T10:57:59+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $80 in August?,0.02994502314814815,0.125,
-2026-08-09T10:57:59+00:00,US-Iran 60 day negotiation period extended?,0.06762268518518519,-0.7500000000000062,bid-run
-2026-08-09T10:57:59+00:00,"US announces end of Iranian blockade by September 30, 2026?",0.06762268518518519,-3.2500000000000084,bid-run
-2026-08-09T10:57:59+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.012300202546296298,-0.7000000000000006,bid-run
-2026-08-09T10:57:59+00:00,"US announces end of Iranian blockade by December 31, 2026?",0.06838078703703704,-7.950000000000001,bid-run
 2026-08-09T10:57:59+00:00,US x Iran Effective Ceasefire by July 31?,0.48703,0.0625,
 2026-08-09T10:57:59+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.25199000000000005,0.0625,
 2026-08-09T10:57:59+00:00,Israel x Iran ceasefire continues through August 31?,0.11441250000000001,0.0625,
@@ -4817,6 +4801,21 @@ t0,q,reward,fill_pnl,event
 2026-08-09T10:57:59+00:00,"US announces end of Iranian blockade by September 30, 2026?",0.06299750000000001,-3.2500000000000084,bid-run
 2026-08-09T10:57:59+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.011458906250000001,-0.5000000000000004,bid-run
 2026-08-09T10:57:59+00:00,"US announces end of Iranian blockade by December 31, 2026?",0.06370375,-3.2500000000000084,bid-run
+2026-08-09T11:48:50+00:00,US x Iran Effective Ceasefire by July 31?,0.28733333333333333,0.0625,
+2026-08-09T11:48:50+00:00,Will the U.S. invade Iran before 2027?,0.21549999999999997,0.0625,
+2026-08-09T11:48:50+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.14866666666666667,0.0625,
+2026-08-09T11:48:50+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.14866666666666667,0.0625,
+2026-08-09T11:48:50+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.03716666666666667,0.0625,
+2026-08-09T11:48:50+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $85 in August?,0.03716666666666667,0.0625,
+2026-08-09T11:48:50+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.018583333333333334,0.0625,
+2026-08-09T11:48:50+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.07433333333333333,0.0625,
+2026-08-09T11:48:50+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.223,0.0625,
+2026-08-09T11:48:50+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $80 in August?,0.016458333333333332,0.125,
+2026-08-09T11:48:50+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.07433333333333333,-0.7500000000000062,bid-run
+2026-08-09T11:48:50+00:00,US-Iran 60 day negotiation period extended?,0.03716666666666667,-0.7500000000000062,bid-run
+2026-08-09T11:48:50+00:00,"US announces end of Iranian blockade by September 30, 2026?",0.032916666666666664,0.125,
+2026-08-09T11:48:50+00:00,Will the total domestic gross for Spider-Man: Brand New Day ,0.008229166666666666,0.125,
+2026-08-09T11:48:50+00:00,"US announces end of Iranian blockade by December 31, 2026?",0.027416666666666666,-3.849999999999998,bid-run
 2026-08-09T11:52:34+00:00,US x Iran Effective Ceasefire by July 31?,0.28733333333333333,0.0625,
 2026-08-09T11:52:34+00:00,Will the U.S. invade Iran before 2027?,0.21549999999999997,0.0625,
 2026-08-09T11:52:34+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.14866666666666667,-0.7500000000000007,bid-run
@@ -4833,3 +4832,21 @@ t0,q,reward,fill_pnl,event
 2026-08-09T11:52:34+00:00,US-Iran 60 day negotiation period extended?,0.03716666666666667,0.0625,
 2026-08-09T11:52:34+00:00,"US announces end of Iranian blockade by September 30, 2026?",0.032916666666666664,-3.9999999999999925,bid-run
 2026-08-09T11:52:34+00:00,"US announces end of Iranian blockade by December 31, 2026?",0.03129166666666666,-4.799999999999994,ask-run
+2026-08-09T12:21:39+00:00,US x Iran Effective Ceasefire by July 31?,0.5519992592592593,0.0625,
+2026-08-09T12:21:39+00:00,Will the U.S. invade Iran before 2027?,0.4139994444444444,0.0625,
+2026-08-09T12:21:39+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.2856051851851852,0.0625,
+2026-08-09T12:21:39+00:00,Israel x Iran ceasefire continues through August 31?,0.129675,0.0625,
+2026-08-09T12:21:39+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.2856051851851852,0.0625,
+2026-08-09T12:21:39+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.0714012962962963,0.0625,
+2026-08-09T12:21:39+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.4284077777777778,0.0625,
+2026-08-09T12:21:39+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $85 in August?,0.06323657407407407,0.125,
+2026-08-09T12:21:39+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.03570064814814815,-0.7500000000000007,ask-run
+2026-08-09T12:21:39+00:00,Will there be no change in Fed interest rates after the Sept,0.4284077777777778,0.0625,
+2026-08-09T12:21:39+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.1428025925925926,-0.7499999999999951,bid-run
+2026-08-09T12:21:39+00:00,Mojtaba Khamenei seen in public by December 31?,0.0714012962962963,-2.7500000000000027,bid-run
+2026-08-09T12:21:39+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $80 in August?,0.031618287037037035,0.125,
+2026-08-09T12:21:39+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.1428025925925926,-0.7499999999999951,ask-run
+2026-08-09T12:21:39+00:00,"US announces end of Iranian blockade by September 30, 2026?",0.0714012962962963,-4.249999999999998,ask-run
+2026-08-09T12:21:39+00:00,US-Iran 60 day negotiation period extended?,0.0714012962962963,0.0625,
+2026-08-09T12:21:39+00:00,Mojtaba Khamenei seen in public by August 31?,0.012727361111111111,-10.349999999999998,bid-run
+2026-08-09T12:21:39+00:00,"US announces end of Iranian blockade by December 31, 2026?",0.06723888888888889,-2.100000000000002,ask-run
