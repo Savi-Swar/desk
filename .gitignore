@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 collected/trades/
 collected/fill_model.csv
+collected/*.pre_fee.csv

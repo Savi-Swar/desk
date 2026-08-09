@@ -44,6 +44,14 @@ OUR_RESTING_SIZE = 100.0   # shares we realistically rest per quote (~$50-100)
 # so it's capped the same way markout is.
 REBATE_FRAC = 0.20
 MIN_EFF = 30       # min effective (Kish) sample size before a day can be "significant"
+# Near-mid repricing: the raw markout books the fill at the taker's TOUCH, which
+# on wide books is far from mid and credits a spread a reward-maker never earns
+# (rewards require quoting near mid). We reprice: a maker resting QUOTE_OFFSET
+# from mid captures only that offset, not the full effective half-spread. So we
+# subtract the un-earnable part, max(eff_half - QUOTE_OFFSET, 0), from each
+# fill's markout. (Confirmed empirically: at 0.1c off mid the markout edge ~$0 —
+# the whole "markout edge" was the fill-at-touch artifact. See MARKOUT_DECOMP.md)
+QUOTE_OFFSET = 0.001   # 1 tick — a competitive near-mid reward quote
 
 
 def num(x):
@@ -57,16 +65,29 @@ def day_of(ts):
     return dt.datetime.fromtimestamp(float(ts), dt.timezone.utc).strftime("%Y-%m-%d")
 
 
+def reprice(m, eff):
+    """Near-mid markout. A near-mid maker captures only its own small offset, not
+    the taker's full crossing distance: captured = min(QUOTE_OFFSET, eff_half),
+    and it can't be negative (a wrong-side/stale mid isn't spread we'd earn). The
+    repriced markout keeps the adverse-selection part and strips the un-earnable
+    spread: m - (eff_half - captured). Falls back to raw m if eff_half is absent."""
+    if eff is None:
+        return m
+    captured = min(QUOTE_OFFSET, max(eff, 0.0))
+    return m - (eff - captured)
+
+
 def summarize(fills):
-    """fills: list of (markout, size, fee) at the primary horizon. Returns the
-    honest stats — ideal vs live-realistic P&L, plus effective sample size,
-    significance, and outlier concentration all computed on the SAME quantity
-    we gate on: the per-fill NET LIVE P&L (capped markout + capped rebate)."""
+    """fills: list of (markout, size, fee, eff_half) at the primary horizon.
+    Returns the honest stats — ideal vs live-realistic P&L, effective sample
+    size, significance, concentration — all on the per-fill NET LIVE P&L, where
+    markout is repriced to a near-mid quote (not the taker's touch)."""
     net_live = []          # per-fill realistic P&L — the thing we actually judge
     mo_ideal = mo_live = reb_ideal = reb_live = 0.0
-    for m, s, f in fills:
+    for m, s, f, eff in fills:
         cap = min(s, OUR_RESTING_SIZE) / s if s else 0.0
-        mo_l, rb_l = m * min(s, OUR_RESTING_SIZE), REBATE_FRAC * f * cap
+        mo_r = reprice(m, eff)                       # near-mid markout, per share
+        mo_l, rb_l = mo_r * min(s, OUR_RESTING_SIZE), REBATE_FRAC * f * cap
         net_live.append(mo_l + rb_l)
         mo_live += mo_l
         reb_live += rb_l
@@ -88,8 +109,8 @@ def summarize(fills):
         "rebate_live": round(reb_live, 2),
         "net_live": round(total, 2),
         "net_ideal": round(mo_ideal + reb_ideal, 2),
-        "per_share": round(mo_ideal / sum(s for _, s, _ in fills), 6),
-        "adverse_pct": round(sum(1 for m, _, _ in fills if m < 0) / len(fills), 3),
+        "per_share": round(mo_ideal / sum(s for _, s, _, _ in fills), 6),
+        "adverse_pct": round(sum(1 for m, _, _, _ in fills if m < 0) / len(fills), 3),
         "t_live": round(t, 2),
         "top3_share": round(top3 / total, 3) if total else 0.0,
         # a t-stat is meaningless on a handful of effective bets: require BOTH a
@@ -112,8 +133,9 @@ def main():
         m, s, ts = num(r.get(PRIMARY)), num(r.get("size")), r.get("t")
         if m is None or not s or ts is None:
             continue
+        eff = num(r.get("eff_half"))     # may be absent on pre-repricing rows
         try:
-            days.setdefault(day_of(ts), []).append((m, s, fee))
+            days.setdefault(day_of(ts), []).append((m, s, fee, eff))
         except (ValueError, OverflowError, OSError):
             continue
     if not days:
@@ -136,12 +158,13 @@ def main():
             w.writerow({k: o[k] for k in fields})
 
     print(f"maker P&L (real fills, {PRIMARY}) — live = fill capped at "
-          f"{OUR_RESTING_SIZE:.0f} sh, rebate @ {REBATE_FRAC:.0%} of taker fee:")
+          f"{OUR_RESTING_SIZE:.0f} sh, markout repriced to a {QUOTE_OFFSET*100:.1f}c "
+          f"near-mid quote, rebate @ {REBATE_FRAC:.0%} of taker fee:")
     for o in out:
-        flag = "" if o["significant"] else "  [markout NOT significant]"
+        flag = "" if o["significant"] else "  [net NOT significant]"
         print(f"  {o['date']}  n={o['n']:5d} (eff {o['eff_n']:5.1f})  "
               f"markout {o['mo_live']:+7.2f} + rebate {o['rebate_live']:+6.2f} "
-              f"= NET LIVE {o['net_live']:+7.2f}  (t_mo {o['t_live']:+.2f}){flag}")
+              f"= NET LIVE {o['net_live']:+7.2f}  (t_net {o['t_live']:+.2f}){flag}")
     tl = sum(o["net_live"] for o in out)
     sig = [o for o in out if o["significant"]]
     print(f"  ── net-live {tl:+.2f} over {len(out)} day(s); markout significant on "

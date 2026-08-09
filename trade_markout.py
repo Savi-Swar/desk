@@ -105,10 +105,18 @@ def main():
                 continue
             fee = d.get("fee")
             series = mids[a]
+            passive_sold = d.get("side") == "BUY"   # aggressor bought => maker sold
+            # effective half-spread = how far the fill price sat from the mid AT
+            # fill (the spread a touch-quoter captures). Stored so downstream can
+            # reprice the edge for a near-mid quoter, who captures only its own
+            # small offset, not this. Without it, wide-book fills fake spread P&L.
+            mid0 = mid_at(series, t)
+            eff_half = None
+            if mid0 is not None:
+                eff_half = round((px - mid0) if passive_sold else (mid0 - px), 5)
             row = {"t": round(t, 1), "asset": a[:16], "side": d.get("side"),
                    "price": px, "size": d.get("size"),
-                   "fee": fee, "slug": d.get("slug")}
-            passive_sold = d.get("side") == "BUY"   # aggressor bought => maker sold
+                   "fee": fee, "slug": d.get("slug"), "eff_half": eff_half}
             for h in MARKOUTS:
                 m = mid_at(series, t + h)
                 if m is None:
@@ -124,7 +132,7 @@ def main():
     import statistics as st
     OUT.parent.mkdir(exist_ok=True)
     import csv
-    FIELDS = ["t", "asset", "side", "price", "size", "fee", "slug",
+    FIELDS = ["t", "asset", "side", "price", "size", "fee", "slug", "eff_half",
               "mo_5s", "mo_30s", "mo_300s"]
     # self-heal against schema drift: if an older run left a file whose header
     # doesn't match FIELDS (e.g. pre-fee, receive-time rows), archive it and
