@@ -17633,3 +17633,579 @@ ts,wallet,title,outcome,size,avgPrice,curPrice
 2026-08-09T11:48+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Inter Milan win the 2026-27 Serie A Championship?,No,2700.3591,0.49,0.495
 2026-08-09T11:48+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Erling Haaland be the #1 searched person on Google this,Yes,9810.4469,0.0107,0.115
 2026-08-09T11:48+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Donald Trump be the #1 searched person on Google this y,No,1157.21,0.9,0.905
+2026-08-09T23:51+00:00,0x6d20c35f65d9899b6d6b74f8466e824580f9a165,National Bank Open: Joao Fonseca vs Ben Shelton,Joao Fonseca,93776.2285,0.3665,0.155
+2026-08-09T23:51+00:00,0x6d20c35f65d9899b6d6b74f8466e824580f9a165,National Bank Open: Leylah Fernandez vs Naomi Osaka,Leylah Fernandez,89999.9933,0.25,0.145
+2026-08-09T23:51+00:00,0x6d20c35f65d9899b6d6b74f8466e824580f9a165,Detroit Tigers vs. San Francisco Giants,San Francisco Giants,17506.5228,0.5397,0.0005
+2026-08-09T23:51+00:00,0x6d20c35f65d9899b6d6b74f8466e824580f9a165,Counter-Strike: 100 Thieves vs BC.Game Esports (BO3) - Espor,BC.Game Esports,39006.8791,0.595,0.0
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,National Bank Open: Joao Fonseca vs Ben Shelton,Ben Shelton,43374.8436,0.5907,0.845
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Seattle Sounders FC win on 2026-08-09?,Yes,34784.7796,0.5483,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: Sport Lisboa e Benfica (-2.5),Académico de Viseu FC,25217.899,0.6379,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Red Bull Bragantino vs. SC Corinthians Paulista: O/U 1.5,Over,22360.3482,0.9764,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will SE Palmeiras win on 2026-08-09?,No,18302.9997,0.4994,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,EC Bahia vs. CR Vasco da Gama: Both Teams to Score,No,12451.0145,0.5923,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,CR Flamengo vs. EC Vitória: O/U 2.5,Under,18846.1537,0.4336,0.655
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will CR Vasco da Gama win on 2026-08-09?,No,11600.4021,0.7475,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Santos FC vs. CA Paranaense: Both Teams to Score,No,11581.8136,0.4367,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Santos FC vs. CA Paranaense: O/U 2.5,Under,11027.1799,0.4382,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will CSyD Defensa y Justicia win on 2026-08-09?,Yes,10871.412,0.8528,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will SE Palmeiras vs. SC Internacional end in a draw?,Yes,10347.7052,0.4053,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,SE Palmeiras vs. SC Internacional: O/U 0.5,Under,9633.3257,0.2603,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Red Bull Bragantino vs. SC Corinthians Paulista: Both Teams ,No,8903.5088,0.7118,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will EC Vitória win on 2026-08-09?,No,8767.6709,0.9595,0.9875
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will EC Bahia win on 2026-08-09?,No,8466.4511,0.6868,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,National Bank Open: Leylah Fernandez vs Naomi Osaka,Naomi Osaka,9781.1398,0.7202,0.855
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will New York City FC win on 2026-08-09?,No,11809.981,0.695,0.705
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Santos FC vs. CA Paranaense: O/U 3.5,Under,7371.826,0.6259,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,SE Palmeiras vs. SC Internacional: Both Teams to Score,No,7352.9283,0.7233,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: Málaga CF (-2.5),Club Atlético de Madrid,7590.0705,0.9899,0.9385
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,SE Palmeiras vs. SC Internacional: O/U 1.5,Under,6881.1933,0.614,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Red Bull Bragantino vs. SC Corinthians Paulista: O/U 2.5,Under,6662.6561,0.6934,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,CR Flamengo vs. EC Vitória: Both Teams to Score,No,8241.7808,0.7113,0.79
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,SE Palmeiras vs. SC Internacional: O/U 2.5,Under,6010.2519,0.6359,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will EC Juventude win on 2026-08-09?,Yes,5956.3208,0.4543,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will HNK Hajduk Split win on 2026-08-09?,No,5865.3376,0.4955,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will CA Bucaramanga win on 2026-08-10?,Yes,5837.8016,0.6624,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,CR Flamengo vs. EC Vitória: O/U 3.5,Under,6741.8781,0.6352,0.865
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,ITF Landisville: Hanne Vandewinkel vs Anastasia Zakharova,Hanne Vandewinkel,5817.0864,0.4672,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: San Francisco Giants (-1.5),Detroit Tigers,5760.9955,0.6567,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,CR Flamengo vs. EC Vitória: O/U 2.5,Over,15793.1413,0.5375,0.3449
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will SC Corinthians Paulista win on 2026-08-09?,Yes,5377.5737,0.6411,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,EC Bahia vs. CR Vasco da Gama: O/U 0.5,Under,5081.5414,0.3813,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,EC Bahia vs. CR Vasco da Gama: O/U 1.5,Under,4986.6743,0.7405,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Gimnasia y Esgrima de La Plata win on 2026-08-09?,Yes,4960.0294,0.795,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will EC Bahia vs. CR Vasco da Gama end in a draw?,Yes,4822.6098,0.5378,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will CD Unión La Calera win on 2026-08-09?,No,4782.0404,0.7447,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will NK Varaždin win on 2026-08-09?,Yes,4688.0883,0.5621,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Sport Lisboa e Benfica vs. Académico de Viseu FC end in,Yes,4616.4842,0.187,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,SE Palmeiras vs. SC Internacional: O/U 3.5,Under,4568.7514,0.7005,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will FC Argeș Pitești win on 2026-08-08?,Yes,4499.6455,0.4068,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: SE Palmeiras (-1.5),SC Internacional,4281.9684,0.6968,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Santos FC win on 2026-08-09?,No,4224.0537,0.6854,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Spread: Detroit Tigers (-2.5),San Francisco Giants,4136.1621,0.6721,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will CSD Colo-Colo win on 2026-08-09?,Yes,4070.5402,0.5222,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Racing Club win on 2026-08-09?,No,4431.284,0.7712,0.9145
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will Red Bull Bragantino vs. SC Corinthians Paulista end in ,No,3843.5597,0.7651,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,EC Bahia vs. CR Vasco da Gama: O/U 3.5,Under,3627.1908,0.7557,0.9995
+2026-08-09T23:51+00:00,0x204f72f35326db932158cba6adff0b9a1da95e14,Will CA Paranaense win on 2026-08-09?,Yes,3474.2494,0.7897,0.9995
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Manchester City win the 2026-27 English Premier League ,No,658497.4161,0.71,0.735
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Arsenal win the 2026-27 English Premier League (EPL) Ch,Yes,200000.0,0.0416,0.375
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Liverpool win the 2026-27 English Premier League (EPL) ,Yes,200000.0,0.0416,0.125
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Harry Kane win the 2026 Ballon d'Or?,No,47131.5495,0.464,0.418
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Chelsea win the 2026-27 English Premier League (EPL) Ch,Yes,200000.0,0.0416,0.095
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Manchester United win the 2026-27 English Premier Leagu,Yes,175120.2063,0.0416,0.105
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Lamine Yamal win the 2026 Ballon d'Or?,Yes,53716.3227,0.0747,0.177
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Tottenham win the 2026-27 English Premier League (EPL) ,Yes,200000.0,0.0416,0.0285
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Kylian Mbappé win the 2026 Ballon d'Or?,Yes,43379.2246,0.0247,0.0805
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Rodri win the 2026 Ballon d'Or?,Yes,37386.164,0.013,0.085
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Aston Villa win the 2026-27 English Premier League (EPL,Yes,200000.0,0.0416,0.0125
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Philadelphia 76ers win the 2027 NBA Finals?,No,2684.2027,0.857,0.8675
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will the Buffalo Bills win the 2027 NFL league championship?,Yes,18925.704,0.07,0.075
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Newcastle United win the 2026-27 English Premier League,Yes,200000.0,0.0416,0.0035
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Brighton win the 2026-27 English Premier League (EPL) C,Yes,200000.0,0.0416,0.0025
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will the Seattle Seahawks win the 2027 NFL league championsh,Yes,5821.6693,0.06,0.065
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Lionel Messi win the 2026 Ballon d'Or?,Yes,17914.3694,0.0112,0.02
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Fabian Ruiz win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0095
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Coventry City win the 2026-27 English Premier League (E,Yes,200000.0,0.0416,0.0015
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Leeds United win the 2026-27 English Premier League (EP,Yes,200000.0,0.0416,0.0015
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Nottingham Forest win the 2026-27 English Premier Leagu,Yes,200000.0,0.0416,0.0015
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Brentford win the 2026-27 English Premier League (EPL) ,Yes,200000.0,0.0416,0.0015
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Everton win the 2026-27 English Premier League (EPL) Ch,Yes,200000.0,0.0416,0.0015
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Bournemouth win the 2026-27 English Premier League (EPL,Yes,200000.0,0.0416,0.0015
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Crystal Palace win the 2026-27 English Premier League (,Yes,200000.0,0.0416,0.0015
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Sunderland win the 2026-27 English Premier League (EPL),Yes,200000.0,0.0416,0.0015
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Pau Cubarsi win the 2026 Ballon d'Or?,Yes,20287.9852,0.0112,0.0075
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Erling Haaland win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0035
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Hull City win the 2026-27 English Premier League (EPL) ,Yes,200000.0,0.0416,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Fulham win the 2026-27 English Premier League (EPL) Cha,Yes,200000.0,0.0416,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Ipswich Town win the 2026-27 English Premier League (EP,Yes,200000.0,0.0416,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Jude Bellingham win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0025
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Vitinha win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0015
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Declan Rice win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0015
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Bruno Fernandes win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Luis Diaz win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Raphinha win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Mohamed Salah win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Bukayo Saka win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Cristiano Ronaldo win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Julian Alvarez win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Desire Doue win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Federico Valverde win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Pedri win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Rodrygo win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Cole Palmer win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Enzo Fernandez win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Vinícius Júnior win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Lautaro Martinez win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0xf0318c32136c2db7fec88b84869aee6a1106c80c,Will Achraf Hakimi win the 2026 Ballon d'Or?,Yes,36728.2452,0.0112,0.0005
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Tampa Bay Rays vs. Seattle Mariners,Tampa Bay Rays,26152.4486,0.6071,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Detroit Tigers vs. San Francisco Giants,Detroit Tigers,21296.9083,0.6148,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,National Bank Open: Leylah Fernandez vs Naomi Osaka,Naomi Osaka,22828.37,0.7403,0.855
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,National Bank Open: Joao Fonseca vs Ben Shelton,Ben Shelton,20098.738,0.7057,0.845
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Cleveland Guardians vs. Chicago White Sox,Chicago White Sox,12636.4265,0.7729,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Spread: HNK Hajduk Split (-1.5),NK Istra 1961,10810.0,0.5346,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will SE Palmeiras win on 2026-08-09?,No,10273.6447,0.6701,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Colorado Rockies vs. St. Louis Cardinals,St. Louis Cardinals,8106.9668,0.6775,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will Gil Vicente FC win on 2026-08-09?,Yes,7577.345,0.4324,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will Once Caldas win on 2026-08-09?,Yes,22082.0161,0.4367,0.335
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will EC Vitória win on 2026-08-09?,No,7170.0,0.9797,0.9875
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will Club Nacional de Football win on 2026-08-09?,No,6710.0,0.33,0.995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,ITF Landisville: Hanne Vandewinkel vs Anastasia Zakharova,Hanne Vandewinkel,5635.7682,0.7091,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Spread: Detroit Tigers (-1.5),Detroit Tigers,4726.9534,0.537,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Randers FC vs. Lyngby BK: 1st Half O/U 1.5,Under,4647.1634,0.5892,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will Santos FC win on 2026-08-09?,No,4622.322,0.8572,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will Red Bull Bragantino win on 2026-08-09?,No,4387.5402,0.6539,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will EC Bahia win on 2026-08-09?,No,3796.3136,0.653,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will FC Argeș Pitești win on 2026-08-08?,Yes,3399.4307,0.483,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Cleveland Guardians vs. Chicago White Sox: O/U 10.5,Under,3389.41,0.512,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,National Bank Open: Leylah Fernandez vs Naomi Osaka,Leylah Fernandez,22181.0534,0.2027,0.145
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will CA Bucaramanga win on 2026-08-10?,Yes,3084.241,0.3902,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will Racing Club win on 2026-08-09?,No,3210.91,0.9276,0.9145
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,CR Flamengo vs. EC Vitória: O/U 2.5,Under,4345.7153,0.4494,0.655
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will SC Corinthians Paulista win on 2026-08-09?,Yes,2832.4654,0.4451,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,National Bank Open: Joao Fonseca vs Ben Shelton,Joao Fonseca,18204.9233,0.2892,0.155
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Cleveland Guardians vs. Chicago White Sox: O/U 9.5,Under,2792.8993,0.4601,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will CR Flamengo win on 2026-08-09?,Yes,2944.81,0.7946,0.9
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,National Bank Open: Jaume Munar vs Alexander Blockx,Alexander Blockx,5241.0,0.5,0.5
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Tampa Bay Rays vs. Seattle Mariners: O/U 9.5,Under,2595.85,0.8347,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will CR Vasco da Gama win on 2026-08-09?,No,2538.4868,0.7573,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will Quilmes AC win on 2026-08-09?,No,2486.1904,0.1556,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,National Bank Open: Alexandra Eala vs Belinda Bencic,Alexandra Eala,5000.0,0.48,0.475
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Cleveland Guardians vs. Chicago White Sox: O/U 7.5,Over,2356.5287,0.4558,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will SC Internacional win on 2026-08-09?,No,2275.1271,0.8856,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Baltimore Orioles vs. Texas Rangers,Baltimore Orioles,2245.6832,0.7823,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,SE Palmeiras vs. SC Internacional: O/U 0.5,Under,2146.7926,0.607,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Red Bull Bragantino vs. SC Corinthians Paulista: O/U 0.5,Over,2081.0807,0.7552,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will HNK Hajduk Split win on 2026-08-09?,No,1960.464,0.5361,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will Sport Lisboa e Benfica vs. Académico de Viseu FC end in,Yes,1731.2014,0.1339,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,SE Palmeiras vs. SC Internacional: O/U 2.5,Under,1684.6228,0.4291,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will Kristiansund BK win on 2026-08-09?,Yes,1674.5668,0.5062,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Red Bull Bragantino vs. SC Corinthians Paulista: O/U 1.5,Over,1603.6047,0.4264,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Shanghai Haigang FC vs. Dalian Yingbo FC: O/U 1.5,Under,3356.6435,0.08,0.475
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will Nueva Chicago win on 2026-08-09?,No,1568.33,0.9601,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Santos FC vs. CA Paranaense: O/U 2.5,Under,1564.7742,0.3804,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,CR Flamengo vs. EC Vitória: O/U 2.5,Over,4437.079,0.5009,0.3449
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Will CA Paranaense win on 2026-08-09?,Yes,1485.35,0.8903,0.9995
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,San Francisco Giants vs. Atlanta Braves: O/U 7.5,Over,2184.4664,0.47,0.67
+2026-08-09T23:51+00:00,0x2005d16a84ceefa912d4e380cd32e7ff827875ea,Red Bull Bragantino vs. SC Corinthians Paulista: O/U 2.5,Under,1463.3055,0.8629,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Tampa Bay Rays vs. Seattle Mariners: O/U 7.5,Under,99778.7524,0.5686,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Detroit Tigers vs. San Francisco Giants,Detroit Tigers,50576.6572,0.5023,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,National Bank Open: Joao Fonseca vs Ben Shelton,Ben Shelton,47032.8744,0.6988,0.845
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Spread: Tampa Bay Rays (-2.5),Tampa Bay Rays,36604.7872,0.3141,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Spread: Tampa Bay Rays (-1.5),Tampa Bay Rays,30724.8173,0.5604,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Tampa Bay Rays vs. Seattle Mariners,Tampa Bay Rays,30277.0292,0.6189,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Colorado Rockies vs. St. Louis Cardinals,St. Louis Cardinals,28468.3163,0.6044,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Detroit Tigers vs. San Francisco Giants: O/U 7.5,Under,21400.3599,0.5116,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Cleveland Guardians vs. Chicago White Sox: O/U 8.5,Under,19754.9385,0.5134,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Tampa Bay Rays vs. Seattle Mariners: O/U 5.5,Under,14734.98,0.4426,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Houston Astros vs. San Diego Padres: O/U 9.5,Under,22351.266,0.5599,0.575
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Spread: Detroit Tigers (-1.5),Detroit Tigers,12856.1815,0.4259,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,National Bank Open: Leylah Fernandez vs Naomi Osaka,Naomi Osaka,13036.3831,0.7914,0.855
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Tampa Bay Rays vs. Seattle Mariners: O/U 8.5,Under,11044.78,0.6859,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Golden State Valkyries vs. Los Angeles Sparks,Golden State Valkyries,11650.3413,0.7284,0.905
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Detroit Tigers vs. San Francisco Giants: O/U 4.5,Under,10448.5211,0.6362,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Cleveland Guardians vs. Chicago White Sox,Chicago White Sox,10404.3457,0.4206,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Tampa Bay Rays vs. Seattle Mariners: O/U 6.5,Under,10356.917,0.4435,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Baltimore Orioles vs. Texas Rangers,Baltimore Orioles,9648.0,0.75,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Atlanta Braves vs. Chicago White Sox,Atlanta Braves,16226.8855,0.51,0.52
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,St. Louis Cardinals vs. Cincinnati Reds: O/U 9.5,Over,13005.5272,0.5247,0.545
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,National Bank Open: Joao Fonseca vs Ben Shelton,Joao Fonseca,42506.0949,0.2494,0.155
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Houston Astros vs. San Diego Padres: O/U 9.5,Over,14742.5161,0.4297,0.425
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Spread: Golden State Valkyries (-6.5),Golden State Valkyries,6929.6369,0.4739,0.74
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Cleveland Guardians vs. Chicago White Sox: O/U 9.5,Under,5128.6549,0.4305,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Spread: Texas Rangers (-1.5),Baltimore Orioles,5028.0402,0.668,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Phoenix Mercury vs. Washington Mystics: O/U 167.5,Over,4867.368,0.5207,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Spread: Minnesota Lynx (-5.5),Minnesota Lynx,4211.4446,0.5058,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Atlanta Braves vs. Chicago White Sox: O/U 8.5,Over,6107.9125,0.4997,0.645
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Houston Astros vs. San Diego Padres: O/U 8.5,Over,7057.5291,0.5304,0.535
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Phoenix Mercury vs. Washington Mystics: O/U 168.5,Over,3064.3855,0.4891,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Golden State Valkyries vs. Los Angeles Sparks: O/U 169.5,Under,4518.2969,0.4823,0.64
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Golden State Valkyries vs. Los Angeles Sparks: O/U 170.5,Under,4154.8639,0.4937,0.66
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Houston Astros vs. San Diego Padres: O/U 7.5,Over,4334.1461,0.6091,0.615
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,San Francisco Giants vs. Atlanta Braves: O/U 7.5,Under,7377.009,0.4791,0.33
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Boston Red Sox vs. New York Yankees: O/U 7.5,Over,6623.1445,0.5609,0.3655
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Spread: St. Louis Cardinals (-1.5),St. Louis Cardinals,2347.31,0.5364,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Boston Red Sox vs. New York Yankees: O/U 8.5,Over,4811.2669,0.4861,0.415
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Spread: San Diego Padres (-1.5),San Diego Padres,5459.8207,0.3599,0.355
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Makarska: Petra Marcinko vs Barbora Palicova,Barbora Palicova,1936.0606,0.3699,1.0
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Golden State Valkyries vs. Los Angeles Sparks: O/U 170.5,Over,5576.9162,0.4601,0.34
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,St. Louis Cardinals vs. Cincinnati Reds: O/U 9.5,Under,3823.6663,0.4455,0.455
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Detroit Tigers vs. San Francisco Giants: O/U 8.5,Under,1707.99,0.6,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Spread: Chicago White Sox (-2.5),Cleveland Guardians,1604.5215,0.3561,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Spread: Golden State Valkyries (-5.5),Golden State Valkyries,2011.59,0.5439,0.79
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Spread: Colorado Rockies (-1.5),St. Louis Cardinals,1586.7,0.8537,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Tampa Bay Rays vs. Seattle Mariners: O/U 9.5,Under,1456.7673,0.617,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Masarova vs. Ryser: Match O/U 23.5,Under,2433.1542,0.6104,0.5
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Cleveland Guardians vs. Chicago White Sox: O/U 7.5,Over,1185.2456,0.405,0.9995
+2026-08-09T23:51+00:00,0x5268527977f700f9bf9b6d5cd843859e4e70135d,Detroit Tigers vs. Cleveland Guardians: O/U 7.5,Over,1771.4858,0.4641,0.66
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,National Bank Open: Joao Fonseca vs Ben Shelton,Ben Shelton,45497.1415,0.7454,0.845
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,National Bank Open: Leylah Fernandez vs Naomi Osaka,Naomi Osaka,27912.6418,0.7624,0.855
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Colorado Rockies vs. St. Louis Cardinals,St. Louis Cardinals,23671.2063,0.7026,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,St. Louis Cardinals vs. Cincinnati Reds,St. Louis Cardinals,47651.6362,0.4699,0.445
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,National Bank Open: Titouan Droguet vs Felix Auger-Aliassime,Felix Auger-Aliassime,31807.4272,0.5859,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Baltimore Orioles vs. Texas Rangers,Baltimore Orioles,15696.035,0.7808,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,LoL: FlyQuest vs Team Liquid (BO3) - LCS Regular Season,Team Liquid,13750.5981,0.8009,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Tampa Bay Rays vs. Seattle Mariners: O/U 5.5,Under,13679.146,0.5084,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Palermo: Noemi Basiletti vs Tyra Caterina Grant,Tyra Caterina Grant,25497.509,0.6273,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,National Bank Open: Alexandra Eala vs Belinda Bencic,Belinda Bencic,24219.0,0.51,0.525
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,LoL: FlyQuest vs Team Liquid - Game 2 Winner,Team Liquid,12483.8719,0.6423,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,National Bank Open: Lanlana Tararudee vs Amanda Anisimova,Amanda Anisimova,22557.3835,0.6431,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Cleveland Guardians vs. Chicago White Sox,Chicago White Sox,10947.7717,0.8963,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Spread: St. Louis Cardinals (-1.5),St. Louis Cardinals,10412.4823,0.4477,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Will Racing Club win on 2026-08-09?,No,8353.41,0.9803,0.9145
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Detroit Tigers vs. San Francisco Giants: O/U 6.5,Under,6424.8302,0.64,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Zug: Cezar Cretu vs Kimmer Coppejans,Kimmer Coppejans,11678.7779,0.5298,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Phoenix Mercury vs. Washington Mystics: O/U 168.5,Over,5602.4326,0.5257,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Houston Astros vs. San Diego Padres: O/U 8.5,Under,10346.6443,0.4512,0.465
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,ITF Huamantla: Marianne Angel Gonzalez vs Nadia Elle Valdez,Nadia Elle Valdez,9043.44,0.7119,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,ITF Florence: Aspen Schuman vs Angelina Voloshchuk,Angelina Voloshchuk,8015.3,0.5129,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,SE Palmeiras vs. SC Internacional: O/U 0.5,Under,3773.56,0.4685,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,ITF Metzingen: Niels Ratiu vs Aristotelis Thanos,Aristotelis Thanos,7541.29,0.6466,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,AA Argentinos Juniors vs. Racing Club: O/U 1.5,Over,3731.34,0.6136,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,ITF Kursumlijska Banja: Krystyna Pochtovyk vs Dora Miskovic,Dora Miskovic,6220.8966,0.8396,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,ITF Castelo Branco: Goncalo Marques vs Joao Domingues,Joao Domingues,6153.87,0.6667,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Spread: Tampa Bay Rays (-1.5),Tampa Bay Rays,3062.7028,0.5723,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,SE Palmeiras vs. SC Internacional: O/U 2.5,Under,2714.0056,0.5035,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,LoL: Dignitas vs LYON (BO3) - LCS Regular Season,LYON,2501.2543,0.7852,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,ITF Brisbane: Zane Stevens vs Benjamin O'connell,Benjamin Oconnell,4994.46,0.5248,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Iasi Open: Clara Burel vs Yulia Putintseva,Yulia Putintseva,4835.87,0.6349,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,ITF Huamantla: Niels Peter Van Noord vs Andres Urrea,Andres Urrea,4776.26,0.5947,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,LoL: Dignitas vs LYON - Game 2 Winner,LYON,2257.2297,0.8331,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,ITF Dallas: Dana Guzman vs Julieta Pareja,Julieta Pareja,4350.43,0.7642,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Set 1 Winner: Fernandez vs Osaka,Osaka,2174.1328,0.675,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Livesport Prague Open: Polina Kudermetova vs Alina Korneeva,Alina Korneeva,4338.97,0.5834,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Spread: CF Cruz Azul (-1.5),New York City FC,2971.5385,0.765,0.72
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,ITF Ollersbach: Vladyslav Orlov vs Jan Kumstat,Jan Kumstat,4170.2435,0.67,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,ITF Xativa: David Naharro vs Herman Hoeyeraal,Herman Hoeyeraal,4109.9799,0.665,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,LoL: Dignitas vs LYON - Game 1 Winner,LYON,2055.8947,0.6017,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Will AA Argentinos Juniors vs. Racing Club end in a draw?,No,2815.59,0.9,0.725
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Livesport Prague Open: Eva Lys vs Tereza Valentova,Tereza Valentova,3815.14,0.5926,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Boston Red Sox vs. New York Yankees,Boston Red Sox,3264.8911,0.49,0.555
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Will CF Cruz Azul win on 2026-08-09?,No,3261.9797,0.54,0.555
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,CR Flamengo vs. EC Vitória: O/U 2.5,Over,5098.9,0.5,0.3449
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Santos FC vs. CA Paranaense: O/U 2.5,Under,1693.285,0.4335,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Will SE Palmeiras vs. SC Internacional end in a draw?,Yes,1588.93,0.3939,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,ITF Fano: Lorenzo Rottoli vs Gianmarco Ferrari,Gianmarco Ferrari,2564.45,0.5886,0.5
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,Will EC Bahia vs. CR Vasco da Gama end in a draw?,Yes,1268.3762,0.5809,0.9995
+2026-08-09T23:51+00:00,0xfe787d2da716d60e8acff57fb87eb13cd4d10319,AA Argentinos Juniors vs. Racing Club: O/U 3.5,Over,2351.0113,0.4776,0.525
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Atlanta Braves vs. Chicago White Sox: O/U 8.5,Over,35446.1,0.52,0.645
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,San Francisco Giants vs. Atlanta Braves,Atlanta Braves,31673.56,0.5299,0.545
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,San Francisco Giants vs. Atlanta Braves,San Francisco Giants,28390.4,0.4393,0.455
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Spread: BUF (-1.5),BUF,8000.0,0.505,0.425
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Spread: Atlanta Braves (-1.5),San Francisco Giants,2323.93,0.6004,0.81
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Atlanta Braves vs. Chicago White Sox: O/U 8.5,Under,2511.91,0.39,0.355
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Panthers vs. Bills,Bills,60.6,0.54,0.465
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Colorado Rockies vs. St. Louis Cardinals: O/U 9.5,Under,6591.68,0.54,0.0005
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,New York Mets vs. Milwaukee Brewers,Milwaukee Brewers,10477.83,0.55,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Toronto Blue Jays vs. Detroit Tigers,Detroit Tigers,12000.0,0.47,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Los Angeles Angels vs. Toronto Blue Jays,Los Angeles Angels,15000.0,0.38,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Miami Marlins vs. Philadelphia Phillies,Philadelphia Phillies,19265.45,0.51,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Tampa Bay Rays vs. Boston Red Sox,Tampa Bay Rays,60000.0,0.46,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,St. Louis Cardinals vs. San Diego Padres: O/U 8.5,Over,7440.09,0.48,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Spread: New York Yankees (-1.5),Texas Rangers,831.13,0.5699,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Will Germany win on 2026-06-25?,Yes,27842.59,0.5914,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Cincinnati Reds vs. Cleveland Guardians,Cincinnati Reds,7531.95,0.4,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Tampa Bay Rays vs. Boston Red Sox,Tampa Bay Rays,2663.06,0.47,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Colorado Rockies vs. San Francisco Giants: O/U 8.5,Over,6166.22,0.55,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,San Diego Padres vs. Atlanta Braves,San Diego Padres,41717.3054,0.4458,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Spread: Pittsburgh Pirates (-1.5),Pittsburgh Pirates,2442.7435,0.42,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,San Diego Padres vs. Arizona Diamondbacks,San Diego Padres,43318.7,0.55,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Toronto Blue Jays vs. Washington Nationals,Toronto Blue Jays,2744.92,0.44,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Cincinnati Reds vs. Pittsburgh Pirates,Cincinnati Reds,20000.0,0.48,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Colorado Rockies vs. Athletics: O/U 13.5,Over,48089.98,0.5297,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,San Diego Padres vs. San Francisco Giants: O/U 8.5,Over,6396.28,0.5043,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Seattle Mariners vs. Chicago White Sox,Chicago White Sox,28016.12,0.44,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Cincinnati Reds vs. Pittsburgh Pirates,Cincinnati Reds,30000.0,0.45,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Minnesota Twins vs. Texas Rangers: O/U 7.5,Under,540.14,0.49,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Roland Garros ATP: Flavio Cobolli vs Alexander Zverev,Flavio Cobolli,15000.0,0.18,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Los Angeles Dodgers vs. Philadelphia Phillies,Los Angeles Dodgers,55745.29,0.4398,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,New York Yankees vs. Chicago White Sox,Chicago White Sox,53373.0,0.4724,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Tampa Bay Rays vs. Boston Red Sox: O/U 8.5,Over,62.17,0.49,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Detroit Tigers vs. Houston Astros: O/U 8.5,Over,40000.0,0.5,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Cincinnati Reds vs. St. Louis Cardinals,Cincinnati Reds,50000.0,0.46,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Atlanta Braves vs. Washington Nationals,Washington Nationals,14999.996,0.41,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Seattle Mariners vs. Los Angeles Dodgers,Seattle Mariners,4972.57,0.38,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Chicago White Sox vs. Boston Red Sox,Chicago White Sox,47915.8,0.37,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,San Diego Padres vs. Washington Nationals: O/U 8.5,Over,805.4299,0.5699,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Toronto Blue Jays vs. Chicago Cubs,Chicago Cubs,25434.84,0.5499,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Spread: Tampa Bay Rays (-1.5),Baltimore Orioles,2292.17,0.64,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Spread: Spurs (-5.5),Timberwolves,4295.46,0.47,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,San Diego Padres vs. Seattle Mariners,Seattle Mariners,26645.57,0.55,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Toronto Blue Jays vs. Chicago Cubs: O/U 7.5,Over,4960.91,0.4594,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Pittsburgh Pirates vs. Milwaukee Brewers,Milwaukee Brewers,1709.2856,0.56,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Rockets vs. Lakers,Rockets,46266.4499,0.64,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Athletics vs. San Diego Padres,Athletics,3339.84,0.45,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Chicago Cubs vs. Colorado Rockies: O/U 11.5,Under,234.3,0.54,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Pittsburgh Pirates vs. Toronto Blue Jays,Pittsburgh Pirates,32199.85,0.58,0.0
+2026-08-09T23:51+00:00,0x16bb9951a36fce71e2ef57890b786145e0ba8492,Detroit Tigers vs. New York Mets: O/U 8.5,Under,1211.5,0.59,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Barcelona Open: Mariano Navone vs Andrey Rublev,Mariano Navone,310958.3419,0.4144,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Rolex Monte Carlo Masters: Gael Monfils vs Alexander Bublik,Gael Monfils,51911.0722,0.1041,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Roland Garros ATP: Thomas Faurel vs Valentin Vacherot,Thomas Faurel,9199.9902,0.158,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Madrid Open: Alexander Bublik vs Stefanos Tsitsipas,Alexander Bublik,137710.5054,0.1649,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Swedish Open: Andrey Rublev vs Andrea Pellegrino,Andrea Pellegrino,126892.98,0.1308,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Jets vs. Avalanche,Avalanche,90000.0,0.71,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Lyon: Dali Blanch vs David Jorda Sanchis,Dali Blanch,31872.6318,0.6236,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Shymkent: Ivan Gakhov vs Zangar Nurlanuly,Zangar Nurlanuly,16359.9725,0.2384,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Madrid Open: Jaume Munar vs Alexander Shevchenko,Alexander Shevchenko,208504.5607,0.2731,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Roland Garros ATP: Casper Ruud vs Roman Safiullin,Roman Safiullin,35351.2698,0.5167,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Will France win on 2026-07-18?,Yes,170000.0,0.5699,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Madrid Open: Ignacio Buse vs Adrian Mannarino,Adrian Mannarino,147169.0078,0.1909,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,National Bank Open: Luciano Darderi vs Gabriel Diallo,Gabriel Diallo,296301.7169,0.4656,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Shymkent: Svyatoslav Gulin vs Max Hans Rehberg,Max Hans Rehberg,66627.093,0.3382,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Lyon: David Jorda Sanchis vs Miguel Damas,Miguel Damas,159346.0433,0.5082,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Stuttgart Open: Nick Kyrgios vs Corentin Moutet,Corentin Moutet,337874.1266,0.4393,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Lyon: Pedro Martinez vs Svyatoslav Gulin,Svyatoslav Gulin,42572.1859,0.2543,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,76ers vs. Celtics,Celtics,332000.0,0.6913,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Madrid Open: Joao Fonseca vs Rafael Jodar,Joao Fonseca,60414.1585,0.4056,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Barcelona Open: Nuno Borges vs Tomas Etcheverry,Tomas Etcheverry,26678.5756,0.7495,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Philadelphia Phillies vs. Miami Marlins,Philadelphia Phillies,249588.27,0.62,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Menorca: Alex Martinez vs Raul Brancaccio,Alex Martinez,125437.5305,0.3749,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Francavilla: Justin Engel vs Nikolas Sanchez Izquierdo,Justin Engel,95928.982,0.3933,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,"Rolex Monte Carlo Masters, Qualification: Jan Choinski vs Al",Jan Choinski,72267.1729,0.1175,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Tunis: Kimmer Coppejans vs Edas Butvilas,Edas Butvilas,51919.3872,0.4185,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Asuncion: Conner Huertas Del Pino vs Henrique Rocha,Henrique Rocha,17245.0033,0.5261,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Menorca: Alejo Sanchez Quilez vs Raul Brancaccio,Alejo Sanchez Quilez,11061.4322,0.5401,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Cabo Verde vs. Bermuda: O/U 4.5,Over,171925.5729,0.538,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Swedish Open: Nikoloz Basilashvili vs Thiago Agustin Tirante,Nikoloz Basilashvili,19756.8416,0.3768,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,ITF Astana: Alibek Kachmazov vs Sora Fukuda,Sora Fukuda,21697.9741,0.4032,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Alicante: Roman Safiullin vs Gilles Arnaud Bailly,Gilles Arnaud Bailly,27421.0981,0.2276,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Monza: Jacopo Vasami vs Raul Brancaccio,Jacopo Vasami,52768.6051,0.4296,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Roland Garros ATP (Doubles): Krawietz/Puetz vs Golubev/Nedov,Golubev/Nedovyesov,18082.0142,0.3,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Will England win on 2026-07-11?,Yes,758000.0,0.5356,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,BMW Open: Emilio Nava vs Ben Shelton,Emilio Nava,97003.0,0.001,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Warriors vs. Clippers,Clippers,41596.8,0.68,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,Rolex Monte Carlo Masters: Daniil Medvedev vs Matteo Berrett,Daniil Medvedev,11869.3216,0.0215,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,"Madrid Open, Qualification: Andrea Pellegrino vs Martin Damm",Andrea Pellegrino,7453.412,0.28,0.0
+2026-08-09T23:51+00:00,0xe30e74595517de48f1fb19f4553dd3d9f1e96b87,"Internazionali BNL d'Italia, Qualification: Anastasia Potapo",Irina-Camelia Begu,71237.3367,0.0903,0.0
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Anthropic have the best AI model at the end of Septembe,Yes,259.6361,0.5,0.835
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Anyone's Legend win the LPL 2026 season?,Yes,1152.2222,0.0238,0.16
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Anthropic have the best AI model at the end of December,Yes,200.01,0.5,0.665
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Bilibili Gaming win the LPL 2026 season?,Yes,162.0789,0.5,0.56
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Linke win the most seats in the 2026 Berlin state elect,Yes,200.0,0.0416,0.435
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Coventry City win the 2026-27 English Premier League (E,Yes,43086.835,0.0416,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Leeds United win the 2026-27 English Premier League (EP,Yes,43086.835,0.0416,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Nottingham Forest win the 2026-27 English Premier Leagu,Yes,43086.835,0.0416,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Brentford win the 2026-27 English Premier League (EPL) ,Yes,43086.835,0.0416,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Everton win the 2026-27 English Premier League (EPL) Ch,Yes,43086.835,0.0416,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Bournemouth win the 2026-27 English Premier League (EPL,Yes,43086.835,0.0416,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Crystal Palace win the 2026-27 English Premier League (,Yes,43086.835,0.0416,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Sunderland win the 2026-27 English Premier League (EPL),Yes,43086.835,0.0416,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will JD Gaming win the LPL 2026 season?,Yes,1160.7843,0.0238,0.0505
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will CDU win the most seats in the 2026 Berlin state electio,Yes,192.78,0.5,0.27
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Google have the best AI model at the end of December 20,Yes,691.115,0.0384,0.075
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will NVIDIA be the largest company in the world by market ca,Yes,63.426,0.5,0.8149
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will 10 Fed rate cuts happen in 2026?,Yes,32112.78,0.0769,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will 9 Fed rate cuts happen in 2026?,Yes,32112.78,0.0769,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will 11 Fed rate cuts happen in 2026?,Yes,32112.78,0.0769,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will 8 Fed rate cuts happen in 2026?,Yes,32112.78,0.0769,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will AfD win the most seats in the 2026 Berlin state electio,Yes,200.0,0.0416,0.1724
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Alireza Arafi be head of state in Iran end of 2026?,Yes,1165.04,0.0081,0.0285
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Apple be the largest company in the world by market cap,Yes,200.01,0.0357,0.158
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will OpenAI have the best AI model at the end of September 2,Yes,300.0103,0.0312,0.098
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will AJ Dybantsa win the 2026-27 NBA Rookie of the Year?,Yes,142.27,0.5,0.205
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Top Esports win the LPL 2026 season?,Yes,200.01,0.0238,0.1405
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Alphabet be the largest company in the world by market ,Yes,200.0179,0.0357,0.125
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will OpenAI have the best AI model at the end of December 20,Yes,186.8748,0.0384,0.12
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Hull City win the 2026-27 English Premier League (EPL) ,Yes,43086.835,0.0416,0.0005
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Fulham win the 2026-27 English Premier League (EPL) Cha,Yes,43086.835,0.0416,0.0005
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Ipswich Town win the 2026-27 English Premier League (EP,Yes,43086.835,0.0416,0.0005
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Google have the best AI model at the end of September 2,Yes,676.9299,0.0312,0.0315
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will The Hunger Games: Sunrise on the Reaping be the top gro,Yes,11886.47,0.0357,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Michael be the top grossing movie of 2026?,Yes,11886.47,0.0357,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Scream 7 be the top grossing movie of 2026?,Yes,11886.47,0.0357,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Toy Story 5 be the top grossing movie of 2026?,Yes,11886.47,0.0357,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Star Wars: The Mandalorian and Grogu be the top grossin,Yes,11886.47,0.0357,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Project Hail Mary be the top grossing movie of 2026?,Yes,11886.47,0.0357,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Jumanji 3 be the top grossing movie of 2026?,Yes,11886.47,0.0357,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Wuthering Heights be the top grossing movie of 2026?,Yes,11886.47,0.0357,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Wicked: For Good be the top grossing movie of 2026?,Yes,11886.47,0.0357,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Geraldo Alckmin win the 2026 Brazilian presidential ele,Yes,7000.0166,0.0312,0.0025
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Grüne win the most seats in the 2026 Berlin state elect,Yes,200.0,0.0416,0.0835
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will 7 Fed rate cuts happen in 2026?,Yes,11104.94,0.0769,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Tereza Cristina win the 2026 Brazilian presidential ele,Yes,11024.42,0.0312,0.0015
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Z.ai have the best AI model at the end of December 2026,Yes,2075.0,0.0384,0.0075
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Alphabet be the third-largest company in the world by m,Yes,20.02,0.5,0.715
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Mohammad-Bagher Ghalibaf be head of state in Iran end o,Yes,1216.0128,0.0081,0.0115
+2026-08-09T23:51+00:00,0x13fa4ce1b8a27dd0b7a72db6205a50ee6ff0954c,Will Team Yandex Win The International 2026?,Yes,60.0121,0.5,0.225
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will SC Corinthians Paulista win on 2026-08-09?,Yes,60031.6354,0.2799,0.9995
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Tampa Bay Rays vs. Seattle Mariners,Tampa Bay Rays,29999.9947,0.49,0.9995
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,National Bank Open: Alexandra Eala vs Belinda Bencic,Alexandra Eala,49999.9815,0.49,0.475
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Cleveland Guardians vs. Chicago White Sox,Chicago White Sox,20000.0,0.49,0.9995
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,National Bank Open: Botic van de Zandschulp vs Jakub Mensik,Botic van de Zandschulp,29999.9906,0.29,0.275
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Atlanta Braves vs. Chicago White Sox: O/U 8.5,Under,20032.4325,0.4991,0.355
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,National Bank Open: Joao Fonseca vs Ben Shelton,Joao Fonseca,29999.9926,0.47,0.155
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Los Angeles Lakers win the 2027 NBA Finals?,Yes,18357.41,0.0251,0.0205
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will SE Palmeiras win on 2026-08-09?,Yes,70544.757,0.627,0.0005
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Santos FC win on 2026-08-09?,Yes,50370.2677,0.46,0.0005
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will EC Bahia win on 2026-08-09?,Yes,19999.985,0.49,0.0005
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Counter-Strike: THUNDER dOWNUNDER vs BIG (BO1) - IEM Cologne,THUNDER dOWNUNDER,41535.9941,0.2372,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,"Bitcoin Up or Down - August 9, 10:30AM-10:35AM ET",Down,17.2413,0.2899,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Spread: San Diego Padres (-1.5),San Diego Padres,11363.6363,0.4399,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Liverpool FC win on 2026-05-24?,Yes,18036.9114,0.5544,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Côte d'Ivoire vs. Ecuador: O/U 2.5,Over,39999.9949,0.28,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Germany win on 2026-06-25?,Yes,13995.79,0.0276,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Norway win on 2026-07-11?,Yes,27084.66,0.2132,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Austria win on 2026-06-27?,Yes,50239.7407,0.2699,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Counter-Strike: Aurora Gaming vs 9z (BO3) - IEM Cologne Majo,9z,47999.9223,0.4877,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,San Diego Padres vs. Atlanta Braves,San Diego Padres,10155.47,0.47,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Swiss Open: Arthur Rinderknech vs Stefanos Tsitsipas,Arthur Rinderknech,26315.7894,0.3799,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Counter-Strike: FUT Esports vs B8 (BO1) - IEM Cologne Major ,B8,9999.9695,0.5798,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,National Bank Open: Yannick Hanfmann vs Nuno Borges,Yannick Hanfmann,5963.4677,0.3797,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Knicks vs. Spurs: O/U 217.5,Over,9999.9545,0.43,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Counter-Strike: TYLOO vs 9z (BO3) - IEM Cologne Major Stage ,TYLOO,28833.7688,0.3611,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Iraq vs. Venezuela end in a draw?,Yes,8906.6391,0.3368,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Bologna FC 1909 win on 2026-05-03?,Yes,9433.2492,0.53,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,"UFC 329: Cory Sandhagen vs. Mario Bautista (Bantamweight, Ma",Cory Sandhagen,8328.3597,0.5699,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Spain win on 2026-07-19?,Yes,327888.2,0.4275,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Spread: France (-3.5),France,28571.4285,0.3499,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Brazil win on 2026-06-13?,Yes,76149.4252,0.3939,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Brazil win on 2026-07-05?,Yes,90909.0909,0.5499,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Estoril Open: Luca Van Assche vs Alexander Blockx,Alexander Blockx,50000.0,0.6,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Detroit Tigers vs. New York Yankees,New York Yankees,17857.1428,0.5599,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Spread: Athletics (-1.5),Athletics,20018.7517,0.3429,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,UFC Fight Night: Song Yadong vs. Deiveson Figueiredo (Bantam,Deiveson Figueiredo,1052.6315,0.1899,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Tampa Bay Rays vs. Los Angeles Dodgers: O/U 9.5,Over,41666.6666,0.4799,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Real Betis Balompié vs. Real Oviedo: O/U 2.5,Under,9157.1929,0.546,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Spread: Germany (-1.5),Germany,51020.4081,0.4899,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Spread: Spain (-4.5),Spain,11748.4534,0.2553,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Spread: Thunder (-5.5),Spurs,48115.0455,0.5195,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Mubadala Citi DC Open: Taylor Fritz vs Rafael Jodar,Rafael Jodar,59999.7962,0.43,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will IR Iran win on 2026-06-21?,Yes,90909.0909,0.1099,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Spread: France (-1.5),France,30400.5831,0.29,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,O/U 1.5 Rounds,Under,10597.1844,0.4718,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Spread: Netherlands (-1.5),Netherlands,3565.3695,0.5699,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Will Saudi Arabia win on 2026-06-15?,Yes,151015.7461,0.1381,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Generali Open: Daniel Altmaier vs Raphael Collignon,Raphael Collignon,23839.1881,0.61,0.0
+2026-08-09T23:51+00:00,0xdb859a551fcf56e49416160911476bea7307152f,Hamburg European Open: Mayar Sherif vs Tamara Korpatsch,Mayar Sherif,32633.2524,0.6128,0.0
+2026-08-09T23:51+00:00,0x4bff30af91642dc7d2b19a8664378fe55c45fc26,Cleveland Guardians vs. Chicago White Sox,Chicago White Sox,117617.8512,0.4585,0.9995
+2026-08-09T23:51+00:00,0x4bff30af91642dc7d2b19a8664378fe55c45fc26,St. Louis Cardinals vs. Cincinnati Reds: O/U 9.5,Under,25100.9667,0.4789,0.455
+2026-08-09T23:51+00:00,0x4bff30af91642dc7d2b19a8664378fe55c45fc26,Houston Astros vs. San Diego Padres,San Diego Padres,4718.9458,0.52,0.525
+2026-08-09T23:51+00:00,0x4bff30af91642dc7d2b19a8664378fe55c45fc26,Chicago Cubs vs. Kansas City Royals: O/U 10.5,Under,165581.1071,0.51,0.0
+2026-08-09T23:51+00:00,0x4bff30af91642dc7d2b19a8664378fe55c45fc26,Las Vegas Aces vs. New York Liberty: O/U 183.5,Over,7485.0911,0.34,0.0
+2026-08-09T23:51+00:00,0x4bff30af91642dc7d2b19a8664378fe55c45fc26,Minnesota Twins vs. Milwaukee Brewers: O/U 7.5,Over,99999.9909,0.45,0.0
+2026-08-09T23:51+00:00,0x4bff30af91642dc7d2b19a8664378fe55c45fc26,Chicago Cubs vs. Kansas City Royals: O/U 9.5,Under,13425.9685,0.44,0.0
+2026-08-09T23:51+00:00,0x4bff30af91642dc7d2b19a8664378fe55c45fc26,Toronto Blue Jays vs. Philadelphia Phillies,Toronto Blue Jays,91690.4052,0.32,0.0
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,SE Palmeiras vs. SC Internacional: O/U 0.5,Under,68244.2899,0.0614,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will EC Vitória win on 2026-08-09?,No,19829.9516,0.9848,0.9875
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will CSyD Defensa y Justicia win on 2026-08-09?,Yes,17874.4303,0.8779,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will New York City FC win on 2026-08-09?,No,20837.5,0.6817,0.705
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Nashville SC win on 2026-08-09?,No,28977.43,0.44,0.445
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will SE Palmeiras win on 2026-08-09?,No,10232.93,0.6522,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Seattle Sounders FC win on 2026-08-09?,Yes,9973.25,0.7892,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will AA Argentinos Juniors win on 2026-08-09?,Yes,14590.59,0.7059,0.635
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Racing Club win on 2026-08-09?,No,9522.314,0.8874,0.9145
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Hong Kong SAR win on 2026-06-09?,No,8443.5761,0.5786,1.0
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Once Caldas win on 2026-08-09?,Yes,24852.14,0.43,0.335
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will CR Vasco da Gama win on 2026-08-09?,No,8190.19,0.7601,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Club Nacional de Football win on 2026-08-09?,No,8160.0,0.3372,0.995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Nueva Chicago win on 2026-08-09?,No,6426.49,0.9282,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Chicago Fire FC win on 2026-08-09?,No,15902.69,0.3706,0.365
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will EC Bahia win on 2026-08-09?,No,5791.3091,0.7684,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,SE Palmeiras vs. SC Internacional: O/U 2.5,Under,5543.99,0.5355,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Trujillanos FC vs. Deportivo Tachira: Both Teams to Score,Yes,5143.9999,0.9737,0.995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,CR Flamengo vs. EC Vitória: O/U 2.5,Under,7439.5,0.4295,0.655
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Kristiansund BK win on 2026-08-09?,Yes,4850.9333,0.3688,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will SC Internacional win on 2026-08-09?,No,4786.6017,0.9097,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Spread: Sport Lisboa e Benfica (-1.5),Académico de Viseu FC,4609.427,0.7768,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Santos FC vs. CA Paranaense: O/U 2.5,Under,4454.0967,0.4402,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Sport Lisboa e Benfica vs. Académico de Viseu FC end in,Yes,3680.8882,0.4713,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,EC Bahia vs. CR Vasco da Gama: O/U 0.5,Under,3608.5372,0.206,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will EC Bahia vs. CR Vasco da Gama end in a draw?,Yes,3560.58,0.3132,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Cuiabá EC vs. Fortaleza EC end in a draw?,Yes,3472.9857,0.4365,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Red Bull Bragantino win on 2026-08-09?,No,3408.43,0.7652,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Ypiranga FC RS win on 2026-08-09?,Yes,3343.1794,0.5459,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Spread: Sport Lisboa e Benfica (-2.5),Académico de Viseu FC,3205.95,0.814,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will CF Cruz Azul win on 2026-08-09?,No,5438.45,0.558,0.555
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will CR Flamengo win on 2026-08-09?,Yes,3348.0,0.9013,0.9
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,AO Itabaiana SE vs. SER Caxias do Sul: O/U 2.5,Under,2990.62,0.5253,0.995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will San Martin de Tucuman win on 2026-08-08?,No,2933.29,0.6073,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Universitatea Craiova CS win on 2026-08-08?,No,2810.23,0.8094,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,National Bank Open: Joao Fonseca vs Ben Shelton,Joao Fonseca,17818.46,0.2778,0.155
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,SE Palmeiras vs. SC Internacional: O/U 1.5,Under,2619.5,0.3063,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,EC Bahia vs. CR Vasco da Gama: O/U 2.5,Under,2537.0,0.8031,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,EC Bahia vs. CR Vasco da Gama: Both Teams to Score,No,2525.7915,0.5813,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will SE Palmeiras vs. SC Internacional end in a draw?,Yes,2497.08,0.4466,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Moreirense FC vs. SC Braga end in a draw?,Yes,2485.9,0.3613,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will AA Argentinos Juniors vs. Racing Club end in a draw?,No,3221.05,0.7654,0.725
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Boston Legacy FC win on 2026-08-09?,No,2331.6443,0.5736,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Club Necaxa win on 2026-08-09?,No,2470.0,0.8112,0.925
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Bay FC win on 2026-08-09?,Yes,5266.1185,0.5748,0.43
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Van Spor FK win on 2026-08-09?,No,2190.0416,0.7844,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Exact Score: EC Bahia 1 - 0 CR Vasco da Gama?,No,2178.141,0.9831,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will HNK Hajduk Split vs. NK Istra 1961 end in a draw?,Yes,2176.4673,0.3443,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Santos FC vs. CA Paranaense: Both Teams to Score,No,2164.17,0.3519,0.9995
+2026-08-09T23:51+00:00,0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7,Will Maringa FC PR vs. Amazonas FC AM end in a draw?,No,2106.32,0.79,0.9995
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Spread: Sport Lisboa e Benfica (-2.5),Académico de Viseu FC,104998.7953,0.5336,0.9995
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will CSyD Defensa y Justicia win on 2026-08-09?,Yes,76591.86,0.4948,0.9995
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will Once Caldas win on 2026-08-09?,No,80364.1405,0.5647,0.665
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will Cuiabá EC win on 2026-08-09?,No,49999.7556,0.6475,0.9995
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will CA Bucaramanga win on 2026-08-10?,Yes,9999.766,0.35,0.9995
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will Jaguares de Córdoba FC win on 2026-08-09?,Yes,9919.6818,0.2592,0.305
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Spread: Red Bull Bragantino (-1.5),Red Bull Bragantino,152875.8802,0.5285,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will Hammarby Fotboll win on 2026-07-23?,Yes,127068.1961,0.5332,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will CS Cienciano win on 2026-07-29?,No,56334.9606,0.6017,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will Independiente Santa Fe win on 2026-07-30?,No,52820.095,0.5988,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will New York City FC win on 2026-08-06?,No,49997.1965,0.4051,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will Vancouver Whitecaps FC win on 2026-08-01?,Yes,299999.2079,0.5337,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Spread: CD La Equidad Seguros (-1.5),CD La Equidad Seguros,2804.2381,0.36,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Cuiabá EC vs. AC Goianiense: O/U 1.5,Over,5284.27,0.6097,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will CA Rosario Central win on 2026-07-23?,Yes,49999.9663,0.2993,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will CA Lanús win on 2026-07-29?,Yes,6378.7671,0.2988,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will AA Argentinos Juniors win on 2026-07-23?,No,49999.8817,0.5539,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will CA Belgrano win on 2026-07-23?,No,86113.3841,0.6322,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will Grêmio Novorizontino win on 2026-08-09?,Yes,27693.88,0.4961,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will Associação Chapecoense de Futebol win on 2026-08-02?,Yes,16279.855,0.1981,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will Grêmio FBPA win on 2026-08-05?,No,40087.2986,0.5411,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Spread: Fenerbahçe SK (-1.5),SK Puntigamer Sturm Graz,49999.8076,0.4799,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,CA River Plate vs. CA Barracas Central: O/U 2.5,Over,23542.9242,0.41,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Ceará SC vs. CR Brasil: O/U 2.5,Over,99999.7851,0.4584,0.0
+2026-08-09T23:51+00:00,0x7ad71d79a3bb90d0a87a06500fa0fe11663842aa,Will CR Brasil win on 2026-07-27?,No,9336.5187,0.5264,0.0
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will JD Vance win the 2028 US Presidential Election?,No,490000.0,0.5,0.7855
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will China invade Taiwan by end of 2026?,No,212466.6939,0.9229,0.9615
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will JD Vance win the 2028 US Presidential Election?,Yes,490000.0,0.5,0.2145
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will the Iranian regime fall before 2027?,No,59844.908,0.8356,0.935
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,LoL: FlyQuest vs Team Liquid - Game 1 Winner,Team Liquid,50042.46,0.999,0.9995
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Donald Trump win the Nobel Peace Prize in 2026?,No,41176.8138,0.9153,0.9775
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Lionel Messi win the 2026 Ballon d'Or?,No,34144.9054,0.847,0.98
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,US strike on Cuba by December 31?,No,27354.9002,0.559,0.785
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,"Will Bitcoin dip to $45,000 by December 31, 2026?",No,27102.2943,0.5136,0.785
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Kai and Speed beat the Minecraft challenge by August 17,No,22315.0647,0.8555,0.845
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will OpenAI IPO by December 31 2026?,No,20520.023,0.2691,0.85
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Avengers: Doomsday be the #1 searched movie on Google t,No,18253.6958,0.897,0.9485
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,"Will China invade Taiwan by September 30, 2026?",No,16666.0,0.9499,0.9865
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,"Will Bitcoin dip to $40,000 by December 31, 2026?",No,12141.486,0.6871,0.865
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Valve add Cobblestone to the map pool by August 30? ,No,9800.24,0.9856,0.9965
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Major CEX insolvent in 2026?,No,7529.8809,0.8792,0.9555
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Trump pardon Sam Bankman-Fried before 2027?,No,7025.9136,0.8889,0.9555
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,"Will Bitcoin dip to $50,000 by December 31, 2026?",No,10561.37,0.5162,0.635
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,SBF released from custody in 2026?,No,6259.2437,0.8724,0.957
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,"Will Bitcoin dip to $30,000 by December 31, 2026?",No,5775.1914,0.8438,0.935
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Hantavirus pandemic in 2026?,No,5555.0,0.9599,0.9625
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Trump meets with Mojtaba Khamenei by December 31?,No,4989.5897,0.93,0.9715
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will the U.S. invade Cuba in 2026?,No,5294.2232,0.7625,0.915
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,JD Vance out as VP by December 31?,No,5063.5831,0.9,0.945
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Opensea FDV above $500M one day after launch?,No,4917.4412,0.3701,0.8965
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will OpenAI's valuation hit (HIGH) $2.0T by December 31?,No,4234.364,0.7341,0.89
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will OpenAI's valuation hit (HIGH) $1.25T by December 31?,No,5787.2288,0.185,0.615
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Harry Kane win the 2026 Ballon d'Or?,No,8406.4717,0.81,0.418
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Grok AI beat T1 in 2026? ,No,3282.2458,0.9519,0.9695
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will OpenAI's valuation hit (HIGH) $1.0T by December 31?,No,12121.2915,0.1489,0.24
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Hantavirus vaccine in 2026? ,No,2778.0,0.89,0.945
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Anthropic's valuation hit (HIGH) $2.5T by December 31?,No,3391.7,0.7591,0.765
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Opensea FDV above $5B one day after launch?,No,2222.0,0.97,0.9685
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Team Liquid Win the Shortest Game in LCS 2026 Summer Sp,No,2266.8906,0.3897,0.915
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will OpenAI's valuation hit (HIGH) $2.5T by December 31?,No,2244.87,0.8194,0.92
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Trump pardon Ghislaine Maxwell by end of 2026?,No,2221.9966,0.8899,0.925
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Stripe's valuation hit (HIGH) $250B by December 31?,No,2399.9699,0.7392,0.855
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will OpenAI's valuation hit (LOW) $600B by December 31?,No,2133.37,0.87,0.915
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,China x Taiwan military clash before 2027?,No,1905.09,0.9,0.9345
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Opensea FDV above $2B one day after launch?,No,1839.261,0.8949,0.955
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Paper Rex Win VCT Pacific Stage 2 2026?,No,2655.06,0.6007,0.645
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will FULL SENSE Win VCT Pacific Stage 2 2026?,No,1666.3,0.8085,0.983
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Anthropic's valuation hit (HIGH) $3.0T by December 31?,No,1926.2926,0.8268,0.85
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,OpenAI IPO before 2027?,No,1897.0223,0.21,0.835
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will a team from LPL (China) win LoL Worlds 2026?,Yes,5932.5541,0.2686,0.265
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,"Will GMGN launch a token by December 31, 2027?",No,2105.44,0.1702,0.6949
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will OpenAI's valuation hit (HIGH) $1.5T by December 31?,No,1835.9277,0.2954,0.76
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Inter Milan win the 2026-27 Serie A Championship?,No,2700.3591,0.49,0.495
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Kai and Speed beat the Minecraft challenge by August 16,No,1326.3728,0.8884,0.895
+2026-08-09T23:51+00:00,0x43372356634781eea88d61bbdd7824cdce958882,Will Kai and Speed beat the Minecraft challenge by August 13,No,1207.6326,0.9463,0.9655
