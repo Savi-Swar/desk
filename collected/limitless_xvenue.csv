@@ -13,3 +13,5 @@ ts,asset,poly_bid,poly_ask,lim_yes,lim_no,basis,resolution_verified
 2026-08-08T12:01:24+00:00,BTC,0.58,0.6,0.6,0.4,0.02,False,binance-btcusdt-1m,pyth-pro-btcusd
 2026-08-09T12:02:28+00:00,BTC,0.25,0.27,0.255,0.745,0.015,False,binance-btcusdt-1m,pyth-pro-btcusd
 2026-08-10T00:05:03+00:00,BTC,0.33,0.34,0.33,0.67,0.01,False,binance-btcusdt-1m,pyth-pro-btcusd
+2026-08-10T12:17:05+00:00,ETH,0.36,0.37,0.3345,0.6655,0.0355,False,binance-btcusdt-1m,pyth-pro-btcusd
+2026-08-10T12:17:05+00:00,BTC,0.4,0.41,0.2455,0.7545,0.1645,False,binance-btcusdt-1m,pyth-pro-btcusd
