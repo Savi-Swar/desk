@@ -1799,3 +1799,103 @@ ts,sport,league,team1,team2,outcome1,outcome2,line,type,market_hash
 2026-08-11T12:15:02+00:00,Football,NFL,Tennessee Titans,New York Jets,Tennessee Titans,New York Jets,,226,0xebd6a52f8272f670b789b01d3a47f9fd234f53d8c433cf8dfe004fa4acc5a96c
 2026-08-11T12:15:02+00:00,Football,NFL,Tennessee Titans,New York Jets,Over 38.5,Under 38.5,38.5,28,0x5c9addbe2b8e1c5c5befe1833c55907c4bfd84c8fa3f4626f7ce09a5ee1a41d5
 2026-08-11T12:15:02+00:00,Football,NFL,Jacksonville Jaguars,Cleveland Browns,Over 40.5,Under 40.5,40.5,28,0x240e5ef87f0eed022544893f3b80a8fed9fcabee67a534ead99a329c8e0a079e
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Rams,San Francisco 49ers,Los Angeles Rams -2.5,San Francisco 49ers +2.5,-2.5,342,0x70953a9f01fce5c84851909f0a66d07f4b8b9cf100db4fe3679e766d08b3ec5b
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Rams,San Francisco 49ers,Over 48.5,Under 48.5,48.5,28,0x82a2cd17e3db7ebd9385e0201b15a3b120e94322f94d6d14ebbfde8744609feb
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Rams,San Francisco 49ers,Los Angeles Rams,San Francisco 49ers,,226,0x7154aa3580267e276cccd0f4f826464a05e3efd8e1c81d7717bef6b5ae88b07d
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Rams,San Francisco 49ers,Over 49.5,Under 49.5,49.5,28,0x2c6699413612647cd7791e4bf351cd10db51049c17fa52e46bd526b565dd9314
+2026-08-12T00:16:16+00:00,Football,NFL,New York Giants,Dallas Cowboys,Over 47.5,Under 47.5,47.5,28,0x6ab20ee8e1d0f3fcc2a1d966939492bd5966589845a6bc376dcc76bc3812f68d
+2026-08-12T00:16:16+00:00,Football,NFL,New York Giants,Dallas Cowboys,New York Giants +1.5,Dallas Cowboys -1.5,1.5,342,0x1e30dcfe585a382f032dced134fae758744d15051bda16c7599ba3ce0f38ec51
+2026-08-12T00:16:16+00:00,Football,NFL,New York Giants,Dallas Cowboys,Over 48.5,Under 48.5,48.5,28,0xa84da1610d20c4ef0fcaa1a3a9af899d10659390a44f7524f9bc3da5f04fdb52
+2026-08-12T00:16:16+00:00,Football,NFL,New York Giants,Dallas Cowboys,New York Giants,Dallas Cowboys,,226,0x801c160e1b1a093ca49fa867503a71e4668c4e1f7640e36f1479d5866b0370bd
+2026-08-12T00:16:16+00:00,Football,NFL,Buffalo Bills,Detroit Lions,Over 52.5,Under 52.5,52.5,28,0x4c1c3a1ca73fc87c53fca1f0ff613a2a6729f9f433b46b4dc221a9b7e45b40ae
+2026-08-12T00:16:16+00:00,Football,NFL,Dallas Cowboys,Philadelphia Eagles,Over 49.5,Under 49.5,49.5,28,0x903d6db8019c9778f8d82d1e07f63000af0d1cb67188a028fbd917e7554e5db1
+2026-08-12T00:16:16+00:00,Football,NFL,Dallas Cowboys,Philadelphia Eagles,Dallas Cowboys +2.5,Philadelphia Eagles -2.5,2.5,342,0x74348a576e63e8229756402f8b3a784f137a58efc0870108d162e4bab455fedf
+2026-08-12T00:16:16+00:00,Football,NFL,Dallas Cowboys,Philadelphia Eagles,Dallas Cowboys,Philadelphia Eagles,,226,0x2d6e2c24de38d38922f6ee85144d578893fb8f5f5380f0e0145a2a73f1c6f144
+2026-08-12T00:16:16+00:00,Football,NFL,Dallas Cowboys,Philadelphia Eagles,Dallas Cowboys +1.5,Philadelphia Eagles -1.5,1.5,342,0x7fb5279901cac7df743e59b2e4d4fefc4adf9891dde73a986b205b2ee26d4ef0
+2026-08-12T00:16:16+00:00,Football,NFL,Buffalo Bills,Detroit Lions,Buffalo Bills -3,Detroit Lions +3,-3.0,342,0xc30d7817d6580775bb4f1b02a615bee0a82fbfea4909dd40d6024983b5de09a4
+2026-08-12T00:16:16+00:00,Football,NFL,Buffalo Bills,Detroit Lions,Over 53.5,Under 53.5,53.5,28,0x96489fa14c3b06e8b99e07a1c346b6c6014e80774c9a438f7bfdcc53c62fb918
+2026-08-12T00:16:16+00:00,Football,NFL,Buffalo Bills,Detroit Lions,Buffalo Bills,Detroit Lions,,226,0x5caa59fea5d3ff4a57067a8946e58cc4498d28284bc5b42054ac1090e01d5837
+2026-08-12T00:16:16+00:00,Football,NFL,Dallas Cowboys,Baltimore Ravens,Dallas Cowboys,Baltimore Ravens,,226,0x052ea9ff528a521bd552a23bbfd6dea6ef5a160092b2534f844a46635ae26ea8
+2026-08-12T00:16:16+00:00,Football,NFL,Dallas Cowboys,Baltimore Ravens,Dallas Cowboys +2.5,Baltimore Ravens -2.5,2.5,342,0x9054ca0849a903bc33baec5e6abb4e5679a7e74408435e9612f4c07a731981b4
+2026-08-12T00:16:16+00:00,Football,NFL,Dallas Cowboys,Baltimore Ravens,Over 50.5,Under 50.5,50.5,28,0x15d0dedce32b603b5fc3fac7b255625a4ba69bb869972e472d77b78248aa61fb
+2026-08-12T00:16:16+00:00,Football,NFL,New York Giants,Dallas Cowboys,New York Giants +2.5,Dallas Cowboys -2.5,2.5,342,0x512677cfa863cb7072b6daf8f850467d8aac491aeeed92472face3d296139bbf
+2026-08-12T00:16:16+00:00,Football,NFL,Dallas Cowboys,Philadelphia Eagles,Dallas Cowboys +1,Philadelphia Eagles -1,1.0,342,0x82474a7fe82cdd37198007646d22c0574e6a80969b1f262cf326a20a4a6b3c87
+2026-08-12T00:16:16+00:00,Football,NFL,Dallas Cowboys,Philadelphia Eagles,Dallas Cowboys -1.5,Philadelphia Eagles +1.5,-1.5,342,0x550212a941e66c1a02a0f4f7428c31abf035d62cd5de46e337faa948f440b7bc
+2026-08-12T00:16:16+00:00,Football,NFL,Kansas City Chiefs,Denver Broncos,Over 43.5,Under 43.5,43.5,28,0x7b11277df3fb36ca32138bcf87459670c9cdff709439dc6cc8477f62ea2618f4
+2026-08-12T00:16:16+00:00,Football,NFL,Kansas City Chiefs,Denver Broncos,Kansas City Chiefs,Denver Broncos,,226,0x0f141b0ca27d4b9c526b1490f19e71fdaa832118c1b72c800c000c3b59920a60
+2026-08-12T00:16:16+00:00,Football,NFL,Kansas City Chiefs,Denver Broncos,Kansas City Chiefs -2.5,Denver Broncos +2.5,-2.5,342,0x717e032274e6bb0dabe29435d619474351014b2d13f85b92bcdbdc0f87c3ca00
+2026-08-12T00:16:16+00:00,Football,NFL,Kansas City Chiefs,Denver Broncos,Over 42.5,Under 42.5,42.5,28,0xaa817a8bc3b6399d4727dad5c5e7e1dacad00be60e784e2f1b790b4f08c70652
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Rams,Green Bay Packers,Los Angeles Rams -3.5,Green Bay Packers +3.5,-3.5,342,0x7c042f956b7c408fb360f37fda58597ca502bf71be165bd1ad33b962596fadea
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Rams,Green Bay Packers,Los Angeles Rams,Green Bay Packers,,226,0xa58ae09565e8dc9d2531efaedbe2bcd14029e846d115525a050fc4f16c51eaa7
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Rams,Green Bay Packers,Over 49.5,Under 49.5,49.5,28,0x287775ed33cf8effaba6ea72a739968ac4459b2a72df47c1cd458f6c09cc9c83
+2026-08-12T00:16:16+00:00,Football,NFL,San Francisco 49ers,Minnesota Vikings,San Francisco 49ers -3.5,Minnesota Vikings +3.5,-3.5,342,0x8cdde65f080b304f60468491f293b2b95b4f028504aca8b6e9b9af5812a4651d
+2026-08-12T00:16:16+00:00,Football,NFL,San Francisco 49ers,Minnesota Vikings,Over 46.5,Under 46.5,46.5,28,0xd6df8137f5e2df137f52e03914c0f08068caaf9248c88964c125dbf77141cac0
+2026-08-12T00:16:16+00:00,Football,NFL,San Francisco 49ers,Minnesota Vikings,San Francisco 49ers,Minnesota Vikings,,226,0x07ff331c63f369244be7bce93b2b38dbdb1bf6229f7ba7a7ccabd16eb5296e4b
+2026-08-12T00:16:16+00:00,Football,NFL,San Francisco 49ers,Minnesota Vikings,Over 47.5,Under 47.5,47.5,28,0x534d0e973a9437375aaf92ba496657b31ba3430526b841ac0c917255982bba18
+2026-08-12T00:16:16+00:00,Football,NFL,Detroit Lions,New England Patriots,Detroit Lions -1.5,New England Patriots +1.5,-1.5,342,0xc8cf8876580a7326cb23f198b5ae3b2dfad607033097b7a6b588905100a07187
+2026-08-12T00:16:16+00:00,Football,NFL,Detroit Lions,New England Patriots,Detroit Lions,New England Patriots,,226,0x12028213f58321086135aae10c32c092792ddc240c6b2d1e72359545c7f2ccb0
+2026-08-12T00:16:16+00:00,Football,NFL,Detroit Lions,New England Patriots,Over 48.5,Under 48.5,48.5,28,0xf1385d4cc03689d90df6471834ad67258a9995332aa5f55ccfca4962c78bd886
+2026-08-12T00:16:16+00:00,Football,NFL,Detroit Lions,New England Patriots,Over 49.5,Under 49.5,49.5,28,0x9dfb6d5bca93dd6265dc1ffbdf124ff03232de4abd7f0828021e8c4d253abbbc
+2026-08-12T00:16:16+00:00,Football,NFL,Washington Commanders,Indianapolis Colts,Washington Commanders -1.5,Indianapolis Colts +1.5,-1.5,342,0x9f0cfed2eff9db0a09ed45faa691617f2c3b73a28e088e51d5be6fa5e94df327
+2026-08-12T00:16:16+00:00,Football,NFL,Washington Commanders,Indianapolis Colts,Washington Commanders,Indianapolis Colts,,226,0xf4d50ecf868b089c11ac428be04faefb336112cf318df0d85733246bdb2634d9
+2026-08-12T00:16:16+00:00,Football,NFL,Washington Commanders,Indianapolis Colts,Over 50.5,Under 50.5,50.5,28,0x21fd6a0ac4bbec349508adcdd85576a321ec2e4d6c14c2689e01c0018b476f65
+2026-08-12T00:16:16+00:00,Football,NFL,Washington Commanders,Indianapolis Colts,Over 48.5,Under 48.5,48.5,28,0xd0d090eef16f9d43e332c4eb34f64bf605cd9badbb1efc993eace95c486288de
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Philadelphia Eagles,Over 44.5,Under 44.5,44.5,28,0xa302218de5de2dbf037f9864a437164af859e1afe4852604d12fdf8ca103b88d
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Philadelphia Eagles,Jacksonville Jaguars,Philadelphia Eagles,,226,0xf3050332f79e7b1a7a2a1e95e8e210b47088a0203f0caa92efbf8dc71a24ea8e
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Philadelphia Eagles,Jacksonville Jaguars +2.5,Philadelphia Eagles -2.5,2.5,342,0xb867d13f1cefb66d684ec0baabde1d645c589f4658976a9cad24afaa62d8dcc4
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Houston Texans,Over 40.5,Under 40.5,40.5,28,0x8582efa95615ffe61e3059c63738f7b717acf9143a2a867d49aa844702869c04
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Houston Texans,Over 41.5,Under 41.5,41.5,28,0xaef171bf0bc1b421213383c0d5e87929992b52654e89b26a92006e496a780d95
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Houston Texans,Jacksonville Jaguars +1.5,Houston Texans -1.5,1.5,342,0x967ce9c1e26bc24d10385e4a79765e6e8ebdc7da7634d55ff44737f771b5b327
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Houston Texans,Jacksonville Jaguars -1.5,Houston Texans +1.5,-1.5,342,0xcfbb1374efe6b64a7941e9f181427aa182c6df1df42269630f225d395c4e2928
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Houston Texans,Jacksonville Jaguars,Houston Texans,,226,0xa067dbe958d8601ad686350aebc502a9043c416f6e6df8f1ce92fb1c45fd20e7
+2026-08-12T00:16:16+00:00,Football,NFL,Atlanta Falcons,Cincinnati Bengals,Atlanta Falcons,Cincinnati Bengals,,226,0xee7e0bc4dc0490d337b5e2d250f0ed1e23a4fc6966a22eaff56a2fc37dff194a
+2026-08-12T00:16:16+00:00,Football,NFL,Atlanta Falcons,Cincinnati Bengals,Over 49.5,Under 49.5,49.5,28,0x503100b535b2766fa3d8bd12e05ed8fb6a5e4bf5a4212a51a0b97e94f0e1ce1a
+2026-08-12T00:16:16+00:00,Football,NFL,Atlanta Falcons,Cincinnati Bengals,Over 48.5,Under 48.5,48.5,28,0x7e2292a05b1cc2b647507c653a33128328d659418abf5c6d7e611d3e029b6bfc
+2026-08-12T00:16:16+00:00,Football,NFL,Atlanta Falcons,Cincinnati Bengals,Atlanta Falcons +4.5,Cincinnati Bengals -4.5,4.5,342,0x24dda0175b070ae9b7d13fee9601e9a18c9e1a32c2a13848f99e243ad203ba33
+2026-08-12T00:16:16+00:00,Football,NFL,Atlanta Falcons,Cincinnati Bengals,Atlanta Falcons +3.5,Cincinnati Bengals -3.5,3.5,342,0x44e13c234cc392fd18b5e8fd77a96651c2babbb3e27747339ad88bf1a43643c8
+2026-08-12T00:16:16+00:00,Football,NFL,New Orleans Saints,Pittsburgh Steelers,New Orleans Saints,Pittsburgh Steelers,,226,0x001cd92a53345352d1e28da827c9f1cab0d417878de7e8f2e979c7dd58ba6c59
+2026-08-12T00:16:16+00:00,Football,NFL,New Orleans Saints,Pittsburgh Steelers,Over 42.5,Under 42.5,42.5,28,0x808b3da1f69bf21cf2e4184bb64aca0e941fab3ae09e236448c5788caa7642e3
+2026-08-12T00:16:16+00:00,Football,NFL,New Orleans Saints,Pittsburgh Steelers,New Orleans Saints +2.5,Pittsburgh Steelers -2.5,2.5,342,0x7f37586ae60813cb11091f779f46c9c932eb459d1faece13762f0777034f2e0c
+2026-08-12T00:16:16+00:00,Football,NFL,New Orleans Saints,Pittsburgh Steelers,New Orleans Saints +1.5,Pittsburgh Steelers -1.5,1.5,342,0x33f3a375f2b401c97a1df3b71d73d87709ca3e2e1f608cd619e081a46b502754
+2026-08-12T00:16:16+00:00,Football,NFL,New Orleans Saints,Pittsburgh Steelers,Over 41.5,Under 41.5,41.5,28,0x46192515a05a699bbae17c0eadf20ccad655cd80ed00b84baff7add7c82f8e56
+2026-08-12T00:16:16+00:00,Football,NFL,New Orleans Saints,Pittsburgh Steelers,Over 40.5,Under 40.5,40.5,28,0x5b5c40fec05a79af32765c84dcdc84bdf5b01285e8e90dc6a4128f58d97d353c
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Philadelphia Eagles,Jacksonville Jaguars +1.5,Philadelphia Eagles -1.5,1.5,342,0x0ce7408a2ebe873c93f42d18b625e1a7a4500ae9b559624abeb0479777cfbeee
+2026-08-12T00:16:16+00:00,Football,NFL,Dallas Cowboys,Baltimore Ravens,Over 52.5,Under 52.5,52.5,28,0x40520b92e3565132858344d159794590e92549692eaf341b97527e8d1ac3e3ab
+2026-08-12T00:16:16+00:00,Football,NFL,Seattle Seahawks,New England Patriots,Over 45.5,Under 45.5,45.5,28,0x393f45b0d4f66443a2f301c551cfb3381f1ee689ce87aff79cdb9cd8dc28ff40
+2026-08-12T00:16:16+00:00,Football,NFL,Seattle Seahawks,New England Patriots,Seattle Seahawks -4,New England Patriots +4,-4.0,342,0xdbd737167647aee25fba64d0e0b18ce152e9879874bcfd53b066640b501e4c01
+2026-08-12T00:16:16+00:00,Football,NFL,Seattle Seahawks,New England Patriots,Seattle Seahawks -4.5,New England Patriots +4.5,-4.5,342,0xc1e2362926124492965cc59b5de3e2c16a83ec0362559a031f9dd5916a71e6c4
+2026-08-12T00:16:16+00:00,Football,NFL,Seattle Seahawks,New England Patriots,Seattle Seahawks,New England Patriots,,226,0x72984fd1b667149c1cdfe3cf58d4fd2489dbc632c00e92a788729d809cbf6952
+2026-08-12T00:16:16+00:00,Football,NFL,Seattle Seahawks,New England Patriots,Seattle Seahawks -3.5,New England Patriots +3.5,-3.5,342,0xe275b5845cc6dc4f8d45b681b836a0e5e8d81de1b7602ac524b4eb7984bc6e6e
+2026-08-12T00:16:16+00:00,Football,NFL,Seattle Seahawks,New England Patriots,Over 44.5,Under 44.5,44.5,28,0x54964d8c9686b2b695190998ea8c854d157bfdf615aa25029ff88ebf1308df73
+2026-08-12T00:16:16+00:00,Football,NFL,Las Vegas Raiders,Miami Dolphins,Las Vegas Raiders -3,Miami Dolphins +3,-3.0,342,0x2f0375509a2d7115bfe4e304192c262bcaed6c8d52285ea050d0339520981a38
+2026-08-12T00:16:16+00:00,Football,NFL,Las Vegas Raiders,Miami Dolphins,Las Vegas Raiders,Miami Dolphins,,226,0x1312d608e07ed984fff14cd8255542b0b728cec17236cbed8e2b7d4fbc947ceb
+2026-08-12T00:16:16+00:00,Football,NFL,Las Vegas Raiders,Miami Dolphins,Over 40.5,Under 40.5,40.5,28,0x288ae399ae85d4bb789353439c86204e63f9216686a9c3a2ea3384d424389cff
+2026-08-12T00:16:16+00:00,Football,NFL,Las Vegas Raiders,Miami Dolphins,Over 40.0,Under 40.0,40.0,28,0xad9f4f146401767830e9cb8c7a7617813befd0f69b5a9bc820a1a095ede31076
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Chargers,Arizona Cardinals,Los Angeles Chargers -8.5,Arizona Cardinals +8.5,-8.5,342,0x5fc8d866eb08579794692d2180fd228db5bebeb3a85eb02607709837ce575d5b
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Chargers,Arizona Cardinals,Los Angeles Chargers -10.5,Arizona Cardinals +10.5,-10.5,342,0x9e89dc6ca9281366de5c125a4f8df018f61a1e74d286006985e8b39718268419
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Chargers,Arizona Cardinals,Los Angeles Chargers,Arizona Cardinals,,226,0xc5c02ea962541a33d7de38ab5e1e52b881790707ddf7c97c91dee6a8084f2b6d
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Chargers,Arizona Cardinals,Over 46.5,Under 46.5,46.5,28,0xf1096f38f1361e82aee4fb0ca59336c20d6c79f9e890ac50bbe6b5132639c2e1
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Chargers,Arizona Cardinals,Los Angeles Chargers -11.5,Arizona Cardinals +11.5,-11.5,342,0x76a9499a0e516cf17ca870c99670e3f64c6332c07ab77cff99b44953421b1d45
+2026-08-12T00:16:16+00:00,Football,NFL,Los Angeles Chargers,Arizona Cardinals,Over 45.5,Under 45.5,45.5,28,0x9a2ba5f24f166e810714d7f804b5f00a9fe1b8bf4ae8524be16955d8d89f825a
+2026-08-12T00:16:16+00:00,Football,NFL,Las Vegas Raiders,Miami Dolphins,Over 41.5,Under 41.5,41.5,28,0xa9c6af3fbb29a6b0d55532fd3494625af574eb5f410bc5d38ec81d40691ca619
+2026-08-12T00:16:16+00:00,Football,NFL,Washington Commanders,Indianapolis Colts,Over 49.5,Under 49.5,49.5,28,0xe75bcd619b801fb54f44b0596786486d5377a03e265a7f0b8f5b56676ada865f
+2026-08-12T00:16:16+00:00,Football,NFL,Philadelphia Eagles,Washington Commanders,Over 47.5,Under 47.5,47.5,28,0x9d8b00725880a9a2235e7bdd9bec49278f43a530aba80d18d105800afc486ecd
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Cleveland Browns,Jacksonville Jaguars,Cleveland Browns,,226,0x56a37f9b2a6ebdd01d83a57386ec55c699e4a3b268e1e72e468cd560cf255f1c
+2026-08-12T00:16:16+00:00,Football,NFL,Minnesota Vikings,Green Bay Packers,Over 46.5,Under 46.5,46.5,28,0x1d47edc8b70d3da98648afc01e9ef4ea3a92b76702c656591bea3e125476c756
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Cleveland Browns,Jacksonville Jaguars -7,Cleveland Browns +7,-7.0,342,0x2e3c73abbc2cf534e6e8b46c7c7a67447eb9a355df76b24c212cd93a49717990
+2026-08-12T00:16:16+00:00,Football,NFL,Pittsburgh Steelers,Atlanta Falcons,Pittsburgh Steelers,Atlanta Falcons,,226,0x4276a8edbe8f1a9205920dbf60e254fc54192b1afb8040627a2cdd5a4f479595
+2026-08-12T00:16:16+00:00,Football,NFL,Pittsburgh Steelers,Atlanta Falcons,Pittsburgh Steelers -2.5,Atlanta Falcons +2.5,-2.5,342,0x9acc92e5a2c4902a8dee7fbc6217bbc5d4a0c6e0289a4b3c0cd929686302549f
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Cleveland Browns,Jacksonville Jaguars -7.5,Cleveland Browns +7.5,-7.5,342,0xea168be23b088fd248357af7e2904e55744da9ec2120f62b128f3ef26cf2dddc
+2026-08-12T00:16:16+00:00,Football,NFL,Minnesota Vikings,Green Bay Packers,Over 44.5,Under 44.5,44.5,28,0x45375a70056ef2fc9b1702d8a83ece05ed491a0e5298ab47a8daf7227abc9201
+2026-08-12T00:16:16+00:00,Football,NFL,Minnesota Vikings,Green Bay Packers,Minnesota Vikings +1.5,Green Bay Packers -1.5,1.5,342,0x084b42867b7fe9a80a9a5f83b06ff9521636d2284a8bda76599ec0280412aea9
+2026-08-12T00:16:16+00:00,Football,NFL,Philadelphia Eagles,Washington Commanders,Philadelphia Eagles -5.5,Washington Commanders +5.5,-5.5,342,0x9adf0f04c4e7d5fd0624301fcebb767804dca8f9a10bcd21256b3a61c53be1a6
+2026-08-12T00:16:16+00:00,Football,NFL,Philadelphia Eagles,Washington Commanders,Philadelphia Eagles,Washington Commanders,,226,0x6d97dce7a02f8829d5bee857f866bfcd07693ad84705cc61368f91e5297a645d
+2026-08-12T00:16:16+00:00,Football,NFL,Philadelphia Eagles,Washington Commanders,Philadelphia Eagles -4.5,Washington Commanders +4.5,-4.5,342,0x5493ce87264f379724a8c6369151b1c7ee50339522627582d47a381b8e7ef4c2
+2026-08-12T00:16:16+00:00,Football,NFL,Philadelphia Eagles,Washington Commanders,Over 46.5,Under 46.5,46.5,28,0xcb7b90e7fbc6531f535aba023f7c793c4d6b2cb9d37b7f6d4d7190c82052fa72
+2026-08-12T00:16:16+00:00,Football,NFL,Minnesota Vikings,Green Bay Packers,Minnesota Vikings,Green Bay Packers,,226,0x2566e9b739fcd292c7ada10a5104645a1227646fa8f267983a4beb1a1529c4da
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Cleveland Browns,Over 39.5,Under 39.5,39.5,28,0x91bc8b8b948a2b69bf2f05dbece4f8050131a5ead0f5bbb95c405df0a8005f8b
+2026-08-12T00:16:16+00:00,Football,NFL,Minnesota Vikings,Green Bay Packers,Minnesota Vikings +2.5,Green Bay Packers -2.5,2.5,342,0x3e51c78cff56c7c4e0131060fb6311788a3a6ac81f2085c1297042e2d38585bf
+2026-08-12T00:16:16+00:00,Football,NFL,Pittsburgh Steelers,Atlanta Falcons,Over 41.5,Under 41.5,41.5,28,0xbb06b9372054d3376db5aaa8804e43083ddf08df6cb7b097da860790dbf49ce6
+2026-08-12T00:16:16+00:00,Football,NFL,Tennessee Titans,New York Jets,Tennessee Titans,New York Jets,,226,0xebd6a52f8272f670b789b01d3a47f9fd234f53d8c433cf8dfe004fa4acc5a96c
+2026-08-12T00:16:16+00:00,Football,NFL,Tennessee Titans,New York Jets,Over 38.5,Under 38.5,38.5,28,0x5c9addbe2b8e1c5c5befe1833c55907c4bfd84c8fa3f4626f7ce09a5ee1a41d5
+2026-08-12T00:16:16+00:00,Football,NFL,Jacksonville Jaguars,Cleveland Browns,Over 40.5,Under 40.5,40.5,28,0x240e5ef87f0eed022544893f3b80a8fed9fcabee67a534ead99a329c8e0a079e
