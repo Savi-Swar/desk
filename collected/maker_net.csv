@@ -5714,24 +5714,6 @@ t0,q,reward,fill_pnl,event
 2026-08-11T22:09:21+00:00,"US x Iran diplomatic meeting by August 31, 2026?",0.13768185185185186,0.0625,
 2026-08-11T22:09:21+00:00,"US x Iran diplomatic meeting by September 30, 2026?",0.13768185185185186,-0.7500000000000007,bid-run
 2026-08-11T22:09:21+00:00,US-Iran 60 day negotiation period extended?,0.060968981481481485,0.125,
-2026-08-11T23:04:55+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.15026967592592594,0.0625,
-2026-08-11T23:04:55+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.36227175925925925,0.0625,
-2026-08-11T23:04:55+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.2898174074074074,-0.7499999999999979,bid-run
-2026-08-11T23:04:55+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.2898174074074074,0.0625,
-2026-08-11T23:04:55+00:00,Will the U.S. invade Iran before 2027?,0.28007018518518517,0.0625,
-2026-08-11T23:04:55+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.1449087037037037,0.0625,
-2026-08-11T23:04:55+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.2898174074074074,0.0625,
-2026-08-11T23:04:55+00:00,Will there be no change in Fed interest rates after the Sept,0.43472611111111115,0.0625,
-2026-08-11T23:04:55+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $95 in August?,0.03622717592592593,0.0625,
-2026-08-11T23:04:55+00:00,"Will Anthropic IPO by September 30, 2026?",0.007399766203703705,0.0625,
-2026-08-11T23:04:55+00:00,"US-Iran Final Nuclear Deal by December 31, 2026?",0.10868152777777779,0.0625,
-2026-08-11T23:04:55+00:00,"US announces end of Iranian blockade by August 14, 2026?",0.07245435185185185,0.0625,
-2026-08-11T23:04:55+00:00,Will Darline Graham Nordone be the new republican nominee fo,0.11494817939814816,-18.300000000000004,ask-run
-2026-08-11T23:04:55+00:00,"US announces end of Iranian blockade by September 30, 2026?",0.06416921296296296,0.125,
-2026-08-11T23:04:55+00:00,Will United Russia (ER) gain the most seats in the next Russ,0.042748067592592594,0.0625,
-2026-08-11T23:04:55+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $90 in August?,0.07245435185185185,0.0625,
-2026-08-11T23:04:55+00:00,Will JD Vance win the 2028 US Presidential Election?,0.03461319837962963,0.0125,
-2026-08-11T23:04:55+00:00,"US x Iran diplomatic meeting by August 31, 2026?",0.1449087037037037,0.0625,
 2026-08-11T23:04:55+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.1483854166666667,0.0625,
 2026-08-11T23:04:55+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.3577291666666667,0.0625,
 2026-08-11T23:04:55+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.28618333333333335,-0.7499999999999979,bid-run
@@ -5750,3 +5732,35 @@ t0,q,reward,fill_pnl,event
 2026-08-11T23:04:55+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $90 in August?,0.07154583333333334,0.0625,
 2026-08-11T23:04:55+00:00,Will JD Vance win the 2028 US Presidential Election?,0.03417917708333334,0.0125,
 2026-08-11T23:04:55+00:00,"US x Iran diplomatic meeting by August 31, 2026?",0.14309166666666667,0.0625,
+2026-08-12T00:02:40+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.18583333333333332,0.0625,
+2026-08-12T00:02:40+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.07708333333333334,0.0625,
+2026-08-12T00:02:40+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.14866666666666667,0.0625,
+2026-08-12T00:02:40+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.14866666666666667,0.0625,
+2026-08-12T00:02:40+00:00,Will the U.S. invade Iran before 2027?,0.14366666666666666,0.0625,
+2026-08-12T00:02:40+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.07433333333333333,0.0625,
+2026-08-12T00:02:40+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.14866666666666667,0.0625,
+2026-08-12T00:02:40+00:00,Will there be no change in Fed interest rates after the Sept,0.223,0.0625,
+2026-08-12T00:02:40+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $95 in August?,0.018583333333333334,0.0625,
+2026-08-12T00:02:40+00:00,"Will Anthropic IPO by September 30, 2026?",0.003795833333333334,0.0625,
+2026-08-12T00:02:40+00:00,Will Darline Graham Nordone be the new republican nominee fo,0.03067708333333333,0.35000000000000003,
+2026-08-12T00:02:40+00:00,"US-Iran Final Nuclear Deal by December 31, 2026?",0.05575,0.0625,
+2026-08-12T00:02:40+00:00,"US announces end of Iranian blockade by August 14, 2026?",0.03716666666666667,0.0625,
+2026-08-12T00:02:40+00:00,"US announces end of Iranian blockade by September 30, 2026?",0.03716666666666667,0.0625,
+2026-08-12T00:02:40+00:00,Will United Russia (ER) gain the most seats in the next Russ,0.02192833333333333,0.0625,
+2026-08-12T00:02:40+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $90 in August?,0.03716666666666667,0.0625,
+2026-08-12T00:02:40+00:00,Will JD Vance win the 2028 US Presidential Election?,0.017755416666666666,0.0125,
+2026-08-12T00:02:40+00:00,"US x Iran diplomatic meeting by August 31, 2026?",0.07433333333333333,0.0625,
+2026-08-12T00:03:24+00:00,Clarity Act (H.R.3633) signed into law in 2026?,0.8109560185185185,0.0625,
+2026-08-12T00:03:24+00:00,Will Kai and Speed beat the Minecraft challenge by August 17,0.3363831018518519,-1.250000000000001,ask-run
+2026-08-12T00:03:24+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.6487648148148148,0.0625,
+2026-08-12T00:03:24+00:00,"US announces end of Iranian blockade by August 15, 2026?",0.6487648148148148,-0.7500000000000007,bid-run
+2026-08-12T00:03:24+00:00,Will the U.S. invade Iran before 2027?,0.6269453703703703,0.0625,
+2026-08-12T00:03:24+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.3243824074074074,0.0625,
+2026-08-12T00:03:24+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.6487648148148148,-0.7500000000000007,bid-run
+2026-08-12T00:03:24+00:00,Will there be no change in Fed interest rates after the Sept,0.9731472222222224,-0.7500000000000062,ask-run
+2026-08-12T00:03:24+00:00,Will WTI Crude Oil (WTI) hit (HIGH) $95 in August?,0.08109560185185186,-1.7500000000000016,ask-run
+2026-08-12T00:03:24+00:00,"Will Anthropic IPO by September 30, 2026?",0.01656459490740741,0.0625,
+2026-08-12T00:03:24+00:00,Will Darline Graham Nordone be the new republican nominee fo,0.13387138310185184,-5.199999999999994,ask-run
+2026-08-12T00:03:24+00:00,"US-Iran Final Nuclear Deal by December 31, 2026?",0.2432868055555556,0.0625,
+2026-08-12T00:03:24+00:00,"US announces end of Iranian blockade by September 30, 2026?",0.1621912037037037,-1.750000000000007,bid-run
+2026-08-12T00:03:24+00:00,Will United Russia (ER) gain the most seats in the next Russ,0.09569281018518519,0.0625,
