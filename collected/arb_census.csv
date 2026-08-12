@@ -89,3 +89,7 @@ ts,event,type,edge_pershare,exec_size,pool_dollars,n_legs,near_res,edge_recheck
 2026-08-11T12:06:30+00:00,Where will 2026 rank among the hottest years on record?,BUY-ALL,0.009,0.5,0.0,6,0,0.009
 2026-08-12T00:07:43+00:00,Mexico Annual Inflation 2026,BUY-ALL,0.033,5.7,0.19,8,0,0.033
 2026-08-12T00:07:43+00:00,How many Democratic House members not running in 2026?,SELL-ALL,0.012,5.0,0.06,7,0,0.012
+2026-08-12T12:07:38+00:00,OpenAI IPO Closing Market Cap,BUY-ALL,0.012,40.0,0.48,7,0,0.012
+2026-08-12T12:07:38+00:00,Mexico Annual Inflation 2026,BUY-ALL,0.032,5.7,0.18,8,0,0.032
+2026-08-12T12:07:38+00:00,New Zealand Election: Turnout,BUY-ALL,0.037,4.5,0.17,6,0,0.037
+2026-08-12T12:07:38+00:00,Brazil Presidential Election First Round: Margin of Victory,SELL-ALL,0.008,0.2,0.0,11,0,0.008
