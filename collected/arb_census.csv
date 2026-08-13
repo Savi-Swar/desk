@@ -101,3 +101,6 @@ ts,event,type,edge_pershare,exec_size,pool_dollars,n_legs,near_res,edge_recheck
 2026-08-13T00:06:18+00:00,South Korea Annual Inflation 2026,SELL-ALL,0.008,10.0,0.08,7,0,
 2026-08-13T00:06:18+00:00,UK Annual GDP Growth 2026,BUY-ALL,0.011,3.7,0.04,7,0,
 2026-08-13T00:06:18+00:00,Min Arctic sea ice extent this summer?,SELL-ALL,0.006,5.0,0.03,7,0,
+2026-08-13T12:07:44+00:00,OpenAI IPO Closing Market Cap,BUY-ALL,0.013,30.0,0.39,7,0,0.012
+2026-08-13T12:07:44+00:00,Maduro Prison Time?,BUY-ALL,0.021,12.7,0.27,5,0,0.021
+2026-08-13T12:07:44+00:00,Brazil Annual Inflation 2026,SELL-ALL,0.005,10.0,0.05,10,0,0.006
