@@ -6311,22 +6311,6 @@ t0,q,reward,fill_pnl,event
 2026-08-13T22:08:04+00:00,Will JD Vance win the 2028 US Presidential Election?,0.0685148037037037,0.0125,
 2026-08-13T22:08:04+00:00,Will the U.S. invade Iran before 2027?,0.2708914814814815,0.0625,
 2026-08-13T22:08:04+00:00,Will Philadelphia 76ers win the 2027 NBA Finals?,0.003108024074074074,0.0125,
-2026-08-13T23:04:38+00:00,Will there be no change in Fed interest rates after the Sept,0.44500888888888895,0.0625,
-2026-08-13T23:04:38+00:00,Will Nigel Farage win at least 80% of votes in the Clacton p,0.0719431037037037,-0.7499999999999979,ask-run
-2026-08-13T23:04:38+00:00,Will Nigel Farage win 60–70% of votes in the Clacton parliam,0.056490851851851855,0.125,
-2026-08-13T23:04:38+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.37084074074074075,0.0625,
-2026-08-13T23:04:38+00:00,Will Venezuela recognize Israel by December 31?,0.0022250444444444446,0.0625,
-2026-08-13T23:04:38+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.2966725925925926,0.0625,
-2026-08-13T23:04:38+00:00,"US announces end of Iranian blockade by August 22, 2026?",5.770481481481482e-07,0.1875,
-2026-08-13T23:04:38+00:00,Will Alexandria Ocasio-Cortez win the 2028 US Presidential E,0.03213592777777778,0.0125,
-2026-08-13T23:04:38+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.1483362962962963,0.0625,
-2026-08-13T23:04:38+00:00,Will Nigel Farage win 70–80% of votes in the Clacton parliam,0.09673455555555557,0.2875,
-2026-08-13T23:04:38+00:00,Fed rate hike in 2026?,0.1483362962962963,0.0625,
-2026-08-13T23:04:38+00:00,Will SpaceX have the highest IPO Market Cap 2026?,0.01833416666666667,0.125,
-2026-08-13T23:04:38+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.2966725925925926,0.0625,
-2026-08-13T23:04:38+00:00,Will Philadelphia 76ers win the 2027 NBA Finals?,0.003289340740740741,0.0125,
-2026-08-13T23:04:38+00:00,Will United Russia (ER) gain the most seats in the next Russ,0.004544877777777778,0.0625,
-2026-08-13T23:04:38+00:00,Will the U.S. invade Iran before 2027?,0.28669481481481485,0.0625,
 2026-08-13T23:04:38+00:00,Will there be no change in Fed interest rates after the Sept,0.4271688888888889,0.0625,
 2026-08-13T23:04:38+00:00,Will Nigel Farage win at least 80% of votes in the Clacton p,0.06905897037037037,-0.7499999999999979,ask-run
 2026-08-13T23:04:38+00:00,Will Nigel Farage win 60–70% of votes in the Clacton parliam,0.05422618518518518,0.125,
@@ -6343,3 +6327,32 @@ t0,q,reward,fill_pnl,event
 2026-08-13T23:04:38+00:00,Will Philadelphia 76ers win the 2027 NBA Finals?,0.0031574740740740737,0.0125,
 2026-08-13T23:04:38+00:00,Will United Russia (ER) gain the most seats in the next Russ,0.004362677777777778,0.0625,
 2026-08-13T23:04:38+00:00,Will the U.S. invade Iran before 2027?,0.27520148148148144,0.0625,
+2026-08-14T00:02:06+00:00,Will there be no change in Fed interest rates after the Sept,0.223,0.0625,
+2026-08-14T00:02:06+00:00,Will Nigel Farage win at least 80% of votes in the Clacton p,0.032675833333333335,0.1875,
+2026-08-14T00:02:06+00:00,Will Nigel Farage win 60–70% of votes in the Clacton parliam,0.02793,0.0625,
+2026-08-14T00:02:06+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.18583333333333332,0.0625,
+2026-08-14T00:02:06+00:00,Will Venezuela recognize Israel by December 31?,0.0011149999999999999,0.0625,
+2026-08-14T00:02:06+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.14866666666666667,0.0625,
+2026-08-14T00:02:06+00:00,"US announces end of Iranian blockade by August 22, 2026?",3.2916666666666666e-07,0.125,
+2026-08-14T00:02:06+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.07433333333333333,0.0625,
+2026-08-14T00:02:06+00:00,Will Nigel Farage win 70–80% of votes in the Clacton parliam,0.08308125,0.0375,
+2026-08-14T00:02:06+00:00,Fed rate hike in 2026?,0.07433333333333333,0.0625,
+2026-08-14T00:02:06+00:00,Will SpaceX have the highest IPO Market Cap 2026?,0.010775,0.0625,
+2026-08-14T00:02:06+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.14866666666666667,0.0625,
+2026-08-14T00:02:06+00:00,Will Philadelphia 76ers win the 2027 NBA Finals?,0.0016483333333333332,0.0125,
+2026-08-14T00:02:06+00:00,Will Alexandria Ocasio-Cortez win the 2028 US Presidential E,0.01610375,0.0125,
+2026-08-14T00:02:06+00:00,Will United Russia (ER) gain the most seats in the next Russ,0.0022775,0.0625,
+2026-08-14T00:02:06+00:00,Will the U.S. invade Iran before 2027?,0.14366666666666666,0.0625,
+2026-08-14T00:02:06+00:00,Will Hamas agree to disarm by December 31?,0.0018583333333333334,0.0625,
+2026-08-14T00:04:30+00:00,Will there be no change in Fed interest rates after the Sept,0.9649705555555556,-0.7500000000000062,ask-run
+2026-08-14T00:04:30+00:00,Will Nigel Farage win 60–70% of votes in the Clacton parliam,0.12085931666666666,-43.75,ask-run
+2026-08-14T00:04:30+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.8041421296296296,0.0625,
+2026-08-14T00:04:30+00:00,Will Venezuela recognize Israel by December 31?,0.004824852777777777,-0.7500000000000007,ask-run
+2026-08-14T00:04:30+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.6433137037037037,0.0625,
+2026-08-14T00:04:30+00:00,"US announces end of Iranian blockade by August 22, 2026?",1.424377314814815e-06,-2.9999999999999987,bid-run
+2026-08-14T00:04:30+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.32165685185185183,-0.7500000000000007,ask-run
+2026-08-14T00:04:30+00:00,Will Nigel Farage win 70–80% of votes in the Clacton parliam,0.35951103124999995,-25.75000000000001,bid-run
+2026-08-14T00:04:30+00:00,Fed rate hike in 2026?,0.32165685185185183,-0.7500000000000062,bid-run
+2026-08-14T00:04:30+00:00,Will SpaceX have the highest IPO Market Cap 2026?,0.046625819444444445,0.0625,
+2026-08-14T00:04:30+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.6433137037037037,-2.749999999999997,bid-run
+2026-08-14T00:04:30+00:00,Will United Russia (ER) gain the most seats in the next Russ,0.00985524861111111,0.0625,
