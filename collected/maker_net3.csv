@@ -6433,3 +6433,20 @@ t0,q,reward,fill_pnl,event
 2026-08-14T09:09:56+00:00,Will United Russia (ER) gain the most seats in the next Russ,0.005635547222222222,0.0625,
 2026-08-14T09:09:56+00:00,Will Philadelphia 76ers win the 2027 NBA Finals?,0.0020393546296296294,0.0125,
 2026-08-14T09:09:56+00:00,Will Hamas agree to disarm by December 31?,0.004598342592592592,0.0625,
+2026-08-14T10:24:10+00:00,Will there be no change in Fed interest rates after the Sept,0.2398488888888889,0.0625,
+2026-08-14T10:24:10+00:00,Will the Fed increase interest rates by 25 bps after the Sep,0.19987407407407407,0.0625,
+2026-08-14T10:24:10+00:00,Will Marco Rubio win the 2028 US Presidential Election?,0.03375272592592593,0.0125,
+2026-08-14T10:24:10+00:00,Will Venezuela recognize Israel by December 31?,0.0011992444444444445,0.0625,
+2026-08-14T10:24:10+00:00,Will Alexandria Ocasio-Cortez win the 2028 Democratic presid,0.03325348888888889,-0.40000000000000036,ask-run
+2026-08-14T10:24:10+00:00,"US announces end of Iranian blockade by August 22, 2026?",3.997481481481482e-07,0.0625,
+2026-08-14T10:24:10+00:00,"US announces end of Iranian blockade by December 31, 2026?",0.0,0.0,pulled
+2026-08-14T10:24:10+00:00,Fed rate hike in 2026?,0.19987407407407407,0.0625,
+2026-08-14T10:24:10+00:00,Will SpaceX have the highest IPO Market Cap 2026?,0.01158911111111111,0.0625,
+2026-08-14T10:24:10+00:00,Strait of Hormuz traffic returns to normal by December 31?,0.07994962962962963,-0.7500000000000007,ask-run
+2026-08-14T10:24:10+00:00,Strait of Hormuz traffic returns to normal by September 30?,0.15989925925925927,0.0625,
+2026-08-14T10:24:10+00:00,Will Alexandria Ocasio-Cortez win the 2028 US Presidential E,0.03375272592592593,0.0125,
+2026-08-14T10:24:10+00:00,"US announces end of Iranian blockade by August 31, 2026?",0.15989925925925927,0.0625,
+2026-08-14T10:24:10+00:00,Will JD Vance win the 2028 US Presidential Election?,0.07638774814814815,-0.15000000000000013,bid-run
+2026-08-14T10:24:10+00:00,Will United Russia (ER) gain the most seats in the next Russ,0.004899155555555555,0.0625,
+2026-08-14T10:24:10+00:00,Will Philadelphia 76ers win the 2027 NBA Finals?,0.001772874074074074,0.0125,
+2026-08-14T10:24:10+00:00,Will Hamas agree to disarm by December 31?,0.003997481481481481,0.0625,
