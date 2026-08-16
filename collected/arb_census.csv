@@ -112,3 +112,6 @@ ts,event,type,edge_pershare,exec_size,pool_dollars,n_legs,near_res,edge_recheck
 2026-08-14T23:46:11+00:00,Brazil Annual Inflation 2026,SELL-ALL,0.008,7.1,0.06,10,0,0.007
 2026-08-14T23:46:11+00:00,South Korea Annual Inflation 2026,SELL-ALL,0.006,5.0,0.03,7,0,0.006
 2026-08-15T23:43:14+00:00,Brazil Annual Inflation 2026,SELL-ALL,0.015,8.5,0.13,10,0,0.015
+2026-08-16T23:42:42+00:00,How many Fed rate cuts in 2026?,SELL-ALL,0.009,764.8,6.88,13,0,0.009
+2026-08-16T23:42:42+00:00,How many Democratic House Incumbents will not win their Prim,BUY-ALL,0.069,3.5,0.24,6,0,0.069
+2026-08-16T23:42:42+00:00,OpenAI IPO Closing Market Cap,BUY-ALL,0.007,14.6,0.1,7,0,0.007
