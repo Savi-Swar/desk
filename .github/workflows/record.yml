@@ -38,6 +38,16 @@ jobs:
           git commit -m "fill calibration $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3 4 5; do
             if git pull --rebase origin main && git push origin main; then exit 0; fi
+            # maker_pnl_real.csv is fully rewritten every run, so an overlapping run
+            # conflicts on it deterministically and plain retrying can never win.
+            # It is pure derived state, so recompute it from the (append-only, cleanly
+            # merged) ledger and continue the rebase.
+            if [ "$(git diff --name-only --diff-filter=U)" = "collected/maker_pnl_real.csv" ]; then
+              git checkout --ours collected/maker_pnl_real.csv
+              python maker_pnl_real.py
+              git add collected/maker_pnl_real.csv
+              if GIT_EDITOR=true git rebase --continue && git push origin main; then exit 0; fi
+            fi
             git rebase --abort 2>/dev/null || true   # never leave a wedged rebase for the next retry
             sleep $((RANDOM % 8 + 2))
           done
