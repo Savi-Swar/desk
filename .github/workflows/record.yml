@@ -33,6 +33,7 @@ jobs:
         run: |
           git config user.name "desk-bot"
           git config user.email "actions@users.noreply.github.com"
+          git config merge.ours.driver true   # lets .gitattributes merge=ours resolve derived-file races
           git add -A
           git diff --cached --quiet && exit 0
           git commit -m "fill calibration $(date -u +%Y-%m-%dT%H:%MZ)"

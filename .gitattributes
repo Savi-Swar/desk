@@ -5,7 +5,14 @@
 collected/*.csv    merge=union
 collected/*.jsonl  merge=union
 
-# These are rewritten whole rather than appended, so union would duplicate rows.
-collected/drill_graded.csv    merge=text
-collected/desk.html           merge=text
-collected/maker_pnl_real.csv  merge=text
+# These are rewritten whole rather than appended, so union would duplicate rows
+# and text-merge conflicts whenever two writers race (record cron vs the local
+# check-in sessions — that race failed every run for a day and spammed failure
+# mail). They are DERIVED files, fully regenerated from the ledgers on every
+# run, so a conflict can be resolved by taking either side: the next run
+# rewrites it from complete data anyway. merge=ours resolves silently.
+# (Requires `git config merge.ours.driver true` — set in each workflow and
+# locally; without it git falls back to a normal conflict.)
+collected/drill_graded.csv    merge=ours
+collected/desk.html           merge=ours
+collected/maker_pnl_real.csv  merge=ours
