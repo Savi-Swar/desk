@@ -5,7 +5,7 @@ timed, its exit code and output tail recorded, and one JSON line appended to
 collected/health.jsonl. The nightly session reads that ledger instead of
 guessing from file mtimes whether the pipeline is alive.
 
-    python run_with_health.py arb_executor_sim.py maker_sim.py maker_sim2.py
+    python run_with_health.py single_cond_watch.py maker_sim.py
 
 Exits nonzero if any script failed, so a CI run goes red on partial failure.
 """

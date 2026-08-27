@@ -114,13 +114,6 @@ try:
 except Exception as e:
     print("grade/report fail:", type(e).__name__)
 
-# Desk #3b: maker NET simulation across snapshots
-try:
-    import subprocess, sys, pathlib
-    subprocess.run([sys.executable, str(pathlib.Path(__file__).parent/"maker_sim2.py")], timeout=120)
-except Exception as e:
-    print("maker v2 fail:", type(e).__name__)
-
 # Vig DESK page refresh
 try:
     import subprocess, sys, pathlib
