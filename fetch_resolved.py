@@ -3,7 +3,8 @@
 Gamma's offset pagination 422s past ~2,000 rows, so a single closed=true sweep
 cannot reach the full history. Instead we sweep END-DATE WINDOWS (markets whose
 end_date falls in [a, b)), paging inside each window and recursively halving any
-window that saturates the offset cap. Dedup by market id. Output:
+window that saturates the offset cap (ISO datetimes: splits go sub-day,
+down to 15-minute windows, so dense hourly-market days survive). Dedup by market id. Output:
 data/resolved_markets.csv.gz (data/ is gitignored — research input, not ledger).
 
 Resolution label: final outcomePrices like ["1","0"]; exactly one outcome > .99
@@ -78,7 +79,7 @@ def row_of(m):
 def window(a, b, seen, writer, depth=0):
     """Fetch closed markets with end_date in [a, b); split if saturated."""
     base = ("https://gamma-api.polymarket.com/markets?closed=true"
-            f"&end_date_min={a:%Y-%m-%d}&end_date_max={b:%Y-%m-%d}"
+            f"&end_date_min={a:%Y-%m-%dT%H:%M:%SZ}&end_date_max={b:%Y-%m-%dT%H:%M:%SZ}"
             "&order=id&ascending=true")
     got, offset = 0, 0
     while True:
@@ -88,7 +89,7 @@ def window(a, b, seen, writer, depth=0):
             batch = None                    # hit the wall mid-window
         if batch is None or (len(batch) == PAGE and offset + PAGE > OFFSET_CAP):
             mid = a + (b - a) / 2
-            if mid <= a or (b - a).total_seconds() < 3600:
+            if mid <= a or (b - a).total_seconds() < 900:
                 print(f"  !! window {a:%F}..{b:%F} unsplittable, truncated")
                 return got
             print(f"  split {a:%F}..{b:%F} ({got} rows in, recursing)")
