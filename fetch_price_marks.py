@@ -94,7 +94,7 @@ def main():
                 df.write(r["id"] + "\n")
                 continue
             d = get("https://clob.polymarket.com/prices-history"
-                    f"?market={tok}&interval=max&fidelity=180")
+                    f"?market={tok}&interval=max&fidelity=720")
             hist = (d or {}).get("history") or []
             row = {k: r.get(k) for k in
                    ("id", "endDate", "category", "volume", "winner_idx", "negRisk")}
@@ -109,6 +109,9 @@ def main():
             else:
                 n_empty += 1
             df.write(r["id"] + "\n")
+            if i == 200 and n_ok == 0:
+                raise SystemExit("ABORT: first 200 markets all empty — "
+                                 "endpoint/params broken, refusing to grind")
             if i % 250 == 0:
                 print(f"  {i:,}/{len(rows):,}  marks {n_ok:,}  empty {n_empty:,}",
                       flush=True)
