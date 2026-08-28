@@ -74,6 +74,10 @@ def main():
             and float(r["volume"] or 0) >= MIN_VOL
             and r["clobTokenIds"] not in ("", "[]", None)
             and r["id"] not in done]
+    # newest first: recent markets definitely have CLOB history (pre-2023 was
+    # AMM-era and often has none, which would false-trip the all-empty guard),
+    # and the recent regime is the one the studies weight most.
+    rows.sort(key=lambda r: r.get("endDate") or "", reverse=True)
     print(f"to fetch: {len(rows):,} markets (>= ${MIN_VOL:,.0f} vol, "
           f"{len(done):,} already done)")
 
