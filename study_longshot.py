@@ -19,9 +19,13 @@ across >= 2 category groups. Otherwise we report a null.
 """
 import csv
 import gzip
+import io
 import math
 import pathlib
+import zlib
 from collections import defaultdict
+
+from market_cats import cat_of
 
 D = pathlib.Path(__file__).parent / "data"
 MARKS = D / "price_marks.csv.gz"
@@ -46,15 +50,41 @@ def wilson(k, n, z=1.96):
     return ph, max(0.0, c - hw), min(1.0, c + hw)
 
 
-def cat_group(c):
-    c = (c or "").lower()
-    if any(k in c for k in ("sport", "nba", "nfl", "soccer", "mlb", "esport")):
-        return "sports"
-    if any(k in c for k in ("crypto", "coin")):
-        return "crypto"
-    if any(k in c for k in ("politic", "affairs", "election")):
-        return "politics"
-    return "other"
+def read_gz_tolerant(path):
+    """rows from a possibly-in-flight gzip (no end marker needed)."""
+    raw = path.read_bytes()
+    out = zlib.decompressobj(31).decompress(raw)
+    txt = out.decode("utf-8", "replace")
+    rows = list(csv.DictReader(io.StringIO(txt)))
+    # drop a possibly truncated final row
+    if rows and rows[-1].get("winner_idx") in (None, ""):
+        rows.pop()
+    return rows
+
+
+def load_slugs():
+    """market id -> (slug, question) from every label file present."""
+    m = {}
+    for fn in ("resolved_markets.csv.gz", "resolved_tail.csv.gz",
+               "resolved_tail2.csv.gz"):
+        p = D / fn
+        if not p.exists():
+            continue
+        try:
+            for r in csv.DictReader(gzip.open(p, "rt")):
+                m[r["id"]] = (r.get("slug", ""), r.get("question", ""))
+        except (EOFError, OSError):
+            pass
+    return m
+
+
+SLUGS = {}
+
+
+def cat_group(r):
+    """category from the label join (Gamma stopped populating `category`)."""
+    s, q = SLUGS.get(r.get("id"), ("", ""))
+    return cat_of(s, q or r.get("category", ""))
 
 
 def run(rows, horizon, split=None):
@@ -66,7 +96,7 @@ def run(rows, horizon, split=None):
         p = float(p)
         if not 0 < p < 1:
             continue
-        if split and cat_group(r["category"]) != split:
+        if split and cat_group(r) != split:
             continue
         b = bucket(p)
         if b is None:
@@ -96,8 +126,11 @@ def main():
     if not MARKS.exists():
         print("run fetch_price_marks.py first")
         return
-    rows = list(csv.DictReader(gzip.open(MARKS, "rt")))
-    print(f"observations: {len(rows):,} markets\n")
+    rows = read_gz_tolerant(MARKS)
+    global SLUGS
+    SLUGS = load_slugs()
+    print(f"observations: {len(rows):,} markets "
+          f"({sum(1 for r in rows if r.get('id') in SLUGS):,} joined to slugs)\n")
 
     flags = defaultdict(list)          # direction flags per (horizon, group)
     for horizon in (24, 72, 168):
@@ -109,7 +142,8 @@ def main():
             mark = " *" if abs(t["z"]) >= 2 else ""
             print(f"{t['bucket']:12}{t['n']:>7}{t['implied']:>9.3f}"
                   f"{t['realized']:>9.3f}{t['z']:>7.1f}{t['vol_m']:>8.1f}{mark}")
-        for g in ("sports", "crypto", "politics", "other"):
+        for g in ("sports", "esports", "crypto", "politics", "econ",
+                  "geopolitics", "weather", "culture", "other"):
             for t in run(rows, horizon, split=g):
                 if abs(t["z"]) >= 2:
                     implied_low = t["implied"] < 0.5
