@@ -49,6 +49,24 @@ adverse selection, which we measure directly.
 - Report effective-N, not row count; cap fills at resting size;
   keep the "ideal" column only as a labeled counterfactual.
 
+## 3b. Cross-venue benchmark (raw millisecond TAQ via WRDS, same decomposition)
+$-weighted, 30s horizon, bps of price; equities 10-11am Aug 18-19 2026,
+Lee-Ready signed, crossed quotes excluded; Polymarket wrong-side mids excluded
+to match. Regenerate: `taq_benchmark.py` (WRDS venv) then `benchmark_table.py`.
+
+| venue / book | eff half | realized | impact |
+|---|--:|--:|--:|
+| US equity mega-cap | 1.0 | +0.8 | 0.2 |
+| US equity mid-cap | 3.2 | +1.2 | 1.9 |
+| US equity small-cap | 8.6 | +2.8 | 5.8 |
+| Polymarket tight (<1c) | 17.2 | +6.3 | 10.9 |
+| Polymarket wide (>3c) | 560.8 | +235.5 | 325.3 |
+
+The hook: tight Polymarket books trade like a somewhat-worse small-cap. Wide
+books book a "realized spread" ~80x what an equity small-cap maker actually
+keeps — the fill-at-touch mirage in one row, against a 25-year-old yardstick
+(Stoll 2000; SEC Rule 605 conventions).
+
 ## Figures (all from committed ledgers)
 1. `fig1_fill_overcount` — shrinkage vs real fills (log scale).
 2. `fig2_decomposition` — capture vs impact by spread bucket.
