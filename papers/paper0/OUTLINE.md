@@ -35,20 +35,6 @@ adverse selection, which we measure directly.
 - Corroboration: Dubach 2026 (arXiv:2604.24366) — honest effective
   half-spread ≈0; our wrong-side-mid rate (26%) on wide books.
 
-## 4. What's actually left
-- Rebate income (measured from realized fees × category rebate share),
-  adverse selection at 30s, both capped at a realistic resting size.
-- Daily ledger with Kish effective-N and significance gating; days with
-  |t|≥2 & eff-N≥30 only. Honest read: rebate ~ covers adverse selection;
-  net is small and market-dependent.
-
-## 5. Practitioner checklist
-- Fill = a print you were resting for, at your price, within your size.
-- Mark against your own quote, not the trade price.
-- Wide-book mids are unreliable (micro-price or exclude).
-- Report effective-N, not row count; cap fills at resting size;
-  keep the "ideal" column only as a labeled counterfactual.
-
 ## 3b. Cross-venue benchmark (raw millisecond TAQ via WRDS, same decomposition)
 $-weighted, 30s horizon, bps of price; equities 10-11am Aug 18-19 2026,
 Lee-Ready signed, crossed quotes excluded; Polymarket wrong-side mids excluded
@@ -66,6 +52,20 @@ The hook: tight Polymarket books trade like a somewhat-worse small-cap. Wide
 books book a "realized spread" ~80x what an equity small-cap maker actually
 keeps — the fill-at-touch mirage in one row, against a 25-year-old yardstick
 (Stoll 2000; SEC Rule 605 conventions).
+
+## 4. What's actually left
+- Rebate income (measured from realized fees × category rebate share),
+  adverse selection at 30s, both capped at a realistic resting size.
+- Daily ledger with Kish effective-N and significance gating; days with
+  |t|≥2 & eff-N≥30 only. Honest read: rebate ~ covers adverse selection;
+  net is small and market-dependent.
+
+## 5. Practitioner checklist
+- Fill = a print you were resting for, at your price, within your size.
+- Mark against your own quote, not the trade price.
+- Wide-book mids are unreliable (micro-price or exclude).
+- Report effective-N, not row count; cap fills at resting size;
+  keep the "ideal" column only as a labeled counterfactual.
 
 ## Figures (all from committed ledgers)
 1. `fig1_fill_overcount` — shrinkage vs real fills (log scale).
