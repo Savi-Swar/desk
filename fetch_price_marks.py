@@ -69,11 +69,21 @@ def main():
         print("run fetch_resolved.py first")
         return
     done = set(DONE.read_text().split()) if DONE.exists() else set()
+    def lifetime_ok(r):
+        """a market must live >= ~26h to have any T-24h mark at 12h fidelity;
+        hourlies (the bulk of recent listings) can never contribute."""
+        try:
+            c = dt.datetime.fromisoformat((r["createdAt"] or "").replace("Z", "+00:00"))
+            e = dt.datetime.fromisoformat((r["endDate"] or "").replace("Z", "+00:00"))
+            return (e - c).total_seconds() >= 26 * 3600
+        except (ValueError, TypeError):
+            return True                     # unknown lifetime: try it
     rows = [r for r in csv.DictReader(gzip.open(LABELS, "rt"))
             if r["unresolved"] == "0"
             and float(r["volume"] or 0) >= MIN_VOL
             and r["clobTokenIds"] not in ("", "[]", None)
-            and r["id"] not in done]
+            and r["id"] not in done
+            and lifetime_ok(r)]
     # newest first: recent markets definitely have CLOB history (pre-2023 was
     # AMM-era and often has none, which would false-trip the all-empty guard),
     # and the recent regime is the one the studies weight most.
@@ -114,8 +124,15 @@ def main():
                 n_empty += 1
             df.write(r["id"] + "\n")
             if i == 200 and n_ok == 0:
-                raise SystemExit("ABORT: first 200 markets all empty — "
-                                 "endpoint/params broken, refusing to grind")
+                # before declaring the endpoint broken, probe a token known to
+                # have history (hourly-market runs can be legitimately empty)
+                ctrl = get("https://clob.polymarket.com/prices-history"
+                           "?market=21742633143463906290569050155826241533067272736897614950488156847949938836455"
+                           "&interval=max&fidelity=720")
+                if not ((ctrl or {}).get("history")):
+                    raise SystemExit("ABORT: control token empty too — "
+                                     "endpoint/params broken")
+                print("  (200 empties but control healthy — continuing)")
             if i % 250 == 0:
                 print(f"  {i:,}/{len(rows):,}  marks {n_ok:,}  empty {n_empty:,}",
                       flush=True)
