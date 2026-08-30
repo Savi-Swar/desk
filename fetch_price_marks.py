@@ -24,7 +24,8 @@ import urllib.request
 
 UA = {"User-Agent": "research saviswarup@gmail.com"}
 D = pathlib.Path(__file__).parent / "data"
-LABELS = D / "resolved_markets.csv.gz"
+LABEL_FILES = ("resolved_markets.csv.gz", "resolved_tail.csv.gz",
+               "resolved_tail2.csv.gz")
 OUT = D / "price_marks.csv.gz"
 DONE = D / "price_marks_done.txt"
 MIN_VOL = float(os.environ.get("MIN_VOL", 5000))
@@ -65,7 +66,8 @@ def mark_at(history, t):
 
 
 def main():
-    if not LABELS.exists():
+    label_paths = [D / fn for fn in LABEL_FILES if (D / fn).exists()]
+    if not label_paths:
         print("run fetch_resolved.py first")
         return
     done = set(DONE.read_text().split()) if DONE.exists() else set()
@@ -78,12 +80,19 @@ def main():
             return (e - c).total_seconds() >= 26 * 3600
         except (ValueError, TypeError):
             return True                     # unknown lifetime: try it
-    rows = [r for r in csv.DictReader(gzip.open(LABELS, "rt"))
-            if r["unresolved"] == "0"
-            and float(r["volume"] or 0) >= MIN_VOL
-            and r["clobTokenIds"] not in ("", "[]", None)
-            and r["id"] not in done
-            and lifetime_ok(r)]
+    rows, seen = [], set()
+    for lp in label_paths:
+        try:
+            for r in csv.DictReader(gzip.open(lp, "rt")):
+                if (r["id"] in seen or r["unresolved"] != "0"
+                        or float(r["volume"] or 0) < MIN_VOL
+                        or r["clobTokenIds"] in ("", "[]", None)
+                        or r["id"] in done or not lifetime_ok(r)):
+                    continue
+                seen.add(r["id"])
+                rows.append(r)
+        except (EOFError, OSError):
+            pass
     # newest first: recent markets definitely have CLOB history (pre-2023 was
     # AMM-era and often has none, which would false-trip the all-empty guard),
     # and the recent regime is the one the studies weight most.
