@@ -11,9 +11,14 @@ market, from fetch_price_marks.py). Unit of observation: (market, horizon
 mark). Outcome = 1 if outcome-0 won. Buckets are fine at the tails where the
 bias concentrates.
 
-Verdict rule (pre-registered in desk-year-plan.md): the bias is REAL if >= 3
-buckets are mispriced >= 2 SE in the same tail-direction at the same horizon
-across >= 2 category groups. Otherwise we report a null.
+Verdict rule (pre-registered in desk-year-plan.md, TIGHTENED 2026-08-30 after
+the November-2025 lesson): naive per-bucket z-scores treat markets sharing an
+underlying and a regime as independent — day-clustered inference put the
+crypto-favorites "bias" at t=-4.2, but clustering by (category, month)
+collapsed it to t=-0.3: the whole effect was the Nov-2025 crash month. So the
+verdict now requires, per (horizon, category, side-of-0.5): |t| >= 2 with
+month-level clusters, >= 6 cluster-months, in >= 2 category groups. Buckets
+are still reported descriptively.
 
     python study_longshot.py
 """
@@ -154,14 +159,44 @@ def main():
                         flags[(horizon, g)].append(t["bucket"])
         print()
 
-    print("=== verdict (pre-registered rule) ===")
+    print("=== naive per-bucket flags (descriptive only — see docstring) ===")
     for (h, g), bs in sorted(flags.items()):
-        print(f"  T-{h}h {g}: longshot-bias-direction buckets >=2SE: {bs}")
-    groups_hit = {g for (_, g), bs in flags.items() if len(bs) >= 1}
-    total_buckets = sum(len(b) for b in flags.values())
-    real = total_buckets >= 3 and len(groups_hit) >= 2
-    print(f"\n  bias buckets: {total_buckets} across {len(groups_hit)} "
-          f"category groups -> {'BIAS REAL' if real else 'NULL / INSUFFICIENT'}")
+        print(f"  T-{h}h {g}: {bs}")
+
+    print("\n=== verdict: month-clustered calibration gaps ===")
+    hits = []
+    for horizon in (24, 72, 168):
+        for g in ("sports", "esports", "crypto", "politics", "econ",
+                  "geopolitics", "weather", "culture", "other"):
+            for lo, hi, side in ((0.02, 0.5, "longshots"), (0.5, 0.98, "favorites")):
+                cl = defaultdict(lambda: [0.0, 0])
+                for r in rows:
+                    p = r.get(f"p_{horizon}h")
+                    if p in (None, ""):
+                        continue
+                    p = float(p)
+                    if not lo <= p < hi:
+                        continue
+                    if cat_group(r) != g:
+                        continue
+                    mo = (r.get("endDate") or "")[:7]
+                    c = cl[mo]
+                    c[0] += (1.0 if r["winner_idx"] == "0" else 0.0) - p
+                    c[1] += 1
+                d = [c[0] / c[1] for c in cl.values() if c[1] >= 5]
+                if len(d) < 6:
+                    continue
+                m = sum(d) / len(d)
+                se = (sum((x - m) ** 2 for x in d) / (len(d) - 1)) ** 0.5 / math.sqrt(len(d))
+                tt = m / se if se else 0.0
+                if abs(tt) >= 2:
+                    hits.append((horizon, g, side, m, tt, len(d)))
+                    print(f"  T-{horizon}h {g} {side}: gap {m:+.3f} "
+                          f"t={tt:+.1f} ({len(d)} months)")
+    groups_hit = {g for _, g, *_ in hits}
+    real = len(hits) >= 2 and len(groups_hit) >= 2
+    print(f"\n  {len(hits)} robust cells across {len(groups_hit)} groups -> "
+          f"{'BIAS CANDIDATE (verify OOS)' if real else 'NULL — no calibration bias survives regime clustering'}")
     print("  (fees at the tails ~ feeRate*p(1-p) are tiny; economic viability "
           "assessed in the backtest phase, not here)")
 
