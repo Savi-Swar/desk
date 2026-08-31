@@ -122,3 +122,31 @@ disciplines a real-looking taker signal the same way.
       check 200 modern slugs by hand for a current-era agreement number
 - [ ] Reconcile 880k universe → 90k marks → 69,188 verdict funnel as an
       explicit table (vol filter, lifetime filter, empty histories)
+
+
+---
+
+## POST-OUTLINE EVIDENCE UPDATES (2026-09-01) — fold into the draft
+
+The outline above predates two decisive turns; the draft must lead with them:
+
+1. **Mirage #7 (pinned marks) rewrites the results section.** 22–28% of
+   T-h marks postdate the market's actual close (closedTime << endDate);
+   pinned afterlife prints are mechanically calibrated. They manufactured the
+   crypto-favorites cells (KILL those from the headline table) and diluted
+   real longshot overpricing. De-pinned verdict: **12 cells / 5 groups, all
+   longshot-overpriced** — the classic FLB, cross-category, 22–32 months,
+   Kish up to 20 (`PINNED_PRICE_CHECK.md`; filter now permanent in
+   `study_longshot.py`).
+2. **The OOS section now has a positive result.** T-24h short-longshots:
+   bet-weighted −1.77pp (n=4,000), engine SR 3.93 / PSR 0.99 at base costs —
+   the pre-registered evidence bar's first pass — degrading to SR ~1.5–2 at
+   200bps slip; broad (daily Kish 102/157); DSR 0.81; T-72h fails
+   (`STUDY1_OOS.md` update, `backtest/oos_longshots.py`). Frame as
+   cost-conditional; live-book forward validation pre-registered.
+3. Mirage count is now SEVEN (add pinned marks to the methods spine).
+4. `load_slugs` multi-member gzip bug (silently dropped label rows) — worth a
+   data-hygiene footnote; fixed via the tolerant reader.
+5. Kish effective cluster count now computed in every verdict cell — the
+   crypto T-24h cell's 16k obs = 6.2 effective months is itself a teaching
+   number for the weighting section.
