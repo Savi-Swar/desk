@@ -3,7 +3,7 @@
 *The 90-second version. Every number regenerates from this repo; each line
 links the code and writeup behind it.*
 
-## The six backtest mirages (found, measured, killed — in our own results)
+## The seven backtest mirages (found, measured, killed — in our own results)
 
 | # | the seductive number | the truth | how it died | receipts |
 |---|---|---|---|---|
@@ -13,8 +13,17 @@ links the code and writeup behind it.*
 | 4 | +5pp crypto favorites gap, persists OOS | +0.6pp bet-weighted — below costs | month-mean vs bet-weighted weighting | `STUDY1_OOS.md` |
 | 5 | −12pp weather "miscalibration" | stale last-trade marks: family prices sum to 1.39 | accounting identity reproduces the gap exactly | `data/weather_artifact_check.md` |
 | 6 | weather model +125%, SR 0.9 | −79%, SR −4.9 on books fresh enough to trade | freshness gate Σmarks∈[0.95,1.10] | `WEATHER_V1.md` |
+| 7 | crypto favorites underpriced (2 verdict cells) | pinned afterlife prints — 22-28% of marks postdate the market's actual close | closedTime exclusion; cells died, and a broader real signal emerged | `PINNED_PRICE_CHECK.md` |
 
 ## Findings that survived every attack
+
+- **Longshots are overpriced, everywhere** (de-pinned): 12 month-clustered
+  cells across crypto/politics/geopolitics/weather/other, all one direction,
+  22–32 months. OOS at T-24h: bet-weighted −1.77pp on 4,000 bets — the
+  evidence bar's first pass (SR 3.9/PSR 0.99 at base costs, SR ~1.5–2 at
+  pessimistic slippage; cost-conditional by construction). The decisive test
+  runs forward at LIVE executable book prices (`longshot_forward.py`, in CI
+  2×daily, self-grading). `STUDY1_OOS.md`.
 
 - **Polymarket vs the equity yardstick** (same Stoll decomposition, theirs from
   raw millisecond TAQ): tight prediction-market books ≈ a somewhat-worse
