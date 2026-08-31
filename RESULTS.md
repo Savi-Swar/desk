@@ -3,7 +3,7 @@
 *The 90-second version. Every number regenerates from this repo; each line
 links the code and writeup behind it.*
 
-## The seven backtest mirages (found, measured, killed — in our own results)
+## The eight backtest mirages (found, measured, killed — in our own results)
 
 | # | the seductive number | the truth | how it died | receipts |
 |---|---|---|---|---|
@@ -14,16 +14,17 @@ links the code and writeup behind it.*
 | 5 | −12pp weather "miscalibration" | stale last-trade marks: family prices sum to 1.39 | accounting identity reproduces the gap exactly | `data/weather_artifact_check.md` |
 | 6 | weather model +125%, SR 0.9 | −79%, SR −4.9 on books fresh enough to trade | freshness gate Σmarks∈[0.95,1.10] | `WEATHER_V1.md` |
 | 7 | crypto favorites underpriced (2 verdict cells) | pinned afterlife prints — 22-28% of marks postdate the market's actual close | closedTime exclusion; cells died, and a broader real signal emerged | `PINNED_PRICE_CHECK.md` |
+| 8 | short-longshots OOS SR 3.9, PSR 0.99 | day-budget sizing reweights P&L toward sparse days: the same stream is −3.3c/share equal-weight; and the gap reversed in 2026 | flat-fraction engine mode + modes-must-agree rule; claim retracted | `STUDY1_OOS.md` revision |
 
 ## Findings that survived every attack
 
-- **Longshots are overpriced, everywhere** (de-pinned): 12 month-clustered
-  cells across crypto/politics/geopolitics/weather/other, all one direction,
-  22–32 months. OOS at T-24h: bet-weighted −1.77pp on 4,000 bets — the
-  evidence bar's first pass (SR 3.9/PSR 0.99 at base costs, SR ~1.5–2 at
-  pessimistic slippage; cost-conditional by construction). The decisive test
-  runs forward at LIVE executable book prices (`longshot_forward.py`, in CI
-  2×daily, self-grading). `STUDY1_OOS.md`.
+- **Longshots are overpriced in the historical record** (de-pinned): 12
+  month-clustered cells across five category groups, all one direction,
+  22–32 months — a real statistical description. Every tradeable
+  implementation of it has now died honestly (see mirage #8 and the 2026
+  reversal); the forward experiment at LIVE executable book prices
+  (`longshot_forward.py`, CI 2×daily, self-grading) is the sole remaining
+  arbiter. `STUDY1_OOS.md`.
 
 - **Polymarket vs the equity yardstick** (same Stoll decomposition, theirs from
   raw millisecond TAQ): tight prediction-market books ≈ a somewhat-worse

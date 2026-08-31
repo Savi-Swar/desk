@@ -48,18 +48,27 @@ def kelly_fraction(p_win, price):
     return max(0.0, f)
 
 
-def run(bets):
-    """-> dict with daily returns, per-bet records, and the honest stats."""
+def run(bets, flat=None):
+    """-> dict with daily returns, per-bet records, and the honest stats.
+
+    flat: if set (e.g. 0.0025), EVERY bet risks that fixed bankroll fraction
+    and the daily exposure cap is bypassed. Kelly + the day cap is a real
+    capital-allocation policy, but it reweights P&L toward sparse days —
+    a losing bet stream can print a positive capped Sharpe (mirage #8; the
+    weather-2026 stream was -3.3c/share equal-weight yet +150% capped).
+    A result is only claimable when BOTH modes agree on sign."""
     # pass 1: raw fractions per day, to scale into the daily exposure cap
     day_f = defaultdict(float)
     sized = []
     for bet in bets:
         yes, price, p_win = side_and_edge(bet["p_model"], bet["p_mkt"])
-        f = min(KELLY_FRAC * kelly_fraction(p_win, price), MAX_BET_FRAC)
+        f = flat if flat is not None else \
+            min(KELLY_FRAC * kelly_fraction(p_win, price), MAX_BET_FRAC)
         if f > 0:
             sized.append((bet, yes, price, f))
             day_f[bet["date"]] += f
-    scale = {d: min(1.0, DAY_EXPOSURE_CAP / tot) for d, tot in day_f.items()}
+    scale = ({d: 1.0 for d in day_f} if flat is not None else
+             {d: min(1.0, DAY_EXPOSURE_CAP / tot) for d, tot in day_f.items()})
 
     daily = defaultdict(float)
     records = []

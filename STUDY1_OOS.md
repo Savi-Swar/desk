@@ -51,3 +51,35 @@ Honest statement: a broad, OOS-verified longshot-overpricing edge exists at
 T-24h; its economics live or die on execution costs in the 100–200bps range,
 and entry prices are still last-trade marks (optimistic proxies). The
 decisive test is forward, on live books. Paper only regardless.
+
+---
+
+# Revision (2026-09-01, same day): the quotable claim is RETRACTED
+
+Two updates landed within hours and the pre-registered falsifiers fired:
+
+1. **The 2026 tail sample arrived** (falsifier ii): May–June 2026 test months
+   show the gap REVERSED (+2.2 to +2.4pp — longshots winning more than
+   priced), dominated by weather families whose warm-side ladder drift runs
+   opposite to generic longshot bias. Ex-weather, the 2026 gap is +4.6pp —
+   also reversed. Bet-weighted across the enlarged test set: +0.6pp. The
+   pooled short-longshot trade does not survive 2026.
+2. **Mirage #8 — day-budget reweighting.** The engine's daily exposure cap
+   (itself added after mirage-adjacent ruin) scales bets down on crowded days
+   and leaves sparse days at full size, so its Sharpe is closer to an
+   equal-DAY average than an equal-BET one. The weather-2026 stream is
+   −3.28c/share equal-weight yet printed +150% capped. The engine now has a
+   flat-fraction mode, and the standing rule is: a strategy result is only
+   claimable when the capped and flat modes AGREE on sign. On the enlarged
+   sample: ex-weather agrees (negative, dead); everything else disagrees.
+   The original SR 3.93 was measured under the capped mode on the smaller
+   window and is therefore RETRACTED as a strategy claim, not merely
+   weakened.
+
+What remains true: the de-pinned CALIBRATION structure (12 month-clustered
+cells, all longshot-overpriced, 22–32 months) is a statistical description
+of history that no single artifact explains away — but no implementation of
+it survived contact with 2026 data plus honest weighting. The forward
+live-book experiment (longshot_forward.py) is now the sole arbiter, and the
+papers claim exactly that: a calibration anomaly, an execution question, and
+eight documented ways we fooled ourselves en route.
