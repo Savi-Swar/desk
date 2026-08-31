@@ -25,6 +25,11 @@ import stats
 BANKROLL = 10_000.0
 KELLY_FRAC = 0.25
 MAX_BET_FRAC = 0.02        # never more than 2% of bankroll on one market
+DAY_EXPOSURE_CAP = 0.25    # never more than 25% of bankroll at risk per day:
+                           # same-day prediction-market bets are heavily
+                           # correlated (one BTC path resolves them all), so
+                           # uncapped daily deployment turns a 5pp edge into
+                           # ruin — the OOS crypto test proved it at -852%
 
 
 def side_and_edge(p_model, p_mkt):
@@ -45,13 +50,21 @@ def kelly_fraction(p_win, price):
 
 def run(bets):
     """-> dict with daily returns, per-bet records, and the honest stats."""
-    daily = defaultdict(float)
-    records = []
+    # pass 1: raw fractions per day, to scale into the daily exposure cap
+    day_f = defaultdict(float)
+    sized = []
     for bet in bets:
         yes, price, p_win = side_and_edge(bet["p_model"], bet["p_mkt"])
         f = min(KELLY_FRAC * kelly_fraction(p_win, price), MAX_BET_FRAC)
-        if f <= 0:
-            continue
+        if f > 0:
+            sized.append((bet, yes, price, f))
+            day_f[bet["date"]] += f
+    scale = {d: min(1.0, DAY_EXPOSURE_CAP / tot) for d, tot in day_f.items()}
+
+    daily = defaultdict(float)
+    records = []
+    for bet, yes, price, f in sized:
+        f *= scale[bet["date"]]
         dollars = f * BANKROLL
         shares = dollars / price
         fee = bet.get("fee_rate", 0.02) * price * (1 - price) * shares

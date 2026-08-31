@@ -56,10 +56,26 @@ def wilson(k, n, z=1.96):
 
 
 def read_gz_tolerant(path):
-    """rows from a possibly-in-flight gzip (no end marker needed)."""
+    """rows from a possibly-in-flight gzip. Handles MULTI-MEMBER files (append
+    mode writes a new gzip member per run) and a truncated final member."""
     raw = path.read_bytes()
-    out = zlib.decompressobj(31).decompress(raw)
-    txt = out.decode("utf-8", "replace")
+    parts = []
+    while raw:
+        o = zlib.decompressobj(31)
+        try:
+            parts.append(o.decompress(raw))
+        except zlib.error:
+            break
+        if not o.unused_data or o.unused_data == raw:
+            break
+        raw = o.unused_data
+    txt = b"".join(parts).decode("utf-8", "replace")
+    # appended members repeat the header line; drop embedded ones
+    lines = txt.splitlines()
+    if lines:
+        head = lines[0]
+        lines = [head] + [l for l in lines[1:] if l != head]
+        txt = "\n".join(lines)
     rows = list(csv.DictReader(io.StringIO(txt)))
     # drop a possibly truncated final row
     if rows and rows[-1].get("winner_idx") in (None, ""):
