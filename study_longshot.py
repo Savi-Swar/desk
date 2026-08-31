@@ -83,20 +83,45 @@ def read_gz_tolerant(path):
     return rows
 
 
+def _parse_ts(s):
+    """ISO-ish timestamp -> epoch, tolerant of the label files' variants."""
+    if not s:
+        return None
+    s = s.replace("T", " ").replace("Z", "").split("+")[0].split(".")[0]
+    import datetime as _dt
+    try:
+        return _dt.datetime.strptime(s, "%Y-%m-%d %H:%M:%S").replace(
+            tzinfo=_dt.timezone.utc).timestamp()
+    except ValueError:
+        return None
+
+
 def load_slugs():
-    """market id -> (slug, question) from every label file present."""
+    """market id -> (slug, question, closed_ts, end_ts). Uses the tolerant
+    multi-member reader — plain gzip.open silently drops most rows of a
+    multi-member/truncated label file (caught by the pinned-price check)."""
     m = {}
     for fn in ("resolved_markets.csv.gz", "resolved_tail.csv.gz",
                "resolved_tail2.csv.gz"):
         p = D / fn
         if not p.exists():
             continue
-        try:
-            for r in csv.DictReader(gzip.open(p, "rt")):
-                m[r["id"]] = (r.get("slug", ""), r.get("question", ""))
-        except (EOFError, OSError):
-            pass
+        for r in read_gz_tolerant(p):
+            m[r.get("id")] = (r.get("slug", ""), r.get("question", ""),
+                              _parse_ts(r.get("closedTime")),
+                              _parse_ts(r.get("endDate")))
     return m
+
+
+def pinned(r, horizon):
+    """True when the T-h mark postdates the market's actual close — a pinned
+    afterlife print, mechanically 'perfectly calibrated'. 22-28% of marks;
+    they faked favorite-underpricing and diluted real longshot overpricing
+    (PINNED_PRICE_CHECK.md)."""
+    lab = SLUGS.get(r.get("id"))
+    if not lab or lab[2] is None or lab[3] is None:
+        return False
+    return lab[2] <= lab[3] - horizon * 3600
 
 
 SLUGS = {}
@@ -104,7 +129,8 @@ SLUGS = {}
 
 def cat_group(r):
     """category from the label join (Gamma stopped populating `category`)."""
-    s, q = SLUGS.get(r.get("id"), ("", ""))
+    lab = SLUGS.get(r.get("id"))
+    s, q = (lab[0], lab[1]) if lab else ("", "")
     return cat_of(s, q or r.get("category", ""))
 
 
@@ -116,6 +142,8 @@ def run(rows, horizon, split=None):
             continue
         p = float(p)
         if not 0 < p < 1:
+            continue
+        if pinned(r, horizon):
             continue
         if split and cat_group(r) != split:
             continue
@@ -192,6 +220,8 @@ def main():
                         continue
                     p = float(p)
                     if not lo <= p < hi:
+                        continue
+                    if pinned(r, horizon):
                         continue
                     if cat_group(r) != g:
                         continue

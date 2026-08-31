@@ -25,3 +25,29 @@ now a permanent engine feature. Chalk up mirage #4: month-clustered
 calibration significance does not imply bet-weighted tradeability. The paper
 gets a cleaner finding than an edge: the weighting between "statistically
 real" and "economically real" is itself the result.
+
+---
+
+# Update (2026-09-01): the de-pinned longshot trade — first QUOTABLE result
+
+The pinned-price fix (PINNED_PRICE_CHECK.md) reversed the landscape: crypto
+favorites died as an artifact, and a broad longshot-overpricing signature
+emerged across 5 category groups. OOS protocol identical to the test that
+killed crypto-favorites (train < 2025-07, frozen per-category gaps, fees
+0.07, pinned marks excluded): backtest/oos_longshots.py.
+
+T-24h short-longshots [0.03,0.35):
+  bet-weighted OOS gap  −1.77pp   (n=4,000, 157 days)
+  engine                +68%, SR +3.93, PSR 0.99  -> QUOTABLE (the bar's first pass)
+  hardening: daily Kish eff-N 102/157, top-5 days = 6% of P&L (broad, not
+  event-driven); survives dropping the deepest tail (SR 3.19, quotable);
+  deflated Sharpe over 12 variants tried: 0.81.
+  cost sensitivity: slip 100→200bps: SR 1.97, PSR 0.90 (loses quotability);
+  tail-drop + 200bps: SR 1.47.
+T-72h: fails (−0.7pp bet-weighted, below costs) — the edge is a last-day
+phenomenon.
+
+Honest statement: a broad, OOS-verified longshot-overpricing edge exists at
+T-24h; its economics live or die on execution costs in the 100–200bps range,
+and entry prices are still last-trade marks (optimistic proxies). The
+decisive test is forward, on live books. Paper only regardless.
