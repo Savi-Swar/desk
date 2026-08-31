@@ -199,16 +199,22 @@ def main():
                     c = cl[mo]
                     c[0] += (1.0 if r["winner_idx"] == "0" else 0.0) - p
                     c[1] += 1
-                d = [c[0] / c[1] for c in cl.values() if c[1] >= 5]
+                kept = [c for c in cl.values() if c[1] >= 5]
+                d = [c[0] / c[1] for c in kept]
                 if len(d) < 6:
                     continue
                 m = sum(d) / len(d)
                 se = (sum((x - m) ** 2 for x in d) / (len(d) - 1)) ** 0.5 / math.sqrt(len(d))
                 tt = m / se if se else 0.0
+                # Kish effective sample size over unequal cluster sizes: how
+                # many equal-weight clusters this evidence really amounts to
+                ns = [c[1] for c in kept]
+                kish = (sum(ns) ** 2) / sum(n * n for n in ns)
                 if abs(tt) >= 2:
                     hits.append((horizon, g, side, m, tt, len(d)))
                     print(f"  T-{horizon}h {g} {side}: gap {m:+.3f} "
-                          f"t={tt:+.1f} ({len(d)} months)")
+                          f"t={tt:+.1f} ({len(d)} months, Kish eff {kish:.1f}, "
+                          f"n={sum(ns):,})")
     groups_hit = {g for _, g, *_ in hits}
     real = len(hits) >= 2 and len(groups_hit) >= 2
     print(f"\n  {len(hits)} robust cells across {len(groups_hit)} groups -> "
