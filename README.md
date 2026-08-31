@@ -6,6 +6,8 @@ killed its own results. Everything below is measured on real Polymarket data —
 live WebSocket capture plus full resolved-market history — and every headline
 number here survived an attempt to destroy it. Two didn't, and those are the
 most useful findings so far.
+**Start with [RESULTS.md](RESULTS.md)** — the full results index in 90
+seconds, every number regenerable.
 
 ## Findings (chronological)
 
