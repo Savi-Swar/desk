@@ -1,31 +1,37 @@
 # Is the crowd calibrated? Favorite-longshot structure in 880,000 prediction-market resolutions
 
-*Draft v0.1 — numbers final and regenerable (`study_longshot.py`,
-`study_pinned_check.py`, `backtest/oos_longshots.py`); prose is a working
-skeleton.*
+*Draft v0.2 — numbers refreshed 2026-08-31 against the regenerated pipeline
+(`study_longshot.py`, `study_pinned_check.py`, `backtest/oos_longshots.py`);
+the marks tail crawl is still appending 2026 months, so mark counts move;
+prose is a working skeleton.*
 
 ## Abstract
 
 We assemble the largest calibration sample yet studied on a prediction-market
-venue: 880,324 resolved Polymarket markets (2020–2026), with pre-resolution
-price marks at 24, 72, and 168 hours for 90,000+ of them. The raw answer to
+venue: 880,326 resolved Polymarket markets (2020–2026), with pre-resolution
+price marks at 24, 72, and 168 hours for 105,000+ of them. The raw answer to
 "does an outcome priced p win a fraction p of the time" is dominated not by
 crowd psychology but by measurement artifacts, and the paper's first
 contribution is their anatomy: last-trade marks across multi-outcome families
 that sum far above one; marks that postdate a market's effective resolution
-(22–28% of all marks) and are therefore mechanically calibrated; category
+(13–28% of marks, by horizon) and are therefore mechanically calibrated; category
 labels the venue stopped populating; and inference that treats thousands of
 same-underlying, same-regime markets as independent — a day-clustered
 "reverse bias" of t = −4.2 collapses to t = −0.3 when clustered by month,
 having been one crash month in disguise. After the artifacts: a single
 coherent signature survives — longshots are systematically overpriced across
-every category group (crypto, politics, geopolitics, weather, other; 12
-month-clustered cells, |t| ≥ 2, spanning 22–32 months). The bias is real,
-out-of-sample, and marginally tradeable: a short-longshot rule at T-24h
-clears a pre-registered evidence bar (4,000 OOS bets, PSR 0.99) at base
-execution costs and fails it when slippage doubles. Prediction-market
-inefficiency, where it exists at scale, is small, tail-shaped, and lives or
-dies on microstructure.
+every category group (crypto, politics, geopolitics, weather, other; 13
+month-clustered cells, |t| ≥ 2, spanning 11–33 months). The bias is a robust
+statistical description of history; it is not, so far, a strategy. A
+short-longshot rule at T-24h briefly cleared a pre-registered evidence bar
+(4,000 OOS bets, PSR 0.99) and was retracted when two registered falsifiers
+fired: the 2026 tail sample reversed the gap, and the engine's daily
+exposure cap was itself reweighting P&L toward sparse days. One candidate —
+politics favorites, overpriced on both sides of a train/test split and in
+both marked 2026 months — is pending a pre-registered automated
+adjudication; a forward experiment at live executable quotes is the arbiter.
+Prediction-market inefficiency, where it exists at scale, is small,
+tail-shaped, and lives or dies on microstructure.
 
 ## 1. Question and setting
 
@@ -39,15 +45,16 @@ resolutions) plants traps that we show dominate naive estimates.
 
 ## 2. Data and pipeline
 
-Labels: 880,324 unique resolved markets via adaptive end-date-window sweeps
+Labels: 880,326 unique resolved markets via adaptive end-date-window sweeps
 of the venue's Gamma API (its offset pagination fails past ~2,000 rows;
 windows split recursively to 15-minute granularity on dense hourly-market
 days). Resolution is taken from final settled prices (exactly one outcome
 above 0.99). Marks: last trade price at T-24/72/168h before scheduled end,
 from the CLOB price-history endpoint at 720-minute fidelity (finer fidelities
 return empty on long ranges — a quirk that silently voided an early crawl and
-motivated an all-empty abort guard), for the 90,758 resolved markets with at
-least $5,000 volume and a lifetime long enough to have a mark. Categories:
+motivated an all-empty abort guard), for the 105,527 resolved markets with at
+least $5,000 volume and a lifetime long enough to have a mark (a tail crawl
+adding 2026 months is still running; counts are the 2026-08-31 snapshot). Categories:
 the venue stopped populating its category field in 2022 (~4k labeled of
 880k), so categories derive from a keyword classifier over slug and question
 text, at 79% agreement with the legacy labels; word-boundary rules matter
@@ -65,13 +72,13 @@ family sum. Any calibration claim on family members must renormalize or use
 executable quotes.
 
 **Pinned afterlife marks.** Markets resolve when events resolve, not when
-their scheduled end arrives: for 22–28% of marks (by horizon), the venue's
+their scheduled end arrives: for 13–28% of marks (by horizon), the venue's
 `closedTime` precedes the mark time, so the "price" is a post-resolution
 print pinned at 0.99 or 0.01 — mechanically perfectly calibrated. These
 marks manufactured an apparent *underpricing of favorites* (they are
 winners priced 0.99) that vanishes on exclusion, and — because pinned marks
-are calibrated — diluted every real miscalibration toward zero. Two of the
-four cells in our own interim verdict died this way; we report that
+are calibrated — diluted every real miscalibration toward zero. Three of the
+six cells in our own interim verdict died this way; we report that
 correction as a result, not a footnote.
 
 **Regime clustering.** 477 crypto-favorite observations across 131
@@ -87,28 +94,29 @@ groups.
 ones. An interim crypto-favorites gap of +5pp (month-weighted) was +0.6pp
 bet-weighted — below any cost model — because the effect lived in low-volume
 months. Kish effective cluster counts are reported for every cell (one
-headline cell's 16,236 observations amount to 6.2 effective months); a bias
+headline cell's 8,910 observations amount to 3.8 effective months); a bias
 is only tradeable if it survives the weighting money actually experiences.
 
 ## 4. The de-pinned result: longshots are overpriced everywhere
 
-With pinned marks excluded and month-clustered inference, 12 cells clear
+With pinned marks excluded and month-clustered inference, 13 cells clear
 |t| ≥ 2 across five category groups — and every one points the same way:
 
 | horizon | group | side | gap | t | months | Kish | n |
 |---|---|---|--:|--:|--:|--:|--:|
-| 24h | crypto | longshots | −5.3pp | −3.4 | 26 | 5.9 | 3,379 |
-| 24h | politics | favorites | −4.9pp | −2.5 | 22 | 11.5 | 1,165 |
-| 24h | weather | longshots | −4.5pp | −3.9 | 14 | 8.0 | 3,477 |
-| 24h | weather | favorites | −20.3pp | −2.8 | 9 | 7.1 | 87 |
-| 24h | other | longshots | −2.2pp | −2.1 | 32 | 8.2 | 5,389 |
-| 72h | crypto | longshots | −3.4pp | −2.4 | 27 | 5.4 | 4,635 |
-| 72h | crypto | favorites | −7.1pp | −2.1 | 21 | 5.7 | 3,463 |
-| 72h | politics | longshots | −1.9pp | −2.3 | 27 | 14.9 | 1,785 |
-| 72h | weather | longshots | −8.8pp | −4.2 | 12 | 9.8 | 456 |
-| 168h | crypto | longshots | −5.4pp | −4.2 | 26 | 20.2 | 552 |
-| 168h | politics | longshots | −2.9pp | −2.5 | 27 | 14.6 | 1,232 |
-| 168h | geopolitics | longshots | −3.8pp | −2.7 | 25 | 14.2 | 514 |
+| 24h | crypto | longshots | −5.2pp | −3.4 | 27 | 7.3 | 3,981 |
+| 24h | politics | favorites | −5.3pp | −2.9 | 23 | 13.1 | 1,314 |
+| 24h | weather | longshots | −3.9pp | −3.1 | 15 | 3.8 | 8,910 |
+| 24h | weather | favorites | −14.9pp | −2.1 | 11 | 4.4 | 228 |
+| 24h | other | longshots | −2.0pp | −2.0 | 33 | 6.3 | 9,894 |
+| 72h | crypto | longshots | −3.6pp | −2.6 | 28 | 6.7 | 5,477 |
+| 72h | crypto | favorites | −7.3pp | −2.2 | 22 | 6.5 | 3,752 |
+| 72h | politics | longshots | −1.7pp | −2.1 | 28 | 15.7 | 2,117 |
+| 72h | weather | longshots | −7.3pp | −3.4 | 14 | 11.1 | 545 |
+| 72h | other | longshots | −2.2pp | −2.3 | 33 | 6.5 | 9,677 |
+| 168h | crypto | longshots | −4.0pp | −2.6 | 28 | 21.8 | 584 |
+| 168h | politics | longshots | −2.8pp | −2.4 | 28 | 13.8 | 1,562 |
+| 168h | geopolitics | longshots | −3.8pp | −2.8 | 26 | 10.2 | 705 |
 
 Realized frequency sits below implied probability throughout: buyers of
 low-probability outcomes overpay — the classic favorite-longshot signature,
@@ -116,7 +124,7 @@ cross-category and multi-horizon. (Negative "favorites" cells are consistent
 with the same story on the complement side and with residual family-vig;
 the longshot cells carry the weight of evidence.)
 
-## 5. Out of sample, with money's weighting
+## 5. Out of sample, with money's weighting — and a retraction
 
 Protocol (identical to the one that killed the crypto-favorites candidate):
 train per-category gaps on resolutions before 2025-07-01, freeze, test
@@ -124,23 +132,60 @@ after; pinned marks excluded on both sides; one bet per market-horizon; taker
 fee at the venue's worst category rate; the trade is buying the complement
 (NO) whenever outcome-0 is priced in [0.03, 0.35).
 
-T-24h: bet-weighted OOS gap −1.77pp (n = 4,000, 157 days). Through a
-bet-level engine (fractional Kelly, 2% per-market cap, 25% daily exposure
-cap, fees, 100bps slippage): +68%, annualized Sharpe 3.93, PSR 0.99 — the
-first strategy in this project to pass its pre-registered evidence bar (≥300
-bets, ≥120 days, PSR ≥ 0.95). The P&L is broad, not event-driven: Kish
-effective day-count 102 of 157; the five largest days contribute 6%.
-Deflated for the twelve strategy variants tried in the project's history:
-DSR 0.81. Doubling slippage to 200bps yields SR 1.97 and PSR 0.90 — below
-the bar. T-72h fails outright (−0.7pp bet-weighted): the bias, where
-tradeable, is a last-day phenomenon.
+The first pass looked like the project's first quotable strategy. T-24h:
+bet-weighted OOS gap −1.77pp (n = 4,000, 157 days); through a bet-level
+engine (fractional Kelly, 2% per-market cap, 25% daily exposure cap, fees,
+100bps slippage): +68%, annualized Sharpe 3.93, PSR 0.99 — past the
+pre-registered evidence bar (≥300 bets, ≥120 days, PSR ≥ 0.95), with broad
+P&L (Kish effective day-count 102 of 157; top-5 days 6%) and DSR 0.81 after
+deflating for the twelve strategy variants tried. T-72h failed outright
+(−0.7pp bet-weighted).
 
-The honest statement: a broad, out-of-sample longshot-overpricing edge
-exists at T-24h whose economics are decided by execution costs in the
-100–200bps range — and our entry prices are still last-trade marks. A
-forward experiment at live executable quotes (recording the NO ask and depth
-for every market entering the trade window, self-grading at resolution) is
-running and is the registered decisive test.
+That claim is retracted. Two pre-registered falsifiers fired within hours
+of each other:
+
+1. **The 2026 tail sample reversed the gap.** The May–June 2026 test months
+show +2.2 to +2.4pp — longshots winning *more* than priced — dominated by
+weather families whose warm-side ladder drift runs opposite to generic
+longshot bias; ex-weather the 2026 gap is +4.6pp, also reversed.
+Bet-weighted across the enlarged test set: +0.6pp. The pooled trade does
+not survive 2026.
+
+2. **Mirage #8: day-budget reweighting.** The engine's daily exposure cap
+scales bets down on crowded days and leaves sparse days at full size, so
+its Sharpe is closer to an equal-day average than an equal-bet one: the
+weather-2026 stream is −3.28c/share equal-weight yet printed +150% under
+the cap. The engine now has a flat-fraction mode, and the standing rule is
+that a strategy result is claimable only when the capped and flat modes
+agree on sign; on the enlarged sample they agree only ex-weather, where the
+sign is negative. The SR 3.93 was measured under the capped mode on the
+smaller window and is retracted as a strategy claim, not merely weakened.
+
+A subsequent one-night, six-candidate pre-registered hunt (family
+middles-vs-tails, live-ask set-arb, forecast-conditioned warm buckets,
+cross-venue ETH basis, sports moneyline dogs, politics longshots) left one
+pending survivor: **politics favorites are overpriced** (sell side). Train
+(<2025-07): −6.4pp, t = −2.4 (16 months). Test: bet-weighted −3.6pp,
+month-t −2.1 (7 months); both engine sizing modes agree positive (capped SR
++2.3, flat +2.4); survives slippage at 100/200/300bps; held in both marked
+2026 months (−7.3pp, −6.9pp) — the only category whose edge survived 2026.
+Composition: Trump/election frontrunner overpricing (176+108 of 354 bets),
+consistent with documented political-market behavior. It is *not* claimed:
+PSR 0.88/0.91 < 0.95, 7 test months < 8, and top-5-day concentration is
+142% of flat-mode P&L. The adjudication is locked in advance: when the
+tail-marks crawl completes (adding the Jan–Apr 2026 politics months), the
+test re-runs verbatim, and the candidate is claimed iff both modes are
+positive with PSR ≥ 0.95, ≥8 test months, month-t ≤ −2, bet-weighted
+≤ −1.5pp, and 200bps slippage survives; otherwise it becomes mirage #9. No
+parameter may change between registration and adjudication.
+
+The honest statement: no strategy claim currently stands. The de-pinned
+calibration structure is a statistical description of history that no
+single artifact explains away, but every implementation tried so far has
+died under 2026 data plus honest weighting. One candidate awaits automated
+adjudication, and the forward experiment at live executable quotes
+(recording the NO ask and depth for every market entering the trade window,
+self-grading at resolution) is the registered arbiter.
 
 ## 6. Interpretation
 
@@ -150,18 +195,21 @@ nearly unbiased in every liquid category; a bias-corrected D-1 GFS+ECMWF
 forecast loses to the weather crowd's own prices (log-loss 0.388 vs 0.360, a
 companion result); and the largest apparent miscalibrations in our own
 interim analyses were, one after another, instruments lying. What survives
-is thin, concentrated in tails, strongest in the final day, and consistent
-with lottery-preference demand meeting inventory-averse liquidity provision.
-The methodological ledger — seven documented ways a prediction-market
-backtest fabricates edge — may be the more durable contribution.
+is thin, concentrated in tails, so far untradeable in every implementation
+tried, and consistent with lottery-preference demand meeting
+inventory-averse liquidity provision. The methodological ledger — eight
+documented ways a prediction-market backtest fabricates edge — may be the
+more durable contribution.
 
 ## 7. What would change our minds
 
-Pre-registered: (i) the forward live-quote experiment failing to reproduce a
-positive net edge at real asks over ≥120 days; (ii) the bias failing
-bet-weighted in the 2026 tail sample now being marked; (iii) an execution
-study showing effective tail spreads persistently above 200bps, which prices
-the anomaly as compensation rather than error.
+Pre-registered: (i) the forward live-quote experiment failing to reproduce
+a positive net edge at real asks over ≥120 days; (ii) the bias failing
+bet-weighted in the 2026 tail sample — this one has already fired against
+the pooled short-longshot trade (Section 5), and the same mechanism
+adjudicates the politics-favorites candidate when the tail crawl completes;
+(iii) an execution study showing effective tail spreads persistently above
+200bps, which prices the anomaly as compensation rather than error.
 
 ## References (to finalize)
 
