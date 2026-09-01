@@ -37,29 +37,33 @@ def test_grade():
 
     with tempfile.TemporaryDirectory() as td:
         out = pathlib.Path(td) / "longshot_fwd.csv"
+        grades = pathlib.Path(td) / "longshot_fwd_grades.csv"
         with out.open("w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=lf.FIELDS)
             w.writeheader()
             w.writerows(rows)
-        old = lf.OUT, lf.get, lf.time.sleep
-        lf.OUT, lf.get, lf.time.sleep = out, fake_get, lambda s: None
+        # market 14 already graded in the append-only grades ledger
+        with grades.open("w", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(["market_id", "won_no", "graded_at"])
+            w.writerow(["14", "1", "0"])
+        old = lf.OUT, lf.GRADES, lf.get, lf.time.sleep
+        lf.OUT, lf.GRADES, lf.get, lf.time.sleep =             out, grades, fake_get, lambda s: None
         try:
             graded, got = lf.grade()
+            gmap = lf.load_grades()
         finally:
-            lf.OUT, lf.get, lf.time.sleep = old
+            lf.OUT, lf.GRADES, lf.get, lf.time.sleep = old
 
-    by_id = {r["market_id"]: r for r in got}
     assert graded == 2, f"graded {graded}, want 2"
     assert sorted(fetched) == ["10", "11", "12"], fetched  # only due+ungraded hit
-    # winner_idx 1 (YES loses) -> NO won
-    assert by_id["10"]["graded"] == 1 and by_id["10"]["won_no"] == 1, by_id["10"]
-    # winner_idx 0 (YES wins) -> NO lost
-    assert by_id["11"]["graded"] == 1 and by_id["11"]["won_no"] == 0, by_id["11"]
-    # ambiguous final stays ungraded; not-due and already-graded untouched
-    assert by_id["12"]["graded"] == "0" and by_id["12"]["won_no"] == ""
-    assert by_id["13"]["graded"] == "0"
-    assert by_id["14"]["graded"] == "1" and by_id["14"]["won_no"] == "1"
-    print("  longshot_forward.grade: won_no join + due filter OK")
+    # winner_idx 1 (YES loses) -> NO won; winner_idx 0 -> NO lost
+    assert gmap["10"] == "1", gmap
+    assert gmap["11"] == "0", gmap
+    # ambiguous final not appended; already-graded untouched; not-due absent
+    assert "12" not in gmap and "13" not in gmap
+    assert gmap["14"] == "1"
+    print("  longshot_forward.grade: append-only grades + due filter OK")
 
 
 def test_grade_no_ledger():
