@@ -8,8 +8,11 @@ CLOB book for both tokens: best bid/ask and depth. The paper trade is buying
 NO at its real ask. After resolution, grade_longshots() joins outcomes and
 computes the realized edge at executable prices.
 
-Runs in the collectors workflow (2x daily). Ledger: collected/longshot_fwd.csv
-(entry rows; graded in place later — the `won` and `graded` columns fill in).
+Runs in the collectors workflow (2x daily). Two APPEND-ONLY ledgers (union-
+merge safe — entries are unrecoverable history, a passed window cannot be
+re-recorded, so nothing ever rewrites them): collected/longshot_fwd.csv
+(entry rows) and collected/longshot_fwd_grades.csv (market_id -> outcome,
+appended once per resolved market). summarize() joins them.
 
     python longshot_forward.py           # record current window + grade due rows
 """
@@ -23,6 +26,7 @@ import urllib.request
 UA = {"User-Agent": "research saviswarup@gmail.com"}
 D = pathlib.Path(__file__).parent / "collected"
 OUT = D / "longshot_fwd.csv"
+GRADES = D / "longshot_fwd_grades.csv"
 P_LO, P_HI = 0.02, 0.40
 H_LO, H_HI = 12, 36            # hours to endDate
 
@@ -87,35 +91,62 @@ def record():
     return rows
 
 
+def load_grades():
+    if not GRADES.exists():
+        return {}
+    return {r["market_id"]: r["won_no"]
+            for r in csv.DictReader(GRADES.open())}
+
+
 def grade():
-    """fill in outcomes for past entries whose markets have resolved."""
+    """append outcomes for entries whose markets have resolved (append-only)."""
     if not OUT.exists():
         return 0, []
     with OUT.open() as f:
         rows = list(csv.DictReader(f))
-    due = [r for r in rows if r["graded"] == "0"
-           and r["endDate"] < dt.datetime.now(dt.timezone.utc).isoformat()]
+    done = load_grades()
+    now = dt.datetime.now(dt.timezone.utc).isoformat()
+    due_ids = []
+    seen = set()
+    for r in rows:
+        mid = r["market_id"]
+        if mid in done or mid in seen or r["endDate"] >= now:
+            continue
+        seen.add(mid)
+        due_ids.append(mid)
     graded = 0
-    for r in due[:150]:                      # rate-bound per run
-        m = get(f"https://gamma-api.polymarket.com/markets/{r['market_id']}")
-        if not m:
-            continue
-        try:
-            finals = [float(x) for x in json.loads(m.get("outcomePrices") or "[]")]
-        except (ValueError, TypeError):
-            continue
-        winners = [i for i, p in enumerate(finals) if p > 0.99]
-        if len(winners) != 1:
-            continue
-        r["won_no"] = 1 if winners[0] != 0 else 0
-        r["graded"] = 1
-        graded += 1
-        time.sleep(0.2)
+    new_header = not GRADES.exists()
+    with GRADES.open("a", newline="") as gf:
+        gw = csv.writer(gf)
+        if new_header:
+            gw.writerow(["market_id", "won_no", "graded_at"])
+        for mid in due_ids[:150]:            # rate-bound per run
+            m = get(f"https://gamma-api.polymarket.com/markets/{mid}")
+            if not m:
+                continue
+            try:
+                finals = [float(x) for x in
+                          json.loads(m.get("outcomePrices") or "[]")]
+            except (ValueError, TypeError):
+                continue
+            winners = [i for i, p in enumerate(finals) if p > 0.99]
+            if len(winners) != 1:
+                continue
+            gw.writerow([mid, 1 if winners[0] != 0 else 0, round(time.time())])
+            graded += 1
+            time.sleep(0.2)
     return graded, rows
 
 
 def summarize(rows):
-    g = [r for r in rows if r["graded"] == "1" or r["graded"] == 1]
+    grades = load_grades()
+    g = []
+    for r in rows:
+        wn = grades.get(r["market_id"])
+        if wn is not None:
+            r = dict(r)
+            r["won_no"] = wn
+            g.append(r)
     # the collector snapshots a market on every run while it sits in the
     # window (2x daily), so one market can carry several rows. The strategy
     # takes ONE trade per market — at the FIRST snapshot (earliest entry into
@@ -145,14 +176,14 @@ def summarize(rows):
 def main():
     graded, rows = grade()
     new = record()
-    all_rows = rows + new if rows else new
-    if all_rows:
-        with OUT.open("w", newline="") as f:
-            w = csv.DictWriter(f, fieldnames=FIELDS, extrasaction="ignore")
+    new_header = not OUT.exists()
+    with OUT.open("a", newline="") as f:      # append-only: never rewrite
+        w = csv.DictWriter(f, fieldnames=FIELDS, extrasaction="ignore")
+        if new_header:
             w.writeheader()
-            w.writerows(all_rows)
+        w.writerows(new)
     print(f"longshot_fwd: +{len(new)} entries, graded {graded}; "
-          f"{summarize(all_rows)}")
+          f"{summarize(rows + new)}")
 
 
 if __name__ == "__main__":
