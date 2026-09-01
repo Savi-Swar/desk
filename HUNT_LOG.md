@@ -34,3 +34,15 @@ verbatim. CLAIMED iff: both modes positive with PSR >= 0.95, >= 8 test
 months, month-t <= −2, bet-weighted <= −1.5pp, and slip-200 survives.
 Otherwise it joins the mirage ledger as #9. No parameter may change between
 now and then.
+
+## ADJUDICATION (2026-09-01, automated, full 191,393-mark dataset)
+
+The distributed crawl delivered the missing Jan–Apr 2026 months (12 test
+months, n=747). Against the locked rule: bet-weighted gap **−2.0pp** (direction
+held), both sizing modes still positive (SR +1.22 capped / +1.17 flat) — but
+month-t −1.35 and PSR 0.81/0.81, below the pre-registered −2 and 0.95 bars.
+
+**VERDICT: MIRAGE #9 — directionally persistent, sub-threshold, not claimable.**
+The honest reading: a real-looking tilt that never reached evidentiary
+strength; the rule existed precisely so we would not round that up. The
+forward live-ask experiment remains the only open arbiter of anything.

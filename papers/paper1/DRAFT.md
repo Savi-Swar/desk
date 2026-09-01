@@ -28,8 +28,9 @@ short-longshot rule at T-24h briefly cleared a pre-registered evidence bar
 fired: the 2026 tail sample reversed the gap, and the engine's daily
 exposure cap was itself reweighting P&L toward sparse days. One candidate —
 politics favorites, overpriced on both sides of a train/test split and in
-both marked 2026 months — is pending a pre-registered automated
-adjudication; a forward experiment at live executable quotes is the arbiter.
+both marked 2026 months — was adjudicated by its pre-registered automated rule
+on the full 2026 sample and failed (direction persistent at −2.0pp, but
+month-t −1.35 and PSR 0.81, below the locked bars); a forward experiment at live executable quotes is the arbiter.
 Prediction-market inefficiency, where it exists at scale, is small,
 tail-shaped, and lives or dies on microstructure.
 

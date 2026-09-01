@@ -3,7 +3,7 @@
 *The 90-second version. Every number regenerates from this repo; each line
 links the code and writeup behind it.*
 
-## The eight backtest mirages (found, measured, killed — in our own results)
+## The nine backtest mirages (found, measured, killed — in our own results)
 
 | # | the seductive number | the truth | how it died | receipts |
 |---|---|---|---|---|
@@ -15,6 +15,7 @@ links the code and writeup behind it.*
 | 6 | weather model +125%, SR 0.9 | −79%, SR −4.9 on books fresh enough to trade | freshness gate Σmarks∈[0.95,1.10] | `WEATHER_V1.md` |
 | 7 | crypto favorites underpriced (2 verdict cells) | pinned afterlife prints — 22-28% of marks postdate the market's actual close | closedTime exclusion; cells died, and a broader real signal emerged | `PINNED_PRICE_CHECK.md` |
 | 8 | short-longshots OOS SR 3.9, PSR 0.99 | day-budget sizing reweights P&L toward sparse days: the same stream is −3.3c/share equal-weight; and the gap reversed in 2026 | flat-fraction engine mode + modes-must-agree rule; claim retracted | `STUDY1_OOS.md` revision |
+| 9 | politics-favorites "pending survivor" | with the full 2026 sample: direction held (−2.0pp) but month-t −1.35, PSR 0.81 — never reached evidentiary strength | locked auto-adjudication on the 191k-mark distributed dataset | `HUNT_LOG.md` adjudication |
 
 ## Findings that survived every attack
 
