@@ -81,14 +81,25 @@ are calibrated — diluted every real miscalibration toward zero. Three of the
 six cells in our own interim verdict died this way; we report that
 correction as a result, not a footnote.
 
-**Regime clustering.** 477 crypto-favorite observations across 131
-(underlying × day) clusters showed realized minus implied of −12.8pp,
-t = −4.2. Clustered by (underlying × month): t = −0.33. The entire effect was
-November 2025 — a crash month in which every "will BTC be above X" favorite
-failed together; December's rebound shows +18pp. Prediction markets sharing
-an underlying inherit its regimes; month-level clustering is the minimum
-honest unit, and our verdict rule requires ≥6 cluster-months and ≥2 category
-groups.
+**Regime clustering.** The worked example, regenerated from the current
+crawl (crypto favorites: outcome-0 priced [0.60, 0.98) at T-72h, pinned
+marks still *included* — the pre-filter world in which the interim mistake
+was made): 1,801 observations across 721 (underlying × day) clusters show
+realized minus implied of −4.3pp, t = −3.2. Clustered by
+(underlying × month): 122 clusters, t = −0.1. The effect is the late-2025
+crash regime, in which every "will BTC be above X" favorite failed together
+— November 2025 alone shows −25.3pp across 284 observations, October
+−7.2pp — and December's rebound shows +14pp. (An earlier, smaller crawl put
+the same collapse at t = −4.2 → −0.3; the counts here supersede it.)
+Prediction markets sharing an underlying inherit its regimes; month-level
+clustering is the minimum honest unit, and our verdict rule requires ≥6
+cluster-months and ≥2 category groups. The artifacts also compound: with
+pinned marks excluded, December's 35 crypto-favorite marks vanish entirely
+— every one is an afterlife print, so the "rebound" month is manufactured
+by already-resolved markets — and what remains is overpriced even
+month-clustered (−11.4pp, t = −3.4 by underlying × month; the corresponding
+§4 cell, clustered by month alone, reads −7.3pp, t = −2.2). The clean
+collapse-to-zero lives only in the pinned-included world.
 
 **Weighting.** Month-clustered means weight thin months equally with busy
 ones. An interim crypto-favorites gap of +5pp (month-weighted) was +0.6pp

@@ -60,6 +60,8 @@ before submission. Label files unchanged (Aug 27–29).
    the pinned filter, so they cannot be regenerated from current code.
    Either regenerate from a pre-filter branch or soften the prose to the
    documented collapse before submission.
+   **RESOLVED 2026-08-31: regenerated from current data — see "§3 worked
+   example regeneration" appendix below; §3 rewritten with the new numbers.**
 2. **§3 family-vig caveat (minor)**: the 0.97 T-24h mean family sum is over
    *priced* buckets only (~72% coverage); the draft's phrasing "sum far
    above one" leans on the T-72h 1.39 and the scaled ~1.25–1.4 estimate.
@@ -71,3 +73,47 @@ before submission. Label files unchanged (Aug 27–29).
 4. **Moving targets**: 105,527 marked markets, 13–28% pinned shares, and
    the entire §4 table will shift when the tail crawl finishes; the
    politics-favorites adjudication auto-fires at that point (HUNT_LOG.md).
+
+## Appendix: §3 worked example regeneration (2026-08-31, descriptive only)
+
+The old §3 figures (477 obs / 131 underlying×day clusters / −12.8pp /
+t −4.2 → month t −0.33 / December +18pp) predate the pinned filter and the
+tail crawl and could not be reproduced. Recomputed the same quantities from
+`data/price_marks.csv.gz` (108,868 mark rows at run time; tail crawl still
+appending) + the three label files, via `study_longshot.read_gz_tolerant`,
+`load_slugs`, `pinned`, `cat_group`.
+
+Definition: category = crypto (`cat_group`), outcome-0 `p_72h` in
+[0.60, 0.98); gap = 1{outcome-0 won} − p. Underlying from slug tokens:
+bitcoin/btc, ethereum/eth, solana/sol, xrp, doge/dogecoin, else "other".
+Cluster t = mean of equal-weighted cluster means / SE across clusters (no
+minimum cluster size; the §4 verdict pipeline instead clusters by month
+alone with ≥5 obs per month — figures differ accordingly).
+
+WITHOUT the pinned filter (the pre-filter world of the original example):
+
+- n = 1,801; pooled bet-weighted gap −4.6pp
+- day-clustered (underlying × day): 721 clusters, mean −4.3pp, t = −3.24
+- month-clustered (underlying × month): 122 clusters, mean −0.2pp, t = −0.10
+- per-month pooled gaps: Oct-2025 −7.2pp (n=402), Nov-2025 −25.3pp (n=284,
+  16% of obs; underlying×month cluster means −39.1 to −10.2pp),
+  Dec-2025 +14.1pp (n=35; cluster means −4.6 to +21.8pp)
+
+WITH the pinned filter (current pipeline):
+
+- n = 1,467; pooled bet-weighted gap −9.3pp
+- day-clustered: 651 clusters, mean −7.4pp, t = −5.04
+- month-clustered (underlying × month): 100 clusters, mean −11.4pp, t = −3.37
+- per-month: Oct-2025 −9.2pp (n=371), Nov-2025 −28.4pp (n=264),
+  **Dec-2025 n=0 — all 35 December observations are pinned afterlife
+  prints**; the "December rebound" of the old example is itself a pinned
+  artifact.
+
+So the day→month clustering collapse (t −3.2 → −0.1) is real but lives only
+in the pinned-included world; after the pinned filter the T-72h
+crypto-favorites gap survives month clustering (underlying×month t −3.4;
+the month-only ≥5-obs verdict clustering gives the §4 cell −7.3pp, t −2.2).
+§3 now states which world the example inhabits. No strategy parameters were
+touched; this is characterization of an already-reported artifact.
+
+Mark counts are a snapshot (crawl in flight); re-run before submission.
