@@ -1,6 +1,10 @@
 name: marks-crawl
 on:
   workflow_dispatch:
+    inputs:
+      sleep:
+        description: per-request sleep seconds (each shard is its own runner IP)
+        default: "0.3"
 
 jobs:
   shard:
@@ -16,7 +20,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: crawl this partition
-        run: SHARD=${{ matrix.shard }} NSHARDS=12 python marks_shard.py
+        run: SHARD=${{ matrix.shard }} NSHARDS=12 SLEEP=${{ inputs.sleep || '0.3' }} python marks_shard.py
       - uses: actions/upload-artifact@v4
         with:
           name: marks-shard-${{ matrix.shard }}
