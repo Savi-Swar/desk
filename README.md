@@ -9,6 +9,11 @@ live WebSocket capture plus full resolved-market history — and every headline
 number was subjected to an attempt to destroy it. Eight didn't survive —
 each documented with receipts in [RESULTS.md](RESULTS.md) — and that ledger
 of self-caught mirages is the project's most useful output.
+The methodology is extracted as a standalone stdlib-only library:
+**[prereg](https://github.com/Savi-Swar/prereg)** — evidence bars, the
+weighting-mirage catcher, locked adjudication, self-grading forward ledgers.
+This repo is its case study.
+
 **Start with [RESULTS.md](RESULTS.md)** (findings, 90 seconds) or
 [ARCHITECTURE.md](ARCHITECTURE.md) (the systems view: zero-server design,
 concurrency war stories, adversarial test suite).
