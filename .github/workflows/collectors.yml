@@ -23,7 +23,7 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: run collectors under health ledger
-        run: WATCH_MIN=8 python run_with_health.py collect_daily.py arb_census.py arb_watch.py kalshi_xvenue.py limitless_xvenue.py sx_bet.py funding_carry.py relations_watch.py weather_collect.py longshot_forward.py
+        run: WATCH_MIN=8 python run_with_health.py collect_daily.py arb_census.py arb_watch.py kalshi_xvenue.py limitless_xvenue.py sx_bet.py funding_carry.py relations_watch.py weather_collect.py longshot_forward.py xvenue2.py
       - name: commit ledgers
         run: |
           git config user.name "desk-bot"
