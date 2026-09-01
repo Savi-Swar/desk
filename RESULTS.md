@@ -11,7 +11,7 @@ links the code and writeup behind it.*
 | 2 | +$483/day maker markout | ≈$0 — spread booked at a touch a rewards-eligible maker never rests at | repriced to near-mid quote; matches Dubach 2026 | `markout_decomp.py`, `MARKOUT_DECOMP.md` |
 | 3 | crypto "reverse bias", day-clustered t=−4.2 | one crash month (Nov-2025) | month-level clustering → t=−0.3 | `study_longshot.py` docstring |
 | 4 | +5pp crypto favorites gap, persists OOS | +0.6pp bet-weighted — below costs | month-mean vs bet-weighted weighting | `STUDY1_OOS.md` |
-| 5 | −12pp weather "miscalibration" | stale last-trade marks: family prices sum to 1.39 | accounting identity reproduces the gap exactly | `data/weather_artifact_check.md` |
+| 5 | −12pp weather "miscalibration" | stale last-trade marks: family prices sum to 1.39 | accounting identity reproduces the gap exactly | `WEATHER_ARTIFACT_CHECK.md` |
 | 6 | weather model +125%, SR 0.9 | −79%, SR −4.9 on books fresh enough to trade | freshness gate Σmarks∈[0.95,1.10] | `WEATHER_V1.md` |
 | 7 | crypto favorites underpriced (2 verdict cells) | pinned afterlife prints — 22-28% of marks postdate the market's actual close | closedTime exclusion; cells died, and a broader real signal emerged | `PINNED_PRICE_CHECK.md` |
 | 8 | short-longshots OOS SR 3.9, PSR 0.99 | day-budget sizing reweights P&L toward sparse days: the same stream is −3.3c/share equal-weight; and the gap reversed in 2026 | flat-fraction engine mode + modes-must-agree rule; claim retracted | `STUDY1_OOS.md` revision |

@@ -88,7 +88,7 @@ remember to run the decisive test — it is scheduled.
 ## Lessons that generalize
 
 Reconcile every derived quantity against ground truth before trusting it
-(the tape vs book-shrinkage reconciliation exposed a 1,700× overcount);
+(the tape vs book-shrinkage reconciliation exposed a ~1,735× overcount);
 guards need control probes; readers must survive their writers' deaths;
 schedulers lie; and instrumentation that can kill your own headline result
 is the most valuable code in the repo — it fired eight times.

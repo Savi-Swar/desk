@@ -63,7 +63,7 @@ def main():
     months = sorted(by_month)
 
     for slip in (100, 200):
-        bets, fam_月 = [], defaultdict(list)
+        bets, fam_month = [], defaultdict(list)
         for mi, month in enumerate(months):
             fit = defaultdict(list)
             for pm in months[:mi]:
@@ -105,10 +105,10 @@ def main():
                     bets.append({"date": m["date"], "p_model": min(0.99, p + 0.06),
                                  "p_mkt": p, "won": won,
                                  "fee_rate": 0.07, "slip_bps": slip})
-                    fam_月[month].append((1 - p) if won else -p)
+                    fam_month[month].append((1 - p) if won else -p)
         capped = engine.run(bets)
         flat = engine.run(bets, flat=0.0025)
-        d = [sum(v) / len(v) for v in fam_月.values() if len(v) >= 3]
+        d = [sum(v) / len(v) for v in fam_month.values() if len(v) >= 3]
         mt = 0.0
         if len(d) >= 4:
             mm = sum(d) / len(d)
@@ -117,7 +117,7 @@ def main():
         both_pos = capped["total_return"] > 0 and flat["total_return"] > 0
         ok = (both_pos and capped["psr"] >= 0.95 and flat["psr"] >= 0.95
               and mt >= 2 and len(d) >= 8)
-        print(f"slip {slip}: {len(bets)} bets over {len(fam_月)} months")
+        print(f"slip {slip}: {len(bets)} bets over {len(fam_month)} months")
         print(f"  capped SR {capped['sharpe']:+.2f} PSR {capped['psr']:.2f} "
               f"ret {capped['total_return']*100:+.0f}%   "
               f"flat SR {flat['sharpe']:+.2f} PSR {flat['psr']:.2f} "

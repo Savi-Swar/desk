@@ -108,6 +108,12 @@ def fig3(rows):
 
 
 def main():
+    if not S.MARKS.exists():
+        print("paper 1 figures need the private research dataset (data/ is "
+              "not committed — ~1GB of API-crawled marks). Paper 0 figures "
+              "regenerate from committed ledgers: make figures runs both, "
+              "paper0 succeeds standalone.")
+        return
     rows = S.read_gz_tolerant(S.MARKS)
     S.SLUGS = S.load_slugs()
     fig1(rows)

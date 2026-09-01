@@ -1,9 +1,9 @@
-# The survivor hunt — pre-registered candidate tests (2026-09-01/02)
+# The survivor hunt — pre-registered candidate tests (2026-08-31 – 2026-09-01)
 
 Standing bar, applied BEFORE looking at any result: pinned-mark exclusion,
 month-clustered inference, bet-weighting reported, BOTH engine sizing modes
 (capped Kelly + flat fraction) must agree positive with PSR >= 0.95 each,
-slippage sensitivity, composition inspection. One night, six candidates:
+slippage sensitivity, composition inspection. One night, seven candidate tests:
 
 | candidate | verdict | cause of death / status |
 |---|---|---|

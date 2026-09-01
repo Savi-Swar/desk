@@ -5,7 +5,7 @@
 ## Abstract (draft skeleton)
 Naive passive-fill backtests on Polymarket produce large, false maker edges.
 We document two artifacts using live capture (order books + site-wide trade
-tape): (1) fill models based on book shrinkage overcount executions ~1,500×
+tape): (1) fill models based on book shrinkage overcount executions ~1,735×
 by booking cancellations as fills; (2) markout measured at the trade price
 credits the taker's full crossing distance to a maker who — under the venue's
 liquidity-reward rules — must quote near the mid and can never capture it.

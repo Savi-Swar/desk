@@ -6,15 +6,16 @@ Measurement-first research platform for prediction-market microstructure.
 Started as a paper trading desk; became more useful as the instrument that
 killed its own results. Everything below is measured on real Polymarket data —
 live WebSocket capture plus full resolved-market history — and every headline
-number here survived an attempt to destroy it. Two didn't, and those are the
-most useful findings so far.
+number was subjected to an attempt to destroy it. Eight didn't survive —
+each documented with receipts in [RESULTS.md](RESULTS.md) — and that ledger
+of self-caught mirages is the project's most useful output.
 **Start with [RESULTS.md](RESULTS.md)** (findings, 90 seconds) or
 [ARCHITECTURE.md](ARCHITECTURE.md) (the systems view: zero-server design,
 concurrency war stories, adversarial test suite).
 
 ## Findings (chronological)
 
-1. **Book-shrinkage "fills" overcount real fills ~1,500×.** A fill model that
+1. **Book-shrinkage "fills" overcount real fills ~1,735×.** A fill model that
    treats disappearing book size as executions counts cancels, not trades.
    Validated against the RTDS trade firehose: 48,578 shrinkage "fills" vs 28
    real prints in the same window (`validate_fills.py`,

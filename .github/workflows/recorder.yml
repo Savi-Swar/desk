@@ -63,4 +63,3 @@ jobs:
           retention-days: 30
           if-no-files-found: warn
 
-# cron re-registration bump 2026-08-27 (schedules drop on disable/enable)

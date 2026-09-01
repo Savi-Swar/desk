@@ -17,7 +17,7 @@ This script:
   3. reruns the month-clustered verdict cells and the T-24h all-category
      bucket table with those marks EXCLUDED, and prints before/after.
 
-Writes data/pinned_price_check.md.  stdlib only.
+Writes PINNED_PRICE_CHECK.md.  stdlib only.
 
     python3 study_pinned_check.py
 """
