@@ -5,3 +5,4 @@ collected/trades/
 collected/fill_model.csv
 collected/*.pre_fee.csv
 data/
+tools/bookmid/bookmid
