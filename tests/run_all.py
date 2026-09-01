@@ -57,6 +57,20 @@ def main():
     print("== unit/smoke ==")
     test_classifier()
     test_tolerant_reader()
+    print("== plumbing unit tests (tests/test_*.py) ==")
+    for f in sorted((ROOT / "tests").glob("test_*.py")):
+        r = subprocess.run([sys.executable, str(f)], cwd=ROOT,
+                           capture_output=True, text=True)
+        if r.returncode != 0:
+            print(r.stdout, end="")
+            print(r.stderr, end="", file=sys.stderr)
+            print(f"FAIL: {f.name}")
+            sys.exit(1)
+        # show the one-line-per-test output, hide recursion chatter
+        for line in r.stdout.splitlines():
+            if line.lstrip().startswith(("split ", "!! window")):
+                continue
+            print(line)
     print("== pre-registered engine & stats tests ==")
     for f in ("backtest/test_stats.py", "backtest/test_engine.py"):
         r = subprocess.run([sys.executable, str(ROOT / f)], cwd=ROOT)
