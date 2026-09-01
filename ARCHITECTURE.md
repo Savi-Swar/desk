@@ -63,6 +63,17 @@ endpoints with a hard ~2k pagination cap:
 - Multi-member gzip readers (append mode writes a member per run; naive
   readers silently drop everything after the first).
 
+## Distributed backfill
+
+The historical price-mark crawl (~86k rate-limited API fetches, ~20h serial)
+runs as a 12-shard CI matrix (`marks-crawl.yml`): partition by
+`sha1(market_id) % N` — deterministic, disjoint, covering, balance and
+stability pinned by tests — each ephemeral worker crawls only its partition
+and uploads a partial artifact; a merge job downloads all survivors
+(`fail-fast: off`, `if: always()` — a dead shard loses only its slice),
+dedups by id, and commits the release file. No shared state, no coordination
+service: idempotent re-runs are the retry mechanism. Wall-clock ~10x.
+
 ## The backtest engine
 
 Bet-level, walk-forward. Fractional Kelly with per-market caps, fees,
