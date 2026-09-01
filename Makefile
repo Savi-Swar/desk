@@ -10,4 +10,6 @@ pnl:             ## recompute the maker P&L ledger from real fills
 	python3 maker_pnl_real.py
 study:           ## rerun the calibration study + verdict
 	python3 study_longshot.py
-.PHONY: test figures paper0 pnl study
+bookmid:         ## build + parity-test the C++ book reconstructor
+	python3 tests/test_bookmid.py
+.PHONY: test figures paper0 pnl study bookmid
