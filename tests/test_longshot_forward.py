@@ -78,20 +78,32 @@ def test_grade_no_ledger():
 
 
 def test_summarize():
+    import csv as _csv
     past = "2026-01-01T00:00:00Z"
     # 25 graded fills at ask 0.75: 24 NO wins (+0.25 each), 1 loss (-0.75)
     # mean pnl = (24*0.25 - 0.75) / 25 = 0.21 -> +21.00c/share
-    rows = [_ledger_row(str(i), past, graded="1",
-                        won="1" if i < 24 else "0", no_ask="0.75")
-            for i in range(25)]
-    s = lf.summarize(rows)
-    assert "25 trades" in s and "+21.00c/share" in s, s
-
-    # asks outside [0.5, 0.99] are excluded from the priced set
-    rows2 = rows + [_ledger_row("98", past, graded="1", won="1", no_ask="0.30"),
-                    _ledger_row("99", past, graded="1", won="1", no_ask="0.995")]
-    s2 = lf.summarize(rows2)
-    assert "25 trades" in s2 and "+21.00c/share" in s2, s2
+    rows = [_ledger_row(str(i), past, no_ask="0.75") for i in range(25)]
+    with tempfile.TemporaryDirectory() as td:
+        grades = pathlib.Path(td) / "grades.csv"
+        with grades.open("w", newline="") as f:
+            w = _csv.writer(f)
+            w.writerow(["market_id", "won_no", "graded_at"])
+            for i in range(25):
+                w.writerow([str(i), "1" if i < 24 else "0", "0"])
+            w.writerow(["98", "1", "0"])
+            w.writerow(["99", "1", "0"])
+        old = lf.GRADES
+        lf.GRADES = grades
+        try:
+            s = lf.summarize(rows)
+            assert "25 trades" in s and "+21.00c/share" in s, s
+            # asks outside [0.5, 0.99] excluded from the priced set
+            rows2 = rows + [_ledger_row("98", past, no_ask="0.30"),
+                            _ledger_row("99", past, no_ask="0.995")]
+            s2 = lf.summarize(rows2)
+            assert "25 trades" in s2 and "+21.00c/share" in s2, s2
+        finally:
+            lf.GRADES = old
 
     # under 20 graded -> explicit "need more" message, no fake number
     s3 = lf.summarize(rows[:5])
