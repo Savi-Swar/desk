@@ -1,5 +1,7 @@
 # desk
 
+![tests](https://github.com/Savi-Swar/desk/actions/workflows/tests.yml/badge.svg)
+
 Measurement-first research platform for prediction-market microstructure.
 Started as a paper trading desk; became more useful as the instrument that
 killed its own results. Everything below is measured on real Polymarket data —
