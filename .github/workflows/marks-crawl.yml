@@ -1,0 +1,66 @@
+name: marks-crawl
+on:
+  workflow_dispatch:
+
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false          # a dead shard loses only its partition
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: crawl this partition
+        run: SHARD=${{ matrix.shard }} NSHARDS=12 python marks_shard.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: marks-shard-${{ matrix.shard }}
+          path: marks_shard_${{ matrix.shard }}.csv.gz
+          retention-days: 7
+
+  merge:
+    needs: shard
+    if: always()                # merge whatever shards survived
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: marks-shard-*
+          merge-multiple: true
+      - name: merge + dedup
+        run: |
+          python - <<'PY'
+          import csv, glob, gzip
+          seen, rows = set(), []
+          for fn in sorted(glob.glob("marks_shard_*.csv.gz")):
+              for r in csv.DictReader(gzip.open(fn, "rt")):
+                  if r["id"] not in seen:
+                      seen.add(r["id"])
+                      rows.append(r)
+          F = ["id","endDate","category","volume","winner_idx","negRisk",
+               "p_24h","p_72h","p_168h"]
+          with gzip.open("data-release/price_marks_dist.csv.gz","wt",newline="") as f:
+              w = csv.DictWriter(f, fieldnames=F, extrasaction="ignore")
+              w.writeheader(); w.writerows(rows)
+          print(f"merged {len(rows):,} unique marks from {len(glob.glob('marks_shard_*.csv.gz'))} shards")
+          PY
+      - name: commit release
+        run: |
+          git config user.name "desk-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git config merge.ours.driver true
+          git add data-release/price_marks_dist.csv.gz
+          git diff --cached --quiet && exit 0
+          git commit -m "distributed marks crawl $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin main; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 8 + 2))
+          done
+          exit 1

@@ -16,3 +16,4 @@ collected/*.jsonl  merge=union
 collected/drill_graded.csv    merge=ours
 collected/desk.html           merge=ours
 collected/maker_pnl_real.csv  merge=ours
+data-release/price_marks_dist.csv.gz merge=ours
