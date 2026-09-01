@@ -13,7 +13,11 @@ because the venue rotates cities. Only target dates within [today-1, +7] are
 kept — beyond a week the models carry no signal and stale unresolved events
 linger in the API.
 
-Runs in the collectors workflow (2x daily). Output: collected/weather_obs.csv.
+Runs in the collectors workflow (2x daily). Output: collected/weather_obs2.csv
+(v2 schema: adds fc_ens_std_c, the std of GFS025 ensemble-member Tmax — the
+per-day spread the pre-registered weather-v2 sigma test needs; open-meteo
+serves no member-level history, so it must be captured forward. The v1 ledger
+weather_obs.csv is frozen with its original header).
 
     python weather_collect.py
 """
@@ -27,14 +31,15 @@ import urllib.request
 
 UA = {"User-Agent": "research saviswarup@gmail.com"}
 D = pathlib.Path(__file__).parent / "collected"
-OUT = D / "weather_obs.csv"
+OUT = D / "weather_obs2.csv"
 GEO = D / "city_geo.json"
 MODELS = (("gfs_seamless", "fc_gfs"), ("ecmwf_ifs025", "fc_ecmwf"),
           ("icon_seamless", "fc_icon"))
+ENS_MODEL = "gfs025"          # 31-member GEFS on the ensemble API
 
 FIELDS = ["t", "event_title", "city", "target_date", "market_id", "slug",
           "question", "outcomes", "prices", "volume", "neg_risk",
-          "fc_gfs_c", "fc_ecmwf_c", "fc_icon_c"]
+          "fc_gfs_c", "fc_ecmwf_c", "fc_icon_c", "fc_ens_std_c"]
 
 
 def get(url, tries=3):
@@ -91,7 +96,28 @@ def forecasts(city, geo, date):
     for model, name in MODELS:
         v = daily.get(f"temperature_2m_max_{model}")
         out[f"{name}_c"] = v[0] if isinstance(v, list) and v else None
+    out["fc_ens_std_c"] = ens_spread(lat, lon, tz, date)
     return out
+
+
+def ens_spread(lat, lon, tz, date):
+    """Std of ensemble-member Tmax (control + 30 GEFS members), °C.
+
+    Member-level data has no history at open-meteo (~3-day rolling window),
+    so this per-day spread only exists if we record it live.
+    """
+    d = get("https://ensemble-api.open-meteo.com/v1/ensemble"
+            f"?latitude={lat}&longitude={lon}&daily=temperature_2m_max"
+            f"&timezone={urllib.parse.quote(tz)}"
+            f"&start_date={date}&end_date={date}&models={ENS_MODEL}")
+    daily = (d or {}).get("daily") or {}
+    vals = [v[0] for k, v in daily.items()
+            if k.startswith("temperature_2m_max")
+            and isinstance(v, list) and v and v[0] is not None]
+    if len(vals) < 10:            # need a real ensemble, not a stub
+        return None
+    mu = sum(vals) / len(vals)
+    return round((sum((x - mu) ** 2 for x in vals) / (len(vals) - 1)) ** 0.5, 3)
 
 
 def main():
@@ -141,8 +167,10 @@ def main():
             w.writeheader()
         w.writerows(rows)
     got = sum(1 for r in rows if r.get("fc_gfs_c") is not None)
+    ens = sum(1 for r in rows if r.get("fc_ens_std_c") is not None)
     print(f"weather_collect: {len(rows)} bucket rows, "
-          f"{len(fc_cache)} city-dates, {got} with GFS forecast")
+          f"{len(fc_cache)} city-dates, {got} with GFS forecast, "
+          f"{ens} with ensemble spread")
 
 
 if __name__ == "__main__":
