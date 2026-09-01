@@ -30,6 +30,8 @@ jobs:
   merge:
     needs: shard
     if: always()                # merge whatever shards survived
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
