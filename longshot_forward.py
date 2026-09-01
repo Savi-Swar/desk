@@ -116,6 +116,15 @@ def grade():
 
 def summarize(rows):
     g = [r for r in rows if r["graded"] == "1" or r["graded"] == 1]
+    # the collector snapshots a market on every run while it sits in the
+    # window (2x daily), so one market can carry several rows. The strategy
+    # takes ONE trade per market — at the FIRST snapshot (earliest entry into
+    # the window) — so the edge stat dedupes to that row; keeping all rows
+    # would double-count and overweight slow-resolving markets.
+    first = {}
+    for r in sorted(g, key=lambda r: float(r["t"] or 0)):
+        first.setdefault(r["market_id"], r)
+    g = list(first.values())
     fills = [r for r in g if r.get("no_ask") not in (None, "", "None")]
     if len(fills) < 20:
         return f"graded {len(g)} (need ~20+ with live asks for a read)"
