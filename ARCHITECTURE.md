@@ -85,6 +85,18 @@ joins outcomes after resolution, and prints the realized edge; a parallel
 ledger does the same for weather forecasts vs live prices. Nobody has to
 remember to run the decisive test — it is scheduled.
 
+## Measured operations
+
+`ops_slo.py` computes freshness SLOs from the health ledger: 2,100+ logged
+runs across 15 collectors over ~5 weeks; median inter-run gap tracks cron
+cadence (~70–80 min on 30-minute jobs, GitHub cron drift included); p99 and
+worst-case gaps include every real incident — an 11-day scheduler death, auth
+lockouts, laptop sleeps. The ledger's own blind spot is documented in the
+script: runs that crash the workflow never commit their health row, so
+failure accounting lives in the alarm-issue history, not the ledger — an
+instrumentation-survivorship lesson of the same species as the research
+mirages.
+
 ## Lessons that generalize
 
 Reconcile every derived quantity against ground truth before trusting it
