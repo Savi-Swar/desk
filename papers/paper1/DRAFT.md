@@ -200,6 +200,24 @@ self-grading at resolution) is the registered arbiter.
 
 ## 6. Interpretation
 
+**Where the inefficiency lives — and where it doesn't.** The horizon study
+(HORIZON_PERSISTENCE.md) resolves the results into one picture. In markets
+that live a week or longer, the longshot overpricing is a long-horizon
+phenomenon the crowd itself corrects: the pooled longshot gap runs −2.8pp
+(t = −4.0) at T-168h, −2.5pp (t = −3.2) at T-72h, and −0.6pp (t = −0.7) at
+T-24h. Given time, the market converges. The significant 24-hour cells in
+Section 4 are therefore carried by the venue's short-fuse markets — those
+that never had a week — and the surviving candidate cell is the cleanest
+case: short-lived attention markets (median lifetime 3–6 days, dominated by
+"will he say/do X" mention contracts) whose overpricing is *created in the
+final days*, with prices drifting up into resolution even for eventual
+losers. The pattern is consistent with last-day attention flow paying up in
+markets too young for the correction mechanism to have operated, and it
+makes a concrete prediction the forward experiment can refute: the edge, if
+real, should be absent in long-lived markets and concentrated where market
+age at trade time is days, not weeks.
+
+
 Where the crowd is measurable at scale, it is far better calibrated than
 folk accounts of retail prediction markets suggest: mid-range prices are
 nearly unbiased in every liquid category; a bias-corrected D-1 GFS+ECMWF
