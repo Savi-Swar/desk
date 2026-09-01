@@ -6,8 +6,8 @@ view: what runs, what breaks, and what broke us until we fixed it.)*
 ## Shape
 
 Zero-server design: GitHub Actions cron is the scheduler, the git repo is the
-database, artifacts are cold storage. Four workflows (recorder / sims /
-collectors / alarm) run 2–48×/day; every script executes under a health
+database, artifacts are cold storage. Six workflows (recorder / sims /
+collectors / alarm / tests / marks-crawl) run 2–48×/day; every script executes under a health
 wrapper that appends per-run records to a ledger, and the alarm workflow
 opens a GitHub issue after two consecutive failures and closes it on the
 next green run. Total infra cost: $0.
@@ -114,4 +114,4 @@ Reconcile every derived quantity against ground truth before trusting it
 (the tape vs book-shrinkage reconciliation exposed a ~1,735× overcount);
 guards need control probes; readers must survive their writers' deaths;
 schedulers lie; and instrumentation that can kill your own headline result
-is the most valuable code in the repo — it fired eight times.
+is the most valuable code in the repo — it has fired nine times.

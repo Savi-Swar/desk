@@ -9,7 +9,7 @@ prose is a working skeleton.*
 
 We assemble the largest calibration sample yet studied on a prediction-market
 venue: 880,326 resolved Polymarket markets (2020–2026), with pre-resolution
-price marks at 24, 72, and 168 hours for 105,000+ of them. The raw answer to
+price marks at 24, 72, and 168 hours for 190,000+ of them. The raw answer to
 "does an outcome priced p win a fraction p of the time" is dominated not by
 crowd psychology but by measurement artifacts, and the paper's first
 contribution is their anatomy: last-trade marks across multi-outcome families
@@ -53,9 +53,8 @@ days). Resolution is taken from final settled prices (exactly one outcome
 above 0.99). Marks: last trade price at T-24/72/168h before scheduled end,
 from the CLOB price-history endpoint at 720-minute fidelity (finer fidelities
 return empty on long ranges — a quirk that silently voided an early crawl and
-motivated an all-empty abort guard), for the 105,527 resolved markets with at
-least $5,000 volume and a lifetime long enough to have a mark (a tail crawl
-adding 2026 months is still running; counts are the 2026-08-31 snapshot). Categories:
+motivated an all-empty abort guard), for the 191,393 resolved markets (after a 12-shard distributed CI crawl completed the backfill) with at
+least $5,000 volume and a lifetime long enough to have a mark (final canonical dataset). Categories:
 the venue stopped populating its category field in 2022 (~4k labeled of
 880k), so categories derive from a keyword classifier over slug and question
 text, at 79% agreement with the legacy labels; word-boundary rules matter
@@ -116,22 +115,26 @@ With pinned marks excluded and month-clustered inference, 13 cells clear
 
 | horizon | group | side | gap | t | months | Kish | n |
 |---|---|---|--:|--:|--:|--:|--:|
-| 24h | crypto | longshots | −5.2pp | −3.4 | 27 | 7.3 | 3,981 |
-| 24h | politics | favorites | −5.3pp | −2.9 | 23 | 13.1 | 1,314 |
-| 24h | weather | longshots | −3.9pp | −3.1 | 15 | 3.8 | 8,910 |
-| 24h | weather | favorites | −14.9pp | −2.1 | 11 | 4.4 | 228 |
-| 24h | other | longshots | −2.0pp | −2.0 | 33 | 6.3 | 9,894 |
-| 72h | crypto | longshots | −3.6pp | −2.6 | 28 | 6.7 | 5,477 |
-| 72h | crypto | favorites | −7.3pp | −2.2 | 22 | 6.5 | 3,752 |
-| 72h | politics | longshots | −1.7pp | −2.1 | 28 | 15.7 | 2,117 |
-| 72h | weather | longshots | −7.3pp | −3.4 | 14 | 11.1 | 545 |
-| 72h | other | longshots | −2.2pp | −2.3 | 33 | 6.5 | 9,677 |
-| 168h | crypto | longshots | −4.0pp | −2.6 | 28 | 21.8 | 584 |
-| 168h | politics | longshots | −2.8pp | −2.4 | 28 | 13.8 | 1,562 |
-| 168h | geopolitics | longshots | −3.8pp | −2.8 | 26 | 10.2 | 705 |
+| 24h | crypto | longshots | −4.4pp | −3.3 | 32 | 11.3 | 7,079 |
+| 24h | politics | favorites | −4.4pp | −2.7 | 28 | 17.4 | 1,686 |
+| 24h | weather | longshots | −3.4pp | −3.3 | 20 | 5.5 | 13,621 |
+| 72h | crypto | longshots | −3.3pp | −2.8 | 33 | 10.5 | 10,225 |
+| 72h | crypto | favorites | −5.7pp | −2.1 | 27 | 10.2 | 5,270 |
+| 72h | politics | longshots | −1.5pp | −2.2 | 32 | 18.6 | 3,135 |
+| 72h | weather | longshots | −6.8pp | −4.1 | 19 | 5.1 | 1,633 |
+| 72h | other | longshots | −1.7pp | −2.0 | 37 | 9.8 | 21,743 |
+| 72h | esports | longshots | **+4.9pp** | +2.3 | 12 | 4.4 | 1,443 |
+| 168h | crypto | favorites | −7.9pp | −2.9 | 16 | 5.1 | 329 |
+| 168h | politics | longshots | −2.5pp | −2.4 | 32 | 15.7 | 2,491 |
+| 168h | geopolitics | longshots | −3.2pp | −2.6 | 30 | 12.8 | 1,345 |
+| 168h | weather | longshots | −6.2pp | −3.2 | 15 | 11.7 | 157 |
 
-Realized frequency sits below implied probability throughout: buyers of
-low-probability outcomes overpay — the classic favorite-longshot signature,
+Twelve of thirteen cells point one way — buyers of low-probability outcomes
+overpay. The exception is new in the full sample: esports longshots at T-72h
+run UNDERpriced (+4.9pp), but on 12 months with Kish 4.4 and only 8
+pre-split training observations the standard harness refuses an
+out-of-sample test; the forward live-quote experiment covers the band and
+will adjudicate it. For the twelve: — the classic favorite-longshot signature,
 cross-category and multi-horizon. (Negative "favorites" cells are consistent
 with the same story on the complement side and with residual family-vig;
 the longshot cells carry the weight of evidence.)
