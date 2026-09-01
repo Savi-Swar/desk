@@ -102,18 +102,15 @@ def test_summarize():
                             _ledger_row("99", past, no_ask="0.995")]
             s2 = lf.summarize(rows2)
             assert "25 trades" in s2 and "+21.00c/share" in s2, s2
+            # under 20 graded -> explicit "need more" message, no fake number
+            s3 = lf.summarize(rows[:5])
+            assert "graded 5" in s3 and "c/share" not in s3, s3
+            # graded but no live ask recorded -> not countable
+            rows4 = [_ledger_row(str(i), past, no_ask="") for i in range(25)]
+            s4 = lf.summarize(rows4)
+            assert "need" in s4 or "no priceable" in s4, s4
         finally:
             lf.GRADES = old
-
-    # under 20 graded -> explicit "need more" message, no fake number
-    s3 = lf.summarize(rows[:5])
-    assert "graded 5" in s3 and "c/share" not in s3, s3
-
-    # graded but no live ask recorded -> not countable
-    rows4 = [_ledger_row(str(i), past, graded="1", won="1", no_ask="")
-             for i in range(25)]
-    s4 = lf.summarize(rows4)
-    assert "need" in s4 or "no priceable" in s4, s4
     print("  longshot_forward.summarize: edge math + ask filters OK")
 
 
