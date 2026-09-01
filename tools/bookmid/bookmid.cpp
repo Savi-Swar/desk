@@ -12,14 +12,23 @@
 // No JSON library: the producer's schema is fixed and covered by tests, so
 // extraction is targeted string scanning after unescaping the envelope.
 //
-// build:  g++ -O2 -std=c++17 -o bookmid bookmid.cpp -lz
-// usage:  ./bookmid file.jsonl.gz > mids.csv
+// Parallel design: parsing is ~90% of the cost and stateless per line, so the
+// buffer is split into line-aligned shards parsed by N threads into event
+// vectors; the stateful top-of-book APPLY then runs sequentially in original
+// order (correctness requires it: diffs depend on prior state per asset).
+//
+// build:  g++ -O2 -std=c++17 -pthread -o bookmid bookmid.cpp -lz
+// usage:  ./bookmid [-j N] file.jsonl.gz > mids.csv
 #include <zlib.h>
 
 #include <cstdio>
 #include <cstring>
 #include <string>
 #include <string_view>
+#include <thread>
+#include <atomic>
+#include <chrono>
+#include <charconv>
 #include <unordered_map>
 #include <vector>
 
@@ -109,47 +118,38 @@ std::string last_price_in_array(const std::string& s, const char* key) {
     return field(arr, "price", last);
 }
 
-}  // namespace
+// one parsed top-of-book event, in stream order
+struct Event {
+    std::string asset;
+    double bid = -1.0;     // <0 = "keep previous" (absent field in a diff)
+    double ask = -1.0;
+    bool snapshot = false;
+    std::string t;
+};
 
-int main(int argc, char** argv) {
-    if (argc < 2) {
-        std::fprintf(stderr, "usage: bookmid file.jsonl.gz\n");
-        return 2;
-    }
-    std::string data = gz_read_all(argv[1]);
-    if (data.empty()) {
-        std::fprintf(stderr, "bookmid: cannot read %s\n", argv[1]);
-        return 1;
-    }
-    std::unordered_map<std::string, Top> best;
-    best.reserve(1024);
-    static char obuf[1 << 20];
-    std::setvbuf(stdout, obuf, _IOFBF, sizeof obuf);
-    std::printf("t,asset,bid,ask\n");
-    size_t pos = 0, emitted = 0;
-    std::string line;                       // reused; no per-line alloc growth
-    while (pos < data.size()) {
+// parse every event in data[lo, hi) into out (stateless; thread-safe)
+void parse_range(const std::string& data, size_t lo, size_t hi,
+                 std::vector<Event>* out) {
+    size_t pos = lo;
+    std::string line;
+    while (pos < hi) {
         size_t nl = data.find('\n', pos);
-        if (nl == std::string::npos) nl = data.size();
+        if (nl == std::string::npos || nl > hi) nl = hi;
         line.assign(data, pos, nl - pos);
         pos = nl + 1;
         if (line.find("\"meta\"") != std::string::npos) continue;
         std::string t = field(line, "t");
-        // inner message: everything after "m": — unescape if quoted
         size_t mv = after_key(line, "m");
         std::string inner;
         if (mv != std::string::npos && mv < line.size()) {
             if (line[mv] == '"') {
                 size_t e = line.rfind('"');
-                if (e > mv + 1)
-                    inner = unescape(line.substr(mv + 1, e - mv - 1));
+                if (e > mv + 1) inner = unescape(line.substr(mv + 1, e - mv - 1));
             } else {
                 inner = line.substr(mv);
             }
         }
         if (inner.empty() || t.empty()) continue;
-
-        // events can be a single object or an array; scan every event_type
         size_t ev = 0;
         while ((ev = inner.find("\"event_type\"", ev)) != std::string::npos) {
             size_t vs = after_key(inner, "event_type", ev);
@@ -158,42 +158,127 @@ int main(int argc, char** argv) {
             size_t ve = inner.find('"', vs);
             std::string et = inner.substr(vs, ve - vs);
             size_t next = inner.find("\"event_type\"", ve);
-            const std::string& whole = inner;   // scan bounded by [ev, next)
-            size_t bound = (next == std::string::npos ? whole.size() : next);
-            std::string chunk = whole.substr(ev, bound - ev);
+            size_t bound = (next == std::string::npos ? inner.size() : next);
+            std::string chunk = inner.substr(ev, bound - ev);
             if (et == "book") {
                 std::string a = field(chunk, "asset_id");
                 if (!a.empty()) {
-                    Top& tp = best[a];
-                    tp.bid = num(last_price_in_array(chunk, "bids"), 0.0);
-                    tp.ask = num(last_price_in_array(chunk, "asks"), 1.0);
-                    if (tp.bid > 0 && tp.ask > tp.bid && tp.ask <= 1.0) {
-                        std::printf("%s,%s,%.6g,%.6g\n", t.c_str(), a.c_str(),
-                                    tp.bid, tp.ask);
-                        ++emitted;
-                    }
+                    Event e2;
+                    e2.asset = std::move(a);
+                    e2.snapshot = true;
+                    e2.bid = num(last_price_in_array(chunk, "bids"), 0.0);
+                    e2.ask = num(last_price_in_array(chunk, "asks"), 1.0);
+                    e2.t = t;
+                    out->push_back(std::move(e2));
                 }
             } else if (et == "price_change") {
                 size_t pc = 0;
-                while ((pc = chunk.find("\"asset_id\":", pc)) !=
-                       std::string::npos) {
-                    std::string a = field(chunk, "asset_id", pc);
-                    Top& tp = best.try_emplace(a).first->second;
+                while ((pc = chunk.find("\"asset_id\"", pc)) != std::string::npos) {
+                    Event e2;
+                    e2.asset = field(chunk, "asset_id", pc);
                     std::string bb = field(chunk, "best_bid", pc);
                     std::string ba = field(chunk, "best_ask", pc);
-                    if (!bb.empty()) tp.bid = num(bb, tp.bid);
-                    if (!ba.empty()) tp.ask = num(ba, tp.ask);
-                    if (tp.bid > 0 && tp.ask > tp.bid && tp.ask <= 1.0) {
-                        std::printf("%s,%s,%.6g,%.6g\n", t.c_str(), a.c_str(),
-                                    tp.bid, tp.ask);
-                        ++emitted;
-                    }
-                    pc += 11;
+                    if (!bb.empty()) e2.bid = num(bb, -1.0);
+                    if (!ba.empty()) e2.ask = num(ba, -1.0);
+                    e2.t = t;
+                    out->push_back(std::move(e2));
+                    pc += 10;
                 }
             }
-            ev = (next == std::string::npos) ? inner.size() : next;
+            ev = bound;
         }
     }
-    std::fprintf(stderr, "bookmid: %zu top-of-book updates\n", emitted);
+}
+
+}  // namespace
+
+int main(int argc, char** argv) {
+    int jobs = 1;
+    int argi = 1;
+    if (argc >= 3 && std::string(argv[1]) == "-j") {
+        jobs = std::max(1, atoi(argv[2]));
+        argi = 3;
+    }
+    if (argc <= argi) {
+        std::fprintf(stderr, "usage: bookmid [-j N] file.jsonl.gz\n");
+        return 2;
+    }
+    auto t0 = std::chrono::steady_clock::now();
+    std::string data = gz_read_all(argv[argi]);
+    auto t1 = std::chrono::steady_clock::now();
+    if (data.empty()) {
+        std::fprintf(stderr, "bookmid: cannot read %s\n", argv[1]);
+        return 1;
+    }
+    // ---- phase 1: parallel parse over line-aligned shards ----
+    size_t n = data.size();
+    std::vector<size_t> cuts{0};
+    for (int i = 1; i < jobs; ++i) {
+        size_t c = n * i / jobs;
+        while (c < n && data[c] != '\n') ++c;   // align to line boundary
+        cuts.push_back(std::min(c + 1, n));
+    }
+    cuts.push_back(n);
+    std::vector<std::vector<Event>> shards(jobs);
+    std::vector<std::thread> workers;
+    for (int i = 0; i < jobs; ++i)
+        workers.emplace_back(parse_range, std::cref(data),
+                             cuts[i], cuts[i + 1], &shards[i]);
+    for (auto& w : workers) w.join();
+    auto t2 = std::chrono::steady_clock::now();
+
+    // ---- phase 2: sequential apply, original order preserved ----
+    std::unordered_map<std::string, Top> best;
+    best.reserve(1024);
+    std::string out;
+    out.reserve(1 << 22);
+    out += "t,asset,bid,ask\n";
+    char nbuf[32];
+    auto put_num = [&](double v) {           // to_chars: ~5x faster than %.6g
+        auto [end, ec] = std::to_chars(nbuf, nbuf + sizeof nbuf, v,
+                                       std::chars_format::general, 6);
+        out.append(nbuf, end - nbuf);
+    };
+    size_t emitted = 0;
+    for (auto& shard : shards) {
+        for (auto& e : shard) {
+            Top& tp = best.try_emplace(e.asset).first->second;
+            if (e.snapshot) {
+                tp.bid = e.bid;
+                tp.ask = e.ask;
+            } else {
+                if (e.bid >= 0) tp.bid = e.bid;
+                if (e.ask >= 0) tp.ask = e.ask;
+            }
+            if (tp.bid > 0 && tp.ask > tp.bid && tp.ask <= 1.0) {
+                out += e.t;
+                out += ',';
+                out += e.asset;
+                out += ',';
+                put_num(tp.bid);
+                out += ',';
+                put_num(tp.ask);
+                out += '\n';
+                ++emitted;
+                if (out.size() > (1 << 21)) {
+                    std::fwrite(out.data(), 1, out.size(), stdout);
+                    out.clear();
+                }
+            }
+        }
+    }
+    std::fwrite(out.data(), 1, out.size(), stdout);
+    auto t3 = std::chrono::steady_clock::now();
+    auto ms = [](auto a, auto b) {
+        return std::chrono::duration_cast<std::chrono::milliseconds>(b - a)
+            .count();
+    };
+    // phase timings make the scaling honest: parse parallelizes ~linearly,
+    // end-to-end is Amdahl-bound by the serial gzip inflate
+    std::fprintf(stderr,
+                 "bookmid: %zu updates (%d threads) | inflate %lldms | "
+                 "parse %lldms | apply+emit %lldms\n",
+                 emitted, jobs, (long long)ms(t0, t1), (long long)ms(t1, t2),
+                 (long long)ms(t2, t3));
     return 0;
 }

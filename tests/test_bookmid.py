@@ -60,8 +60,9 @@ def python_mids(path):
     return sorted(out)
 
 
-def cpp_mids(binary, path):
-    r = subprocess.run([str(binary), str(path)], capture_output=True, text=True)
+def cpp_mids(binary, path, jobs=None):
+    cmd = [str(binary)] + (["-j", str(jobs)] if jobs else []) + [str(path)]
+    r = subprocess.run(cmd, capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
     out = []
     for line in r.stdout.splitlines()[1:]:
@@ -80,6 +81,8 @@ def main():
         make_fixture(fx)
         py = python_mids(fx)
         cc = cpp_mids(binary, fx)
+        cc8 = cpp_mids(binary, fx, jobs=8)
+        assert cc == cc8, "multi-thread output differs from single-thread"
         assert len(py) > 100, f"fixture too small: {len(py)}"
         assert py == cc, (f"MISMATCH: python {len(py)} rows vs c++ {len(cc)};"
                           f" first diff: "
@@ -87,18 +90,22 @@ def main():
         print(f"  bookmid parity: {len(py)} top-of-book updates identical")
 
         big = pathlib.Path(td) / "big.jsonl.gz"
-        make_fixture(big, n_msgs=60_000, seed=11)
+        n_lines = 1_000_000
+        make_fixture(big, n_msgs=n_lines, seed=11)
         t0 = time.perf_counter()
         python_mids(big)
         t_py = time.perf_counter() - t0
-        t0 = time.perf_counter()
-        subprocess.run([str(binary), str(big)], stdout=subprocess.DEVNULL,
-                       stderr=subprocess.DEVNULL, check=True)
-        t_cc = time.perf_counter() - t0
-        n_lines = 60_000
-        print(f"  bookmid bench (60k msgs): python {t_py:.2f}s, "
-              f"c++ binary {t_cc:.2f}s  ({t_py / t_cc:.1f}x, "
-              f"{n_lines / t_cc / 1e3:.0f}k msg/s)")
+        times = {}
+        for j in (1, 8):
+            t0 = time.perf_counter()
+            subprocess.run([str(binary), "-j", str(j), str(big)],
+                           stdout=subprocess.DEVNULL,
+                           stderr=subprocess.DEVNULL, check=True)
+            times[j] = time.perf_counter() - t0
+        print(f"  bookmid bench (1M msgs): python {t_py:.1f}s | "
+              f"c++ -j1 {times[1]:.2f}s ({n_lines/times[1]/1e6:.1f}M msg/s) | "
+              f"c++ -j8 {times[8]:.2f}s ({n_lines/times[8]/1e6:.1f}M msg/s, "
+              f"{t_py/times[8]:.0f}x python)")
 
 
 if __name__ == "__main__":
