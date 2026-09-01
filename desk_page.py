@@ -1,30 +1,44 @@
-"""Generates screen 07 PREDMKT for Vig (reports/dashboard/desk.html) from the
-live paper-desk ledgers, using the same shell (header, tabs, surface, type)
-as the rest of the terminal."""
+"""Generates screen 07 PREDMKT for Vig from the desk repo's ledgers and
+writeups, using the same shell (header, tabs, surface, type) as the rest of
+the terminal. The screen leads with the research program's current state:
+the mirage ledger (RESULTS.md), what survived, and the forward experiments
+that are still running. Numbers are computed from the committed ledgers at
+generation time; the mirage/survivor prose mirrors RESULTS.md / HUNT_LOG.md.
+
+Writes collected/desk.html and, when the checkout exists, mirrors it to the
+vig-pages working tree (deployed to saviturswarup.com/vig by the nightly
+publish)."""
 import pathlib, json, datetime
 import pandas as pd
 
-D = pathlib.Path(__file__).parent / "collected"
-OUT = pathlib.Path("/Users/swarup44891/Downloads/Quant/reports/dashboard/desk.html")
+ROOT = pathlib.Path(__file__).parent
+D = ROOT / "collected"
+OUTS = [D / "desk.html",
+        pathlib.Path("/Users/swarup44891/lab/vig-pages/desk.html")]
 
 INK, MUT, DIM = "#e6e2d8", "#8a9199", "#6d747c"
 GRN, RED, AMB = "#46ff9a", "#ff5d5d", "#ffb000"
 SURF, LINE, TILE = "#0b0d10", "#22262c", "#0e1114"
 
 
-def load(n):
-    f = D / n
+def load(n, base=None):
+    f = (base or D) / n
     try:
         return pd.read_csv(f) if f.exists() else pd.DataFrame()
     except Exception:
         return pd.DataFrame()
 
 
-def age_lamp(ts_series, warn_h):
+def age_lamp(ts_series, warn_h, epoch=False):
     """Freshness lamp from the newest timestamp in a ledger."""
     if ts_series is None or not len(ts_series):
         return DIM, "no data"
-    newest = pd.to_datetime(ts_series, errors="coerce", utc=True, format="mixed").max()
+    if epoch:
+        newest = pd.to_datetime(pd.to_numeric(ts_series, errors="coerce"),
+                                unit="s", utc=True).max()
+    else:
+        newest = pd.to_datetime(ts_series, errors="coerce", utc=True,
+                                format="mixed").max()
     if pd.isna(newest):
         return DIM, "no data"
     hrs = (pd.Timestamp.now(tz="UTC") - newest).total_seconds() / 3600
@@ -55,21 +69,73 @@ def tile(label, value, sub="", color=INK):
             f'<div class="hsub">{sub}</div></div>')
 
 
-# load everything
-a  = load("arb_fills.csv")
-s  = load("shadow_ledger.csv")
-g  = load("shadow_graded.csv")
-m  = load("maker_book.csv")
-mn = load("maker_net.csv")
+# ── load ledgers ─────────────────────────────────────────────────────────
+mn  = load("maker_net.csv")           # concluded v2/v3 forward experiment
 mn3 = load("maker_net3.csv")
-lb = load("pm_leaderboard.csv")
-dr = load("drill_2026-07-23.csv")
+mp  = load("maker_pnl_real.csv")      # real-fill maker gate (daily)
+lf  = load("longshot_fwd.csv")        # live-ask forward ledger
+wo  = load("weather_obs.csv")         # weather collector
+lb  = load("pm_leaderboard.csv")      # collector heartbeat
+taq = load("benchmark_table.csv", ROOT / "papers" / "paper0")
 
 now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
-# maker economics: per-snapshot sums -> cumulative curves
+# ── mirage ledger (condensed from RESULTS.md — receipts live there) ──────
+MIRAGES = [
+    ("1", "maker &ldquo;fills&rdquo; from book shrinkage",
+     "1,735&times; overcount — cancels, not trades (48,578 vs 28 on the tape)"),
+    ("2", "+$483/day maker markout",
+     "&asymp;$0 — spread booked at a touch a rewards-eligible maker never rests at"),
+    ("3", "crypto &ldquo;reverse bias&rdquo;, day-clustered t=&minus;4.2",
+     "one crash month; month-clustered t=&minus;0.3"),
+    ("4", "+5pp crypto favorites gap, persists OOS",
+     "+0.6pp bet-weighted — below costs"),
+    ("5", "&minus;12pp weather &ldquo;miscalibration&rdquo;",
+     "stale last-trade marks — family prices sum to 1.39"),
+    ("6", "weather model +125%, SR 0.9",
+     "&minus;79%, SR &minus;4.9 on books fresh enough to trade"),
+    ("7", "crypto favorites underpriced (2 verdict cells)",
+     "pinned afterlife prints — 22&ndash;28% of marks postdate the close"),
+    ("8", "short-longshots OOS SR 3.9, PSR 0.99",
+     "sizing artifact — same stream &minus;3.3c/share equal-weight; reversed in 2026; retracted"),
+]
+mirage_rows = "".join(
+    f'<tr><td class="dim">{n}</td><td>{sed}</td><td>{truth}</td></tr>'
+    for n, sed, truth in MIRAGES)
+mirage_tbl = (f"<table><tr><th>#</th><th>the seductive number</th>"
+              f"<th>the truth</th></tr>{mirage_rows}</table>")
+
+# ── TAQ yardstick (papers/paper0/benchmark_table.csv) ────────────────────
+taq_order = ["US equity mega-cap", "US equity mid-cap", "US equity small-cap",
+             "Polymarket tight (<1c)", "Polymarket wide (>3c)"]
+if len(taq):
+    taq["venue"] = pd.Categorical(taq["venue"], categories=taq_order,
+                                  ordered=True)
+    taq = taq.sort_values("venue")
+taq_tbl = table(taq, ["venue", "eff_bps", "real_bps", "impact_bps"],
+                headers=["venue / book", "eff half-spread (bps)",
+                         "realized (bps)", "impact (bps)"])
+
+# ── maker gate from real fills (compute, don't quote) ────────────────────
+mk_days, mk_cum, mk_t = 0, 0.0, 0.0
+if len(mp):
+    net = mp["net_live"].astype(float)
+    mk_days, mk_cum = len(net), net.sum()
+    se = net.std(ddof=1) / len(net) ** 0.5 if len(net) > 1 else float("inf")
+    mk_t = net.mean() / se if se else 0.0
+mk_pass = mk_t >= 2.0
+
+# ── forward experiments ──────────────────────────────────────────────────
+lf_n = lf["market_id"].nunique() if len(lf) else 0
+lf_graded = int(lf["graded"].astype(float).sum()) if len(lf) else 0
+wo_rows = len(wo)
+wo_cities = wo["city"].nunique() if len(wo) else 0
+
+# ── concluded maker v2/v3 experiment (chart) ─────────────────────────────
 curve_svg, gap_note, chart_json = '<p class="dim">needs 2+ snapshots…</p>', "", "[]"
 mk_net_v, mk_rw, mk_fl, adverse_pct = 0.0, 0.0, 0.0, 0.0
+mk3_net_v = None
+span_note = ""
 if len(mn):
     mn["t0"] = pd.to_datetime(mn["t0"], errors="coerce", utc=True, format="mixed")
     mn = mn.dropna(subset=["t0"])
@@ -81,9 +147,9 @@ if len(mn):
     mk_rw, mk_fl = snap["cum_rw"].iloc[-1], snap["cum_fl"].iloc[-1]
     mk_net_v = snap["cum_net"].iloc[-1]
     adverse_pct = 100 * (mn["fill_pnl"] < 0).mean()
+    span_note = (f"{snap.index.min().strftime('%b %d')} &ndash; "
+                 f"{snap.index.max().strftime('%b %d')}")
 
-    # defended v3 curve on the same snapshot grid (zero-filled where absent)
-    mk3_net_v = None
     if len(mn3):
         mn3["t0"] = pd.to_datetime(mn3["t0"], errors="coerce", utc=True, format="mixed")
         s3 = mn3.dropna(subset=["t0"]).groupby("t0").agg(
@@ -92,14 +158,6 @@ if len(mn):
         s3["net"] = (s3["net"] + s3["fp"]).cumsum()
         snap["cum_net3"] = s3["net"].reindex(snap.index).ffill().fillna(0.0)
         mk3_net_v = snap["cum_net3"].iloc[-1]
-
-    gaps = snap.index.to_series().diff()
-    big = gaps[gaps > pd.Timedelta(hours=2)]
-    if len(big):
-        parts = [f"{i.strftime('%m-%d %H:%M')} (−{d.total_seconds()/3600:.1f}h)"
-                 for i, d in big.items()]
-        gap_note = ('<p class="dim">sampling gaps (machine asleep): '
-                    + " · ".join(parts) + "</p>")
 
     if len(snap) >= 2:
         W, H, PL, PR, PT, PB = 860, 240, 46, 90, 14, 26
@@ -140,50 +198,17 @@ if len(mn):
             "n3": [round(v, 2) for v in snap["cum_net3"]] if "cum_net3" in snap else [],
             "pl": PL, "pr": PR, "w": W})
 
-# headline numbers
-arb_profit = a["profit_at_depth"].sum() if len(a) else 0.0
-arb_clean = None
-if len(a) and "near_res" in a.columns:
-    flagged = a["near_res"].fillna(0).astype(float) > 0
-    arb_clean = a.loc[~flagged, "profit_at_depth"].sum()
-arb_sub = f"{len(a)} depth-verified fills" if len(a) else "0 fills — edges rarely survive real books"
-if arb_clean is not None:
-    arb_sub += f" · ${arb_clean:,.2f} ex-convergence"
-
-sh_deployed = s["paper_stake"].sum() if len(s) else 0.0
-if len(g):
-    # A copied fill at a sub-cent price pays ~2000:1 if it lands, so one or two
-    # of them swamp the headline. Quote the book without them too, the same way
-    # arb is quoted ex-convergence.
-    lucky = (g["won"] == 1) & (g["entry"] < 0.01)
-    sh_graded = f"{len(g)} graded, P&L ${g['pnl'].sum():+,.0f}"
-    if lucky.any():
-        sh_graded += (f" · ${g.loc[~lucky, 'pnl'].sum():+,.0f} ex-{int(lucky.sum())}"
-                      " sub-cent fill" + ("s" if lucky.sum() > 1 else ""))
-else:
-    sh_graded = f"{len(s)} open · 0 resolved"
-
-mk_latest = m[m["ts"] == m["ts"].max()] if len(m) else m
-pool = mk_latest["reward_daily"].sum() if len(m) else 0.0
-
-drill_rows = ""
-if len(dr):
-    for r in dr.itertuples():
-        q = str(r.q)[:70]
-        drill_rows += (f"<tr><td>{q}</td><td>{float(r.p):.2f}</td>"
-                       f"<td>{float(r.model_p):.3f}</td><td class='dim'>pending</td></tr>")
-drill_tbl = (f"<table><tr><th>question</th><th>market</th><th>model</th>"
-             f"<th>brier</th></tr>{drill_rows}</table>") if drill_rows else '<p class="dim">no drill on record</p>'
-
-# freshness lamps
+# ── freshness lamps (live collectors only) ───────────────────────────────
 lamps = ""
-for name, df_, col, warn in [("arb sampler", mn, "t0", 1.5),
-                             ("collectors", lb, "ts", 14)]:
-    c, lbl = age_lamp(df_[col] if len(df_) else None, warn)
+for name, series, warn, epoch in [
+        ("collectors", lb["ts"] if len(lb) else None, 14, False),
+        ("longshot fwd", lf["t"] if len(lf) else None, 14, True),
+        ("weather", wo["t"] if len(wo) and "t" in wo else None, 14, True)]:
+    c, lbl = age_lamp(series, warn, epoch=epoch)
     lamps += (f'<span class="lamp"><i style="background:{c}"></i>{name} '
               f'<span class="dim">{lbl}</span></span>')
 
-# shell (matches Vig)
+# ── shell (matches Vig) ──────────────────────────────────────────────────
 TABS = [("index.html", "01", "DESK"), ("analysis.html", "02", "ANALYSIS"),
         ("screener.html", "03", "SCREENER"), ("past_trades.html", "04", "PAST TRADES"),
         ("portfolio.html", "05", "PORTFOLIO"), ("research.html", "06", "RESEARCH"),
@@ -228,6 +253,10 @@ tr:hover td { background: #0e1114 }
 .lamp { margin-right: 18px; color: #8a9199; font-size: 11px }
 .lamp i { display: inline-block; width: 8px; height: 8px; border-radius: 50%;
   margin-right: 6px }
+.surv { border-left: 2px solid #22262c; padding: 2px 0 2px 14px; margin: 12px 0 }
+.surv b { color: #e6e2d8 }
+.surv .tag { font-size: 10px; letter-spacing: 1.5px; padding: 1px 7px;
+  border: 1px solid #22262c; margin-right: 8px }
 #mktip { position: absolute; display: none; background: #0e1114;
   border: 1px solid #22262c; padding: 8px 10px; font-size: 11px; pointer-events: none;
   z-index: 10; white-space: nowrap }
@@ -272,65 +301,103 @@ JS = """
 
 body = f"""
 <div class="lamps" style="margin-bottom:4px">{lamps}</div>
+
+<h2>8 backtest mirages, found and killed <span class="dim">— in our own
+results, each with the kill method on record</span></h2>
+{mirage_tbl}
+<p class="dim">Every seductive number the pipeline produced was attacked
+until it died or survived. A number that hasn't survived an attempt to kill
+it doesn't get quoted. Receipts (code + writeup per line): RESULTS.md in the
+desk repo.</p>
+
+<h2>What survived every attack</h2>
+
+<div class="surv"><span class="tag" style="color:{GRN}">SURVIVOR</span>
+<b>Polymarket vs the equity yardstick</b> — same Stoll (2000) decomposition,
+equities from raw millisecond TAQ; $-weighted, 30s horizon, bps of price.
+{taq_tbl}
+<p class="dim">Tight prediction-market books trade like a somewhat-worse
+small-cap (17.2 vs 8.6 bps effective half-spread). Wide books book a
+&ldquo;realized spread&rdquo; ~80&times; a small-cap maker's take — the
+fill-at-touch mirage in one row. Regenerable: papers/paper0.</p></div>
+
+<div class="surv"><span class="tag" style="color:{GRN}">SURVIVOR</span>
+<b>The crowd beats the model</b> — vig-stripped T-24h weather-ladder prices
+are better calibrated than a bias-corrected D-1 GFS+ECMWF blend: log-loss
+0.360 vs 0.388 over 2,972 buckets, walk-forward. Retail prediction markets
+embed public NWP by the day before.</div>
+
+<div class="surv"><span class="tag" style="color:{AMB}">PENDING</span>
+<b>Politics favorites are overpriced (sell side)</b> — the one candidate
+still standing from six pre-registered hunts: test bet-weighted
+&minus;3.6pp, month-t &minus;2.1, both engine sizing modes agree, survives
+slippage at 100/200/300bps, held in both 2026 months. <b>Not claimed</b>:
+PSR 0.88/0.91 &lt; 0.95 and 7 test months &lt; 8. Adjudication is
+pre-registered and pending the tail-marks crawl — pass the fixed bar and
+it's claimed, fail and it becomes mirage #9. No parameter may change in
+between (HUNT_LOG.md).</div>
+
+<h2>Status <span class="dim">— what is running forward right now</span></h2>
 <div class="htiles">
-{tile("Arb realized at depth", f"${arb_profit:+,.2f}", arb_sub, GRN if arb_profit >= 0 else RED)}
-{tile("Maker v2 control", f"${mk_net_v:+,.2f}",
-      f"rewards ${mk_rw:,.0f} · fills ${mk_fl:+,.0f} · {adverse_pct:.0f}% adverse",
-      GRN if mk_net_v >= 0 else RED)}
-{tile("Maker v3 defended", f"${mk3_net_v:+,.2f}" if mk3_net_v is not None else "accruing",
-      "skew · circuit breaker · inventory cap — params fixed a priori",
-      (GRN if (mk3_net_v or 0) >= 0 else AMB) if mk3_net_v is not None else DIM)}
-{tile("Reward pools live", f"${pool:,.0f}/d", f"{len(mk_latest)} eligible markets", AMB)}
+{tile("Longshot forward test", f"{lf_n} entries",
+      f"{lf_graded} graded · live CLOB asks, CI 2&times;/day, self-grading — "
+      "the sole remaining arbiter of the longshot story", AMB)}
+{tile("Weather collector", f"{wo_rows:,} obs",
+      f"{wo_cities} cities · ladder prices + GFS/ECMWF/ICON forecasts, accruing", AMB)}
+{tile("Maker gate (real fills)", f"${mk_cum:+,.0f} · t={mk_t:.2f}",
+      f"{mk_days} days, rebate-driven · {'passes' if mk_pass else 'below'} the "
+      "t&ge;2.0 bar — says so here until it clears it",
+      GRN if mk_pass else AMB)}
+{tile("Papers", "0 + 1 drafted",
+      "measurement artifacts in maker backtests · favorite-longshot structure "
+      "in 880k resolutions", INK)}
 </div>
 
-<h2>Maker economics <span class="dim">— v2 naive control vs v3 defended quoter, cumulative</span></h2>
+<h2>Concluded experiment <span class="dim">— maker v2 naive control vs v3
+defended quoter, cumulative · {span_note}</span></h2>
 {curve_svg}
-{gap_note}
 <p class="dim">v2 quotes symmetrically and never moves — it measures the toll.
 v3 adds the standard defenses (drift skew, circuit-breaker pulls, inventory
 caps) with parameters fixed a priori. The distance between the two NET lines
-is what the defenses recover; the distance from v3 to zero is what is left.</p>
-
-<h2>Arb executor <span class="dim">— continuous watch vs real order-book depth · fills before Jul 31 are PRE-FEE (taker fees ~5% of p(1-p) per leg apply since Mar 2026 on fee-enabled markets; fee-net detection from Jul 31)</span></h2>
-{table(a.sort_values("ts", ascending=False) if len(a) else a,
-       ["ts", "event", "type", "edge_pershare", "exec_size", "profit_at_depth"])}
-
-<h2>Calibration drill <span class="dim">— house model (0.87 shrink) vs market · resolves Jul 28–31</span></h2>
-{drill_tbl}
-
-<h2>Maker snapshot <span class="dim">— largest live reward pools</span></h2>
-{table(mk_latest.sort_values("reward_daily", ascending=False) if len(m) else m,
-       ["reward_daily", "mid", "spread", "our_spread", "q"], n=8)}
+is what the defenses recover; the distance from v3 to zero is what is left.
+Verdict (via the real-fill gate above): the only durable maker income is the
+fee rebate, roughly cancelled by adverse selection at a realistic resting
+size.</p>
 """
 
 html = f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta http-equiv="refresh" content="900">
-<title>VIG · 06 PREDMKT</title><style>{CSS}</style></head><body>
+<title>VIG · 07 PREDMKT</title><style>{CSS}</style></head><body>
 <header>
   <div>
     <div class="wordmark">VIG</div>
-    <div class="tagline">the house takes its cut — <b>live paper desk · prediction markets</b></div>
+    <div class="tagline">the house takes its cut — <b>prediction-market research desk · paper only</b></div>
   </div>
   <div class="stamp-date">{now}</div>
 </header>
 <nav class="tabs">{tabs}</nav>
 <div class="wrap">
-<p class="dim">Mechanisms that cannot be backtested, running forward on
-paper. Gates before dollars — the research that picked them is
-<a href="research.html">06 RESEARCH</a>. Ledgers refresh on the collector
-cycle; this page regenerates with them.</p>
+<p class="dim">A research program run like a desk: every backtest number is
+attacked before it is believed, and the kills are the product. The research
+that feeds this screen is <a href="research.html">06 RESEARCH</a>; forward
+ledgers refresh on the collector cycle and this page regenerates with them.</p>
 {body}
 </div>
-<footer>keys: <b>1–7</b> screens · paper only — no live capital ·
-every number traces to a ledger in moneymaker3000/collected/</footer>
+<footer>keys: <b>1–7</b> screens · paper only — no live capital, by
+construction · every number regenerates from a committed ledger or writeup
+in the desk repo · <code>ideal</code>-labeled columns are counterfactual
+ceilings, never results</footer>
 <script>window.MK_DATA = {chart_json};</script>
 {JS}
 </body></html>"""
 
-try:
-    OUT.write_text(html)
-    print(f"desk.html written to Vig dashboard ({len(html)} bytes)")
-except Exception as e:
-    (D / "desk.html").write_text(html)
-    print(f"Vig dir unavailable ({type(e).__name__}); wrote collected/desk.html")
+wrote = []
+for out in OUTS:
+    try:
+        if out.parent.exists():
+            out.write_text(html)
+            wrote.append(str(out))
+    except Exception as e:
+        print(f"skip {out}: {type(e).__name__}: {e}")
+print(f"desk.html written ({len(html)} bytes) -> " + " · ".join(wrote))
