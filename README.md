@@ -3,12 +3,14 @@
 ![tests](https://github.com/Savi-Swar/desk/actions/workflows/tests.yml/badge.svg)
 
 Measurement-first research platform for prediction-market microstructure.
-Started as a paper trading desk; became more useful as the instrument that
-killed its own results. Everything below is measured on real Polymarket data —
-live WebSocket capture plus full resolved-market history — and every headline
-number was subjected to an attempt to destroy it. Eight didn't survive —
-each documented with receipts in [RESULTS.md](RESULTS.md) — and that ledger
-of self-caught mirages is the project's most useful output.
+The headline finding: at scale, this market is efficient — its apparent
+inefficiencies price out as microstructure — and establishing that required
+instruments rigorous enough to catch nine measurement artifacts that
+standard backtesting would have shipped as edges. Everything below is
+measured on real Polymarket data (live WebSocket capture plus the full
+resolved-market history), every number survived an attempt to destroy it,
+and the artifact ledger in [RESULTS.md](RESULTS.md) documents each catch
+with receipts.
 The methodology is extracted as a standalone stdlib-only library:
 **[prereg](https://github.com/Savi-Swar/prereg)** — evidence bars, the
 weighting-mirage catcher, locked adjudication, self-grading forward ledgers.

@@ -1,9 +1,11 @@
-# Results index — what was measured, what died, what survived
+# Results index — what was measured, what it means
 
 *The 90-second version. Every number regenerates from this repo; each line
-links the code and writeup behind it.*
+links the code and writeup behind it. Headline: the market is efficient at
+scale, and proving that demanded instruments that catch their own artifacts
+— nine times.*
 
-## The nine backtest mirages (found, measured, killed — in our own results)
+## The nine measurement artifacts the instruments caught (with receipts)
 
 | # | the seductive number | the truth | how it died | receipts |
 |---|---|---|---|---|
