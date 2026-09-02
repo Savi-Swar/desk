@@ -24,8 +24,8 @@ every category group (crypto, politics, geopolitics, weather, other; 13
 month-clustered cells, |t| ≥ 2, spanning 11–33 months). The bias is a robust
 statistical description of history; it is not, so far, a strategy. A
 short-longshot rule at T-24h briefly cleared a pre-registered evidence bar
-(4,000 OOS bets, PSR 0.99) and was retracted when two registered falsifiers
-fired: the 2026 tail sample reversed the gap, and the engine's daily
+(4,000 OOS bets, PSR 0.99); two registered falsifiers then fired — exactly
+as designed — and the claim was withdrawn: the 2026 tail sample reversed the gap, and the engine's daily
 exposure cap was itself reweighting P&L toward sparse days. One candidate —
 politics favorites, overpriced on both sides of a train/test split and in
 both marked 2026 months — was adjudicated by its pre-registered automated rule
