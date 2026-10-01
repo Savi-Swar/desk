@@ -29,3 +29,8 @@ ts,q,type,net_edge,react_ms
 2026-09-21T08:38:47.654+00:00,"Will the price of Bitcoin be above $82,000 on Sept",BUY-BOTH,0.0185,0.1
 2026-09-21T08:38:50.104+00:00,"Will Bitcoin reach $85,000 in September?",SELL-BOTH,0.0273,0.1
 2026-09-30T13:36:47.445+00:00,"Will Bitcoin reach $90,000 in September?",SELL-BOTH,0.0033,0.1
+2026-10-01T15:46:19.277+00:00,"Will the price of Bitcoin be above $84,000 on Octo",SELL-BOTH,0.0166,0.1
+2026-10-01T15:48:12.306+00:00,"Will the price of Bitcoin be above $84,000 on Octo",SELL-BOTH,0.0138,0.1
+2026-10-01T15:48:46.895+00:00,"Will the price of Bitcoin be above $84,000 on Octo",SELL-BOTH,0.0042,0.0
+2026-10-01T15:58:27.040+00:00,"Will the price of Bitcoin be above $84,000 on Octo",SELL-BOTH,0.0079,0.1
+2026-10-01T15:58:39.374+00:00,"Will the price of Bitcoin be above $84,000 on Octo",BUY-BOTH,0.004,0.1
